@@ -12,7 +12,9 @@ export async function GET() {
     let sessions = null;
     let fetchError = null;
     
+    let rawData = null;
     try {
+      rawData = await client?.get({ endpoint: 'usstock' });
       sessions = await getSessions();
     } catch (e: any) {
       fetchError = e.message;
@@ -22,6 +24,7 @@ export async function GET() {
       env: { hasDomain, hasKey },
       hasClient,
       sessionsCount: sessions ? sessions.length : 0,
+      rawData,
       fetchError,
     });
   } catch (error: any) {
