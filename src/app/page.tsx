@@ -49,10 +49,10 @@ export default async function Home() {
         <div className="container">
           <div className="featured-grid">
             <div className="featured-content slide-up">
-              <span className="featured-tag">MAIN PRODUCT</span>
+              <span className="featured-tag">SPECIAL WORKSHOP</span>
               <h2 className="featured-title">
                 「1300%以上の実績」を支える、負けない投資家の思考回路。<br />
-                <span>一生モノの米国株長期投資術</span>
+                <span>一生モノの米国株長期投資勉強会</span>
               </h2>
               <p className="featured-desc">
                 「知識を得るだけでは、1円も増えません。」<br />
