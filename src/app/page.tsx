@@ -34,7 +34,7 @@ export default async function Home() {
             そうでない人の「考え方の違い」を、株式初心者の方へ分かりやすく伝えます。
           </p>
           <div className="hero-actions slide-up delay-2">
-            <Link href="/apply" className="btn btn-primary">
+            <Link href="#schedule" className="btn btn-primary">
               勉強会に参加する <ArrowRight size={20} />
             </Link>
             <Link href="/about" className="btn btn-outline">
@@ -90,14 +90,6 @@ export default async function Home() {
                 </div>
               </div>
 
-              <div className="featured-actions">
-                <Link href="/apply" className="btn btn-primary">
-                  次回の勉強会に申し込む <ArrowRight size={20} />
-                </Link>
-                <p className="text-muted" style={{ fontSize: '0.9rem' }}>
-                  ※少人数制のため、定員に達し次第締め切ります。
-                </p>
-              </div>
             </div>
             
             <div className="featured-image-container slide-up delay-1">
@@ -239,14 +231,14 @@ export default async function Home() {
               <div className="service-icon"><Users size={32} /></div>
               <h3>投資家コミュニティ</h3>
               <p>独りで悩まない。志を同じくした仲間と出会い、知見を共有。長期投資を楽しく続けるための安心できる居場所です。</p>
-              <Link href="/apply" className="service-link">コミュニティを見る <ArrowRight size={16} /></Link>
+              <Link href="/about" className="service-link">コミュニティの詳細 <ArrowRight size={16} /></Link>
             </div>
             
             <div className="service-card glass-card slide-up delay-2">
               <div className="service-icon"><TrendingUp size={32} /></div>
               <h3>特別ミートアップ</h3>
               <p>不定期で開催されるオフラインの交流会。投資の話はもちろん、人生を豊かにするための刺激的な出会いを提供します。</p>
-              <Link href="/apply" className="service-link">詳しく見る <ArrowRight size={16} /></Link>
+              <Link href="#schedule" className="service-link">開催予定を見る <ArrowRight size={16} /></Link>
             </div>
             
             <div className="service-card glass-card slide-up delay-3">
