@@ -128,7 +128,7 @@ export default async function Home() {
 
                 // 日付と時間のフォーマット
                 const formattedDate = formatSessionDate(session.date);
-                const formattedTime = formatSessionTime(session.date);
+                const formattedTime = formatSessionTime(session.time || session.date);
 
                 return (
                   <div key={session.id} className={`schedule-card glass-card ${status === 'full' ? 'opacity-60' : ''}`}>
