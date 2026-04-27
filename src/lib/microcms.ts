@@ -31,6 +31,9 @@ export async function getSessions() {
   const data = await client.get({
     endpoint: 'usstock',
     queries: { orders: '-publishedAt' },
+    customRequestInit: {
+      cache: 'no-store',
+    },
   });
   
   return data.contents as StudySession[];

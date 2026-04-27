@@ -4,6 +4,8 @@ import { ArrowRight, BookOpen, Users, TrendingUp, ShieldCheck, Zap, Target, PieC
 import { getSessions } from "@/lib/microcms";
 import { formatSessionDate, formatSessionTime } from "@/lib/utils";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   const sessions = await getSessions();
   return (
