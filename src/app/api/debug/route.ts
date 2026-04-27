@@ -21,7 +21,11 @@ export async function GET() {
     }
     
     return NextResponse.json({
-      env: { hasDomain, hasKey },
+      env: { 
+        hasDomain, 
+        hasKey,
+        domainPrefix: process.env.MICROCMS_SERVICE_DOMAIN ? process.env.MICROCMS_SERVICE_DOMAIN.substring(0, 3) : null
+      },
       hasClient,
       sessionsCount: sessions ? sessions.length : 0,
       rawData,
