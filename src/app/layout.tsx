@@ -15,8 +15,8 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Premium Business | Yutaro",
-  description: "温かみのある赤を基調とした、高品質なビジネスホームページ",
+  title: "東京米国株カレッジ",
+  description: "5年で1300%以上の実績。初心者から学べる米国株長期投資コミュニティ「東京米国株カレッジ」",
 };
 
 export default function RootLayout({
