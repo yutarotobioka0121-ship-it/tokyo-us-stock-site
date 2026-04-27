@@ -1,17 +1,11 @@
 import { createClient } from 'microcms-js-sdk';
 
-if (!process.env.MICROCMS_SERVICE_DOMAIN) {
-  throw new Error('MICROCMS_SERVICE_DOMAIN is required');
-}
-
-if (!process.env.MICROCMS_API_KEY) {
-  throw new Error('MICROCMS_API_KEY is required');
-}
-
-export const client = createClient({
-  serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
-  apiKey: process.env.MICROCMS_API_KEY,
-});
+export const client = process.env.MICROCMS_SERVICE_DOMAIN && process.env.MICROCMS_API_KEY 
+  ? createClient({
+      serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
+      apiKey: process.env.MICROCMS_API_KEY,
+    })
+  : null;
 
 export interface StudySession {
   id: string;
@@ -28,13 +22,22 @@ export interface StudySession {
 }
 
 export async function getSessions() {
-  const data = await client.get({
-    endpoint: 'usstock',
-    queries: { orders: '-publishedAt' },
-    customRequestInit: {
-      cache: 'no-store',
-    },
-  });
+  if (!client) {
+    console.warn('MicroCMS client is not initialized. Check environment variables.');
+    return [];
+  }
   
-  return data.contents as StudySession[];
+  try {
+    const data = await client.get({
+      endpoint: 'usstock',
+      queries: { orders: '-publishedAt' },
+      customRequestInit: {
+        cache: 'no-store',
+      },
+    });
+    return data.contents as StudySession[];
+  } catch (error) {
+    console.error('Failed to fetch sessions from MicroCMS:', error);
+    return [];
+  }
 }

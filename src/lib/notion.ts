@@ -7,35 +7,43 @@ const notion = new Client({
 const DATABASE_ID = process.env.NOTION_DATABASE_ID;
 
 export async function getPosts() {
-  if (!DATABASE_ID) return [];
+  if (!DATABASE_ID) {
+    console.warn('Notion Database ID is not configured.');
+    return [];
+  }
 
-  const response = await notion.databases.query({
-    database_id: DATABASE_ID,
-    filter: {
-      property: 'Published',
-      checkbox: {
-        equals: true,
+  try {
+    const response = await notion.databases.query({
+      database_id: DATABASE_ID,
+      filter: {
+        property: 'Published',
+        checkbox: {
+          equals: true,
+        },
       },
-    },
-    sorts: [
-      {
-        property: 'Date',
-        direction: 'descending',
-      },
-    ],
-  });
+      sorts: [
+        {
+          property: 'Date',
+          direction: 'descending',
+        },
+      ],
+    });
 
-  return response.results.map((page: any) => {
-    const props = page.properties;
-    return {
-      id: page.id,
-      title: props.Title?.title?.[0]?.plain_text || 'Untitled',
-      slug: props.Slug?.rich_text?.[0]?.plain_text || page.id,
-      date: props.Date?.date?.start || '',
-      summary: props.Summary?.rich_text?.[0]?.plain_text || '',
-      cover: page.cover?.external?.url || page.cover?.file?.url || null,
-    };
-  });
+    return response.results.map((page: any) => {
+      const props = page.properties;
+      return {
+        id: page.id,
+        title: props.Title?.title?.[0]?.plain_text || 'Untitled',
+        slug: props.Slug?.rich_text?.[0]?.plain_text || page.id,
+        date: props.Date?.date?.start || '',
+        summary: props.Summary?.rich_text?.[0]?.plain_text || '',
+        cover: page.cover?.external?.url || page.cover?.file?.url || null,
+      };
+    });
+  } catch (error) {
+    console.error('Failed to fetch posts from Notion:', error);
+    return [];
+  }
 }
 
 export async function getPostBySlug(slug: string) {
