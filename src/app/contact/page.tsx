@@ -26,8 +26,9 @@ export default function ContactPage() {
               <div className="form-group">
                 <label htmlFor="subject" className="form-label">件名</label>
                 <select id="subject" name="subject" className="form-select">
-                  <option value="business">仕事のご依頼</option>
                   <option value="study-group">勉強会について</option>
+                  <option value="consultation">個別相談の依頼</option>
+                  <option value="business">仕事のご依頼</option>
                   <option value="other">その他</option>
                 </select>
               </div>
