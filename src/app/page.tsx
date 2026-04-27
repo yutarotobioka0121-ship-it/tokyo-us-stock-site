@@ -25,11 +25,11 @@ export default async function Home() {
         <div className="container hero-content">
           <h1 className="hero-title slide-up">
             5年で1300%以上の運用実績。<br />
-            <span>米国株長期投資で、<br />理想の未来をデザインする。</span>
+            <span>米国株・株式投資で、<br />理想の未来をデザインする。</span>
           </h1>
           <p className="hero-subtitle slide-up delay-1">
-            投資をギャンブルにしない。長期投資で成功し続ける人と、<br />
-            そうでない人の「考え方の違い」を初心者の方へ分かりやすく伝えます。
+            株式投資をギャンブルにしない。長期投資で成功し続ける人と、<br />
+            そうでない人の「考え方の違い」を、株式初心者の方へ分かりやすく伝えます。
           </p>
           <div className="hero-actions slide-up delay-2">
             <Link href="/apply" className="btn btn-primary">
@@ -54,7 +54,7 @@ export default async function Home() {
               </h2>
               <p className="featured-desc">
                 「知識を得るだけでは、1円も増えません。」<br />
-                5年で1300%以上という圧倒的な実績を叩き出した思考法を、初心者の方でも一歩ずつ着実に学べるステップに整理してお伝えします。労働収入の壁を超え、真の自由を手にするための「第一歩」を共に踏み出しましょう。
+                5年で1300%以上という圧倒的な実績を叩き出した米国株投資の思考法を、株式初心者の方でも一歩ずつ着実に学べるステップに整理してお伝えします。労働収入の壁を超え、真の自由を手にするための「第一歩」を共に踏み出しましょう。
               </p>
               
               <div className="benefit-list">
