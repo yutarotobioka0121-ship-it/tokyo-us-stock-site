@@ -1,0 +1,53 @@
+"use client";
+
+import Link from 'next/link';
+import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+
+export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <header className={`header ${scrolled ? 'scrolled' : ''}`}>
+      <div className="container header-inner">
+        <Link href="/" className="logo">
+          <span className="logo-text">Tokyo US Stock</span>
+          <span className="logo-accent">College</span>
+          <span className="logo-sub">東京米国株カレッジ</span>
+        </Link>
+
+        {/* Desktop Nav */}
+        <nav className="desktop-nav">
+          <Link href="/about" className="nav-link">自己紹介</Link>
+          <Link href="/blog" className="nav-link">ブログ</Link>
+          <Link href="/apply" className="nav-link">勉強会申し込み</Link>
+          <Link href="/contact" className="btn btn-primary">お問い合わせ</Link>
+        </nav>
+
+        {/* Mobile Toggle */}
+        <button className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile Nav */}
+      <div className={`mobile-nav ${isOpen ? 'open' : ''}`}>
+        <nav className="mobile-nav-inner">
+          <Link href="/about" className="nav-link" onClick={() => setIsOpen(false)}>自己紹介</Link>
+          <Link href="/blog" className="nav-link" onClick={() => setIsOpen(false)}>ブログ</Link>
+          <Link href="/apply" className="nav-link" onClick={() => setIsOpen(false)}>勉強会申し込み</Link>
+          <Link href="/contact" className="btn btn-primary" onClick={() => setIsOpen(false)}>お問い合わせ</Link>
+        </nav>
+      </div>
+    </header>
+  );
+}
