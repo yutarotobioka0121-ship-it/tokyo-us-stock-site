@@ -17,6 +17,9 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "東京米国株カレッジ",
   description: "5年で1300%以上の実績。初心者から学べる米国株長期投資コミュニティ「東京米国株カレッジ」",
+  verification: {
+    google: "uPPhCDKZb278y7qY5uJ76kC0Vd1YEEe972xDjb9bkx0",
+  },
 };
 
 export default function RootLayout({
