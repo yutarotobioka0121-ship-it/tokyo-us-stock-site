@@ -30,8 +30,7 @@ export default async function Home() {
             <span>米国株・株式投資で、<br />理想の未来をデザインする。</span>
           </h1>
           <p className="hero-subtitle slide-up delay-1">
-            株式投資をギャンブルにしない。長期投資で成功し続ける人と、<br />
-            そうでない人の「考え方の違い」を、株式初心者の方へ分かりやすく伝えます。
+            株式投資をギャンブルにしない。長期投資で成功し続ける人と、そうでない人の「考え方の違い」を、株式初心者の方へ分かりやすく伝えます。
           </p>
           <div className="hero-actions slide-up delay-2">
             <Link href="#schedule" className="btn btn-primary">
@@ -51,11 +50,11 @@ export default async function Home() {
             <div className="featured-content slide-up">
               <span className="featured-tag">SPECIAL WORKSHOP</span>
               <h2 className="featured-title">
-                「1300%以上の実績」を支える、負けない投資家の思考回路。<br />
+                「1300%以上の実績」を支える、<br className="sp-hide" />負けない投資家の思考回路。<br className="sp-hide" />
                 <span>一生モノの米国株長期投資勉強会</span>
               </h2>
               <p className="featured-desc">
-                「知識を得るだけでは、1円も増えません。」<br />
+                「知識を得るだけでは、1円も増えません。」<br className="sp-hide" />
                 5年で1300%以上という圧倒的な実績を叩き出した米国株投資の思考法を、株式初心者の方でも一歩ずつ着実に学べるステップに整理してお伝えします。労働収入の壁を超え、真の自由を手にするための「第一歩」を共に踏み出しましょう。
               </p>
               
@@ -170,7 +169,7 @@ export default async function Home() {
 
           <div className="schedule-notes mt-10 text-center">
             <p className="text-muted text-sm">
-              ※ オンライン開催の場合は、お申し込み後に別途メールにて参加用URLをご案内いたします。<br />
+              ※ オンライン開催の場合は、お申し込み後に別途メールにて参加用URLをご案内いたします。<br className="sp-hide" />
               ※ 対面開催の場合は都内近郊での開催となります。詳細な場所は別途メールにてご案内いたします。
             </p>
           </div>
@@ -194,7 +193,7 @@ export default async function Home() {
             </div>
             <div className="about-text">
               <span className="section-tag">MISSION</span>
-              <h2 className="section-title">情熱と実績をもって、<br />投資家の第一歩を支える。</h2>
+              <h2 className="section-title">情熱と実績をもって、<br className="sp-hide" />投資家の第一歩を支える。</h2>
               <p className="about-desc">
                 米国株投資を始めて約5年。私は1300%以上という圧倒的な実績を出す中で、多くの成功と失敗を経験してきました。
                 その中で確信したのは、投資の成果を分けるのは分析手法ではなく、長期的な「考え方（マインドセット）」であるということです。

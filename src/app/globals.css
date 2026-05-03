@@ -420,7 +420,7 @@ button {
     flex-direction: column;
     align-items: center;
   }
-  .featured-title br { display: none; }
+  .featured-title .sp-hide { display: none; }
 }
 
 @media (max-width: 640px) {
@@ -1127,6 +1127,10 @@ button {
 
 /* Mission & Pillar responsive */
 @media (max-width: 768px) {
+  .sp-hide {
+    display: none;
+  }
+
   .mission-box {
     padding: 2.5rem 1.5rem;
     margin-bottom: 3rem;
@@ -1134,10 +1138,6 @@ button {
 
   .mission-text {
     font-size: 1.3rem !important;
-  }
-
-  .sp-hide {
-    display: none;
   }
 
   .pillars-grid {
@@ -1151,5 +1151,47 @@ button {
 
   .pillar-card h4 {
     font-size: 1.15rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-stats {
+    justify-content: center;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .schedule-notes p {
+    text-align: left;
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+
+  .featured-desc {
+    font-size: 0.95rem;
+  }
+
+  .benefit-list {
+    grid-template-columns: 1fr;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
   }
 }

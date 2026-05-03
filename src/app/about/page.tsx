@@ -30,9 +30,9 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="about-content-text">
-              <h2 className="section-title">5年で1300%以上の実績。<br />その根本の「考え方」をお伝えしたい。</h2>
+              <h2 className="section-title">5年で1300%以上の実績。<br className="sp-hide" />その根本の「考え方」をお伝えしたい。</h2>
               <p className="notion-p">
-                「なぜ、ある人は成功し、ある人は失敗するのか？」<br />
+                「なぜ、ある人は成功し、ある人は失敗するのか？」<br className="sp-hide" />
                 米国株投資の世界に足を踏み入れて5年。1300%以上という運用実績を達成するプロセスで、私は一つの真理に辿り着きました。
               </p>
               <p className="notion-p">
