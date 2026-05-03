@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
-import { Outfit, Playfair_Display } from "next/font/google";
+import { Zen_Maru_Gothic } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const outfit = Outfit({
-  variable: "--font-sans",
+const zenMaruGothic = Zen_Maru_Gothic({
+  variable: "--font-zen-maru",
   subsets: ["latin"],
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-serif",
-  subsets: ["latin"],
+  weight: ["300", "400", "500", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -29,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${outfit.variable} ${playfair.variable}`}>
+      <body className={`${zenMaruGothic.variable}`}>
         <Header />
         <main>{children}</main>
         <Footer />
