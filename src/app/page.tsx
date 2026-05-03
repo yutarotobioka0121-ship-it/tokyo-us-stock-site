@@ -114,7 +114,7 @@ export default async function Home() {
             <span className="section-tag" style={{ fontSize: '1.1rem', letterSpacing: '1px' }}>初心者向け米国株式投資 勉強会</span>
             <h2 className="section-title">開催スケジュール</h2>
             <p className="section-subtitle">
-              次回の開催日程はこちらです。少人数制のため、お早めにお申し込みください。
+              次回の開催日程はこちらです。<br className="sp-hide" />少人数制のため、お早めにお申し込みください。
             </p>
           </div>
 
