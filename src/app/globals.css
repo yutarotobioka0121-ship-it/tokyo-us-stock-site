@@ -13,8 +13,8 @@
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
   --shadow-red: 0 10px 30px rgba(176, 58, 46, 0.15);
   
-  --font-serif: var(--font-kosugi-maru), serif;
-  --font-sans: var(--font-kosugi-maru), sans-serif;
+  --font-serif: var(--font-zen-maru), serif;
+  --font-sans: var(--font-zen-maru), sans-serif;
   
   --max-width: 1200px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Kosugi_Maru } from "next/font/google";
+import { Zen_Maru_Gothic } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const kosugiMaru = Kosugi_Maru({
-  variable: "--font-kosugi-maru",
+const zenMaruGothic = Zen_Maru_Gothic({
+  variable: "--font-zen-maru",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "700", "900"],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${kosugiMaru.variable}`}>
+      <body className={`${zenMaruGothic.variable}`}>
         <Header />
         <main>{children}</main>
         <Footer />
