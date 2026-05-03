@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { M_PLUS_Rounded_1c } from "next/font/google";
+import { Kosugi_Maru } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const mPlusRounded = M_PLUS_Rounded_1c({
-  variable: "--font-m-plus-rounded",
+const kosugiMaru = Kosugi_Maru({
+  variable: "--font-kosugi-maru",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "800", "900"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${mPlusRounded.variable}`}>
+      <body className={`${kosugiMaru.variable}`}>
         <Header />
         <main>{children}</main>
         <Footer />
