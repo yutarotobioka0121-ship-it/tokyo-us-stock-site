@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${zenMaruGothic.variable}`}>
+      <body className={zenMaruGothic.className}>
         <Header />
         <main>{children}</main>
         <Footer />

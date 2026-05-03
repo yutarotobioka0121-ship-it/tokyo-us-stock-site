@@ -13,8 +13,8 @@
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
   --shadow-red: 0 10px 30px rgba(176, 58, 46, 0.15);
   
-  --font-serif: var(--font-zen-maru), serif;
-  --font-sans: var(--font-zen-maru), sans-serif;
+  --font-serif: 'Zen Maru Gothic', serif;
+  --font-sans: 'Zen Maru Gothic', sans-serif;
   
   --max-width: 1200px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -37,13 +37,13 @@ html, body {
 body {
   background-color: var(--bg-warm);
   color: var(--text-main);
-  font-family: var(--font-sans);
+  font-family: 'Zen Maru Gothic', sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif);
+  font-family: 'Zen Maru Gothic', serif;
   color: var(--primary-dark);
   line-height: 1.2;
   overflow-wrap: break-word;
