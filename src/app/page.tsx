@@ -50,9 +50,9 @@ export default async function Home() {
             <div className="featured-content slide-up">
               <span className="featured-tag">SPECIAL WORKSHOP</span>
               <h2 className="featured-title">
-                「1300%以上の実績」を支える、<br className="sp-hide" />負けない投資家の思考回路。<br className="sp-hide" />
-                <span>一生モノの米国株長期投資勉強会</span>
+                「1300%以上の実績」を支える、負けない投資家の思考回路。
               </h2>
+              <h3 className="featured-subtitle-line">一生モノの米国株長期投資勉強会</h3>
               <p className="featured-desc">
                 「知識を得るだけでは、1円も増えません。」<br className="sp-hide" />
                 5年で1300%以上という圧倒的な実績を叩き出した米国株投資の思考法を、株式初心者の方でも一歩ずつ着実に学べるステップに整理してお伝えします。労働収入の壁を超え、真の自由を手にするための「第一歩」を共に踏み出しましょう。
