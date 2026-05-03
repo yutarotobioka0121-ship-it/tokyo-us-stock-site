@@ -1124,3 +1124,32 @@ button {
   margin: 0 auto;
   border: 1px solid rgba(176, 58, 46, 0.1);
 }
+
+/* Mission & Pillar responsive */
+@media (max-width: 768px) {
+  .mission-box {
+    padding: 2.5rem 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .mission-text {
+    font-size: 1.3rem !important;
+  }
+
+  .sp-hide {
+    display: none;
+  }
+
+  .pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .pillar-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .pillar-card h4 {
+    font-size: 1.15rem;
+  }
+}

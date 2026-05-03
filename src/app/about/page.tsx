@@ -79,28 +79,28 @@ export default function AboutPage() {
             <div className="mission-icon"><Star size={40} /></div>
             <div className="mission-content">
               <h3>MISSION</h3>
-              <p className="mission-text">一生モノの「経済」と「時間」の自由を、仲間と共に創り出す。</p>
+              <p className="mission-text">一生モノの「経済」と「時間」の自由を、<br className="sp-hide" />仲間と共に創り出す。</p>
             </div>
           </div>
           
           <div className="pillars-grid">
             <div className="pillar-card glass-card">
               <div className="pillar-icon"><Compass size={32} /></div>
-              <h4>永く歩み続けるための<br />「投資哲学」を育む</h4>
+              <h4>永く歩み続けるための「投資哲学」を育む</h4>
               <p>一時的な利益を追うのではなく、一生モノの資産を築くために必要な「長期・分散」の考え方を深く身につけます。</p>
               <span className="pillar-tag">自律の精神</span>
             </div>
             
             <div className="pillar-card glass-card">
               <div className="pillar-icon"><BookOpen size={32} /></div>
-              <h4>実戦に基づく<br />「本物」の知見を共有する</h4>
+              <h4>実戦に基づく「本物」の知見を共有する</h4>
               <p>初心者がギャンブルに陥らないよう、実体験から得た市場の本質と分析手法を体系的に共有します。</p>
               <span className="pillar-tag">本質の教育</span>
             </div>
             
             <div className="pillar-card glass-card">
               <div className="pillar-icon"><Sun size={32} /></div>
-              <h4>揺るぎない<br />「豊かさ」と「ゆとり」を築く</h4>
+              <h4>揺るぎない「豊かさ」と「ゆとり」を築く</h4>
               <p>「お金」と「時間」を自分の手に取り戻し、人生の選択肢を最大限に広げていきます。</p>
               <span className="pillar-tag">自由の実現</span>
             </div>
