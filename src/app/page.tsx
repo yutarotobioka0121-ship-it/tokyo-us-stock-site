@@ -112,7 +112,7 @@ export default async function Home() {
       <section id="schedule" className="section-padding schedule-section">
         <div className="container">
           <div className="section-header">
-            <span className="section-tag">SCHEDULE</span>
+            <span className="section-tag">初心者向け米国株式投資 勉強会</span>
             <h2 className="section-title">開催スケジュール</h2>
             <p className="section-subtitle">
               次回の開催日程はこちらです。少人数制のため、お早めにお申し込みください。
