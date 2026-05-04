@@ -11,7 +11,7 @@ export default function AboutPage() {
             <ArrowLeft size={18} style={{ marginRight: '0.5rem' }} /> トップへ戻る
           </Link>
           <span className="section-tag">ABOUT OUR COMMUNITY</span>
-          <h1 className="post-title">東京米国株カレッジについて</h1>
+          <h1 className="post-title">東京米国株クラブについて</h1>
         </div>
       </section>
 
@@ -39,7 +39,7 @@ export default function AboutPage() {
                 それは、投資の成否を分けるのは、高度なチャート分析や小手先のテクニックではなく、揺るぎない「投資哲学（マインドセット）」であるということです。
               </p>
               <p className="notion-p">
-                東京米国株カレッジは、初心者の皆様が投資を「ギャンブル」ではなく「堅実な資産形成」として捉え、理想の未来を自らの手でデザインできるよう設立されました。
+                東京米国株クラブは、初心者の皆様が投資を「ギャンブル」ではなく「堅実な資産形成」として捉え、理想の未来を自らの手でデザインできるよう設立されました。
                 私の実体験と実績に基づいた、一生使える長期投資の知見を、惜しみなく共有します。
               </p>
               

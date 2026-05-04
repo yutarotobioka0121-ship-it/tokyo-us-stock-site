@@ -9,8 +9,8 @@ export default function Footer() {
         <div className="footer-brand">
           <Link href="/" className="logo">
             <span className="logo-text">Tokyo US Stock</span>
-            <span className="logo-accent">College</span>
-            <span className="logo-sub">東京米国株カレッジ</span>
+            <span className="logo-accent">Club</span>
+            <span className="logo-sub">東京米国株クラブ</span>
           </Link>
           <p className="footer-desc">
             5年で1300%以上の実績に基づいた、米国株長期投資の知見を共有するコミュニティ。
@@ -37,7 +37,7 @@ export default function Footer() {
       </div>
 
       <div className="container footer-bottom">
-        <p>&copy; {currentYear} Tokyo US Stock College. All rights reserved.</p>
+        <p>&copy; {currentYear} Tokyo US Stock Club. All rights reserved.</p>
       </div>
     </footer>
   );

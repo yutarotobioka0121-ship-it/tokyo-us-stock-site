@@ -21,8 +21,8 @@ export default function Header() {
       <div className="container header-inner">
         <Link href="/" className="logo">
           <span className="logo-text">Tokyo US Stock</span>
-          <span className="logo-accent">College</span>
-          <span className="logo-sub">東京米国株カレッジ</span>
+          <span className="logo-accent">Club</span>
+          <span className="logo-sub">東京米国株クラブ</span>
         </Link>
 
         {/* Desktop Nav */}
