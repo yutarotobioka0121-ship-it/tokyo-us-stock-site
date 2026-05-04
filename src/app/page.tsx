@@ -14,7 +14,7 @@ export default async function Home() {
       <section className="hero">
         <div className="hero-bg">
           <Image
-            src="/hero.png"
+            src="/hero.jpg"
             alt="Hero Background"
             fill
             style={{ objectFit: 'cover' }}
