@@ -296,6 +296,58 @@ export default async function SeminarPage() {
           </div>
         </div>
       </section>
+
+      {/* Dream Vision Section */}
+      <section className="section-padding" style={{ background: 'linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #c0392b 100%)', color: 'white', position: 'relative', overflow: 'hidden' }}>
+        {/* Decorative background elements */}
+        <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '200px', height: '200px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)' }} />
+        <div style={{ position: 'absolute', bottom: '-80px', left: '-80px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,255,255,0.03)' }} />
+        
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ maxWidth: '750px', margin: '0 auto' }}>
+            <p style={{ fontSize: '1rem', letterSpacing: '3px', fontWeight: '700', opacity: 0.8, marginBottom: '1.5rem', textTransform: 'uppercase' }}>
+              Your Future Starts Here
+            </p>
+            
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.4', marginBottom: '2rem' }}>
+              <span style={{ display: 'inline-block' }}>投資を学んで、</span>
+              <span style={{ display: 'inline-block' }}>自分の人生に</span><br />
+              <span style={{ display: 'inline-block', color: '#ffd700' }}>ワクワクしよう。</span>
+            </h2>
+
+            <div style={{ width: '60px', height: '3px', background: '#ffd700', margin: '0 auto 2.5rem', borderRadius: '2px' }} />
+
+            <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', lineHeight: '2', opacity: 0.95, marginBottom: '1.5rem' }}>
+              <span style={{ display: 'inline-block' }}>もし、お金の不安がなくなったら</span>
+              <span style={{ display: 'inline-block' }}>あなたは何をしたいですか？</span>
+            </p>
+
+            <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.15rem)', lineHeight: '2', opacity: 0.9, marginBottom: '2rem' }}>
+              <span style={{ display: 'inline-block' }}>家族との時間、好きな場所への旅、</span>
+              <span style={{ display: 'inline-block' }}>夢だったあのチャレンジ ——</span><br />
+              <span style={{ display: 'inline-block' }}>資産を育てることは、</span>
+              <span style={{ display: 'inline-block' }}>未来の選択肢を増やすこと。</span>
+            </p>
+
+            <div style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', borderRadius: '20px', padding: '2.5rem 2rem', marginBottom: '2.5rem', border: '1px solid rgba(255,255,255,0.15)' }}>
+              <p style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: '800', lineHeight: '1.8', margin: 0 }}>
+                <span style={{ display: 'inline-block' }}>あなたの夢を叶えるための</span>
+                <span style={{ display: 'inline-block' }}>「はじめの一歩」を、</span><br />
+                <span style={{ display: 'inline-block', color: '#ffd700' }}>一緒に踏み出しませんか？</span>
+              </p>
+            </div>
+
+            <p style={{ fontSize: '1rem', opacity: 0.85, marginBottom: '2.5rem', lineHeight: '1.8' }}>
+              <span style={{ display: 'inline-block' }}>難しいことは何もありません。</span>
+              <span style={{ display: 'inline-block' }}>まずは気軽に、仲間と一緒に考えることから始めましょう。</span>
+            </p>
+
+            <Link href="#schedule" className="btn" style={{ background: '#ffd700', color: 'var(--primary-dark)', fontSize: '1.15rem', padding: '1.2rem 3rem', fontWeight: '900', borderRadius: '50px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', boxShadow: '0 4px 20px rgba(255, 215, 0, 0.3)', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}>
+              開催スケジュールを見る <ArrowRight size={20} />
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
