@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/privacy', // プライバシーポリシーなどは検索から除外する場合
     },
-    sitemap: 'https://tokyo-us-stock-site-jepv.vercel.app/sitemap.xml',
+    sitemap: 'https://tokyo-us-stock-site.vercel.app/sitemap.xml',
   };
 }
