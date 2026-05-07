@@ -23,7 +23,7 @@ export default async function Home() {
         <div className="container hero-content">
           <h1 className="hero-title slide-up">
             5年で1300%以上の運用実績。<br />
-            <span>米国株・株式投資で、<br />理想の未来をデザインする。</span>
+            <span>初心者のための米国株 投資勉強会で、<br />理想の未来をデザインする。</span>
           </h1>
           <p className="hero-subtitle slide-up delay-1">
             株式投資をギャンブルにしない。長期投資で成功し続ける人と、そうでない人の「考え方の違い」を、株式初心者の方へ分かりやすく伝えます。
@@ -46,7 +46,7 @@ export default async function Home() {
             <div className="featured-content slide-up">
               <span className="featured-tag">SPECIAL WORKSHOP</span>
               <h2 className="featured-title">
-                「1300%以上の実績」を支える、負けない投資家の思考回路。
+                米国株で1300%以上の実績。負けない思考を身につける投資勉強会
               </h2>
               <h3 className="featured-subtitle-line">一生モノの米国株長期投資勉強会</h3>
               <p className="featured-desc">

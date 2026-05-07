@@ -54,8 +54,8 @@ export default async function SeminarPage() {
         <div className="container">
           <span className="section-tag">BEGINNER'S SEMINAR</span>
           <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
-            <span style={{ display: 'inline-block' }}>初心者から始める、</span>
-            <span style={{ display: 'inline-block' }}>一生モノの米国株投資勉強会</span>
+            <span style={{ display: 'inline-block' }}>初心者から基礎を学ぶ、</span>
+            <span style={{ display: 'inline-block' }}>一生モノの米国株 投資勉強会</span>
           </h1>
           <p className="hero-subtitle mx-auto" style={{ maxWidth: '600px', marginBottom: '3rem', color: 'var(--text-muted)' }}>
             カフェでお茶を飲むようにリラックスした雰囲気で、投資の「わからない」を「わかった」に変えませんか？
