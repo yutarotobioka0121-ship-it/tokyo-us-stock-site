@@ -150,7 +150,7 @@ export default async function Home() {
                         <dt>会場</dt>
                         <dd>
                           {type === 'online' || type === 'オンライン' 
-                            ? 'オンライン（参加用URLをご案内します）' 
+                            ? 'オンライン（Zoomにて実施。URLは別途ご案内します）' 
                             : `${session.location || '都内近郊'}付近（お申し込み後に詳細をご案内します）`}
                         </dd>
                       </div>
