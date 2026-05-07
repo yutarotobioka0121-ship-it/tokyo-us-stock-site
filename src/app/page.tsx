@@ -22,18 +22,14 @@ export default async function Home() {
         
         <div className="container hero-content">
           <h1 className="hero-title slide-up">
-            5年で1300%以上の運用実績。<br />
             <span>初心者のための米国株 投資勉強会で、<br />理想の未来をデザインする。</span>
           </h1>
           <p className="hero-subtitle slide-up delay-1">
             株式投資をギャンブルにしない。長期投資で成功し続ける人と、そうでない人の「考え方の違い」を、株式初心者の方へ分かりやすく伝えます。
           </p>
           <div className="hero-actions slide-up delay-2">
-            <Link href="/seminar" className="btn btn-primary">
-              勉強会に参加する <ArrowRight size={20} />
-            </Link>
-            <Link href="/about" className="btn btn-outline">
-              私たちの想い
+            <Link href="/about" className="btn btn-primary">
+              東京米国株クラブについて <ArrowRight size={20} />
             </Link>
           </div>
         </div>
