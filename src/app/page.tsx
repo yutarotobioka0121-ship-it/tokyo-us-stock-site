@@ -110,8 +110,8 @@ export default async function Home() {
             <span className="section-tag" style={{ fontSize: '1.1rem', letterSpacing: '1px' }}>初心者向け米国株式投資 勉強会</span>
             <h2 className="section-title" style={{ marginBottom: '1.5rem', wordBreak: 'keep-all' }}>勉強会のカリキュラムや詳細はこちら</h2>
             <p className="text-muted" style={{ marginBottom: '2.5rem', fontSize: '1.1rem', lineHeight: '1.8', wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
-              当クラブの勉強会は、投資未経験の方でも安心してご参加いただける<br className="sp-hide" />
-              アットホームな環境をご用意しています。<br />
+              当クラブの勉強会は、投資未経験の方でも安心してご参加いただけるよう、<br className="sp-hide" />
+              分かりやすく丁寧な解説を心がけています。<br />
               具体的なカリキュラム内容や、開催スケジュールの確認、お申し込みは詳細ページをご覧ください。
             </p>
             <Link href="/seminar" className="btn btn-primary" style={{ fontSize: '1.2rem', padding: '1.2rem 3rem', width: '100%', maxWidth: '400px', justifyContent: 'center' }}>

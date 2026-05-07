@@ -119,7 +119,7 @@ export default async function SeminarPage() {
                 <Coffee size={32} />
               </div>
               <div>
-                <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', color: 'var(--primary-dark)' }}>リラックスして学べるアットホームな環境</h3>
+                <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', color: 'var(--primary-dark)' }}>リラックスして学べる少人数制の環境</h3>
                 <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>カフェでお茶をするような気軽な雰囲気で進行します。少人数制なので、分からないことがあればその場ですぐに質問できます。一人で参加される方も多いのでご安心ください。</p>
               </div>
             </div>
@@ -288,7 +288,7 @@ export default async function SeminarPage() {
               </h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
                 <span style={{ color: 'var(--text-muted)', padding: '0.2rem 0.8rem', fontWeight: '800', fontSize: '1.1rem' }}>A</span>
-                <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>はい、参加者の多くがお一人での参加です。アットホームな雰囲気ですので、すぐに馴染んでいただけます。</p>
+                <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>はい、参加者の多くがお一人での参加です。少人数で和やかな雰囲気ですので、安心してご参加いただけます。</p>
               </div>
             </div>
           </div>
