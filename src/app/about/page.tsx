@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowLeft, CheckCircle2, Compass, BookOpen, Sun, Star } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, Compass, BookOpen, Sun, Star } from "lucide-react";
 import Link from "next/link";
 
 export default function AboutPage() {
@@ -104,6 +104,51 @@ export default function AboutPage() {
               <p>「お金」と「時間」を自分の手に取り戻し、人生の選択肢を最大限に広げていきます。</p>
               <span className="pillar-tag">自由の実現</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Dream Vision Section */}
+      <section className="section-padding" style={{ background: 'linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #c0392b 100%)', color: 'white', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
+        <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '200px', height: '200px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)' }} />
+        <div style={{ position: 'absolute', bottom: '-80px', left: '-80px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,255,255,0.03)' }} />
+        
+        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+          <div style={{ maxWidth: '750px', margin: '0 auto' }}>
+            <p style={{ fontSize: '1rem', letterSpacing: '3px', fontWeight: '700', opacity: 0.8, marginBottom: '1.5rem', textTransform: 'uppercase' }}>
+              Dream Together
+            </p>
+            
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.4', marginBottom: '2rem' }}>
+              <span style={{ display: 'inline-block' }}>あなたが手にした資産で、</span><br />
+              <span style={{ display: 'inline-block', color: '#ffd700' }}>どんな夢を叶えたいですか？</span>
+            </h2>
+
+            <div style={{ width: '60px', height: '3px', background: '#ffd700', margin: '0 auto 2.5rem', borderRadius: '2px' }} />
+
+            <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', lineHeight: '2', opacity: 0.95, marginBottom: '1.5rem' }}>
+              <span style={{ display: 'inline-block' }}>大切な人との特別な時間、</span>
+              <span style={{ display: 'inline-block' }}>まだ見ぬ景色への冒険、</span>
+              <span style={{ display: 'inline-block' }}>ずっと温めてきた挑戦。</span>
+            </p>
+
+            <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.15rem)', lineHeight: '2', opacity: 0.9, marginBottom: '2rem' }}>
+              <span style={{ display: 'inline-block' }}>投資は、そんな「ワクワクする未来」を</span>
+              <span style={{ display: 'inline-block' }}>現実にするための手段です。</span><br />
+              <span style={{ display: 'inline-block' }}>私たちは、その夢を叶えるお手伝いがしたい。</span>
+            </p>
+
+            <div style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', borderRadius: '20px', padding: '2.5rem 2rem', marginBottom: '2.5rem', border: '1px solid rgba(255,255,255,0.15)' }}>
+              <p style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: '800', lineHeight: '1.8', margin: 0 }}>
+                <span style={{ display: 'inline-block' }}>一人で悩まなくて大丈夫。</span><br />
+                <span style={{ display: 'inline-block' }}>仲間と一緒に、</span>
+                <span style={{ display: 'inline-block', color: '#ffd700' }}>ワクワクする未来を描きましょう。</span>
+              </p>
+            </div>
+
+            <Link href="/seminar" className="btn" style={{ background: '#ffd700', color: 'var(--primary-dark)', fontSize: '1.15rem', padding: '1.2rem 3rem', fontWeight: '900', borderRadius: '50px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', boxShadow: '0 4px 20px rgba(255, 215, 0, 0.3)' }}>
+              まずは勉強会に参加してみる <ArrowRight size={20} />
+            </Link>
           </div>
         </div>
       </section>
