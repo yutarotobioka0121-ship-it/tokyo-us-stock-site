@@ -12,7 +12,7 @@ export default async function BlogPage() {
       <section className="blog-hero">
         <div className="container">
           <span className="section-tag">OUR KNOWLEDGE</span>
-          <h1 className="section-title">実戦ナレッジ・ニュース解説</h1>
+          <h1 className="section-title">ブログ</h1>
           <p className="blog-intro">
             ５年で1300%以上の実績を支える、お金の考え方やその理由など私のお金に対する考え方や視点を共有しています。長期投資を成功させるための「思考」をアップしていきます
           </p>
