@@ -129,9 +129,10 @@ export default async function Home() {
               <div className="about-image-wrapper glass-card">
                 <Image
                   src="/profile.png"
-                  alt="Yutaro Portrait"
+                  alt="トビー"
                   width={500}
-                  height={600}
+                  height={500}
+                  style={{ objectFit: 'cover', width: '100%', height: 'auto', aspectRatio: '1/1' }}
                   className="about-image"
                 />
               </div>
