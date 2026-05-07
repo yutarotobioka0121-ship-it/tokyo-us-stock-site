@@ -208,7 +208,7 @@ export default async function Home() {
             
             <h2 style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.4', marginBottom: '2rem' }}>
               <span style={{ display: 'inline-block' }}>投資を学んで、</span>
-              <span style={{ display: 'inline-block' }}>自分の人生に</span><br />
+              <span style={{ display: 'inline-block' }}>あなたの人生に</span><br />
               <span style={{ display: 'inline-block', color: '#ffd700' }}>ワクワクしよう。</span>
             </h2>
 
