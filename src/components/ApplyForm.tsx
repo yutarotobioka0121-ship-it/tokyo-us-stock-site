@@ -58,6 +58,11 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
     );
   }
 
+  const selectedSession = sessions.find(s => s.id === selectedSessionId);
+  const defaultSelectValue = selectedSession 
+    ? `${formatSessionDate(selectedSession.date)} ${formatSessionTime(selectedSession.date)}` 
+    : "";
+
   return (
     <form onSubmit={handleSubmit} className="apply-form">
       <input type="hidden" name="form-name" value="apply" />
@@ -69,7 +74,7 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
           name="event" 
           required 
           className="form-select"
-          defaultValue={selectedSessionId || ""}
+          defaultValue={defaultSelectValue}
         >
           <option value="">日程を選択してください</option>
           {sessions.map((session) => {
