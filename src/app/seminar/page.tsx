@@ -155,47 +155,40 @@ export default async function SeminarPage() {
                 const formattedTime = formatSessionTime(session.time || session.date);
 
                 return (
-                  <div key={session.id} className={`schedule-card glass-card ${status === 'full' ? 'opacity-60' : ''}`}>
-                    <div className="schedule-meta" style={{ marginBottom: '1rem', borderBottom: '1px solid var(--border)', paddingBottom: '0.8rem', justifyContent: 'center' }}>
-                      <span className={`badge ${status === 'open' || status === '募集中' ? 'badge-open' : 'badge-full'}`} style={{ fontSize: '1rem', padding: '0.4rem 1rem' }}>
+                  <div key={session.id} className={`schedule-card glass-card ${status === 'full' ? 'opacity-60' : ''}`} style={{ padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', minHeight: 'auto' }}>
+                    <div className="schedule-meta" style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem', justifyContent: 'center', width: '100%', borderBottom: '1px solid var(--border)', paddingBottom: '0.8rem' }}>
+                      <span className={`badge ${status === 'open' || status === '募集中' ? 'badge-open' : 'badge-full'}`} style={{ fontSize: '0.85rem', padding: '0.3rem 0.8rem' }}>
                         {status === 'open' || status === '募集中' ? '募集中' : status === 'full' || status === '満席' ? '満席' : '受付終了'}
+                      </span>
+                      <span className="badge badge-type" style={{ fontSize: '0.85rem', padding: '0.3rem 0.8rem' }}>
+                        {type === 'online' || type === 'オンライン' ? 'オンライン (Zoom)' : '対面開催'}
                       </span>
                     </div>
                     
-                    <dl className="schedule-details">
-                      <div className="detail-row">
-                        <dt>日程</dt>
-                        <dd className="detail-highlight">{formattedDate} {formattedTime}〜</dd>
+                    <div style={{ textAlign: 'center' }}>
+                      <h3 className="schedule-date" style={{ fontSize: '1.4rem', marginBottom: '0.3rem', color: 'var(--primary-dark)', fontWeight: '800' }}>{formattedDate}</h3>
+                      <div className="schedule-time" style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-main)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: 0 }}>
+                        <Clock size={16} style={{ marginRight: '0.3rem' }} /> {formattedTime}〜
                       </div>
-                      <div className="detail-row">
-                        <dt>開催形式</dt>
-                        <dd>{type === 'online' || type === 'オンライン' ? 'オンライン' : '対面開催'}</dd>
-                      </div>
-                      <div className="detail-row">
-                        <dt>会場</dt>
-                        <dd>
-                          {type === 'online' || type === 'オンライン' 
-                            ? 'オンライン（Zoomにて実施。URLは別途ご案内します）' 
-                            : `${session.location || '都内近郊'}付近（お申し込み後に詳細をご案内します）`}
-                        </dd>
-                      </div>
-                      <div className="detail-row">
-                        <dt>費用</dt>
-                        <dd className="detail-highlight" style={{ color: 'var(--primary)' }}>無料</dd>
-                      </div>
-                      <div className="detail-row">
-                        <dt>内容</dt>
-                        <dd style={{ fontSize: '0.95rem', lineHeight: '1.5' }}>米国株長期投資の基礎と、ギャンブルにしないための投資哲学（マインドセット）について解説します。</dd>
-                      </div>
-                    </dl>
+                    </div>
 
-                    <div className="schedule-footer" style={{ marginTop: '1.5rem' }}>
+                    <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                      {type === 'online' || type === 'オンライン' 
+                        ? '参加用Zoom URLはメールでご案内' 
+                        : `${session.location || '都内近郊'}付近（お申し込み後に詳細案内）`}
+                    </div>
+
+                    <div style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--primary)', background: 'rgba(176, 58, 46, 0.05)', padding: '0.3rem 1rem', borderRadius: '50px' }}>
+                      参加無料
+                    </div>
+
+                    <div className="schedule-footer" style={{ width: '100%', marginTop: '0.5rem' }}>
                       {status === 'open' || status === '募集中' ? (
-                        <Link href={`/apply?session=${session.id}`} className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                          この日程で申し込む <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
+                        <Link href={`/apply?session=${session.id}`} className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '0.8rem 1rem' }}>
+                          この日程で申し込む <ArrowRight size={16} style={{ marginLeft: '0.5rem' }} />
                         </Link>
                       ) : (
-                        <button disabled className="btn btn-outline opacity-50 cursor-not-allowed" style={{ width: '100%', justifyContent: 'center' }}>
+                        <button disabled className="btn btn-outline opacity-50 cursor-not-allowed" style={{ width: '100%', justifyContent: 'center', padding: '0.8rem 1rem' }}>
                           {status === 'full' || status === '満席' ? '満席' : '受付終了'}
                         </button>
                       )}
