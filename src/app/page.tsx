@@ -1,13 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BookOpen, Users, TrendingUp, ShieldCheck, Zap, Target, PieChart, Clock, Calendar, MapPin } from "lucide-react";
-import { getSessions } from "@/lib/microcms";
-import { formatSessionDate, formatSessionTime } from "@/lib/utils";
-
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  const sessions = await getSessions();
   return (
     <div className="home-page">
       {/* Hero Section */}
@@ -107,92 +103,20 @@ export default async function Home() {
         </div>
       </section>
       
-      {/* Upcoming Schedule Section */}
-      <section id="schedule" className="section-padding schedule-section">
+      {/* Seminar CTA Section */}
+      <section className="section-padding" style={{ background: 'var(--bg-white)', textAlign: 'center' }}>
         <div className="container">
-          <div className="section-header">
+          <div className="glass-card" style={{ padding: '4rem 2rem', maxWidth: '800px', margin: '0 auto', border: '2px solid var(--primary-light)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <span className="section-tag" style={{ fontSize: '1.1rem', letterSpacing: '1px' }}>初心者向け米国株式投資 勉強会</span>
-            <h2 className="section-title">開催スケジュール</h2>
-            <p className="section-subtitle">
-              次回の開催日程はこちらです。<br className="sp-hide" />少人数制のため、お早めにお申し込みください。
+            <h2 className="section-title" style={{ marginBottom: '1.5rem', wordBreak: 'keep-all' }}>勉強会のカリキュラムや詳細はこちら</h2>
+            <p className="text-muted" style={{ marginBottom: '2.5rem', fontSize: '1.1rem', lineHeight: '1.8', wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
+              当クラブの勉強会は、投資未経験の方でも安心してご参加いただける<br className="sp-hide" />
+              アットホームな環境をご用意しています。<br />
+              具体的なカリキュラム内容や、開催スケジュールの確認、お申し込みは詳細ページをご覧ください。
             </p>
-            <div style={{ marginTop: '1.5rem' }}>
-              <Link href="/seminar" className="btn-link" style={{ justifyContent: 'center' }}>
-                勉強会のカリキュラムや詳細を見る <ArrowRight size={18} />
-              </Link>
-            </div>
-          </div>
-
-          <div className="schedule-grid">
-            {sessions && sessions.length > 0 ? (
-              sessions.map((session) => {
-                // MicroCMSのセレクトフィールドの正規化
-                const status = Array.isArray(session.status) ? session.status[0] : session.status;
-                const type = Array.isArray(session.type) ? session.type[0] : session.type;
-
-                // 日付と時間のフォーマット
-                const formattedDate = formatSessionDate(session.date);
-                const formattedTime = formatSessionTime(session.time || session.date);
-
-                return (
-                  <div key={session.id} className={`schedule-card glass-card ${status === 'full' ? 'opacity-60' : ''}`}>
-                    <div className="schedule-meta" style={{ marginBottom: '1rem', borderBottom: '1px solid var(--border)', paddingBottom: '0.8rem' }}>
-                      <span className={`badge ${status === 'open' || status === '募集中' ? 'badge-open' : 'badge-full'}`} style={{ fontSize: '1rem', padding: '0.4rem 1rem' }}>
-                        {status === 'open' || status === '募集中' ? '募集中' : status === 'full' || status === '満席' ? '満席' : '受付終了'}
-                      </span>
-                    </div>
-                    
-                    <dl className="schedule-details">
-                      <div className="detail-row">
-                        <dt>日程</dt>
-                        <dd className="detail-highlight">{formattedDate} {formattedTime}〜</dd>
-                      </div>
-                      <div className="detail-row">
-                        <dt>開催形式</dt>
-                        <dd>{type === 'online' || type === 'オンライン' ? 'オンライン' : '対面開催'}</dd>
-                      </div>
-                      <div className="detail-row">
-                        <dt>会場</dt>
-                        <dd>
-                          {type === 'online' || type === 'オンライン' 
-                            ? 'オンライン（Zoomにて実施。URLは別途ご案内します）' 
-                            : `${session.location || '都内近郊'}付近（お申し込み後に詳細をご案内します）`}
-                        </dd>
-                      </div>
-                      <div className="detail-row">
-                        <dt>費用</dt>
-                        <dd className="detail-highlight" style={{ color: 'var(--primary)' }}>無料</dd>
-                      </div>
-                      <div className="detail-row">
-                        <dt>内容</dt>
-                        <dd style={{ fontSize: '0.95rem', lineHeight: '1.5' }}>米国株長期投資の基礎と、ギャンブルにしないための投資哲学（マインドセット）について解説します。</dd>
-                      </div>
-                    </dl>
-
-                    <div className="schedule-footer" style={{ marginTop: '1.5rem' }}>
-                      {status === 'open' || status === '募集中' ? (
-                        <Link href={`/apply?session=${session.id}`} className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                          この日程で申し込む <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
-                        </Link>
-                      ) : (
-                        <button disabled className="btn btn-outline opacity-50 cursor-not-allowed" style={{ width: '100%', justifyContent: 'center' }}>
-                          {status === 'full' || status === '満席' ? '満席' : '受付終了'}
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                );
-              })
-            ) : (
-              <p className="text-center w-full py-10 text-muted">現在、予定されている勉強会はありません。</p>
-            )}
-          </div>
-
-          <div className="schedule-notes mt-10 text-center">
-            <p className="text-muted text-sm">
-              ※ オンライン開催の場合は、お申し込み後に別途メールにて参加用URLをご案内いたします。<br className="sp-hide" />
-              ※ 対面開催の場合は都内近郊での開催となります。詳細な場所は別途メールにてご案内いたします。
-            </p>
+            <Link href="/seminar" className="btn btn-primary" style={{ fontSize: '1.2rem', padding: '1.2rem 3rem', width: '100%', maxWidth: '400px', justifyContent: 'center' }}>
+              勉強会の詳細を見る <ArrowRight size={20} style={{ marginLeft: '0.5rem' }} />
+            </Link>
           </div>
         </div>
       </section>
