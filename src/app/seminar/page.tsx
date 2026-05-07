@@ -6,6 +6,41 @@ import { formatSessionDate, formatSessionTime } from "@/lib/utils";
 
 export const dynamic = 'force-dynamic';
 
+function formatSessionTimeRange(timeStr: string) {
+  if (!timeStr) return '';
+  
+  let startHour = 0;
+  let startMinute = 0;
+
+  if (/^\d{2}:\d{2}$/.test(timeStr)) {
+    const parts = timeStr.split(':');
+    startHour = parseInt(parts[0], 10);
+    startMinute = parseInt(parts[1], 10);
+  } else {
+    try {
+      const dateObj = new Date(timeStr);
+      if (isNaN(dateObj.getTime())) return timeStr;
+      
+      const formatted = new Intl.DateTimeFormat('ja-JP', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+        timeZone: 'Asia/Tokyo',
+      }).format(dateObj);
+      const parts = formatted.split(':');
+      startHour = parseInt(parts[0], 10);
+      startMinute = parseInt(parts[1], 10);
+    } catch (e) {
+      return timeStr;
+    }
+  }
+
+  const endHour = (startHour + 1) % 24;
+  const pad = (num: number) => num.toString().padStart(2, '0');
+  
+  return `${pad(startHour)}:${pad(startMinute)}〜${pad(endHour)}:${pad(startMinute)}`;
+}
+
 export default async function SeminarPage() {
   const sessions = await getSessions();
   const sortedSessions = [...sessions].sort((a, b) => {
@@ -166,7 +201,7 @@ export default async function SeminarPage() {
                     const status = Array.isArray(session.status) ? session.status[0] : session.status;
                     const type = Array.isArray(session.type) ? session.type[0] : session.type;
                     const formattedDate = formatSessionDate(session.date);
-                    const formattedTime = formatSessionTime(session.time || session.date);
+                    const formattedTime = formatSessionTimeRange(session.time || session.date);
                     
                     const now = new Date();
                     // Date compare. 終了判定
@@ -179,7 +214,7 @@ export default async function SeminarPage() {
                     return (
                       <tr key={session.id} style={{ borderBottom: index === sortedSessions.length - 1 ? 'none' : '1px solid var(--border)', background: isPast ? '#f9fafb' : 'white', opacity: isPast ? 0.6 : 1 }}>
                         <td style={{ padding: '1.2rem 1rem', fontWeight: '800', color: 'var(--primary-dark)', wordBreak: 'keep-all' }}>{formattedDate}</td>
-                        <td style={{ padding: '1.2rem 1rem', fontWeight: '700', wordBreak: 'keep-all' }}>{formattedTime}〜</td>
+                        <td style={{ padding: '1.2rem 1rem', fontWeight: '700', wordBreak: 'keep-all' }}>{formattedTime}</td>
                         <td style={{ padding: '1.2rem 1rem' }}>
                           <span className="badge badge-type" style={{ fontSize: '0.85rem', padding: '0.3rem 0.8rem', wordBreak: 'keep-all', background: type === 'online' || type === 'オンライン' ? 'var(--bg-warm)' : 'var(--primary)', color: type === 'online' || type === 'オンライン' ? 'var(--text-main)' : 'white' }}>
                             {type === 'online' || type === 'オンライン' ? 'オンライン' : '対面開催'}
