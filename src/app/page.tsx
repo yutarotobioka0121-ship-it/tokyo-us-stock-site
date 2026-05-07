@@ -33,7 +33,7 @@ export default async function Home() {
             株式投資をギャンブルにしない。長期投資で成功し続ける人と、そうでない人の「考え方の違い」を、株式初心者の方へ分かりやすく伝えます。
           </p>
           <div className="hero-actions slide-up delay-2">
-            <Link href="#schedule" className="btn btn-primary">
+            <Link href="/seminar" className="btn btn-primary">
               勉強会に参加する <ArrowRight size={20} />
             </Link>
             <Link href="/about" className="btn btn-outline">
@@ -116,6 +116,11 @@ export default async function Home() {
             <p className="section-subtitle">
               次回の開催日程はこちらです。<br className="sp-hide" />少人数制のため、お早めにお申し込みください。
             </p>
+            <div style={{ marginTop: '1.5rem' }}>
+              <Link href="/seminar" className="btn-link" style={{ justifyContent: 'center' }}>
+                勉強会のカリキュラムや詳細を見る <ArrowRight size={18} />
+              </Link>
+            </div>
           </div>
 
           <div className="schedule-grid">

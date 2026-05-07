@@ -22,6 +22,7 @@ export default function Footer() {
           <h4 className="footer-title">コンテンツ</h4>
           <ul className="footer-list">
             <li><Link href="/about">自己紹介</Link></li>
+            <li><Link href="/seminar">勉強会詳細</Link></li>
             <li><Link href="/blog">ブログ</Link></li>
             <li><Link href="/apply">勉強会申し込み</Link></li>
           </ul>

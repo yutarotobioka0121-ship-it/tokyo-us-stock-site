@@ -28,6 +28,7 @@ export default function Header() {
         {/* Desktop Nav */}
         <nav className="desktop-nav">
           <Link href="/about" className="nav-link">自己紹介</Link>
+          <Link href="/seminar" className="nav-link">勉強会詳細</Link>
           <Link href="/blog" className="nav-link">ブログ</Link>
           <Link href="/apply" className="nav-link">勉強会申し込み</Link>
           <Link href="/contact" className="btn btn-primary">お問い合わせ</Link>
@@ -43,6 +44,7 @@ export default function Header() {
       <div className={`mobile-nav ${isOpen ? 'open' : ''}`}>
         <nav className="mobile-nav-inner">
           <Link href="/about" className="nav-link" onClick={() => setIsOpen(false)}>自己紹介</Link>
+          <Link href="/seminar" className="nav-link" onClick={() => setIsOpen(false)}>勉強会詳細</Link>
           <Link href="/blog" className="nav-link" onClick={() => setIsOpen(false)}>ブログ</Link>
           <Link href="/apply" className="nav-link" onClick={() => setIsOpen(false)}>勉強会申し込み</Link>
           <Link href="/contact" className="btn btn-primary" onClick={() => setIsOpen(false)}>お問い合わせ</Link>
