@@ -102,12 +102,12 @@ export default async function SeminarPage() {
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">当日の流れ・カリキュラム例</h2>
-            <p className="section-subtitle">※約90分〜120分のプログラムを予定しています</p>
+            <p className="section-subtitle">※約60分のプログラムを予定しています</p>
           </div>
           <div className="timeline" style={{ maxWidth: '600px', margin: '0 auto', position: 'relative' }}>
             <div style={{ padding: '1.5rem', borderLeft: '4px solid var(--primary)', marginBottom: '1.5rem', background: 'var(--bg-warm)', borderRadius: '0 16px 16px 0' }}>
-              <h4 style={{ color: 'var(--primary)', fontWeight: '800', marginBottom: '0.5rem' }}>1. 自己紹介・アイスブレイク</h4>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>まずは緊張をほぐすため、参加者同士で簡単な自己紹介を行います。和やかな雰囲気でスタートします。</p>
+              <h4 style={{ color: 'var(--primary)', fontWeight: '800', marginBottom: '0.5rem' }}>1. 自己紹介</h4>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>まずは緊張をほぐすため、参加者同士で簡単な自己紹介を行います。</p>
             </div>
             <div style={{ padding: '1.5rem', borderLeft: '4px solid var(--primary)', marginBottom: '1.5rem', background: 'var(--bg-warm)', borderRadius: '0 16px 16px 0' }}>
               <h4 style={{ color: 'var(--primary)', fontWeight: '800', marginBottom: '0.5rem' }}>2. 投資とギャンブルの違いとは？</h4>
