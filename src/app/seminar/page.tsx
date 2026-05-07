@@ -226,6 +226,77 @@ export default async function SeminarPage() {
         </div>
       </section>
 
+      {/* Instructor Section */}
+      <section className="section-padding" style={{ background: 'white' }}>
+        <div className="container">
+          <div className="section-header">
+            <span className="section-tag">INSTRUCTOR</span>
+            <h2 className="section-title">講師紹介</h2>
+          </div>
+          <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', width: '100%' }}>
+              {/* Profile Image */}
+              <div style={{ width: '160px', height: '160px', borderRadius: '50%', overflow: 'hidden', border: '4px solid var(--primary)', boxShadow: 'var(--shadow-soft)', flexShrink: 0 }}>
+                <Image
+                  src="/profile.png"
+                  alt="講師 トビー"
+                  width={160}
+                  height={160}
+                  style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                />
+              </div>
+              {/* Name & Title */}
+              <div style={{ textAlign: 'center' }}>
+                <h3 style={{ fontSize: '1.6rem', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.3rem' }}>トビー</h3>
+                <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', fontWeight: '700' }}>サラリーマン ／ 事業主 ／ 個人投資家</p>
+              </div>
+            </div>
+
+            {/* Bio */}
+            <div className="glass-card" style={{ padding: '2.5rem 2rem', width: '100%', textAlign: 'center' }}>
+              <p style={{ color: 'var(--text-muted)', lineHeight: '2', fontSize: '1rem', marginBottom: '1.5rem' }}>
+                <span style={{ display: 'inline-block' }}>2020年に投資をスタート。</span>
+                <span style={{ display: 'inline-block' }}>しかし当初は投資とギャンブルの区別がつかず、</span>
+                <span style={{ display: 'inline-block' }}>数十万円の損失を出す手痛い失敗を経験しました。</span>
+              </p>
+              <p style={{ color: 'var(--text-muted)', lineHeight: '2', fontSize: '1rem', marginBottom: '1.5rem' }}>
+                <span style={{ display: 'inline-block' }}>「このままではいけない」と投資を基礎から真剣に学び直し、</span>
+                <span style={{ display: 'inline-block' }}>長期投資の本質を理解してからは成績が一変。</span>
+                <span style={{ display: 'inline-block', fontWeight: '800', color: 'var(--primary)' }}>現在の投資成績は1300%以上。</span>
+              </p>
+              <p style={{ color: 'var(--text-muted)', lineHeight: '2', fontSize: '1rem', marginBottom: '1.5rem' }}>
+                <span style={{ display: 'inline-block' }}>サラリーマンとして働きながら事業も営む多忙な日々の中で、</span>
+                <span style={{ display: 'inline-block' }}>1日の投資にかける時間は平均1時間未満。</span>
+                <span style={{ display: 'inline-block' }}>長期投資のスタイルにより、</span>
+                <span style={{ display: 'inline-block' }}>時間的にも経済的にも余裕のある生活を実現しています。</span>
+              </p>
+              <p style={{ color: 'var(--text-muted)', lineHeight: '2', fontSize: '1rem' }}>
+                <span style={{ display: 'inline-block' }}>「かつての自分のように、</span>
+                <span style={{ display: 'inline-block' }}>投資で痛い思いをする人を一人でも減らしたい。」</span>
+                <span style={{ display: 'inline-block' }}>その想いから、勉強会やSNSを通じて</span>
+                <span style={{ display: 'inline-block' }}>初心者の方に向けた情報発信を続けています。</span>
+              </p>
+            </div>
+
+            {/* Stats */}
+            <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+              <div style={{ background: 'var(--bg-warm)', borderRadius: '16px', padding: '1.5rem 2rem', textAlign: 'center', minWidth: '140px' }}>
+                <p style={{ fontSize: '1.8rem', fontWeight: '900', color: 'var(--primary)', marginBottom: '0.3rem' }}>1300%+</p>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: '700' }}>投資成績</p>
+              </div>
+              <div style={{ background: 'var(--bg-warm)', borderRadius: '16px', padding: '1.5rem 2rem', textAlign: 'center', minWidth: '140px' }}>
+                <p style={{ fontSize: '1.8rem', fontWeight: '900', color: 'var(--primary)', marginBottom: '0.3rem' }}>5年</p>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: '700' }}>投資歴</p>
+              </div>
+              <div style={{ background: 'var(--bg-warm)', borderRadius: '16px', padding: '1.5rem 2rem', textAlign: 'center', minWidth: '140px' }}>
+                <p style={{ fontSize: '1.8rem', fontWeight: '900', color: 'var(--primary)', marginBottom: '0.3rem' }}>&lt;1h</p>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: '700' }}>1日の投資時間</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Curriculum Section */}
       <section className="section-padding" style={{ background: 'white' }}>
         <div className="container">
