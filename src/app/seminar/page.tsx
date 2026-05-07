@@ -8,6 +8,9 @@ export const dynamic = 'force-dynamic';
 
 export default async function SeminarPage() {
   const sessions = await getSessions();
+  const sortedSessions = [...sessions].sort((a, b) => {
+    return new Date(a.date).getTime() - new Date(b.date).getTime();
+  });
 
   return (
     <div className="seminar-page" style={{ textAlign: 'center', wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
@@ -146,59 +149,72 @@ export default async function SeminarPage() {
             </p>
           </div>
 
-          <div className="schedule-grid">
-            {sessions && sessions.length > 0 ? (
-              sessions.map((session) => {
-                const status = Array.isArray(session.status) ? session.status[0] : session.status;
-                const type = Array.isArray(session.type) ? session.type[0] : session.type;
-                const formattedDate = formatSessionDate(session.date);
-                const formattedTime = formatSessionTime(session.time || session.date);
-
-                return (
-                  <div key={session.id} className={`schedule-card glass-card ${status === 'full' ? 'opacity-60' : ''}`} style={{ padding: '2rem 1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', minHeight: 'auto' }}>
-                    <div className="schedule-meta" style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem', justifyContent: 'center', width: '100%', borderBottom: '1px solid var(--border)', paddingBottom: '0.8rem' }}>
-                      <span className={`badge ${status === 'open' || status === '募集中' ? 'badge-open' : 'badge-full'}`} style={{ fontSize: '0.85rem', padding: '0.3rem 0.8rem' }}>
-                        {status === 'open' || status === '募集中' ? '募集中' : status === 'full' || status === '満席' ? '満席' : '受付終了'}
-                      </span>
-                      <span className="badge badge-type" style={{ fontSize: '0.85rem', padding: '0.3rem 0.8rem' }}>
-                        {type === 'online' || type === 'オンライン' ? 'オンライン (Zoom)' : '対面開催'}
-                      </span>
-                    </div>
+          <div className="schedule-table-container" style={{ width: '100%', overflowX: 'auto', WebkitOverflowScrolling: 'touch', paddingBottom: '1rem' }}>
+            <table className="schedule-table" style={{ width: '100%', minWidth: '700px', borderCollapse: 'collapse', textAlign: 'center', background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', margin: '0 auto' }}>
+              <thead style={{ background: 'var(--primary)', color: 'white' }}>
+                <tr>
+                  <th style={{ padding: '1.2rem 1rem', fontWeight: '800' }}>開催日</th>
+                  <th style={{ padding: '1.2rem 1rem', fontWeight: '800' }}>開催時間</th>
+                  <th style={{ padding: '1.2rem 1rem', fontWeight: '800' }}>開催形式</th>
+                  <th style={{ padding: '1.2rem 1rem', fontWeight: '800' }}>開催場所</th>
+                  <th style={{ padding: '1.2rem 1rem', fontWeight: '800' }}>お申し込み</th>
+                </tr>
+              </thead>
+              <tbody>
+                {sortedSessions && sortedSessions.length > 0 ? (
+                  sortedSessions.map((session, index) => {
+                    const status = Array.isArray(session.status) ? session.status[0] : session.status;
+                    const type = Array.isArray(session.type) ? session.type[0] : session.type;
+                    const formattedDate = formatSessionDate(session.date);
+                    const formattedTime = formatSessionTime(session.time || session.date);
                     
-                    <div style={{ textAlign: 'center' }}>
-                      <h3 className="schedule-date" style={{ fontSize: '1.4rem', marginBottom: '0.3rem', color: 'var(--primary-dark)', fontWeight: '800' }}>{formattedDate}</h3>
-                      <div className="schedule-time" style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--text-main)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: 0 }}>
-                        <Clock size={16} style={{ marginRight: '0.3rem' }} /> {formattedTime}〜
-                      </div>
-                    </div>
+                    const now = new Date();
+                    // Date compare. 終了判定
+                    const sessionDateTime = new Date(session.time || session.date);
+                    const isPast = sessionDateTime < now;
 
-                    <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                      {type === 'online' || type === 'オンライン' 
-                        ? '参加用Zoom URLはメールでご案内' 
-                        : `${session.location || '都内近郊'}付近（お申し込み後に詳細案内）`}
-                    </div>
+                    const isFull = status === 'full' || status === '満席';
+                    const isEnded = isPast || status === '受付終了';
 
-                    <div style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--primary)', background: 'rgba(176, 58, 46, 0.05)', padding: '0.3rem 1rem', borderRadius: '50px' }}>
-                      参加無料
-                    </div>
-
-                    <div className="schedule-footer" style={{ width: '100%', marginTop: '0.5rem' }}>
-                      {status === 'open' || status === '募集中' ? (
-                        <Link href={`/apply?session=${session.id}`} className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '0.8rem 1rem' }}>
-                          この日程で申し込む <ArrowRight size={16} style={{ marginLeft: '0.5rem' }} />
-                        </Link>
-                      ) : (
-                        <button disabled className="btn btn-outline opacity-50 cursor-not-allowed" style={{ width: '100%', justifyContent: 'center', padding: '0.8rem 1rem' }}>
-                          {status === 'full' || status === '満席' ? '満席' : '受付終了'}
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                );
-              })
-            ) : (
-              <p className="text-center w-full py-10 text-muted">現在、予定されている勉強会はありません。</p>
-            )}
+                    return (
+                      <tr key={session.id} style={{ borderBottom: index === sortedSessions.length - 1 ? 'none' : '1px solid var(--border)', background: isPast ? '#f9fafb' : 'white', opacity: isPast ? 0.6 : 1 }}>
+                        <td style={{ padding: '1.2rem 1rem', fontWeight: '800', color: 'var(--primary-dark)', wordBreak: 'keep-all' }}>{formattedDate}</td>
+                        <td style={{ padding: '1.2rem 1rem', fontWeight: '700', wordBreak: 'keep-all' }}>{formattedTime}〜</td>
+                        <td style={{ padding: '1.2rem 1rem' }}>
+                          <span className="badge badge-type" style={{ fontSize: '0.85rem', padding: '0.3rem 0.8rem', wordBreak: 'keep-all', background: type === 'online' || type === 'オンライン' ? 'var(--bg-warm)' : 'var(--primary)', color: type === 'online' || type === 'オンライン' ? 'var(--text-main)' : 'white' }}>
+                            {type === 'online' || type === 'オンライン' ? 'オンライン' : '対面開催'}
+                          </span>
+                        </td>
+                        <td style={{ padding: '1.2rem 1rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                          {type === 'online' || type === 'オンライン' ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}付近`}
+                        </td>
+                        <td style={{ padding: '1.2rem 1rem' }}>
+                          {isEnded ? (
+                            <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', background: '#f3f4f6', color: '#9ca3af', borderColor: '#d1d5db', whiteSpace: 'nowrap' }}>
+                              終了しました
+                            </button>
+                          ) : isFull ? (
+                            <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', opacity: 0.5, whiteSpace: 'nowrap' }}>
+                              満席
+                            </button>
+                          ) : (
+                            <Link href={`/apply?session=${session.id}`} className="btn btn-primary" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', whiteSpace: 'nowrap', justifyContent: 'center' }}>
+                              申し込む
+                            </Link>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })
+                ) : (
+                  <tr>
+                    <td colSpan={5} style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-muted)' }}>
+                      現在、予定されている勉強会はありません。
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
