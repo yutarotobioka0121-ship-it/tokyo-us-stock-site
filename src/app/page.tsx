@@ -131,31 +131,47 @@ export default async function Home() {
 
                 return (
                   <div key={session.id} className={`schedule-card glass-card ${status === 'full' ? 'opacity-60' : ''}`}>
-                    <div className="schedule-meta">
-                      <span className={`badge ${status === 'open' || status === '募集中' ? 'badge-open' : 'badge-full'}`}>
-                        {status === 'open' || status === '募集中' ? '募集中' : status === 'full' || status === '満席' ? '満席' : '終了'}
-                      </span>
-                      <span className="badge badge-type">
-                        {type === 'online' || type === 'オンライン' ? 'オンライン' : '対面開催'}
+                    <div className="schedule-meta" style={{ marginBottom: '1rem', borderBottom: '1px solid var(--border)', paddingBottom: '0.8rem' }}>
+                      <span className={`badge ${status === 'open' || status === '募集中' ? 'badge-open' : 'badge-full'}`} style={{ fontSize: '1rem', padding: '0.4rem 1rem' }}>
+                        {status === 'open' || status === '募集中' ? '募集中' : status === 'full' || status === '満席' ? '満席' : '受付終了'}
                       </span>
                     </div>
-                    <h3 className="schedule-date">{formattedDate}</h3>
-                    <div className="schedule-time">
-                      <Clock size={18} /> {formattedTime}〜
-                    </div>
-                    {type !== 'online' && type !== 'オンライン' && session.location && (
-                      <div className="schedule-location" style={{ marginTop: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-                        <MapPin size={18} /> {session.location}付近
+                    
+                    <dl className="schedule-details">
+                      <div className="detail-row">
+                        <dt>日程</dt>
+                        <dd className="detail-highlight">{formattedDate} {formattedTime}〜</dd>
                       </div>
-                    )}
-                    <div className="schedule-footer">
+                      <div className="detail-row">
+                        <dt>開催形式</dt>
+                        <dd>{type === 'online' || type === 'オンライン' ? 'オンライン' : '対面開催'}</dd>
+                      </div>
+                      <div className="detail-row">
+                        <dt>会場</dt>
+                        <dd>
+                          {type === 'online' || type === 'オンライン' 
+                            ? 'オンライン（参加用URLをご案内します）' 
+                            : `${session.location || '都内近郊'}付近（お申し込み後に詳細をご案内します）`}
+                        </dd>
+                      </div>
+                      <div className="detail-row">
+                        <dt>費用</dt>
+                        <dd className="detail-highlight" style={{ color: 'var(--primary)' }}>無料</dd>
+                      </div>
+                      <div className="detail-row">
+                        <dt>内容</dt>
+                        <dd style={{ fontSize: '0.95rem', lineHeight: '1.5' }}>米国株長期投資の基礎と、ギャンブルにしないための投資哲学（マインドセット）について解説します。</dd>
+                      </div>
+                    </dl>
+
+                    <div className="schedule-footer" style={{ marginTop: '1.5rem' }}>
                       {status === 'open' || status === '募集中' ? (
-                        <Link href={`/apply?session=${session.id}`} className="btn btn-primary" style={{ width: '100%' }}>
-                          この日程で申し込む <ArrowRight size={18} />
+                        <Link href={`/apply?session=${session.id}`} className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+                          この日程で申し込む <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
                         </Link>
                       ) : (
-                        <button disabled className="btn btn-outline opacity-50 cursor-not-allowed" style={{ width: '100%' }}>
-                          {status === 'full' ? '満席' : '受付終了'}
+                        <button disabled className="btn btn-outline opacity-50 cursor-not-allowed" style={{ width: '100%', justifyContent: 'center' }}>
+                          {status === 'full' || status === '満席' ? '満席' : '受付終了'}
                         </button>
                       )}
                     </div>
