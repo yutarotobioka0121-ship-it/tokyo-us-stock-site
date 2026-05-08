@@ -53,41 +53,41 @@ export default async function Home() {
             <div className="featured-content slide-up">
               <span className="featured-tag">SPECIAL WORKSHOP</span>
               <h2 className="featured-title">
-                米国株で1300%以上の実績。負けない思考を身につける投資勉強会
+                20〜30代から始める、もう迷わない「正しい米国株の長期投資」勉強会
               </h2>
-              <h3 className="featured-subtitle-line">一生モノの米国株長期投資勉強会</h3>
+              <h3 className="featured-subtitle-line">「独学でうまくいかなかった方」も安心。専門用語なしのロードマップで一から学べる。</h3>
               <p className="featured-desc">
-                「知識を得るだけでは、1円も増えません。」<br className="sp-hide" />
-                5年で1300%以上という圧倒的な実績を叩き出した米国株投資の思考法を、株式初心者の方でも一歩ずつ着実に学べるステップに整理してお伝えします。労働収入の壁を超え、真の自由を手にするための「第一歩」を共に踏み出しましょう。
+                「将来のために投資を始めたいけれど、何から手をつければいいか分からない」「ネットの情報で買ってみたけれど、損をして怖くなってしまった……」そんな20〜30代の方へ。<br className="sp-hide" />
+                当クラブでは、5年で1300%以上の運用実績を持つ講師が、投資の「本当の基礎」を分かりやすく整理してお伝えします。難しい数式や専門用語は一切使いません。失敗する理由が理解できれば、不安は「楽しさ」に変わります。焦らず、一歩ずつ、安心できる資産作りの土台を一緒に作りましょう。
               </p>
               
               <div className="benefit-list">
                 <div className="benefit-item">
                   <div className="benefit-icon"><Zap size={24} /></div>
                   <div className="benefit-text">
-                    <h4>労働から資本へ。時間の解放</h4>
-                    <p>自分の時間を切り売りする生活を卒業し、お金に働いてもらう「投資家としての視点」を構築。</p>
+                    <h4>20代・30代からの着実な資産形成</h4>
+                    <p>大きな資金は必要ありません。「少額から始めて、時間を味方につけて複利で育てる」長期投資の本質を教えます。</p>
                   </div>
                 </div>
                 <div className="benefit-item">
                   <div className="benefit-icon"><Target size={24} /></div>
                   <div className="benefit-text">
-                    <h4>米国という唯一無二の選択</h4>
-                    <p>世界のインフラを支配する企業に投資し、地球規模の収益を自分の財布へ取り込む。</p>
+                    <h4>なぜ「米国株」なのかをシンプルに解説</h4>
+                    <p>AppleやAmazonなど、私たちの身近にある世界の超優良企業に投資するメリットと、「米国の圧倒的な強さ」を明快に伝えます。</p>
                   </div>
                 </div>
                 <div className="benefit-item">
                   <div className="benefit-icon"><PieChart size={24} /></div>
                   <div className="benefit-text">
-                    <h4>15年の壁を超える確率の思考</h4>
-                    <p>テクニックではなく統計。15年以上で負けなしのデータが証明する「数学的勝利」の掴み方。</p>
+                    <h4>「損する恐怖」をなくす考え方</h4>
+                    <p>独学で挫折する一番の原因は「日々の値動きでのストレス」です。統計データから「負けないための確率」を学び、心のゆとりを手に入れます。</p>
                   </div>
                 </div>
                 <div className="benefit-item">
                   <div className="benefit-icon"><ShieldCheck size={24} /></div>
                   <div className="benefit-text">
-                    <h4>暴落は「ボーナス確定演出」</h4>
-                    <p>株価ではなく価値を見る。パニックを「タイムセール」に変える、強靭なマインドを構築。</p>
+                    <h4>質問しやすい、温かな少人数カフェ勉強会</h4>
+                    <p>一方的な講義ではなく、カフェでお茶を飲むような和やかな雰囲気。少人数制なので、分からないことはその場でなんでも質問できます。</p>
                   </div>
                 </div>
               </div>
