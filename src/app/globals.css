@@ -300,7 +300,7 @@ button {
 @media (max-width: 768px) {
   .segment {
     white-space: normal;
-    word-break: keep-all;
+    word-break: normal;
     overflow-wrap: break-word;
   }
   .hero-title .block-segment {

@@ -48,14 +48,14 @@ export default async function SeminarPage() {
   });
 
   return (
-    <div className="seminar-page" style={{ textAlign: 'center', wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
+    <div className="seminar-page" style={{ textAlign: 'center', overflowWrap: 'break-word' }}>
       {/* Hero Section */}
       <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '120px 0 60px', textAlign: 'center' }}>
         <div className="container">
           <span className="section-tag">BEGINNER'S SEMINAR</span>
           <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
-            <span style={{ display: 'inline-block' }}>初心者から基礎を学ぶ、</span>
-            <span style={{ display: 'inline-block' }}>一生モノの米国株 投資勉強会</span>
+            <span className="segment">初心者から基礎を学ぶ、</span>
+            <span className="segment">一生モノの米国株 投資勉強会</span>
           </h1>
           <p className="hero-subtitle mx-auto" style={{ maxWidth: '600px', marginBottom: '3rem', color: 'var(--text-muted)' }}>
             カフェでお茶を飲むようにリラックスした雰囲気で、投資の「わからない」を「わかった」に変えませんか？
@@ -249,22 +249,22 @@ export default async function SeminarPage() {
             <div className="problem-card glass-card" style={{ padding: '2rem', textAlign: 'center' }}>
               <HelpCircle size={40} color="var(--primary)" style={{ margin: '0 auto 1rem' }} />
               <p style={{ fontWeight: '700', fontSize: '1.1rem' }}>
-                <span style={{ display: 'inline-block' }}>投資に興味はあるけど、</span>
-                <span style={{ display: 'inline-block' }}>何から始めればいいか分からない…</span>
+                <span className="segment">投資に興味はあるけど、</span>
+                <span className="segment">何から始めればいいか分からない…</span>
               </p>
             </div>
             <div className="problem-card glass-card" style={{ padding: '2rem', textAlign: 'center' }}>
               <Target size={40} color="var(--primary)" style={{ margin: '0 auto 1rem' }} />
               <p style={{ fontWeight: '700', fontSize: '1.1rem' }}>
-                <span style={{ display: 'inline-block' }}>独学で始めてみたけど、</span>
-                <span style={{ display: 'inline-block' }}>ギャンブルみたいになってしまって不安…</span>
+                <span className="segment">独学で始めてみたけど、</span>
+                <span className="segment">ギャンブルみたいになってしまって不安…</span>
               </p>
             </div>
             <div className="problem-card glass-card" style={{ padding: '2rem', textAlign: 'center' }}>
               <Users size={40} color="var(--primary)" style={{ margin: '0 auto 1rem' }} />
               <p style={{ fontWeight: '700', fontSize: '1.1rem' }}>
-                <span style={{ display: 'inline-block' }}>同世代で投資について、</span>
-                <span style={{ display: 'inline-block' }}>気軽に話せる仲間がいない…</span>
+                <span className="segment">同世代で投資について、</span>
+                <span className="segment">気軽に話せる仲間がいない…</span>
               </p>
             </div>
           </div>
@@ -341,26 +341,26 @@ export default async function SeminarPage() {
             {/* Bio */}
             <div className="glass-card" style={{ padding: '2.5rem 2rem', width: '100%', textAlign: 'center' }}>
               <p style={{ color: 'var(--text-muted)', lineHeight: '2', fontSize: '1rem', marginBottom: '1.5rem' }}>
-                <span style={{ display: 'inline-block' }}>2020年に投資をスタート。</span>
-                <span style={{ display: 'inline-block' }}>しかし当初は投資とギャンブルの区別がつかず、</span>
-                <span style={{ display: 'inline-block' }}>数十万円の損失を出す手痛い失敗を経験しました。</span>
+                <span className="segment">2020年に投資をスタート。</span>
+                <span className="segment">しかし当初は投資とギャンブルの区別がつかず、</span>
+                <span className="segment">数十万円の損失を出す手痛い失敗を経験しました。</span>
               </p>
               <p style={{ color: 'var(--text-muted)', lineHeight: '2', fontSize: '1rem', marginBottom: '1.5rem' }}>
-                <span style={{ display: 'inline-block' }}>「このままではいけない」と投資を基礎から真剣に学び直し、</span>
-                <span style={{ display: 'inline-block' }}>長期投資の本質を理解してからは成績が一変。</span>
-                <span style={{ display: 'inline-block', fontWeight: '800', color: 'var(--primary)' }}>現在の投資成績は1300%以上。</span>
+                <span className="segment">「このままではいけない」と投資を基礎から真剣に学び直し、</span>
+                <span className="segment">長期投資の本質を理解してからは成績が一変。</span>
+                <span className="segment" style={{ fontWeight: '800', color: 'var(--primary)' }}>現在の投資成績は1300%以上。</span>
               </p>
               <p style={{ color: 'var(--text-muted)', lineHeight: '2', fontSize: '1rem', marginBottom: '1.5rem' }}>
-                <span style={{ display: 'inline-block' }}>サラリーマンとして働きながら事業も営む多忙な日々の中で、</span>
-                <span style={{ display: 'inline-block' }}>1日の投資にかける時間は平均1時間未満。</span>
-                <span style={{ display: 'inline-block' }}>長期投資のスタイルにより、</span>
-                <span style={{ display: 'inline-block' }}>時間的にも経済的にも余裕のある生活を実現しています。</span>
+                <span className="segment">サラリーマンとして働きながら事業も営む多忙な日々の中で、</span>
+                <span className="segment">1日の投資にかける時間は平均1時間未満。</span>
+                <span className="segment">長期投資のスタイルにより、</span>
+                <span className="segment">時間的にも経済的にも余裕のある生活を実現しています。</span>
               </p>
               <p style={{ color: 'var(--text-muted)', lineHeight: '2', fontSize: '1rem' }}>
-                <span style={{ display: 'inline-block' }}>「かつての自分のように、</span>
-                <span style={{ display: 'inline-block' }}>投資で痛い思いをする人を一人でも減らしたい。」</span>
-                <span style={{ display: 'inline-block' }}>その想いから、勉強会やSNSを通じて</span>
-                <span style={{ display: 'inline-block' }}>初心者の方に向けた情報発信を続けています。</span>
+                <span className="segment">「かつての自分のように、</span>
+                <span className="segment">投資で痛い思いをする人を一人でも減らしたい。」</span>
+                <span className="segment">その想いから、勉強会やSNSを通じて</span>
+                <span className="segment">初心者の方に向けた情報発信を続けています。</span>
               </p>
             </div>
 
@@ -467,36 +467,36 @@ export default async function SeminarPage() {
             </p>
             
             <h2 style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.4', marginBottom: '2rem' }}>
-              <span style={{ display: 'inline-block' }}>投資を学んで、</span>
-              <span style={{ display: 'inline-block' }}>あなたの人生に</span><br />
-              <span style={{ display: 'inline-block', color: '#ffd700' }}>ワクワクしよう。</span>
+              <span className="segment">投資を学んで、</span>
+              <span className="segment">あなたの人生に</span><br />
+              <span className="segment" style={{ color: '#ffd700' }}>ワクワクしよう。</span>
             </h2>
 
             <div style={{ width: '60px', height: '3px', background: '#ffd700', margin: '0 auto 2.5rem', borderRadius: '2px' }} />
 
             <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', lineHeight: '2', opacity: 0.95, marginBottom: '1.5rem' }}>
-              <span style={{ display: 'inline-block' }}>もし、お金の不安がなくなったら</span>
-              <span style={{ display: 'inline-block' }}>あなたは何をしたいですか？</span>
+              <span className="segment">もし、お金の不安がなくなったら</span>
+              <span className="segment">あなたは何をしたいですか？</span>
             </p>
 
             <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.15rem)', lineHeight: '2', opacity: 0.9, marginBottom: '2rem' }}>
-              <span style={{ display: 'inline-block' }}>家族との時間、好きな場所への旅、</span>
-              <span style={{ display: 'inline-block' }}>夢だったあのチャレンジ ——</span><br />
-              <span style={{ display: 'inline-block' }}>資産を育てることは、</span>
-              <span style={{ display: 'inline-block' }}>未来の選択肢を増やすこと。</span>
+              <span className="segment">家族との時間、好きな場所への旅、</span>
+              <span className="segment">夢だったあのチャレンジ ——</span><br />
+              <span className="segment">資産を育てることは、</span>
+              <span className="segment">未来の選択肢を増やすこと。</span>
             </p>
 
             <div style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', borderRadius: '20px', padding: '2.5rem 2rem', marginBottom: '2.5rem', border: '1px solid rgba(255,255,255,0.15)' }}>
               <p style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: '800', lineHeight: '1.8', margin: 0 }}>
-                <span style={{ display: 'inline-block' }}>あなたの夢を叶えるための</span>
-                <span style={{ display: 'inline-block' }}>「はじめの一歩」を、</span><br />
-                <span style={{ display: 'inline-block', color: '#ffd700' }}>一緒に踏み出しませんか？</span>
+                <span className="segment">あなたの夢を叶えるための</span>
+                <span className="segment">「はじめの一歩」を、</span><br />
+                <span className="segment" style={{ color: '#ffd700' }}>一緒に踏み出しませんか？</span>
               </p>
             </div>
 
             <p style={{ fontSize: '1rem', opacity: 0.85, marginBottom: '2.5rem', lineHeight: '1.8' }}>
-              <span style={{ display: 'inline-block' }}>難しいことは何もありません。</span>
-              <span style={{ display: 'inline-block' }}>まずは気軽に、仲間と一緒に考えることから始めましょう。</span>
+              <span className="segment">難しいことは何もありません。</span>
+              <span className="segment">まずは気軽に、仲間と一緒に考えることから始めましょう。</span>
             </p>
 
             <Link href="#schedule" className="btn" style={{ background: '#ffd700', color: 'var(--primary-dark)', fontSize: '1.15rem', padding: '1.2rem 3rem', fontWeight: '900', borderRadius: '50px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', boxShadow: '0 4px 20px rgba(255, 215, 0, 0.3)', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}>
