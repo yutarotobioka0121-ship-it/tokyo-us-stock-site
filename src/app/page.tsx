@@ -12,8 +12,13 @@ export default async function Home() {
           <div className="hero-grid">
             <div className="hero-content-left slide-up">
               <h1 className="hero-title">
-                東京米国株クラブへようこそ<br />
-                <span>初心者のための米国株 投資勉強会で、<br />理想の未来をデザインする。</span>
+                <span className="segment block-segment">東京米国株クラブへようこそ</span>
+                <span className="segment-accent">
+                  <span className="segment">初心者のための</span>
+                  <span className="segment">米国株 投資勉強会で、</span>
+                  <span className="segment">理想の未来を</span>
+                  <span className="segment">デザインする。</span>
+                </span>
               </h1>
               <p className="hero-subtitle">
                 株式投資をギャンブルにしない。長期投資で成功し続ける人と、そうでない人の「考え方の違い」を、株式初心者の方へ分かりやすく伝えます。
