@@ -8,29 +8,34 @@ export default async function Home() {
     <div className="home-page">
       {/* Hero Section */}
       <section className="hero">
-        <div className="hero-bg">
-          <Image
-            src="/hero.jpg"
-            alt="Hero Background"
-            fill
-            style={{ objectFit: 'cover' }}
-            priority
-            className="hero-image"
-          />
-          <div className="hero-overlay"></div>
-        </div>
-        
-        <div className="container hero-content">
-          <h1 className="hero-title slide-up">
-            <span>初心者のための米国株 投資勉強会で、<br />理想の未来をデザインする。</span>
-          </h1>
-          <p className="hero-subtitle slide-up delay-1">
-            株式投資をギャンブルにしない。長期投資で成功し続ける人と、そうでない人の「考え方の違い」を、株式初心者の方へ分かりやすく伝えます。
-          </p>
-          <div className="hero-actions slide-up delay-2">
-            <Link href="/about" className="btn btn-primary">
-              東京米国株クラブについて <ArrowRight size={20} />
-            </Link>
+        <div className="container">
+          <div className="hero-grid">
+            <div className="hero-content-left slide-up">
+              <h1 className="hero-title">
+                <span>初心者のための米国株 投資勉強会で、<br />理想の未来をデザインする。</span>
+              </h1>
+              <p className="hero-subtitle">
+                株式投資をギャンブルにしない。長期投資で成功し続ける人と、そうでない人の「考え方の違い」を、株式初心者の方へ分かりやすく伝えます。
+              </p>
+              <div className="hero-actions">
+                <Link href="/about" className="btn btn-primary">
+                  東京米国株クラブについて <ArrowRight size={20} />
+                </Link>
+              </div>
+            </div>
+            <div className="hero-image-right slide-up delay-1">
+              <div className="hero-image-wrapper glass-card">
+                <Image
+                  src="/hero.jpg"
+                  alt="米国株 投資勉強会"
+                  width={600}
+                  height={450}
+                  style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+                  priority
+                  className="hero-image"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
