@@ -48,7 +48,7 @@ export default async function SeminarPage() {
   });
 
   return (
-    <div className="seminar-page" style={{ textAlign: 'center', overflowWrap: 'break-word' }}>
+    <div className="seminar-page" style={{ overflowWrap: 'break-word' }}>
       {/* Hero Section */}
       <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '120px 0 60px', textAlign: 'center' }}>
         <div className="container">
@@ -249,21 +249,21 @@ export default async function SeminarPage() {
             <h2 className="section-title">こんなお悩み、ありませんか？</h2>
           </div>
           <div className="problems-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '900px', margin: '0 auto' }}>
-            <div className="problem-card glass-card" style={{ padding: '2rem', textAlign: 'center' }}>
+            <div className="problem-card glass-card seminar-center" style={{ padding: '2rem' }}>
               <HelpCircle size={40} color="var(--primary)" style={{ margin: '0 auto 1rem' }} />
               <p style={{ fontWeight: '700', fontSize: '1.1rem' }}>
                 <span className="segment">投資に興味はあるけど、</span>
                 <span className="segment">何から始めればいいか分からない…</span>
               </p>
             </div>
-            <div className="problem-card glass-card" style={{ padding: '2rem', textAlign: 'center' }}>
+            <div className="problem-card glass-card seminar-center" style={{ padding: '2rem' }}>
               <Target size={40} color="var(--primary)" style={{ margin: '0 auto 1rem' }} />
               <p style={{ fontWeight: '700', fontSize: '1.1rem' }}>
                 <span className="segment">独学で始めてみたけど、</span>
                 <span className="segment">ギャンブルみたいになってしまって不安…</span>
               </p>
             </div>
-            <div className="problem-card glass-card" style={{ padding: '2rem', textAlign: 'center' }}>
+            <div className="problem-card glass-card seminar-center" style={{ padding: '2rem' }}>
               <Users size={40} color="var(--primary)" style={{ margin: '0 auto 1rem' }} />
               <p style={{ fontWeight: '700', fontSize: '1.1rem' }}>
                 <span className="segment">同世代で投資について、</span>
@@ -368,7 +368,7 @@ export default async function SeminarPage() {
             </div>
 
             {/* Bio */}
-            <div className="glass-card seminar-bio-card" style={{ padding: '2.5rem 2rem', width: '100%', textAlign: 'center' }}>
+            <div className="glass-card seminar-bio-card seminar-center" style={{ padding: '2.5rem 2rem', width: '100%' }}>
               <p style={{ color: 'var(--text-muted)', lineHeight: '2', fontSize: '1rem', marginBottom: '1.5rem' }}>
                 <span className="segment">2020年に投資をスタート。</span>
                 <span className="segment">しかし当初は投資とギャンブルの区別がつかず、</span>
@@ -475,7 +475,7 @@ export default async function SeminarPage() {
             <h2 className="section-title">よくある質問</h2>
           </div>
           <div className="faq-container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <div className="faq-item glass-card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <div className="faq-item glass-card seminar-center" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <h4 style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center', fontSize: '1.1rem', color: 'var(--primary-dark)', marginBottom: '1rem' }}>
                 <span style={{ background: 'var(--primary)', color: 'white', padding: '0.2rem 0.8rem', borderRadius: '8px', fontWeight: '800' }}>Q</span>
                 投資経験が全くない初心者ですが参加できますか？
@@ -492,7 +492,7 @@ export default async function SeminarPage() {
                 </p>
               </div>
             </div>
-            <div className="faq-item glass-card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <div className="faq-item glass-card seminar-center" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <h4 style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center', fontSize: '1.1rem', color: 'var(--primary-dark)', marginBottom: '1rem' }}>
                 <span style={{ background: 'var(--primary)', color: 'white', padding: '0.2rem 0.8rem', borderRadius: '8px', fontWeight: '800' }}>Q</span>
                 参加費以外に何か料金はかかりますか？（何か売りつけられませんか？）
@@ -509,7 +509,7 @@ export default async function SeminarPage() {
                 </p>
               </div>
             </div>
-            <div className="faq-item glass-card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <div className="faq-item glass-card seminar-center" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <h4 style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center', fontSize: '1.1rem', color: 'var(--primary-dark)', marginBottom: '1rem' }}>
                 <span style={{ background: 'var(--primary)', color: 'white', padding: '0.2rem 0.8rem', borderRadius: '8px', fontWeight: '800' }}>Q</span>
                 一人で参加しても大丈夫ですか？

@@ -344,6 +344,16 @@ button {
   }
 }
 
+/* Seminar page: center on desktop, left on mobile */
+.seminar-center {
+  text-align: center;
+}
+@media (max-width: 640px) {
+  .seminar-center {
+    text-align: left;
+  }
+}
+
 .hero-subtitle {
   font-size: clamp(1rem, 3vw, 1.15rem);
   color: var(--text-muted);
