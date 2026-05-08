@@ -33,7 +33,7 @@ export default function AboutPage() {
             <div className="about-content-text">
               <h2 className="section-title">5年で1300%以上の実績。<br className="sp-hide" />その根本の「投資哲学」をお伝えしたい。</h2>
               <p className="notion-p" style={{ fontWeight: '700', fontSize: '1.1rem', color: 'var(--primary-dark)', marginBottom: '1.5rem' }}>
-                運営代表者：Yutaro Tobioka（トビー）<br />
+                運営代表者：トビー<br />
                 <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 'normal' }}>5年で資産1300%超を達成した個人投資家 / 東京米国株クラブ主宰</span>
               </p>
               <p className="notion-p">
