@@ -12,6 +12,7 @@ export default async function Home() {
           <div className="hero-grid">
             <div className="hero-content-left slide-up">
               <h1 className="hero-title">
+                東京米国株クラブ<br />
                 <span>初心者のための米国株 投資勉強会で、<br />理想の未来をデザインする。</span>
               </h1>
               <p className="hero-subtitle">
