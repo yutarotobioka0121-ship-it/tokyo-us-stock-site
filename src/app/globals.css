@@ -1244,3 +1244,20 @@ button {
     font-size: 0.95rem;
   }
 }
+
+/* Schedule table mobile/desktop toggles */
+.schedule-desktop-only {
+  display: block;
+}
+.schedule-mobile-only {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .schedule-desktop-only {
+    display: none !important;
+  }
+  .schedule-mobile-only {
+    display: block !important;
+  }
+}

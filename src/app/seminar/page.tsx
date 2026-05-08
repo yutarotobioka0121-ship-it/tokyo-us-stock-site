@@ -83,7 +83,8 @@ export default async function SeminarPage() {
             </p>
           </div>
 
-          <div className="schedule-table-container" style={{ width: '100%', overflowX: 'auto', WebkitOverflowScrolling: 'touch', paddingBottom: '1rem' }}>
+          {/* Desktop schedule table */}
+          <div className="schedule-table-container schedule-desktop-only" style={{ width: '100%', overflowX: 'auto', WebkitOverflowScrolling: 'touch', paddingBottom: '1rem' }}>
             <table className="schedule-table" style={{ width: '100%', minWidth: '700px', borderCollapse: 'collapse', textAlign: 'center', background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', margin: '0 auto' }}>
               <thead style={{ background: 'var(--primary)', color: 'white' }}>
                 <tr>
@@ -149,6 +150,91 @@ export default async function SeminarPage() {
                 )}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile schedule cards */}
+          <div className="schedule-mobile-only">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              {sortedSessions && sortedSessions.length > 0 ? (
+                sortedSessions.map((session) => {
+                  const status = Array.isArray(session.status) ? session.status[0] : session.status;
+                  const type = Array.isArray(session.type) ? session.type[0] : session.type;
+                  const formattedDate = formatSessionDate(session.date);
+                  const formattedTime = formatSessionTimeRange(session.time || session.date);
+                  
+                  const now = new Date();
+                  const sessionDateTime = new Date(session.time || session.date);
+                  const isPast = sessionDateTime < now;
+
+                  const isFull = status === 'full' || status === '満席';
+                  const isEnded = isPast || status === '受付終了';
+
+                  return (
+                    <div 
+                      key={session.id} 
+                      className="glass-card" 
+                      style={{ 
+                        padding: '1.5rem', 
+                        borderRadius: '16px', 
+                        border: '1px solid rgba(176, 58, 46, 0.15)',
+                        background: isPast ? '#f9fafb' : 'white', 
+                        opacity: isPast ? 0.7 : 1,
+                        boxShadow: 'var(--shadow-soft)',
+                        textAlign: 'left'
+                      }}
+                    >
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
+                        <span className="badge badge-type" style={{ fontSize: '0.8rem', padding: '0.3rem 0.8rem', background: type === 'online' || type === 'オンライン' ? 'var(--bg-warm)' : 'var(--primary)', color: type === 'online' || type === 'オンライン' ? 'var(--text-main)' : 'white', borderRadius: '20px', fontWeight: '800' }}>
+                          {type === 'online' || type === 'オンライン' ? 'オンライン' : '対面開催'}
+                        </span>
+                        {isEnded ? (
+                          <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: '700' }}>受付終了</span>
+                        ) : isFull ? (
+                          <span style={{ fontSize: '0.85rem', color: 'var(--primary)', fontWeight: '700' }}>満席</span>
+                        ) : (
+                          <span style={{ fontSize: '0.85rem', color: 'var(--accent)', fontWeight: '700' }}>受付中</span>
+                        )}
+                      </div>
+
+                      <h3 style={{ fontSize: '1.3rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', fontFamily: 'var(--font-serif)' }}>
+                        {formattedDate}
+                      </h3>
+                      
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
+                        <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
+                          <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '45px' }}>時間：</span>
+                          <span>{formattedTime}</span>
+                        </div>
+                        <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
+                          <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '45px' }}>場所：</span>
+                          <span style={{ color: 'var(--text-muted)' }}>
+                            {type === 'online' || type === 'オンライン' ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}付近`}
+                          </span>
+                        </div>
+                      </div>
+
+                      {isEnded ? (
+                        <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.8rem', fontSize: '0.95rem', background: '#f3f4f6', color: '#9ca3af', borderColor: '#d1d5db', justifyContent: 'center' }}>
+                          終了しました
+                        </button>
+                      ) : isFull ? (
+                        <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.8rem', fontSize: '0.95rem', opacity: 0.5, justifyContent: 'center' }}>
+                          満席
+                        </button>
+                      ) : (
+                        <Link href={`/apply?session=${session.id}`} className="btn btn-primary" style={{ width: '100%', padding: '0.8rem', fontSize: '0.95rem', justifyContent: 'center', fontWeight: '800' }}>
+                          申し込む
+                        </Link>
+                      )}
+                    </div>
+                  );
+                })
+              ) : (
+                <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', color: 'var(--text-muted)' }}>
+                  現在、予定されている勉強会はありません。
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </section>
