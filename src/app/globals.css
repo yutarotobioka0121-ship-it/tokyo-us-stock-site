@@ -315,7 +315,26 @@ button {
   .about-desc,
   .service-card p,
   .benefit-text p,
-  .seminar-cta-section .text-muted {
+  .seminar-cta-section .text-muted,
+  .seminar-page .feature-item p,
+  .seminar-page .faq-item p,
+  .seminar-page .faq-item h4,
+  .seminar-page .faq-item,
+  .seminar-page .timeline p,
+  .seminar-page .problem-card p {
+    text-align: left !important;
+  }
+  .seminar-page .feature-item,
+  .seminar-page .faq-item {
+    align-items: flex-start !important;
+  }
+  .seminar-page .faq-item > div {
+    align-items: flex-start !important;
+  }
+  .seminar-bio-card {
+    text-align: left !important;
+  }
+  .seminar-page .section-subtitle {
     text-align: left !important;
   }
   .section-title,

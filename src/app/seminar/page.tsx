@@ -58,7 +58,10 @@ export default async function SeminarPage() {
             <span className="segment">一生モノの米国株 投資勉強会</span>
           </h1>
           <p className="hero-subtitle mx-auto" style={{ maxWidth: '600px', marginBottom: '3rem', color: 'var(--text-muted)' }}>
-            カフェでお茶を飲むようにリラックスした雰囲気で、投資の「わからない」を「わかった」に変えませんか？
+            <span className="segment">カフェでお茶を飲むように</span>
+            <span className="segment">リラックスした雰囲気で、</span>
+            <span className="segment">投資の「わからない」を</span>
+            <span className="segment">「わかった」に変えませんか？</span>
           </p>
           <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '0 auto', aspectRatio: '16/9', position: 'relative' }}>
             <Image
@@ -269,7 +272,9 @@ export default async function SeminarPage() {
             </div>
           </div>
           <p className="text-center mt-10" style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--primary-dark)' }}>
-            そのお悩み、東京米国株クラブの勉強会で解決できます！
+            <span className="segment">そのお悩み、</span>
+            <span className="segment">東京米国株クラブの勉強会で</span>
+            <span className="segment">解決できます！</span>
           </p>
         </div>
       </section>
@@ -287,7 +292,15 @@ export default async function SeminarPage() {
               </div>
               <div>
                 <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', color: 'var(--primary-dark)' }}>リラックスして学べる少人数制の環境</h3>
-                <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>カフェでお茶をするような気軽な雰囲気で進行します。少人数制なので、分からないことがあればその場ですぐに質問できます。一人で参加される方も多いのでご安心ください。</p>
+                <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                  <span className="segment">カフェでお茶をするような</span>
+                  <span className="segment">気軽な雰囲気で進行します。</span>
+                  <span className="segment">少人数制なので、</span>
+                  <span className="segment">分からないことがあれば</span>
+                  <span className="segment">その場ですぐに質問できます。</span>
+                  <span className="segment">一人で参加される方も多いので</span>
+                  <span className="segment">ご安心ください。</span>
+                </p>
               </div>
             </div>
             <div className="feature-item" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center' }}>
@@ -296,7 +309,15 @@ export default async function SeminarPage() {
               </div>
               <div>
                 <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', color: 'var(--primary-dark)' }}>超初心者向けのカリキュラム</h3>
-                <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>難しい専門用語や複雑なチャート分析は極力使いません。投資の「キホン」から、ギャンブルにならない堅実な資産形成の考え方まで、ステップ・バイ・ステップで丁寧に解説します。</p>
+                <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                  <span className="segment">難しい専門用語や</span>
+                  <span className="segment">複雑なチャート分析は極力使いません。</span>
+                  <span className="segment">投資の「キホン」から、</span>
+                  <span className="segment">ギャンブルにならない</span>
+                  <span className="segment">堅実な資産形成の考え方まで、</span>
+                  <span className="segment">ステップ・バイ・ステップで</span>
+                  <span className="segment">丁寧に解説します。</span>
+                </p>
               </div>
             </div>
             <div className="feature-item" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', alignItems: 'center' }}>
@@ -305,7 +326,15 @@ export default async function SeminarPage() {
               </div>
               <div>
                 <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', color: 'var(--primary-dark)' }}>5年で1300%の実績に基づく「投資哲学」</h3>
-                <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>小手先のテクニックではなく、長く勝ち続けるための「マインドセット（考え方）」をお伝えします。相場に一喜一憂せず、安心して資産を増やしていくための土台を作ります。</p>
+                <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                  <span className="segment">小手先のテクニックではなく、</span>
+                  <span className="segment">長く勝ち続けるための</span>
+                  <span className="segment">「マインドセット（考え方）」を</span>
+                  <span className="segment">お伝えします。</span>
+                  <span className="segment">相場に一喜一憂せず、</span>
+                  <span className="segment">安心して資産を増やしていくための</span>
+                  <span className="segment">土台を作ります。</span>
+                </p>
               </div>
             </div>
           </div>
@@ -339,22 +368,27 @@ export default async function SeminarPage() {
             </div>
 
             {/* Bio */}
-            <div className="glass-card" style={{ padding: '2.5rem 2rem', width: '100%', textAlign: 'center' }}>
+            <div className="glass-card seminar-bio-card" style={{ padding: '2.5rem 2rem', width: '100%', textAlign: 'center' }}>
               <p style={{ color: 'var(--text-muted)', lineHeight: '2', fontSize: '1rem', marginBottom: '1.5rem' }}>
                 <span className="segment">2020年に投資をスタート。</span>
                 <span className="segment">しかし当初は投資とギャンブルの区別がつかず、</span>
                 <span className="segment">数十万円の損失を出す手痛い失敗を経験しました。</span>
               </p>
               <p style={{ color: 'var(--text-muted)', lineHeight: '2', fontSize: '1rem', marginBottom: '1.5rem' }}>
-                <span className="segment">「このままではいけない」と投資を基礎から真剣に学び直し、</span>
-                <span className="segment">長期投資の本質を理解してからは成績が一変。</span>
+                <span className="segment">「このままではいけない」と</span>
+                <span className="segment">投資を基礎から真剣に学び直し、</span>
+                <span className="segment">長期投資の本質を理解してからは</span>
+                <span className="segment">成績が一変。</span>
                 <span className="segment" style={{ fontWeight: '800', color: 'var(--primary)' }}>現在の投資成績は1300%以上。</span>
               </p>
               <p style={{ color: 'var(--text-muted)', lineHeight: '2', fontSize: '1rem', marginBottom: '1.5rem' }}>
-                <span className="segment">サラリーマンとして働きながら事業も営む多忙な日々の中で、</span>
-                <span className="segment">1日の投資にかける時間は平均1時間未満。</span>
+                <span className="segment">サラリーマンとして働きながら</span>
+                <span className="segment">事業も営む多忙な日々の中で、</span>
+                <span className="segment">1日の投資にかける時間は</span>
+                <span className="segment">平均1時間未満。</span>
                 <span className="segment">長期投資のスタイルにより、</span>
-                <span className="segment">時間的にも経済的にも余裕のある生活を実現しています。</span>
+                <span className="segment">時間的にも経済的にも</span>
+                <span className="segment">余裕のある生活を実現しています。</span>
               </p>
               <p style={{ color: 'var(--text-muted)', lineHeight: '2', fontSize: '1rem' }}>
                 <span className="segment">「かつての自分のように、</span>
@@ -393,19 +427,40 @@ export default async function SeminarPage() {
           <div className="timeline" style={{ maxWidth: '600px', margin: '0 auto', position: 'relative' }}>
             <div style={{ padding: '2rem 1.5rem', borderTop: '4px solid var(--primary)', marginBottom: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px' }}>
               <h4 style={{ color: 'var(--primary)', fontWeight: '800', marginBottom: '0.8rem' }}>1. 自己紹介</h4>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>まずは緊張をほぐすため、参加者同士で簡単な自己紹介を行います。</p>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
+                <span className="segment">まずは緊張をほぐすため、</span>
+                <span className="segment">参加者同士で簡単な自己紹介を</span>
+                <span className="segment">行います。</span>
+              </p>
             </div>
             <div style={{ padding: '2rem 1.5rem', borderTop: '4px solid var(--primary)', marginBottom: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px' }}>
               <h4 style={{ color: 'var(--primary)', fontWeight: '800', marginBottom: '0.8rem' }}>2. 投資とギャンブルの違いとは？</h4>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>なぜ多くの人が投資で失敗してしまうのか？資産形成において最も重要な「マインドセット」について解説します。</p>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
+                <span className="segment">なぜ多くの人が投資で</span>
+                <span className="segment">失敗してしまうのか？</span>
+                <span className="segment">資産形成において最も重要な</span>
+                <span className="segment">「マインドセット」について</span>
+                <span className="segment">解説します。</span>
+              </p>
             </div>
             <div style={{ padding: '2rem 1.5rem', borderTop: '4px solid var(--primary)', marginBottom: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px' }}>
               <h4 style={{ color: 'var(--primary)', fontWeight: '800', marginBottom: '0.8rem' }}>3. なぜ「米国株」なのか？</h4>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>世界経済の中心である米国の強さと、過去のデータに基づいた長期投資の優位性について分かりやすく説明します。</p>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
+                <span className="segment">世界経済の中心である</span>
+                <span className="segment">米国の強さと、</span>
+                <span className="segment">過去のデータに基づいた</span>
+                <span className="segment">長期投資の優位性について</span>
+                <span className="segment">分かりやすく説明します。</span>
+              </p>
             </div>
             <div style={{ padding: '2rem 1.5rem', borderTop: '4px solid var(--primary)', background: 'var(--bg-warm)', borderRadius: '16px' }}>
               <h4 style={{ color: 'var(--primary)', fontWeight: '800', marginBottom: '0.8rem' }}>4. 質疑応答・交流タイム</h4>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>疑問に思ったことや、これから投資を始める上での不安など、何でも気軽にご質問ください。</p>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
+                <span className="segment">疑問に思ったことや、</span>
+                <span className="segment">これから投資を始める上での</span>
+                <span className="segment">不安など、</span>
+                <span className="segment">何でも気軽にご質問ください。</span>
+              </p>
             </div>
           </div>
         </div>
@@ -427,7 +482,14 @@ export default async function SeminarPage() {
               </h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
                 <span style={{ color: 'var(--text-muted)', padding: '0.2rem 0.8rem', fontWeight: '800', fontSize: '1.1rem' }}>A</span>
-                <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>もちろんです！本勉強会は「これから投資を始めたい」「基礎から学び直したい」という方を主な対象としています。専門用語は極力使わず、分かりやすく丁寧にお伝えします。</p>
+                <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
+                  <span className="segment">もちろんです！</span>
+                  <span className="segment">本勉強会は「これから投資を始めたい」</span>
+                  <span className="segment">「基礎から学び直したい」という方を</span>
+                  <span className="segment">主な対象としています。</span>
+                  <span className="segment">専門用語は極力使わず、</span>
+                  <span className="segment">分かりやすく丁寧にお伝えします。</span>
+                </p>
               </div>
             </div>
             <div className="faq-item glass-card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
@@ -437,7 +499,14 @@ export default async function SeminarPage() {
               </h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
                 <span style={{ color: 'var(--text-muted)', padding: '0.2rem 0.8rem', fontWeight: '800', fontSize: '1.1rem' }}>A</span>
-                <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>参加費は無料です（対面の場合はご自身のカフェ代のみご負担ください）。強引な勧誘や金融商品の販売は一切行っておりませんので、安心してご参加ください。</p>
+                <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
+                  <span className="segment">参加費は無料です</span>
+                  <span className="segment">（対面の場合はご自身のカフェ代のみ</span>
+                  <span className="segment">ご負担ください）。</span>
+                  <span className="segment">強引な勧誘や金融商品の販売は</span>
+                  <span className="segment">一切行っておりませんので、</span>
+                  <span className="segment">安心してご参加ください。</span>
+                </p>
               </div>
             </div>
             <div className="faq-item glass-card" style={{ padding: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
@@ -447,7 +516,12 @@ export default async function SeminarPage() {
               </h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'center' }}>
                 <span style={{ color: 'var(--text-muted)', padding: '0.2rem 0.8rem', fontWeight: '800', fontSize: '1.1rem' }}>A</span>
-                <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>はい、参加者の多くがお一人での参加です。少人数で和やかな雰囲気ですので、安心してご参加いただけます。</p>
+                <p style={{ color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
+                  <span className="segment">はい、参加者の多くが</span>
+                  <span className="segment">お一人での参加です。</span>
+                  <span className="segment">少人数で和やかな雰囲気ですので、</span>
+                  <span className="segment">安心してご参加いただけます。</span>
+                </p>
               </div>
             </div>
           </div>
