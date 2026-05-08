@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "tokyo-us-stock-site.vercel.app"
+        }
+      ],
+      "destination": "https://tokyo-us-stock.com/$1",
+      "statusCode": 301
+    }
+  ]
+}
