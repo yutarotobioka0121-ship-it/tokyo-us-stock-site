@@ -52,7 +52,10 @@ export default async function SeminarPage() {
       {/* Hero Section */}
       <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '120px 0 60px', textAlign: 'center' }}>
         <div className="container">
-          <span className="section-tag">BEGINNER'S SEMINAR</span>
+          <span className="section-tag">
+            <span className="sr-only">初心者向け米国株投資勉強会：</span>
+            BEGINNER'S SEMINAR
+          </span>
           <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
             <span className="segment">初心者から基礎を学ぶ、</span>
             <span className="segment">一生モノの米国株 投資勉強会</span>
@@ -345,7 +348,10 @@ export default async function SeminarPage() {
       <section className="section-padding" style={{ background: 'white' }}>
         <div className="container">
           <div className="section-header">
-            <span className="section-tag">INSTRUCTOR</span>
+            <span className="section-tag">
+              <span className="sr-only">米国株長期投資サークル講師紹介：</span>
+              INSTRUCTOR
+            </span>
             <h2 className="section-title">講師紹介</h2>
           </div>
           <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem' }}>
@@ -525,6 +531,82 @@ export default async function SeminarPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Local SEO Section */}
+      <section className="local-seo-section" style={{ background: 'var(--bg-warm)', padding: '5rem 0' }}>
+        <div className="container">
+          <div className="section-header" style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <span className="section-tag" style={{ display: 'inline-block', background: 'var(--primary-light)', color: 'var(--primary-dark)', padding: '0.2rem 1rem', borderRadius: '50px', fontSize: '0.85rem', fontWeight: '800', marginBottom: '1rem', letterSpacing: '2px' }}>REAL COMMUNITY</span>
+            <h2 className="section-title" style={{ fontSize: 'clamp(1.8rem, 4vw, 2.3rem)', fontWeight: '800', color: 'var(--text-main)', marginBottom: '1.2rem', textWrap: 'balance' }}>
+              都内・神奈川近郊での「リアル対面」勉強会
+            </h2>
+            <p className="section-subtitle" style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)', color: 'var(--text-muted)', lineHeight: '1.8', maxWidth: '700px', margin: '0 auto' }}>
+              <span className="segment">ネットの情報だけでは不安な方へ。</span>
+              <span className="segment">川崎、新宿、渋谷、品川などのカフェやレンタルスペースで、</span>
+              <span className="segment">顔を合わせてアットホームに学べる環境を用意しています。</span>
+            </p>
+          </div>
+
+          <div className="location-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', marginTop: '3rem' }}>
+            <div className="location-card glass-card seminar-center" style={{ padding: '2rem', background: 'white', borderRadius: '16px', boxShadow: 'var(--shadow-soft)' }}>
+              <h3 style={{ fontSize: '1.25rem', color: 'var(--primary-dark)', fontWeight: '800', marginBottom: '1rem' }}>川崎エリア</h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
+                <span className="segment">川崎駅周辺の落ち着いたカフェや</span>
+                <span className="segment">レンタルスペースにて定期開催。</span>
+                <span className="segment">少人数で質問しやすい環境が</span>
+                <span className="segment">大変好評です。</span>
+              </p>
+            </div>
+
+            <div className="location-card glass-card seminar-center" style={{ padding: '2rem', background: 'white', borderRadius: '16px', boxShadow: 'var(--shadow-soft)' }}>
+              <h3 style={{ fontSize: '1.25rem', color: 'var(--primary-dark)', fontWeight: '800', marginBottom: '1rem' }}>新宿・渋谷エリア</h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
+                <span className="segment">アクセス抜群の主要駅周辺で開催。</span>
+                <span className="segment">お仕事帰りや土日の隙間時間に</span>
+                <span className="segment">効率よく学びたい20代・30代の</span>
+                <span className="segment">会社員の方に人気です。</span>
+              </p>
+            </div>
+
+            <div className="location-card glass-card seminar-center" style={{ padding: '2rem', background: 'white', borderRadius: '16px', boxShadow: 'var(--shadow-soft)' }}>
+              <h3 style={{ fontSize: '1.25rem', color: 'var(--primary-dark)', fontWeight: '800', marginBottom: '1rem' }}>品川エリア</h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0 }}>
+                <span className="segment">落ち着いた雰囲気のスペースで開催。</span>
+                <span className="segment">将来に備えて堅実に米国株やNISAの</span>
+                <span className="segment">勉強を始めたい、</span>
+                <span className="segment">志の高いビジネスパーソンが集まります。</span>
+              </p>
+            </div>
+          </div>
+
+          {/* Local Schema.org Structure (JSON-LD) */}
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EducationalOrganization",
+            "name": "東京米国株クラブ",
+            "description": "20代〜30代の初心者に向けた米国株・長期投資の対面勉強会・サークル",
+            "address": {
+              "@type": "PostalAddress",
+              "addressRegion": "東京都",
+              "addressLocality": "港区・新宿区・渋谷区・川崎市"
+            },
+            "areaServed": ["東京都", "神奈川県"],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "投資勉強会・キャッシュフローゲーム会",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "初心者向け米国株投資勉強会"
+                  }
+                }
+              ]
+            }
+          })}} />
         </div>
       </section>
 
