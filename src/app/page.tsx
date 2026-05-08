@@ -53,16 +53,14 @@ export default async function Home() {
             <div className="featured-content slide-up">
               <span className="featured-tag">SPECIAL WORKSHOP</span>
               <h2 className="featured-title">
-                <span className="segment">20〜30代から始める、</span>
-                <span className="segment">もう迷わない</span>
-                <span className="segment">「正しい米国株の長期投資」勉強会</span>
+                <span className="segment">米国株投資勉強会</span>
               </h2>
               <h3 className="featured-subtitle-line">
-                <span className="segment">「独学でうまくいかなかった方」も安心。</span>
-                <span className="segment">専門用語なしのロードマップで</span>
-                <span className="segment">一から学べる。</span>
+                <span className="segment">20〜30代から始める、</span>
+                <span className="segment">もう迷わない「正しい米国株の長期投資」</span>
               </h3>
               <p className="featured-desc">
+                <span className="featured-lead-text">「独学でうまくいかなかった方」も安心。専門用語なしのロードマップで一から学べる。</span>
                 「将来のために投資を始めたいけれど、何から手をつければいいか分からない」「ネットの情報で買ってみたけれど、損をして怖くなってしまった……」そんな20〜30代の方へ。<br className="sp-hide" />
                 当クラブでは、5年で1300%以上の運用実績を持つ講師が、投資の「本当の基礎」を分かりやすく整理してお伝えします。難しい数式や専門用語は一切使いません。失敗する理由が理解できれば、不安は「楽しさ」に変わります。焦らず、一歩ずつ、安心できる資産作りの土台を一緒に作りましょう。
               </p>
