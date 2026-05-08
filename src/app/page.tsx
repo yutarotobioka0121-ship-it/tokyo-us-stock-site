@@ -103,8 +103,8 @@ export default async function Home() {
       <section className="section-padding" style={{ background: 'var(--bg-white)', textAlign: 'center' }}>
         <div className="container">
           <div className="glass-card" style={{ padding: '4rem 2rem', maxWidth: '800px', margin: '0 auto', border: '2px solid var(--primary-light)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <span className="section-tag" style={{ fontSize: '1.1rem', letterSpacing: '1px' }}>初心者向け米国株式投資 勉強会</span>
-            <h2 className="section-title" style={{ marginBottom: '1.5rem', wordBreak: 'keep-all' }}>勉強会のカリキュラムや詳細はこちら</h2>
+            <h2 className="section-title" style={{ fontSize: 'clamp(2.2rem, 6vw, 2.8rem)', color: 'var(--primary)', fontWeight: '900', marginBottom: '0.8rem', wordBreak: 'keep-all' }}>米国株式投資勉強会</h2>
+            <p style={{ fontSize: 'clamp(1.1rem, 3.5vw, 1.4rem)', color: 'var(--text-main)', fontWeight: '700', marginBottom: '2rem', wordBreak: 'keep-all' }}>勉強会のカリキュラムや詳細はこちら</p>
             <p className="text-muted" style={{ marginBottom: '2.5rem', fontSize: '1.1rem', lineHeight: '1.8', wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
               当クラブの勉強会は、投資未経験の方でも安心してご参加いただけるよう、<br className="sp-hide" />
               分かりやすく丁寧な解説を心がけています。<br />
