@@ -314,7 +314,8 @@ button {
   .featured-desc,
   .about-desc,
   .service-card p,
-  .benefit-text p {
+  .benefit-text p,
+  .seminar-cta-section .text-muted {
     text-align: left;
   }
   .section-title,

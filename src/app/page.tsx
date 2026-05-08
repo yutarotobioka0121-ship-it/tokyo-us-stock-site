@@ -134,7 +134,7 @@ export default async function Home() {
       </section>
       
       {/* Seminar CTA Section */}
-      <section className="section-padding" style={{ background: 'var(--bg-white)', textAlign: 'center' }}>
+      <section className="section-padding seminar-cta-section" style={{ background: 'var(--bg-white)', textAlign: 'center' }}>
         <div className="container">
           <div className="glass-card" style={{ padding: '4rem 2rem', maxWidth: '800px', margin: '0 auto', border: '2px solid var(--primary-light)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <h2 className="section-title" style={{ fontSize: 'clamp(2.2rem, 6vw, 2.8rem)', color: 'var(--primary)', fontWeight: '900', marginBottom: '0.8rem' }}>
@@ -146,11 +146,14 @@ export default async function Home() {
             </p>
             <p className="text-muted" style={{ marginBottom: '2.5rem', fontSize: '1.1rem', lineHeight: '1.8', overflowWrap: 'break-word' }}>
               <span className="segment">当クラブの勉強会は、</span>
-              <span className="segment">投資未経験の方でも安心してご参加いただけるよう、</span>
-              <span className="segment">分かりやすく丁寧な解説を心がけています。</span><br />
+              <span className="segment">投資未経験の方でも</span>
+              <span className="segment">安心してご参加いただけるよう、</span>
+              <span className="segment">分かりやすく丁寧な解説を</span>
+              <span className="segment">心がけています。</span><br />
               <span className="segment">具体的なカリキュラム内容や、</span>
               <span className="segment">開催スケジュールの確認、</span>
-              <span className="segment">お申し込みは詳細ページをご覧ください。</span>
+              <span className="segment">お申し込みは</span>
+              <span className="segment">詳細ページをご覧ください。</span>
             </p>
             <Link href="/seminar" className="btn btn-primary" style={{ fontSize: '1.2rem', padding: '1.2rem 3rem', width: '100%', maxWidth: '400px', justifyContent: 'center' }}>
               勉強会の詳細を見る <ArrowRight size={20} style={{ marginLeft: '0.5rem' }} />
@@ -183,14 +186,19 @@ export default async function Home() {
               </h2>
               <p className="about-desc">
                 <span className="segment">米国株投資を始めて約5年。</span>
-                <span className="segment">私は1300%以上という圧倒的な実績を出す中で、</span>
-                <span className="segment">多くの成功と失敗を経験してきました。</span>
+                <span className="segment">私は1300%以上という</span>
+                <span className="segment">圧倒的な実績を出す中で、</span>
+                <span className="segment">多くの成功と失敗を</span>
+                <span className="segment">経験してきました。</span>
                 <span className="segment">その中で確信したのは、</span>
-                <span className="segment">投資の成果を分けるのは分析手法ではなく、</span>
-                <span className="segment">長期的な「考え方（マインドセット）」であるということです。</span>
+                <span className="segment">投資の成果を分けるのは</span>
+                <span className="segment">分析手法ではなく、</span>
+                <span className="segment">長期的な「考え方（マインドセット）」</span>
+                <span className="segment">であるということです。</span>
                 <span className="segment">初心者の方が迷わず、</span>
                 <span className="segment">着実に資産を築けるよう、</span>
-                <span className="segment">実体験に基づいた本物の知見を共有します。</span>
+                <span className="segment">実体験に基づいた</span>
+                <span className="segment">本物の知見を共有します。</span>
               </p>
               <div className="about-stats">
                 <div className="stat-item">
