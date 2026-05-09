@@ -35,7 +35,7 @@ export default async function Home() {
             <div className="hero-image-right slide-up delay-1">
               <div className="hero-image-wrapper glass-card">
                 <Image
-                  src="/hero.jpg"
+                  src="/hero.png"
                   alt="米国株 投資勉強会"
                   width={600}
                   height={450}
