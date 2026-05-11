@@ -90,9 +90,20 @@ export async function getPostBySlug(slug: string) {
     return null;
   }
 
-  const blocks = await notion.blocks.children.list({
-    block_id: page.id,
-  });
+  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+  const blocks: any[] = [];
+  let hasMore = true;
+  let cursor: string | undefined = undefined;
+
+  while (hasMore) {
+    const response = await notion.blocks.children.list({
+      block_id: page.id,
+      start_cursor: cursor,
+    });
+    blocks.push(...response.results);
+    hasMore = response.has_more;
+    cursor = response.next_cursor ?? undefined;
+  }
 
   const props = (page as any).properties;
 
@@ -101,6 +112,6 @@ export async function getPostBySlug(slug: string) {
     title: props.Title?.title?.[0]?.plain_text || 'Untitled',
     date: props.Date?.date?.start || '',
     cover: (page as any).cover?.external?.url || (page as any).cover?.file?.url || null,
-    content: blocks.results,
+    content: blocks,
   };
 }
