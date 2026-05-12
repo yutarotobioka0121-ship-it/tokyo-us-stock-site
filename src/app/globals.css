@@ -309,6 +309,11 @@ button {
     white-space: normal;
     margin-bottom: 0.8rem;
   }
+  .hero-title .segment-accent {
+    font-size: clamp(1.15rem, 4.5vw, 1.4rem);
+    line-height: 1.55;
+    display: block;
+  }
 }
 
 /* Mobile text readability: left-align long paragraphs, balance headings */
