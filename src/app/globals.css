@@ -1414,3 +1414,41 @@ button {
   }
 }
 
+/* Philosophy Page (Mission) Alignment Fix */
+.philosophy-page {
+  text-align: left;
+}
+
+.philosophy-page .post-header {
+  text-align: left;
+}
+
+.philosophy-page .mission-box {
+  text-align: left;
+}
+
+.philosophy-page .mission-icon {
+  margin-left: 0;
+}
+
+.philosophy-page .pillar-card {
+  text-align: left;
+  align-items: flex-start;
+}
+
+.philosophy-page .pillar-icon {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.philosophy-page .pillar-tag {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .philosophy-page .mission-box {
+    text-align: left;
+  }
+}
+
+
