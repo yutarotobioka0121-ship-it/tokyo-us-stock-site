@@ -1423,6 +1423,15 @@ button {
   text-align: left;
 }
 
+.philosophy-page .section-header {
+  text-align: left;
+}
+
+.philosophy-page .section-subtitle {
+  margin-left: 0;
+  margin-right: auto;
+}
+
 .philosophy-page .mission-box {
   text-align: left;
 }
