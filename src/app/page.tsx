@@ -179,7 +179,7 @@ export default async function Home() {
               </div>
             </div>
             <div className="about-text">
-              <span className="section-tag">MISSION</span>
+              <span className="section-tag">PROFILE</span>
               <h2 className="section-title">
                 <span className="segment">情熱と実績をもって、</span>
                 <span className="segment">投資家の第一歩を支える。</span>
@@ -211,7 +211,7 @@ export default async function Home() {
                 </div>
               </div>
               <Link href="/about" className="btn btn-link">
-                コミュニティの詳細を見る <ArrowRight size={18} />
+                代表者の自己紹介を見る <ArrowRight size={18} />
               </Link>
             </div>
           </div>

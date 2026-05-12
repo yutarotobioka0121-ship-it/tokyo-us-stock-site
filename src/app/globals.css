@@ -299,11 +299,13 @@ button {
 
 @media (max-width: 768px) {
   .segment {
+    display: inline;
     white-space: normal;
     word-break: normal;
     overflow-wrap: break-word;
   }
   .hero-title .block-segment {
+    display: inline;
     white-space: normal;
   }
 }
