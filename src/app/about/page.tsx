@@ -4,10 +4,10 @@ import Link from "next/link";
 
 export default function AboutPage() {
   return (
-    <div className="about-page">
+    <div className="about-page profile-page">
       <section className="post-header">
         <div className="container">
-          <Link href="/" className="btn-link" style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <Link href="/" className="btn-link" style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
             <ArrowLeft size={18} style={{ marginRight: '0.5rem' }} /> トップへ戻る
           </Link>
           <span className="section-tag">ABOUT OUR COMMUNITY</span>

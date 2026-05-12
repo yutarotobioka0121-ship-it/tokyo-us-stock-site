@@ -1382,3 +1382,35 @@ button {
     display: block !important;
   }
 }
+
+/* Profile Page (About) Alignment Fix */
+.profile-page {
+  text-align: left;
+}
+
+.profile-page .post-header {
+  text-align: left;
+}
+
+.profile-page .skills-list {
+  width: 100%;
+}
+
+.profile-page .skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+@media (max-width: 992px) {
+  .profile-page .about-grid {
+    text-align: left;
+  }
+  .profile-page .about-content-text {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
