@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Users, Target, BookOpen, Coffee } from "lucide-react";
 import { getSessions } from "@/lib/microcms";
-import { formatSessionDate, formatSessionTime } from "@/lib/utils";
+import { formatSessionDate, formatSessionTime, getSessionStartDateTime } from "@/lib/utils";
 
 export const dynamic = 'force-dynamic';
 
@@ -110,12 +110,30 @@ export default async function SeminarPage() {
                     const formattedTime = formatSessionTimeRange(session.time || session.date);
                     
                     const now = new Date();
-                    // Date compare. 終了判定
-                    const sessionDateTime = new Date(session.time || session.date);
-                    const isPast = sessionDateTime < now;
+                    const startDateTime = getSessionStartDateTime(session.date, session.time || session.date);
+                    const isPast = startDateTime < now;
+
+                    // 申込期限判定
+                    let isDeadlinePassed = false;
+                    if (type === 'online' || type === 'オンライン') {
+                      // オンライン：開催時間の1時間前まで
+                      const deadline = new Date(startDateTime.getTime() - 60 * 60 * 1000);
+                      isDeadlinePassed = now > deadline;
+                    } else {
+                      // 対面：開催日前日の21時まで
+                      const prevDay = new Date(startDateTime.getTime() - 24 * 60 * 60 * 1000);
+                      const prevDayFormatted = new Intl.DateTimeFormat('ja-JP', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                        timeZone: 'Asia/Tokyo'
+                      }).format(prevDay).replace(/\//g, '-');
+                      const deadline = new Date(`${prevDayFormatted}T21:00:00+09:00`);
+                      isDeadlinePassed = now > deadline;
+                    }
 
                     const isFull = status === 'full' || status === '満席';
-                    const isEnded = isPast || status === '受付終了';
+                    const isEnded = isPast || status === '受付終了' || isDeadlinePassed;
 
                     return (
                       <tr key={session.id} style={{ borderBottom: index === sortedSessions.length - 1 ? 'none' : '1px solid var(--border)', background: isPast ? '#f9fafb' : 'white', opacity: isPast ? 0.6 : 1 }}>
@@ -132,7 +150,7 @@ export default async function SeminarPage() {
                         <td style={{ padding: '1.2rem 1rem' }}>
                           {isEnded ? (
                             <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', background: '#f3f4f6', color: '#9ca3af', borderColor: '#d1d5db', whiteSpace: 'nowrap' }}>
-                              終了しました
+                              受付終了
                             </button>
                           ) : isFull ? (
                             <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', opacity: 0.5, whiteSpace: 'nowrap' }}>
@@ -169,11 +187,30 @@ export default async function SeminarPage() {
                   const formattedTime = formatSessionTimeRange(session.time || session.date);
                   
                   const now = new Date();
-                  const sessionDateTime = new Date(session.time || session.date);
-                  const isPast = sessionDateTime < now;
+                  const startDateTime = getSessionStartDateTime(session.date, session.time || session.date);
+                  const isPast = startDateTime < now;
+
+                  // 申込期限判定
+                  let isDeadlinePassed = false;
+                  if (type === 'online' || type === 'オンライン') {
+                    // オンライン：開催時間の1時間前まで
+                    const deadline = new Date(startDateTime.getTime() - 60 * 60 * 1000);
+                    isDeadlinePassed = now > deadline;
+                  } else {
+                    // 対面：開催日前日の21時まで
+                    const prevDay = new Date(startDateTime.getTime() - 24 * 60 * 60 * 1000);
+                    const prevDayFormatted = new Intl.DateTimeFormat('ja-JP', {
+                      year: 'numeric',
+                      month: '2-digit',
+                      day: '2-digit',
+                      timeZone: 'Asia/Tokyo'
+                    }).format(prevDay).replace(/\//g, '-');
+                    const deadline = new Date(`${prevDayFormatted}T21:00:00+09:00`);
+                    isDeadlinePassed = now > deadline;
+                  }
 
                   const isFull = status === 'full' || status === '満席';
-                  const isEnded = isPast || status === '受付終了';
+                  const isEnded = isPast || status === '受付終了' || isDeadlinePassed;
 
                   return (
                     <div 
@@ -221,7 +258,7 @@ export default async function SeminarPage() {
 
                       {isEnded ? (
                         <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.8rem', fontSize: '0.95rem', background: '#f3f4f6', color: '#9ca3af', borderColor: '#d1d5db', justifyContent: 'center' }}>
-                          終了しました
+                          受付終了
                         </button>
                       ) : isFull ? (
                         <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.8rem', fontSize: '0.95rem', opacity: 0.5, justifyContent: 'center' }}>
