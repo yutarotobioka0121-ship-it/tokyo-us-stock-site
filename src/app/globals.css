@@ -305,8 +305,9 @@ button {
     overflow-wrap: break-word;
   }
   .hero-title .block-segment {
-    display: inline;
+    display: block;
     white-space: normal;
+    margin-bottom: 0.8rem;
   }
 }
 
