@@ -1460,4 +1460,42 @@ button {
   }
 }
 
+/* Responsive Image Visibility (Home Page) */
+.hero-image-mobile {
+  display: none;
+}
+.hero-image-desktop {
+  display: block;
+}
+
+.featured-image-mobile {
+  display: none;
+}
+.featured-image-desktop {
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .hero-image-mobile {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 1.5rem auto 2.5rem !important;
+  }
+  .hero-image-desktop {
+    display: none !important;
+  }
+  
+  .featured-image-mobile {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 1.5rem auto 2.5rem !important;
+  }
+  .featured-image-desktop {
+    display: none !important;
+  }
+}
+
+
 

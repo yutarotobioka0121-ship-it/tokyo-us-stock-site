@@ -20,6 +20,22 @@ export default async function Home() {
                   <span className="segment">デザインする。</span>
                 </span>
               </h1>
+
+              {/* スマホ用Hero画像：タイトルの直下に配置 */}
+              <div className="hero-image-mobile">
+                <div className="hero-image-wrapper glass-card">
+                  <Image
+                    src="/hero.png"
+                    alt="米国株 投資勉強会"
+                    width={600}
+                    height={450}
+                    style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+                    priority
+                    className="hero-image"
+                  />
+                </div>
+              </div>
+
               <p className="hero-subtitle">
                 <span className="segment">株式投資をギャンブルにしない。</span>
                 <span className="segment">長期投資で成功し続ける人と、</span>
@@ -32,7 +48,8 @@ export default async function Home() {
                 </Link>
               </div>
             </div>
-            <div className="hero-image-right slide-up delay-1">
+            {/* PC用Hero画像 */}
+            <div className="hero-image-right hero-image-desktop slide-up delay-1">
               <div className="hero-image-wrapper glass-card">
                 <Image
                   src="/hero.png"
@@ -55,6 +72,21 @@ export default async function Home() {
           <div className="featured-grid">
             <div className="featured-content slide-up">
               <span className="featured-tag">SPECIAL WORKSHOP</span>
+
+              {/* スマホ用Featured画像：Special Workshopの直下に配置 */}
+              <div className="featured-image-mobile">
+                <div className="featured-image-wrapper" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)' }}>
+                  <Image
+                    src="/workshop.png"
+                    alt="Investment Workshop"
+                    width={600}
+                    height={600}
+                    style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+                    className="featured-image"
+                  />
+                </div>
+              </div>
+
               <h2 className="featured-title">
                 <span className="segment">米国株投資勉強会</span>
               </h2>
@@ -117,7 +149,8 @@ export default async function Home() {
 
             </div>
             
-            <div className="featured-image-container slide-up delay-1">
+            {/* PC用Featured画像 */}
+            <div className="featured-image-container featured-image-desktop slide-up delay-1">
               <div className="featured-image-wrapper">
                 <Image
                   src="/workshop.png"
