@@ -50,21 +50,19 @@ export default async function SeminarPage() {
   return (
     <div className="seminar-page" style={{ overflowWrap: 'break-word' }}>
       {/* Hero Section */}
-      <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '120px 0 60px', textAlign: 'center' }}>
+      <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '120px 0 60px', textAlign: 'left' }}>
         <div className="container">
-          <span className="section-tag">
+          <span className="section-tag" style={{ display: 'inline-block', textAlign: 'left' }}>
             <span className="sr-only">初心者向け米国株投資勉強会：</span>
             BEGINNER'S SEMINAR
           </span>
-          <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
+          <h1 className="post-title" style={{ marginBottom: '1.5rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3' }}>
             <span className="segment">初心者から基礎を学ぶ、</span>
             <span className="segment">一生モノの米国株 投資勉強会</span>
           </h1>
-          <p className="hero-subtitle mx-auto" style={{ maxWidth: '600px', marginBottom: '3rem', color: 'var(--text-muted)' }}>
-            <span className="segment">カフェでお茶を飲むように</span>
-            <span className="segment">リラックスした雰囲気で、</span>
-            <span className="segment">投資の「わからない」を</span>
-            <span className="segment">「わかった」に変えませんか？</span>
+          <p className="hero-subtitle" style={{ maxWidth: '600px', marginBottom: '3rem', color: 'var(--text-muted)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)' }}>
+            <span className="segment">カフェでお茶を飲むようにリラックスした雰囲気で、</span>
+            <span className="segment">投資の「わからない」を「わかった」に変えませんか？</span>
           </p>
           <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '0 auto', aspectRatio: '16/9', position: 'relative' }}>
             <Image
