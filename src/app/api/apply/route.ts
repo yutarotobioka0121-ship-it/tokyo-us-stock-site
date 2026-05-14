@@ -26,9 +26,9 @@ export async function POST(request: Request) {
       if (isZoom) {
         sessionDetails = `
 ■Zoom参加情報
-URL: 【固定のZoom URLをここに記載】
-ミーティングID: 【固定のミーティングIDをここに記載】
-パスコード: 【固定のパスコードをここに記載】
+URL: https://us06web.zoom.us/j/9612252694?pwd=SWp5MGxTUm1SVmhTcjVWVnlqY3BQdz09&omn=84511369538
+ミーティングID: 961 225 2694
+パスコード: 1234
 `;
       } else {
         sessionDetails = `
