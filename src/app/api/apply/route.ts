@@ -26,9 +26,9 @@ export async function POST(request: Request) {
       if (isZoom) {
         sessionDetails = `
 ■Zoom参加情報
-URL: ${session.zoomUrl || '別途ご連絡いたします'}
-ミーティングID: ${session.zoomId || '別途ご連絡いたします'}
-パスコード: ${session.zoomPassword || '別途ご連絡いたします'}
+URL: 【固定のZoom URLをここに記載】
+ミーティングID: 【固定のミーティングIDをここに記載】
+パスコード: 【固定のパスコードをここに記載】
 `;
       } else {
         sessionDetails = `
