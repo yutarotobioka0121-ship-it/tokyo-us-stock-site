@@ -14,6 +14,9 @@ export interface StudySession {
   type: string | string[];
   status: string | string[];
   location?: string;  // Approximate station name for offline sessions
+  zoomUrl?: string;
+  zoomId?: string;
+  zoomPassword?: string;
   isFeatured?: boolean;
   createdAt: string;
   updatedAt: string;

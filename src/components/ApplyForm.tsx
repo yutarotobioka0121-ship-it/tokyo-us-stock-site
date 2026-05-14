@@ -29,11 +29,17 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
     }
 
     try {
-      const queryParams = new URLSearchParams(data as any).toString();
-      await fetch(`${gasUrl}?${queryParams}`, {
+      const response = await fetch('/api/apply', {
         method: 'POST',
-        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit');
+      }
       
       setStatus('success');
       (e.target as HTMLFormElement).reset();
@@ -59,9 +65,7 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
   }
 
   const selectedSession = sessions.find(s => s.id === selectedSessionId);
-  const defaultSelectValue = selectedSession 
-    ? `${formatSessionDate(selectedSession.date)} ${formatSessionTime(selectedSession.date)}` 
-    : "";
+  const defaultSelectValue = selectedSession ? selectedSession.id : "";
 
   return (
     <form onSubmit={handleSubmit} className="apply-form">
@@ -81,9 +85,9 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
             const type = Array.isArray(session.type) ? session.type[0] : session.type;
             const isOffline = type !== 'online' && type !== 'オンライン';
             return (
-              <option key={session.id} value={`${formatSessionDate(session.date)} ${formatSessionTime(session.date)}`}>
+              <option key={session.id} value={session.id}>
                 {formatSessionDate(session.date)} {formatSessionTime(session.date)}〜
-                {isOffline && session.location ? ` (${session.location}付近)` : ''}
+                {isOffline && session.location ? ` (${session.location})` : ''}
                 {isOffline ? ' [対面]' : ' [オンライン]'}
               </option>
             );
