@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { getSessions } from '@/lib/microcms';
 import { formatSessionDate, formatSessionTime } from '@/lib/utils';
+import { addCustomerToNotion } from '@/lib/notion';
 
 export async function POST(request: Request) {
   try {
@@ -38,6 +39,15 @@ ${session.location || '都内近郊'}
 `;
       }
     }
+
+    // Notionへ顧客データを登録
+    await addCustomerToNotion({
+      name,
+      email,
+      type: '勉強会申込',
+      subject: eventString,
+      message: message || '',
+    });
 
     // GASへの転送は廃止
 

@@ -115,3 +115,64 @@ export async function getPostBySlug(slug: string) {
     content: blocks,
   };
 }
+
+export async function addCustomerToNotion(data: {
+  name: string;
+  email: string;
+  type: string;
+  subject: string;
+  message: string;
+}) {
+  const CUSTOMER_DB_ID = process.env.NOTION_CUSTOMER_DB_ID;
+  if (!CUSTOMER_DB_ID) {
+    console.warn('NOTION_CUSTOMER_DB_ID is not configured. Customer will not be saved to Notion.');
+    return null;
+  }
+
+  try {
+    const response = await notion.pages.create({
+      parent: { database_id: CUSTOMER_DB_ID },
+      properties: {
+        'お名前': {
+          title: [
+            {
+              text: {
+                content: data.name,
+              },
+            },
+          ],
+        },
+        'メールアドレス': {
+          email: data.email,
+        },
+        '種別': {
+          select: {
+            name: data.type,
+          },
+        },
+        '希望日程・件名': {
+          rich_text: [
+            {
+              text: {
+                content: data.subject,
+              },
+            },
+          ],
+        },
+        'メッセージ': {
+          rich_text: [
+            {
+              text: {
+                content: data.message.substring(0, 2000), // Notion has a 2000 char limit per text block
+              },
+            },
+          ],
+        },
+      },
+    });
+    return response;
+  } catch (error) {
+    console.error('Failed to add customer to Notion:', error);
+    return null;
+  }
+}

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { addCustomerToNotion } from '@/lib/notion';
 
 export async function POST(request: Request) {
   try {
@@ -14,6 +15,15 @@ export async function POST(request: Request) {
       'other': 'その他'
     };
     const displaySubject = subjectMap[subject] || subject;
+
+    // Notionへ顧客データを登録
+    await addCustomerToNotion({
+      name,
+      email,
+      type: 'お問い合わせ',
+      subject: displaySubject,
+      message: message || '',
+    });
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',
