@@ -187,7 +187,7 @@ export default async function Home() {
               <span className="segment">お申し込みは</span>
               <span className="segment">詳細ページをご覧ください。</span>
             </p>
-            <Link href="/seminar" className="btn btn-primary" style={{ fontSize: '1.2rem', padding: '1.2rem 3rem', width: '100%', maxWidth: '400px', justifyContent: 'center' }}>
+            <Link href="/seminar" className="btn btn-primary" style={{ fontSize: 'clamp(1rem, 4vw, 1.15rem)', padding: '1rem 2rem', width: 'auto', minWidth: '280px', maxWidth: '100%', whiteSpace: 'nowrap', justifyContent: 'center' }}>
               勉強会の詳細を見る <ArrowRight size={20} style={{ marginLeft: '0.5rem' }} />
             </Link>
           </div>
