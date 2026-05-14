@@ -20,8 +20,10 @@ export default function Header() {
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container header-inner">
         <Link href="/" className="logo">
-          <span className="logo-text">Tokyo US Stock</span>
-          <span className="logo-accent">Club</span>
+          <span className="logo-title">
+            <span className="logo-text">Tokyo US Stock</span>
+            <span className="logo-accent">Club</span>
+          </span>
           <span className="logo-sub">東京米国株クラブ</span>
         </Link>
 

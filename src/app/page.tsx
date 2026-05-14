@@ -167,17 +167,16 @@ export default async function Home() {
       </section>
       
       {/* Seminar CTA Section */}
-      <section className="section-padding seminar-cta-section" style={{ background: 'var(--bg-white)', textAlign: 'center' }}>
+      <section className="section-padding seminar-cta-section" style={{ background: 'var(--bg-white)', textAlign: 'left' }}>
         <div className="container">
-          <div className="glass-card" style={{ padding: '4rem 2rem', maxWidth: '800px', margin: '0 auto', border: '2px solid var(--primary-light)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <h2 className="section-title" style={{ fontSize: 'clamp(2.2rem, 6vw, 2.8rem)', color: 'var(--primary)', fontWeight: '900', marginBottom: '0.8rem' }}>
+          <div className="glass-card" style={{ padding: '3.5rem 1.8rem', maxWidth: '800px', margin: '0 auto', border: '2px solid var(--primary-light)', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+            <h2 className="section-title" style={{ fontSize: 'clamp(1.3rem, 5.5vw, 2.5rem)', color: 'var(--primary)', fontWeight: '900', marginBottom: '0.8rem', textAlign: 'left' }}>
               <span className="segment">米国株式投資勉強会</span>
             </h2>
-            <p style={{ fontSize: 'clamp(1.1rem, 3.5vw, 1.4rem)', color: 'var(--text-main)', fontWeight: '700', marginBottom: '2rem' }}>
-              <span className="segment">勉強会のカリキュラムや</span>
-              <span className="segment">詳細はこちら</span>
+            <p style={{ fontSize: 'clamp(0.95rem, 3.2vw, 1.25rem)', color: 'var(--text-main)', fontWeight: '700', marginBottom: '2rem', textAlign: 'left' }}>
+              <span className="segment">勉強会のカリキュラムや詳細はこちら</span>
             </p>
-            <p className="text-muted" style={{ marginBottom: '2.5rem', fontSize: '1.1rem', lineHeight: '1.8', overflowWrap: 'break-word' }}>
+            <p className="text-muted" style={{ marginBottom: '2.5rem', fontSize: '1rem', lineHeight: '1.8', overflowWrap: 'break-word', textAlign: 'left' }}>
               <span className="segment">当クラブの勉強会は、</span>
               <span className="segment">投資未経験の方でも</span>
               <span className="segment">安心してご参加いただけるよう、</span>

@@ -178,17 +178,24 @@ button {
   line-height: 1.1;
 }
 
-.logo-text {
+.logo-title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.logo-text, .logo-accent {
   font-family: var(--font-serif);
-  font-size: clamp(1rem, 4vw, 1.3rem);
+  font-size: clamp(0.95rem, 4.5vw, 1.25rem);
   font-weight: 800;
   color: var(--text-main);
+  white-space: nowrap;
 }
 
 .logo-accent { color: var(--primary); }
 
 .logo-sub {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 700;
   color: var(--text-muted);
   margin-top: 2px;
@@ -308,11 +315,13 @@ button {
     display: block;
     white-space: normal;
     margin-bottom: 0.8rem;
+    text-align: left;
   }
   .hero-title .segment-accent {
     font-size: clamp(1.15rem, 4.5vw, 1.4rem);
     line-height: 1.55;
     display: block;
+    text-align: left;
   }
 }
 
@@ -329,7 +338,11 @@ button {
   .seminar-page .faq-item h4,
   .seminar-page .faq-item,
   .seminar-page .timeline p,
-  .seminar-page .problem-card p {
+  .seminar-page .problem-card p,
+  .section-title,
+  .section-subtitle,
+  .featured-title,
+  .featured-subtitle-line {
     text-align: left !important;
   }
   .seminar-page .feature-item,
@@ -341,14 +354,6 @@ button {
   }
   .seminar-bio-card {
     text-align: left !important;
-  }
-  .seminar-page .section-subtitle {
-    text-align: left !important;
-  }
-  .section-title,
-  .featured-title,
-  .featured-subtitle-line {
-    text-wrap: balance;
   }
 }
 
@@ -403,13 +408,13 @@ button {
     padding: 120px 0 60px;
   }
   .hero-content-left {
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
   .hero-subtitle {
-    margin: 0 auto 2rem;
+    margin: 0 0 2rem;
   }
 }
 
@@ -616,10 +621,10 @@ button {
 }
 
 @media (max-width: 992px) {
-  .about-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
-  .about-content-text { padding: 0; display: flex; flex-direction: column; align-items: center; }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; text-align: left; }
+  .about-content-text { padding: 0; display: flex; flex-direction: column; align-items: flex-start; }
   .about-desc br { display: none; }
-  .about-stats { justify-content: center; }
+  .about-stats { justify-content: flex-start; }
 }
 
 @media (max-width: 640px) {
