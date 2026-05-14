@@ -13,24 +13,19 @@ export default function ContactPage() {
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
     
-    const gasUrl = process.env.NEXT_PUBLIC_GAS_URL;
-    
-    if (!gasUrl) {
-      console.error('GAS URL is not configured');
-      setStatus('error');
-      return;
-    }
-
     try {
-      // GASへの送信 (CORS対策のため no-cors を使用)
-      // fetchは完了しても内容を読み取れないが、送信自体は行われる
-      const queryParams = new URLSearchParams(data as any).toString();
-      await fetch(`${gasUrl}?${queryParams}`, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit');
+      }
       
-      // 送信完了とみなす
       setStatus('success');
       (e.target as HTMLFormElement).reset();
     } catch (error) {

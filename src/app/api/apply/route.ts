@@ -39,27 +39,7 @@ ${session.location || '都内近郊'}
       }
     }
 
-    // 2. Forward to GAS (for spreadsheet logging)
-    const gasUrl = process.env.NEXT_PUBLIC_GAS_URL;
-    if (gasUrl) {
-      const gasParams = new URLSearchParams({
-        name,
-        email,
-        event: eventString,
-        message: message || '',
-      });
-      
-      // We don't necessarily need to wait for GAS to respond, 
-      // but let's do it to ensure logging.
-      try {
-        await fetch(`${gasUrl}?${gasParams.toString()}`, {
-          method: 'POST',
-          mode: 'no-cors',
-        });
-      } catch (e) {
-        console.error('GAS logging error:', e);
-      }
-    }
+    // GASへの転送は廃止
 
     // 3. Send automatic reply email
     const transporter = nodemailer.createTransport({
