@@ -21,7 +21,7 @@ export default function Footer() {
             投資をギャンブルにしない、本質的な考え方を初心者の方へ。
           </p>
           <div className="footer-social">
-            <a href="https://www.instagram.com/tobby_us_stock?igsh=czQwaXVzNmU5Y2V3&utm_source=qr" target="_blank" rel="noopener noreferrer" className="social-icon-link" aria-label="Instagram">
+            <a href="https://www.instagram.com/tobby_us_stock?igsh=czQwaXVzNmU5Y2V3&utm_source=qr" target="_blank" rel="noopener noreferrer" className="instagram-link" aria-label="Instagram">
               <Instagram size={24} />
             </a>
           </div>
