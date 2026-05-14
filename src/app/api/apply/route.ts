@@ -99,8 +99,31 @@ ${sessionDetails}
 `,
     };
 
+    const adminMailOptions = {
+      from: `"東京米国株クラブ" <${process.env.GMAIL_USER}>`,
+      to: process.env.GMAIL_USER,
+      subject: `【新規申込】${eventString}`,
+      text: `
+以下の内容で勉強会への新規お申し込みがありました。
+
+■お申し込み内容
+希望日程・形式：${eventString}
+
+■お客様情報
+お名前：${name} 様
+メールアドレス：${email}
+
+■参加動機・メッセージ
+${message || '（記入なし）'}
+
+--------------------------------------------------
+※このメールはシステムから自動送信されています。
+`,
+    };
+
     if (process.env.GMAIL_USER && process.env.GMAIL_PASS) {
       await transporter.sendMail(mailOptions);
+      await transporter.sendMail(adminMailOptions);
     } else {
       console.warn('GMAIL_USER or GMAIL_PASS is not set. Email not sent.');
     }
