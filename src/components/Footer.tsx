@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { Instagram } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,9 +18,13 @@ export default function Footer() {
             <span className="logo-sub">東京米国株クラブ</span>
           </Link>
           <p className="footer-desc">
-            5年で1300%以上の実績に基づいた、米国株長期投資の知見を共有するコミュニティ。
             投資をギャンブルにしない、本質的な考え方を初心者の方へ。
           </p>
+          <div className="footer-social">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="social-icon-link" aria-label="Instagram">
+              <Instagram size={24} />
+            </a>
+          </div>
         </div>
 
         <div className="footer-links">

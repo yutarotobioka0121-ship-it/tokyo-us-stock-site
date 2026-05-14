@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Instagram } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 export default function Header() {
@@ -33,6 +33,9 @@ export default function Header() {
           <Link href="/seminar" className="nav-link">勉強会詳細</Link>
           <Link href="/blog" className="nav-link">ブログ</Link>
           <Link href="/contact" className="nav-link">お問い合わせ</Link>
+          <a href="#" target="_blank" rel="noopener noreferrer" className="social-icon-link" aria-label="Instagram">
+            <Instagram size={22} />
+          </a>
         </nav>
 
         {/* Mobile Toggle */}
@@ -50,6 +53,11 @@ export default function Header() {
           <Link href="/seminar" className="nav-link" onClick={() => setIsOpen(false)}>勉強会詳細</Link>
           <Link href="/blog" className="nav-link" onClick={() => setIsOpen(false)}>ブログ</Link>
           <Link href="/contact" className="nav-link" onClick={() => setIsOpen(false)}>お問い合わせ</Link>
+          <div className="mobile-social-links">
+            <a href="#" target="_blank" rel="noopener noreferrer" className="social-icon-link" onClick={() => setIsOpen(false)}>
+              <Instagram size={28} /> <span>Instagram</span>
+            </a>
+          </div>
         </nav>
       </div>
     </header>
