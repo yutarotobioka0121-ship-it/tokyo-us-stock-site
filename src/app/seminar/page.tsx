@@ -145,7 +145,7 @@ export default async function SeminarPage() {
                           </span>
                         </td>
                         <td style={{ padding: '1.2rem 1rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                          {type === 'online' || type === 'オンライン' ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}付近`}
+                          {type === 'online' || type === 'オンライン' ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`}
                         </td>
                         <td style={{ padding: '1.2rem 1rem' }}>
                           {isEnded ? (
@@ -251,7 +251,7 @@ export default async function SeminarPage() {
                         <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
                           <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '45px' }}>場所：</span>
                           <span style={{ color: 'var(--text-muted)' }}>
-                            {type === 'online' || type === 'オンライン' ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}付近`}
+                            {type === 'online' || type === 'オンライン' ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`}
                           </span>
                         </div>
                       </div>
