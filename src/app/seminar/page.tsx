@@ -92,11 +92,12 @@ export default async function SeminarPage() {
             <table className="schedule-table" style={{ width: '100%', minWidth: '700px', borderCollapse: 'collapse', textAlign: 'center', background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', margin: '0 auto' }}>
               <thead style={{ background: 'var(--primary)', color: 'white' }}>
                 <tr>
-                  <th style={{ padding: '1.2rem 1rem', fontWeight: '800' }}>開催日</th>
-                  <th style={{ padding: '1.2rem 1rem', fontWeight: '800' }}>開催時間</th>
-                  <th style={{ padding: '1.2rem 1rem', fontWeight: '800' }}>開催形式</th>
-                  <th style={{ padding: '1.2rem 1rem', fontWeight: '800' }}>開催場所</th>
-                  <th style={{ padding: '1.2rem 1rem', fontWeight: '800' }}>お申し込み</th>
+                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>開催日</th>
+                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>開催時間</th>
+                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>開催形式</th>
+                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>開催場所</th>
+                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>参加費</th>
+                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>お申し込み</th>
                 </tr>
               </thead>
               <tbody>
@@ -135,17 +136,18 @@ export default async function SeminarPage() {
 
                     return (
                       <tr key={session.id} style={{ borderBottom: index === sortedSessions.length - 1 ? 'none' : '1px solid var(--border)', background: isPast ? '#f9fafb' : 'white', opacity: isPast ? 0.6 : 1 }}>
-                        <td style={{ padding: '1.2rem 1rem', fontWeight: '800', color: 'var(--primary-dark)', wordBreak: 'keep-all' }}>{formattedDate}</td>
-                        <td style={{ padding: '1.2rem 1rem', fontWeight: '700', wordBreak: 'keep-all' }}>{formattedTime}</td>
-                        <td style={{ padding: '1.2rem 1rem' }}>
+                        <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary-dark)', wordBreak: 'keep-all' }}>{formattedDate}</td>
+                        <td style={{ padding: '1.2rem 0.5rem', fontWeight: '700', wordBreak: 'keep-all' }}>{formattedTime}</td>
+                        <td style={{ padding: '1.2rem 0.5rem' }}>
                           <span className="badge badge-type" style={{ fontSize: '0.85rem', padding: '0.3rem 0.8rem', wordBreak: 'keep-all', background: type === 'online' || type === 'オンライン' ? 'var(--bg-warm)' : 'var(--primary)', color: type === 'online' || type === 'オンライン' ? 'var(--text-main)' : 'white' }}>
                             {type === 'online' || type === 'オンライン' ? 'オンライン' : '対面開催'}
                           </span>
                         </td>
-                        <td style={{ padding: '1.2rem 1rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                        <td style={{ padding: '1.2rem 0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
                           {type === 'online' || type === 'オンライン' ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`}
                         </td>
-                        <td style={{ padding: '1.2rem 1rem' }}>
+                        <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary)' }}>無料</td>
+                        <td style={{ padding: '1.2rem 0.5rem' }}>
                           {isEnded ? (
                             <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', background: '#f3f4f6', color: '#9ca3af', borderColor: '#d1d5db', whiteSpace: 'nowrap' }}>
                               受付終了
@@ -243,14 +245,18 @@ export default async function SeminarPage() {
                       
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
                         <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
-                          <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '45px' }}>時間：</span>
+                          <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '60px' }}>時間：</span>
                           <span>{formattedTime}</span>
                         </div>
                         <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
-                          <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '45px' }}>場所：</span>
+                          <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '60px' }}>場所：</span>
                           <span style={{ color: 'var(--text-muted)' }}>
                             {type === 'online' || type === 'オンライン' ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`}
                           </span>
+                        </div>
+                        <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
+                          <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '60px' }}>参加費：</span>
+                          <span style={{ fontWeight: '800', color: 'var(--primary)' }}>無料</span>
                         </div>
                       </div>
 
