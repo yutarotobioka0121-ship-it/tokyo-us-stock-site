@@ -207,6 +207,12 @@ button {
   gap: 2.5rem;
 }
 
+@media (max-width: 1200px) {
+  .desktop-nav {
+    gap: 1.25rem;
+  }
+}
+
 .nav-link {
   font-weight: 600;
   color: var(--text-main);

@@ -34,7 +34,7 @@ export default function Header() {
           <Link href="/mission" className="nav-link">理念</Link>
           <Link href="/seminar" className="nav-link">勉強会詳細</Link>
           <Link href="/blog" className="nav-link">ブログ</Link>
-          <a href="https://cfg-s.vercel.app/" target="_blank" rel="noopener noreferrer" className="nav-link">ゲーム会</a>
+          <a href="https://cfg-s.vercel.app/" target="_blank" rel="noopener noreferrer" className="nav-link">キャッシュフローゲーム会</a>
           <Link href="/contact" className="nav-link">お問い合わせ</Link>
           <a href="https://www.instagram.com/tobby_us_stock?igsh=czQwaXVzNmU5Y2V3&utm_source=qr" target="_blank" rel="noopener noreferrer" className="instagram-link" aria-label="Instagram">
             <Instagram size={22} />
