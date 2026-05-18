@@ -34,6 +34,7 @@ export default function Footer() {
             <li><Link href="/mission">理念</Link></li>
             <li><Link href="/seminar">勉強会詳細</Link></li>
             <li><Link href="/blog">ブログ</Link></li>
+            <li><a href="https://cfg-s.vercel.app/" target="_blank" rel="noopener noreferrer">キャッシュフローゲーム会</a></li>
             <li><Link href="/apply">勉強会申し込み</Link></li>
           </ul>
         </div>
