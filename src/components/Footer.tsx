@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Instagram } from 'lucide-react';
+import NoteIcon from './NoteIcon';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -23,6 +24,9 @@ export default function Footer() {
           <div className="footer-social">
             <a href="https://www.instagram.com/tobby_us_stock?igsh=czQwaXVzNmU5Y2V3&utm_source=qr" target="_blank" rel="noopener noreferrer" className="instagram-link" aria-label="Instagram">
               <Instagram size={24} />
+            </a>
+            <a href="https://note.com/tobby_wellness" target="_blank" rel="noopener noreferrer" className="note-link" aria-label="Note">
+              <NoteIcon size={24} />
             </a>
           </div>
         </div>
