@@ -103,49 +103,9 @@ export default async function Home() {
                 <span className="segment">何から手をつければいいか分からない」</span>
                 <span className="segment">「ネットの情報で買ってみたけれど、</span>
                 <span className="segment">損をして怖くなってしまった……」</span>
-                <span className="segment">そんな20〜30代の方へ。</span><br />
-                <span className="segment">当クラブでは、</span>
-                <span className="segment">5年で1300%以上の運用実績を持つ講師が、</span>
-                <span className="segment">投資の「本当の基礎」を</span>
-                <span className="segment">分かりやすく整理してお伝えします。</span>
-                <span className="segment">難しい数式や専門用語は一切使いません。</span>
-                <span className="segment">失敗する理由が理解できれば、</span>
-                <span className="segment">不安は「楽しさ」に変わります。</span>
-                <span className="segment">焦らず、一歩ずつ、</span>
-                <span className="segment">安心できる資産作りの土台を</span>
-                <span className="segment">一緒に作りましょう。</span>
+                <span className="segment">そんな20〜30代の方へ。</span>
               </p>
-              
-              <div className="benefit-list">
-                <div className="benefit-item">
-                  <div className="benefit-icon"><Zap size={24} /></div>
-                  <div className="benefit-text">
-                    <h4>20代・30代からの着実な資産形成</h4>
-                    <p>大きな資金は必要ありません。「少額から始めて、時間を味方につけて複利で育てる」長期投資の本質を教えます。</p>
-                  </div>
-                </div>
-                <div className="benefit-item">
-                  <div className="benefit-icon"><Target size={24} /></div>
-                  <div className="benefit-text">
-                    <h4>なぜ「米国株」なのかをシンプルに解説</h4>
-                    <p>AppleやAmazonなど、私たちの身近にある世界の超優良企業に投資するメリットと、「米国の圧倒的な強さ」を明快に伝えます。</p>
-                  </div>
-                </div>
-                <div className="benefit-item">
-                  <div className="benefit-icon"><PieChart size={24} /></div>
-                  <div className="benefit-text">
-                    <h4>「損する恐怖」をなくす考え方</h4>
-                    <p>独学で挫折する一番の原因は「日々の値動きでのストレス」です。統計データから「負けないための確率」を学び、心のゆとりを手に入れます。</p>
-                  </div>
-                </div>
-                <div className="benefit-item">
-                  <div className="benefit-icon"><ShieldCheck size={24} /></div>
-                  <div className="benefit-text">
-                    <h4>質問しやすい、温かな少人数カフェ勉強会</h4>
-                    <p>一方的な講義ではなく、カフェでお茶を飲むような和やかな雰囲気。少人数制なので、分からないことはその場でなんでも質問できます。</p>
-                  </div>
-                </div>
-              </div>
+
 
             </div>
             

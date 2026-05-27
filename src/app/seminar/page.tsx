@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Users, Target, BookOpen, Coffee } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Users, Target, BookOpen, Coffee, Zap, PieChart, ShieldCheck } from "lucide-react";
 import { getSessions } from "@/lib/microcms";
 import { formatSessionDate, formatSessionTime, getSessionStartDateTime } from "@/lib/utils";
 
@@ -320,6 +320,51 @@ export default async function SeminarPage() {
             <span className="segment">東京米国株クラブの勉強会で</span>
             <span className="segment">解決できます！</span>
           </p>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="section-padding" style={{ background: 'white', paddingTop: '0' }}>
+        <div className="container">
+          <div className="section-header">
+            <span className="section-tag" style={{ fontSize: '1.1rem', letterSpacing: '1px' }}>BENEFITS</span>
+            <h2 className="section-title">米国株投資勉強会で得られること</h2>
+            <p className="section-subtitle">
+              投資初心者の方でも、当クラブの勉強会に参加することで<br className="sp-hide" />
+              以下のような確かなメリットと変化を得ることができます。
+            </p>
+          </div>
+
+          <div className="benefit-list">
+            <div className="benefit-item">
+              <div className="benefit-icon"><Zap size={24} /></div>
+              <div className="benefit-text">
+                <h4>20代・30代からの着実な資産形成</h4>
+                <p>大きな資金は必要ありません。「少額から始めて、時間を味方につけて複利で育てる」長期投資の本質を教えます。</p>
+              </div>
+            </div>
+            <div className="benefit-item">
+              <div className="benefit-icon"><Target size={24} /></div>
+              <div className="benefit-text">
+                <h4>なぜ「米国株」なのかをシンプルに解説</h4>
+                <p>AppleやAmazonなど、私たちの身近にある世界の超優良企業に投資するメリットと、「米国の圧倒的な強さ」を明快に伝えます。</p>
+              </div>
+            </div>
+            <div className="benefit-item">
+              <div className="benefit-icon"><PieChart size={24} /></div>
+              <div className="benefit-text">
+                <h4>「損する恐怖」をなくす考え方</h4>
+                <p>独学で挫折する一番の原因は「日々の値動きでのストレス」です。統計データから「負けないための確率」を学び、心のゆとりを手に入れます。</p>
+              </div>
+            </div>
+            <div className="benefit-item">
+              <div className="benefit-icon"><ShieldCheck size={24} /></div>
+              <div className="benefit-text">
+                <h4>質問しやすい、温かな少人数カフェ勉強会</h4>
+                <p>一方的な講義ではなく、カフェでお茶を飲むような和やかな雰囲気。少人数制なので、分からないことはその場でなんでも質問できます。</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
