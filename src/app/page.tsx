@@ -36,12 +36,6 @@ export default async function Home() {
                 </div>
               </div>
 
-              <p className="hero-subtitle">
-                <span className="segment">株式投資をギャンブルにしない。</span>
-                <span className="segment">長期投資で成功し続ける人と、</span>
-                <span className="segment">そうでない人の「考え方の違い」を、</span>
-                <span className="segment">株式初心者の方へ分かりやすく伝えます。</span>
-              </p>
               <div className="hero-actions">
                 <Link href="/about" className="btn btn-primary">
                   東京米国株クラブについて <ArrowRight size={20} />
