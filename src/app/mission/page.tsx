@@ -37,7 +37,7 @@ export default function MissionPage() {
           <div className="pillars-grid">
             <div className="pillar-card glass-card">
               <div className="pillar-icon"><Compass size={32} /></div>
-              <h4>永く歩み続けるための「投資哲学」を育む</h4>
+              <h4>長く歩み続けるための「投資哲学」を育む</h4>
               <p>一時的な流行や短期的な利益を追う「ギャンブル的な投機」ではなく、一生モノの安定した資産を築くために必要な「長期・積立・分散」の正しい考え方を深く身につけます。</p>
               <span className="pillar-tag">自律の精神</span>
             </div>
@@ -52,7 +52,7 @@ export default function MissionPage() {
             <div className="pillar-card glass-card">
               <div className="pillar-icon"><Sun size={32} /></div>
               <h4>揺るぎない「豊かさ」と「ゆとり」を築く</h4>
-              <p>お金のために時間や精神を犠牲にするのではなく、「お金」と「時間」の両方を自分の手にコントロールし、人生の選択肢と心のゆとりを最大限に広げていきます。</p>
+              <p>お金のために時間や精神を犠牲にするのではなく、「お金」と「時間」の両方を自分の手でコントロールし、人生の選択肢と心のゆとりを最大限に広げていきます。</p>
               <span className="pillar-tag">自由の実現</span>
             </div>
           </div>

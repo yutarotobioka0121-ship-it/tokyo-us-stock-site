@@ -204,7 +204,7 @@ export default async function Home() {
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">提供する価値</h2>
-            <p className="section-subtitle">「成功し続ける投資家」への道を、私たちは共に歩みます。</p>
+            <p className="section-subtitle">「成功し続ける投資家」への道を、共に歩んでいきましょう。</p>
           </div>
           
           <div className="services-grid">

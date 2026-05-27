@@ -80,7 +80,7 @@ export default async function SeminarPage() {
       <section id="schedule" className="section-padding schedule-section" style={{ background: 'white' }}>
         <div className="container">
           <div className="section-header">
-            <span className="section-tag" style={{ fontSize: '1.1rem', letterSpacing: '1px' }}>初心者向け米国株式投資 勉強会</span>
+            <span className="section-tag" style={{ fontSize: '1.1rem', letterSpacing: '1px' }}>初心者向け米国株式投資勉強会</span>
             <h2 className="section-title">開催スケジュール</h2>
             <p className="section-subtitle">
               次回の開催日程はこちらです。<br className="sp-hide" />少人数制のため、お早めにお申し込みください。
@@ -330,8 +330,8 @@ export default async function SeminarPage() {
             <span className="section-tag" style={{ fontSize: '1.1rem', letterSpacing: '1px' }}>BENEFITS</span>
             <h2 className="section-title">米国株投資勉強会で得られること</h2>
             <p className="section-subtitle">
-              投資初心者の方でも、当クラブの勉強会に参加することで<br className="sp-hide" />
-              以下のような確かなメリットと変化を得ることができます。
+              投資未経験の方でも、当クラブの勉強会に参加することで<br className="sp-hide" />
+              以下のような確かな気づきと変化を得ることができます。
             </p>
           </div>
 
@@ -347,14 +347,14 @@ export default async function SeminarPage() {
               <div className="benefit-icon"><Target size={24} /></div>
               <div className="benefit-text">
                 <h4>なぜ「米国株」なのかをシンプルに解説</h4>
-                <p>AppleやAmazonなど、私たちの身近にある世界の超優良企業に投資するメリットと、「米国の圧倒的な強さ」を明快に伝えます。</p>
+                <p>AppleやAmazonなど、私たちにもなじみ深い世界の超優良企業に投資するメリットと、「米国の圧倒的な強さ」を明快にお伝えします。</p>
               </div>
             </div>
             <div className="benefit-item">
               <div className="benefit-icon"><PieChart size={24} /></div>
               <div className="benefit-text">
                 <h4>「損する恐怖」をなくす考え方</h4>
-                <p>独学で挫折する一番の原因は「日々の値動きでのストレス」です。統計データから「負けないための確率」を学び、心のゆとりを手に入れます。</p>
+                <p>独学で挫折してしまう最大の原因は「日々の値動きによるストレス」です。統計データから「負けにくい確率」を学び、心のゆとりを手に入れましょう。</p>
               </div>
             </div>
             <div className="benefit-item">
