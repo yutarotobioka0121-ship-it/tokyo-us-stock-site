@@ -379,7 +379,7 @@ export default async function SeminarPage() {
               <div className="feature-icon" style={{ background: 'var(--primary)', color: 'white', padding: '1rem', borderRadius: '16px' }}>
                 <Coffee size={32} />
               </div>
-              <div>
+              <div style={{ textAlign: 'center' }}>
                 <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', color: 'var(--primary-dark)' }}>リラックスして学べる少人数制の環境</h3>
                 <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>
                   <span className="segment">カフェでお茶をするような</span>
@@ -396,7 +396,7 @@ export default async function SeminarPage() {
               <div className="feature-icon" style={{ background: 'var(--primary)', color: 'white', padding: '1rem', borderRadius: '16px' }}>
                 <BookOpen size={32} />
               </div>
-              <div>
+              <div style={{ textAlign: 'center' }}>
                 <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', color: 'var(--primary-dark)' }}>超初心者向けのカリキュラム</h3>
                 <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>
                   <span className="segment">難しい専門用語や</span>
@@ -413,7 +413,7 @@ export default async function SeminarPage() {
               <div className="feature-icon" style={{ background: 'var(--primary)', color: 'white', padding: '1rem', borderRadius: '16px' }}>
                 <Target size={32} />
               </div>
-              <div>
+              <div style={{ textAlign: 'center' }}>
                 <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', color: 'var(--primary-dark)' }}>5年で1300%の実績に基づく「投資哲学」</h3>
                 <p style={{ color: 'var(--text-muted)', lineHeight: '1.6' }}>
                   <span className="segment">小手先のテクニックではなく、</span>
