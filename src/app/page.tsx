@@ -67,7 +67,15 @@ export default async function Home() {
             <div className="featured-content slide-up">
               <span className="featured-tag">SPECIAL WORKSHOP</span>
 
-              {/* スマホ用Featured画像：Special Workshopの直下に配置 */}
+              <h2 className="featured-title">
+                <span className="segment">米国株投資勉強会</span>
+              </h2>
+              <h3 className="featured-subtitle-line">
+                <span className="segment">20〜30代から始める、</span>
+                <span className="segment">もう迷わない「正しい米国株の長期投資」</span>
+              </h3>
+
+              {/* スマホ用Featured画像：タイトルの直下に配置 */}
               <div className="featured-image-mobile">
                 <div className="featured-image-wrapper" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)' }}>
                   <Image
@@ -80,14 +88,6 @@ export default async function Home() {
                   />
                 </div>
               </div>
-
-              <h2 className="featured-title">
-                <span className="segment">米国株投資勉強会</span>
-              </h2>
-              <h3 className="featured-subtitle-line">
-                <span className="segment">20〜30代から始める、</span>
-                <span className="segment">もう迷わない「正しい米国株の長期投資」</span>
-              </h3>
               <p className="featured-desc">
                 <span className="featured-lead-text">
                   <span className="segment">「独学でうまくいかなかった方」も安心。</span>
