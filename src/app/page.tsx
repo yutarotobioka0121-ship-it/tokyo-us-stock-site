@@ -93,11 +93,6 @@ export default async function Home() {
                   <span className="segment">「独学でうまくいかなかった方」も安心。</span>
                   <span className="segment">専門用語なしのロードマップで一から学べる。</span>
                 </span>
-                <span className="segment">「将来のために投資を始めたいけれど、</span>
-                <span className="segment">何から手をつければいいか分からない」</span>
-                <span className="segment">「ネットの情報で買ってみたけれど、</span>
-                <span className="segment">損をして怖くなってしまった……」</span>
-                <span className="segment">そんな20〜30代の方へ。</span>
               </p>
 
 
