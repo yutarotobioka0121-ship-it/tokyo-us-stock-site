@@ -405,9 +405,9 @@ export default async function SeminarPage() {
           <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
             <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【こんな方にお勧めします】</h3>
             <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>
-              <li>・米国株の長期投資や新NISAについて一から分かりやすく学びたい方</li>
+              <li>・株投資や新NISAについて一から分かりやすく学びたい方</li>
               <li>・将来に備え、働かなくても困らない堅実な資産・収入源をつくりたい方</li>
-              <li>・銀行の預金だけではインフレや円安に対して不安を感じている方</li>
+              <li>・最近の物価高・インフレに対して不安を感じている方</li>
               <li>・投資の基礎をしっかり身につけて、ギャンブルではない堅実な資産形成をしたい方</li>
               <li>・自分のやりたい夢やライフプランを実現するための不労所得を育てたい方</li>
             </ul>
