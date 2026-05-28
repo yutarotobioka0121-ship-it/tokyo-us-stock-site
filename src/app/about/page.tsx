@@ -31,46 +31,33 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="about-content-text">
-              <h2 className="section-title">5年で1300%以上の実績。<br className="sp-hide" />その根本の「投資哲学」をお伝えしたい。</h2>
-              <p className="notion-p" style={{ fontWeight: '700', fontSize: '1.1rem', color: 'var(--primary-dark)', marginBottom: '1.5rem' }}>
-                運営代表者：トビー<br />
-                <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 'normal' }}>5年で資産1300%超を達成した個人投資家 / 東京米国株クラブ主宰</span>
+              <h2 className="section-title">とびー<br className="sp-hide" />について</h2>
+              <p className="notion-p" style={{ fontWeight: '700', fontSize: '1.1rem', color: 'var(--primary-dark)', marginBottom: '2rem' }}>
+                運営代表者：とびー<br />
+                <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 'normal' }}>米国株長期投資家 / 東京米国株クラブ主宰</span>
               </p>
-              <p className="notion-p">
-                2020年、右も左も分からない状態から投資の世界に足を踏み入れました。当初は「投資」と「ギャンブル」の区別すらつかず、短期的な値動きに一喜一憂し、数十万円の損失を出す手痛い失敗を経験。一時は市場からの退場も真剣に考えました。
-              </p>
-              <p className="notion-p">
-                しかし、「このままではいけない」と一念発起し、投資の本質、特に「米国株を活用した長期・積立・分散投資」を基礎から徹底的に学び直しました。
-              </p>
-              <p className="notion-p">
-                ノイズに惑わされない投資マインドセットと、強固なポートフォリオ戦略を確立してからは成績が一変。5年で累積リターン1300%以上（13倍超）という実績を達成するに至りました。
-              </p>
-              <p className="notion-p">
-                現在もサラリーマンとして多忙な日々を送り、同時に事業主としての活動も並行しながら、投資にかける時間は1日1時間未満。それでも、精神的なゆとりを保ちながら資産を確実に育て続ける「長期投資のスタイル」を実践しています。
-              </p>
-              <p className="notion-p">
-                「かつての自分のように、知識がないために手痛い損失を出し、投資そのものを嫌いになってしまう人を一人でも減らしたい」<br />
-                この強い想いから、東京米国株クラブを立ち上げました。本クラブでは、小手先のトレードテクニックではなく、一生使える「本質的な資産形成のマインドセット」を、完全な初心者目線で分かりやすくお伝えしています。
-              </p>
-              
+
+              <div className="skills-list" style={{ marginBottom: '2rem' }}>
+                <h3 style={{ marginBottom: '1.2rem', color: 'var(--primary)', fontSize: '1rem', fontWeight: '800' }}>📌 経歴・実績</h3>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>バイナリーオプションで約100万円を失った苦い経験あり</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>その後、米国株長期投資を基礎から学び直し5年で+1300%超を達成</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>サラリーマン・事業主として多忙な日々を送りながら、投資時間は1日1時間未満</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>東京・オンラインで初心者向け投資勉強会を主催</span></div>
+              </div>
+
+              <div className="skills-list" style={{ marginBottom: '2rem' }}>
+                <h3 style={{ marginBottom: '1.2rem', color: 'var(--primary)', fontSize: '1rem', fontWeight: '800' }}>📝 発信テーマ</h3>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>初心者向けの米国株・NISA・長期投資の基礎知識</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>米国個別株・ETFの選び方・考え方</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>失敗から学んだお金のリアルを正直に発信</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>ギャンブルではない、堅実な資産形成のマインドセット</span></div>
+              </div>
+
               <div className="skills-list">
-                <h3 style={{ marginBottom: '1.5rem', color: 'var(--primary)' }}>私たちのコミットメント</h3>
-                <div className="skill-item">
-                  <CheckCircle2 color="var(--primary)" size={20} />
-                  <span>5年1300%以上の実績に裏打ちされた本物の投資哲学</span>
-                </div>
-                <div className="skill-item">
-                  <CheckCircle2 color="var(--primary)" size={20} />
-                  <span>初心者が迷わない、長期投資の核心を突いた教育</span>
-                </div>
-                <div className="skill-item">
-                  <CheckCircle2 color="var(--primary)" size={20} />
-                  <span>変化の激しい米国市場を読み解くリテラシーの提供</span>
-                </div>
-                <div className="skill-item">
-                  <CheckCircle2 color="var(--primary)" size={20} />
-                  <span>共に成長し、励まし合える投資仲間のコミュニティ</span>
-                </div>
+                <h3 style={{ marginBottom: '1.2rem', color: 'var(--primary)', fontSize: '1rem', fontWeight: '800' }}>💬 クラブ設立の思い</h3>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>「かつての自分のように、知識不足で損失を出す人を一人でも減らしたい」</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>小手先のテクニックではなく、一生使える投資哲学をわかりやすくお伝えしたい</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>一人で悩まず、仲間と一緒に学べる場所をつくりたい</span></div>
               </div>
             </div>
           </div>
