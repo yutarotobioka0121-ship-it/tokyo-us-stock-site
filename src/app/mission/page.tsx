@@ -60,44 +60,44 @@ export default function MissionPage() {
       </section>
 
       {/* Dream Vision Section */}
-      <section className="section-padding" style={{ background: 'linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #c0392b 100%)', color: 'white', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
-        <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '200px', height: '200px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)' }} />
-        <div style={{ position: 'absolute', bottom: '-80px', left: '-80px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,255,255,0.03)' }} />
+      <section className="section-padding" style={{ background: 'linear-gradient(135deg, #CD6155 0%, #E74C3C 100%)', color: '#ffffff', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
+        <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '200px', height: '200px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.08)' }} />
+        <div style={{ position: 'absolute', bottom: '-80px', left: '-80px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.05)' }} />
         
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ maxWidth: '750px', margin: '0 auto' }}>
-            <p style={{ fontSize: '1rem', letterSpacing: '3px', fontWeight: '700', opacity: 0.8, marginBottom: '1.5rem', textTransform: 'uppercase' }}>
+            <p style={{ fontSize: '1rem', letterSpacing: '3px', fontWeight: '700', color: 'rgba(255, 255, 255, 0.85)', marginBottom: '1.5rem', textTransform: 'uppercase' }}>
               Dream Together
             </p>
             
-            <h2 style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.4', marginBottom: '2rem' }}>
-              <span>あなたが手にした資産で、</span><br />
-              <span style={{ color: '#ffd700' }}>どんな夢を叶えたいですか？</span>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.4', marginBottom: '2rem', color: '#ffffff' }}>
+              <span className="segment">あなたが手にした資産で、</span><br />
+              <span className="segment">どんな夢を叶えたいですか？</span>
             </h2>
 
-            <div style={{ width: '60px', height: '3px', background: '#ffd700', margin: '0 auto 2.5rem', borderRadius: '2px' }} />
+            <div style={{ width: '60px', height: '3px', background: '#ffffff', margin: '0 auto 2.5rem', borderRadius: '2px' }} />
 
-            <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', lineHeight: '2', opacity: 0.95, marginBottom: '1.5rem' }}>
-              <span>大切な人との特別な時間、</span>
-              <span>まだ見ぬ景色への冒険、</span>
-              <span>ずっと温めてきた挑戦。</span>
+            <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', lineHeight: '2', color: '#ffffff', fontWeight: '600', marginBottom: '1.5rem' }}>
+              <span className="segment">大切な人との特別な時間、</span>
+              <span className="segment">まだ見ぬ景色への冒険、</span>
+              <span className="segment">ずっと温めてきた挑戦。</span>
             </p>
 
-            <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.15rem)', lineHeight: '2', opacity: 0.9, marginBottom: '2rem' }}>
-              <span>投資は、そんな「ワクワクする未来」を</span>
-              <span>現実にするための手段です。</span><br />
-              <span>私たちは、その夢を叶えるお手伝いがしたい。</span>
+            <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.15rem)', lineHeight: '2', color: 'rgba(255, 255, 255, 0.9)', marginBottom: '2rem' }}>
+              <span className="segment">投資は、そんな「ワクワクする未来」を</span>
+              <span className="segment">現実にするための手段です。</span><br />
+              <span className="segment">私たちは、その夢を叶えるお手伝いがしたい。</span>
             </p>
 
-            <div style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', borderRadius: '20px', padding: '2.5rem 2rem', marginBottom: '2.5rem', border: '1px solid rgba(255,255,255,0.15)' }}>
-              <p style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: '800', lineHeight: '1.8', margin: 0 }}>
-                <span>一人で悩まなくて大丈夫。</span><br />
-                <span>仲間と一緒に、</span>
-                <span style={{ color: '#ffd700' }}>ワクワクする未来を描きましょう。</span>
+            <div className="glass-card" style={{ background: 'rgba(255, 255, 255, 0.15)', borderRadius: '20px', padding: '2.5rem 2rem', marginBottom: '2.5rem', border: '1px solid rgba(255, 255, 255, 0.2)' }}>
+              <p style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: '800', lineHeight: '1.8', margin: 0, color: '#ffffff' }}>
+                <span className="segment">一人で悩まなくて大丈夫。</span><br />
+                <span className="segment">仲間と一緒に、</span>
+                <span className="segment">ワクワクする未来を描きましょう。</span>
               </p>
             </div>
 
-            <Link href="/seminar" className="btn" style={{ background: '#ffd700', color: 'var(--primary-dark)', fontSize: '1.15rem', padding: '1.2rem 3rem', fontWeight: '900', borderRadius: '50px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', boxShadow: '0 4px 20px rgba(255, 215, 0, 0.3)' }}>
+            <Link href="/seminar" className="btn" style={{ background: '#ffffff', color: '#CD6155', fontSize: '1.15rem', padding: '1.2rem 3rem', fontWeight: '900', borderRadius: '50px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', boxShadow: '0 4px 20px rgba(255, 255, 255, 0.15)', transition: 'all 0.3s ease' }}>
               まずは勉強会に参加してみる <ArrowRight size={20} />
             </Link>
           </div>
