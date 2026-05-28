@@ -10,7 +10,6 @@ export default function AboutPage() {
           <Link href="/" className="btn-link" style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'flex-start', fontFamily: 'var(--font-body)', fontSize: '0.95rem' }}>
             <ArrowLeft size={18} style={{ marginRight: '0.5rem' }} /> トップへ戻る
           </Link>
-          <span className="section-tag" style={{ display: 'inline-block', textAlign: 'left', fontFamily: 'var(--font-accent)' }}>PROFILE</span>
           <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', color: 'var(--primary-dark)', lineHeight: '1.3', textAlign: 'left', marginBottom: '1rem', fontWeight: '900' }}>
             運営代表者 プロフィール
           </h1>
