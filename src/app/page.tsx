@@ -60,7 +60,7 @@ export default async function Home() {
       </section>
 
       {/* Featured Study Session Section */}
-      <section className="featured-section">
+      <section className="featured-section section-padding">
         <div className="container">
           <div className="featured-grid">
             <div className="featured-content slide-up">
@@ -122,7 +122,7 @@ export default async function Home() {
       </section>
 
       {/* Dream Vision Section */}
-      <section className="section-padding" style={{ background: 'linear-gradient(135deg, #CD6155 0%, #E74C3C 100%)', color: '#ffffff', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
+      <section className="section-padding" style={{ background: 'linear-gradient(135deg, #DF7A6E 0%, #F3A398 100%)', color: '#ffffff', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
         <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '200px', height: '200px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.08)' }} />
         <div style={{ position: 'absolute', bottom: '-80px', left: '-80px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.05)' }} />
         
@@ -166,7 +166,7 @@ export default async function Home() {
               <span className="segment">仲間と一緒に考えることから始めましょう。</span>
             </p>
 
-            <Link href="/seminar" className="btn" style={{ background: '#ffffff', color: '#CD6155', fontSize: '1.15rem', padding: '1.2rem 3rem', fontWeight: '900', borderRadius: '50px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', boxShadow: '0 4px 20px rgba(255, 255, 255, 0.15)', transition: 'all 0.3s ease' }}>
+            <Link href="/seminar" className="btn" style={{ background: '#ffffff', color: '#DF7A6E', fontSize: '1.15rem', padding: '1.2rem 3rem', fontWeight: '900', borderRadius: '50px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', boxShadow: '0 4px 20px rgba(255, 255, 255, 0.15)', transition: 'all 0.3s ease' }}>
               勉強会の詳細を見る <ArrowRight size={20} />
             </Link>
           </div>
