@@ -70,7 +70,7 @@ export default function AboutPage() {
       </section>
 
       {/* Dream Vision Section */}
-      <section className="section-padding" style={{ background: 'linear-gradient(135deg, #B24A3F 0%, #CC6355 100%)', color: '#ffffff', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
+      <section className="section-padding" style={{ background: 'linear-gradient(135deg, #5C3A21 0%, #8A5A3C 100%)', color: '#ffffff', position: 'relative', overflow: 'hidden', textAlign: 'center' }}>
         <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '200px', height: '200px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.08)' }} />
         <div style={{ position: 'absolute', bottom: '-80px', left: '-80px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255, 255, 255, 0.05)' }} />
         
@@ -99,17 +99,13 @@ export default function AboutPage() {
               <span className="segment">私たちは、その夢を叶えるお手伝いがしたい。</span>
             </p>
 
-            <div className="glass-card" style={{ background: 'rgba(255, 255, 255, 0.15)', borderRadius: '20px', padding: '2.5rem 2rem', marginBottom: '2.5rem', border: '1px solid rgba(255, 255, 255, 0.2)' }}>
+            <div className="glass-card" style={{ background: 'rgba(255, 255, 255, 0.15)', borderRadius: '20px', padding: '2.5rem 2rem', margin: 0, border: '1px solid rgba(255, 255, 255, 0.2)' }}>
               <p style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: '800', lineHeight: '1.8', margin: 0, color: '#ffffff' }}>
                 <span className="segment">一人で悩まなくて大丈夫。</span><br />
                 <span className="segment">仲間と一緒に、</span>
                 <span className="segment">ワクワクする未来を描ましょう。</span>
               </p>
             </div>
-
-            <Link href="/seminar" className="btn" style={{ background: '#ffffff', color: '#B24A3F', fontSize: '1.15rem', padding: '1.2rem 3rem', fontWeight: '900', borderRadius: '50px', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', boxShadow: '0 4px 20px rgba(255, 255, 255, 0.15)', transition: 'all 0.3s ease' }}>
-              まずは勉強会に参加してみる <ArrowRight size={20} />
-            </Link>
           </div>
         </div>
       </section>
