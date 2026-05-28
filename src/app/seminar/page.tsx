@@ -63,13 +63,13 @@ export default async function SeminarPage() {
             おすすめ勉強会
           </span>
           <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3' }}>
-            <span className="segment">米国株長期投資勉強会</span>
+            <span className="segment">米国株投資勉強会</span>
           </h1>
-          <p style={{ fontSize: 'clamp(1.1rem, 4vw, 1.4rem)', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', textAlign: 'left', lineHeight: '1.5' }}>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1.1rem, 4vw, 1.4rem)', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', textAlign: 'left', lineHeight: '1.8' }}>
             <span className="segment">投資初心者に向けた内容で、</span>
             <span className="segment">難しい専門用語などは無しでわかりやすくお話しします。</span>
           </p>
-          <p className="hero-subtitle" style={{ maxWidth: '600px', marginBottom: '3rem', color: 'var(--text-muted)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)' }}>
+          <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '600px', marginBottom: '2.5rem', color: 'var(--text-muted)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)', lineHeight: '1.8' }}>
             <span className="segment">カフェでお茶を飲むようにリラックスした雰囲気で、</span>
             <span className="segment">投資の「わからない」を「わかった」に変えませんか？</span>
           </p>
@@ -298,7 +298,7 @@ export default async function SeminarPage() {
 
       {/* Details Sections based on Jimdo LP */}
       <section className="section-padding" style={{ background: 'white' }}>
-        <div className="container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+        <div className="container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
           
           {/* 1. 主催・講師 */}
           <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
@@ -323,7 +323,7 @@ export default async function SeminarPage() {
                   </p>
                 </div>
               </div>
-              <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6', fontWeight: '500' }}>
+              <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.8', fontWeight: '500' }}>
                 <li>・2020年に投資をスタート、当初は数十万円の損失を出す失敗を経験</li>
                 <li>・その後、投資を基礎から真剣に学び直し、長期投資の本質を習得</li>
                 <li>・現在の投資成績は1300%以上（投資歴5年）</li>
@@ -340,7 +340,7 @@ export default async function SeminarPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', marginTop: '0.5rem' }}>
               <div>
                 <h4 style={{ fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.4rem' }}>● リアル会場（対面）</h4>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: 0, paddingLeft: '0.5rem', lineHeight: '1.6' }}>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: 0, paddingLeft: '0.5rem', lineHeight: '1.8' }}>
                   駅近郊の落ち着いたカフェやミーティングスペースにて開催いたします。<br />
                   ※お申込み完了後、詳細な開催場所をメールにてご連絡いたします。
                 </p>
@@ -355,42 +355,40 @@ export default async function SeminarPage() {
             </div>
           </div>
 
-          {/* 3. 参加費 & 定員 */}
+          {/* 3. 参加費 */}
           <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
-              <div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【参加費】</h3>
-                <p style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--primary)', margin: 0, marginTop: '0.5rem' }}>
-                  無料
-                </p>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: 0, marginTop: '0.3rem' }}>
-                  ※対面の場合はご自身のカフェ代のみご負担ください
-                </p>
-              </div>
-              <div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【定員】</h3>
-                <p style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--text-main)', margin: 0, marginTop: '0.5rem' }}>
-                  限定 4 名
-                </p>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: 0, marginTop: '0.3rem' }}>
-                  ※少人数制のため、質問がしやすい環境です
-                </p>
-              </div>
-            </div>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【参加費】</h3>
+            <p style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--primary)', margin: 0, marginTop: '0.5rem' }}>
+              無料
+            </p>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: 0, marginTop: '0.3rem', lineHeight: '1.8' }}>
+              ※対面の場合はご自身のカフェ代のみご負担ください
+            </p>
+          </div>
+
+          {/* 4. 定員 */}
+          <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【定員】</h3>
+            <p style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--text-main)', margin: 0, marginTop: '0.5rem' }}>
+              限定 4 名
+            </p>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: 0, marginTop: '0.3rem', lineHeight: '1.8' }}>
+              ※少人数制のため、質問がしやすい環境です
+            </p>
           </div>
 
           {/* 4. 内容 & アジェンダ */}
           <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
             <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【内容・流れ】</h3>
-            <ol style={{ paddingLeft: '1.2rem', margin: '0 0 2rem 0', color: 'var(--text-muted)', fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', lineHeight: '1.6' }}>
+            <ol style={{ paddingLeft: '1.2rem', margin: '0 0 2rem 0', color: 'var(--text-muted)', fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', lineHeight: '1.8' }}>
               <li><strong>講師自己紹介：</strong> 投資を始めたきっかけと失敗・成功体験の共有</li>
-              <li><strong>金持ち父さんから学ぶ投資の基本：</strong> 資産形成における最重要マインドセット</li>
-              <li><strong>初心者向け米国株長期投資勉強会：</strong> 米国株の強みと具体的な長期投資の手法</li>
+              <li><strong>投資の基本マインド：</strong> 資産形成における最重要マインドセット</li>
+              <li><strong>初心者向け米国株投資勉強会：</strong> 米国株の強みと具体的な長期投資の手法</li>
               <li><strong>質疑応答・相談タイム：</strong> 個別の疑問や不安に丁寧にお答えします</li>
             </ol>
 
-            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【米国株長期投資勉強会のアジェンダ】</h3>
-            <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem', color: 'var(--text-muted)', fontSize: '1rem', lineHeight: '1.6' }}>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【米国株投資勉強会の内容】</h3>
+            <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem', color: 'var(--text-muted)', fontSize: '1rem', lineHeight: '1.8' }}>
               <li><strong style={{ color: 'var(--text-main)' }}>第1章：</strong> なぜ今「米国株」なのか？他の投資との決定的な違い</li>
               <li><strong style={{ color: 'var(--text-main)' }}>第2章：</strong> 買ってはいけない「罠銘柄」の特徴と見分け方</li>
               <li><strong style={{ color: 'var(--text-main)' }}>第3章：</strong> 初心者に最適なインデックスファンドの選び方</li>
@@ -404,7 +402,7 @@ export default async function SeminarPage() {
           {/* 5. こんな方にお勧めします */}
           <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
             <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【こんな方にお勧めします】</h3>
-            <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>
+            <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.8' }}>
               <li>・株投資や新NISAについて一から分かりやすく学びたい方</li>
               <li>・将来に備え、働かなくても困らない堅実な資産・収入源をつくりたい方</li>
               <li>・最近の物価高・インフレに対して不安を感じている方</li>
@@ -420,9 +418,9 @@ export default async function SeminarPage() {
       <section id="apply-form-section" className="section-padding" style={{ background: 'var(--bg-warm)', padding: '5rem 0' }}>
         <div className="container" style={{ maxWidth: '600px', margin: '0 auto' }}>
           <div className="glass-card" style={{ padding: '3rem 2rem', borderRadius: '24px', border: '1px solid rgba(176, 58, 46, 0.15)', boxShadow: 'var(--shadow-soft)', background: 'white' }}>
-            <span className="section-tag" style={{ display: 'block', textAlign: 'center', marginBottom: '1rem', fontWeight: '800' }}>APPLICATION</span>
+            <span className="section-tag" style={{ display: 'block', textAlign: 'center', marginBottom: '1rem', fontWeight: '800', fontFamily: 'var(--font-accent)' }}>APPLICATION</span>
             <h2 className="section-title" style={{ textAlign: 'center', fontSize: '1.8rem', fontWeight: '900', marginBottom: '2rem', color: 'var(--primary-dark)' }}>講座の予約</h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', textAlign: 'center', marginBottom: '2rem', lineHeight: '1.6' }}>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', textAlign: 'center', marginBottom: '2rem', lineHeight: '1.8' }}>
               現在募集中の勉強会の日程を選択し、必要事項をご入力の上お申し込みください。<br />
               （※少人数制のため、満席になり次第受付終了となります）
             </p>

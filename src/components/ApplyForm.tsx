@@ -64,36 +64,84 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
     );
   }
 
-  const selectedSession = sessions.find(s => s.id === selectedSessionId);
-  const defaultSelectValue = selectedSession ? selectedSession.id : "";
 
   return (
     <form onSubmit={handleSubmit} className="apply-form">
       <input type="hidden" name="form-name" value="apply" />
       
       <div className="form-group">
-        <label htmlFor="event" className="form-label">参加希望の日程</label>
-        <select 
-          id="event" 
-          name="event" 
-          required 
-          className="form-select"
-          defaultValue={defaultSelectValue}
-        >
-          <option value="">日程を選択してください</option>
+        <label className="form-label">参加希望の日程</label>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           {sessions.map((session) => {
             const type = Array.isArray(session.type) ? session.type[0] : session.type;
             const isOffline = type !== 'online' && type !== 'オンライン';
+            const labelText = `${formatSessionDate(session.date)} ${formatSessionTime(session.date)}〜${isOffline && session.location ? ` (${session.location})` : ''}${isOffline ? ' [対面]' : ' [オンライン]'}`;
             return (
-              <option key={session.id} value={session.id}>
-                {formatSessionDate(session.date)} {formatSessionTime(session.date)}〜
-                {isOffline && session.location ? ` (${session.location})` : ''}
-                {isOffline ? ' [対面]' : ' [オンライン]'}
-              </option>
+              <label
+                key={session.id}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.75rem',
+                  padding: '0.9rem 1rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(0, 0, 0, 0.08)',
+                  background: 'white',
+                  cursor: 'pointer',
+                  transition: 'var(--transition)',
+                  fontSize: '0.95rem',
+                  color: 'var(--text-main)',
+                  lineHeight: '1.5',
+                }}
+              >
+                <input
+                  type="radio"
+                  name="event"
+                  value={session.id}
+                  required
+                  defaultChecked={session.id === selectedSessionId}
+                  style={{
+                    width: '18px',
+                    height: '18px',
+                    accentColor: 'var(--primary)',
+                    flexShrink: 0,
+                  }}
+                />
+                <span>{labelText}</span>
+              </label>
             );
           })}
-          <option value="other">その他（メッセージ欄に詳細をご記入ください）</option>
-        </select>
+          <label
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.75rem',
+              padding: '0.9rem 1rem',
+              borderRadius: '12px',
+              border: '1px solid rgba(0, 0, 0, 0.08)',
+              background: 'white',
+              cursor: 'pointer',
+              transition: 'var(--transition)',
+              fontSize: '0.95rem',
+              color: 'var(--text-muted)',
+              lineHeight: '1.5',
+            }}
+          >
+            <input
+              type="radio"
+              name="event"
+              value="other"
+              required
+              style={{
+                width: '18px',
+                height: '18px',
+                accentColor: 'var(--primary)',
+                flexShrink: 0,
+              }}
+            />
+            <span>その他（メッセージ欄に詳細をご記入ください）</span>
+          </label>
+        </div>
       </div>
 
       <div className="form-group">

@@ -70,7 +70,7 @@ export default async function Home() {
                 <span className="segment">米国株投資勉強会</span>
               </h2>
               <h3 className="featured-subtitle-line">
-                <span className="segment">初心者向けの米国株長期投資勉強会です</span>
+                <span className="segment">初心者向けの米国株投資勉強会です</span>
               </h3>
 
               {/* スマホ用Featured画像：タイトルの直下に配置 */}
