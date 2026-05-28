@@ -293,7 +293,7 @@ button {
 .hero-title {
   font-size: clamp(1.5rem, 3.8vw, 2.4rem);
   margin-bottom: 1.5rem;
-  color: var(--text-main) !important;
+  color: var(--primary-dark) !important;
   font-family: var(--font-serif);
   line-height: 1.45;
 }
@@ -491,7 +491,7 @@ button {
 .featured-lead-text {
   display: block;
   font-size: clamp(1.05rem, 3vw, 1.35rem);
-  font-weight: 800;
+  font-weight: 500;
   color: var(--text-main);
   margin-bottom: 1.5rem;
   line-height: 1.5;
