@@ -132,13 +132,11 @@ export default async function Home() {
               Your Future Starts Here
             </p>
             
-            <h2 style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.4', marginBottom: '2rem', color: 'var(--text-main)' }}>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.4', marginBottom: '2.5rem', color: 'var(--text-main)' }}>
               <span className="segment">投資を学んで、</span>
               <span className="segment">あなたの人生に</span><br />
               <span className="segment">ワクワクしよう。</span>
             </h2>
-
-            <div style={{ width: '60px', height: '3px', background: 'var(--primary)', margin: '0 auto 2.5rem', borderRadius: '2px' }} />
 
             <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', lineHeight: '2', color: 'var(--text-main)', fontWeight: '700', marginBottom: '1.5rem' }}>
               <span className="segment">もし、お金の不安がなくなったら</span>
