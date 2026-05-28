@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap');
+
 :root {
   --primary: #B03A2E;
   --primary-light: #CB4335;
@@ -205,6 +207,7 @@ button {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  margin-left: auto;
 }
 
 .nav-link {
@@ -444,14 +447,15 @@ button {
 
 .featured-tag {
   display: inline-block;
-  padding: 0.5rem 1.2rem;
-  background: var(--primary);
-  color: white;
-  border-radius: 50px;
+  padding: 0.1rem 0 0.1rem 0.75rem;
+  background: transparent;
+  color: var(--primary);
+  border-left: 3px solid var(--primary);
   font-weight: 800;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   margin-bottom: 1.5rem;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  line-height: 1.2;
 }
 
 .featured-title {
@@ -1665,3 +1669,13 @@ button {
   height: 44px;
   border-radius: 12px;
 }
+
+/* Rakumachi Link Style */
+.rakumachi-link {
+  transition: color 0.2s ease;
+}
+
+.rakumachi-link:hover {
+  color: #1d4ed8 !important;
+}
+

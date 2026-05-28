@@ -1,9 +1,8 @@
 "use client";
 
 import Link from 'next/link';
-import { Menu, X, Instagram } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import NoteIcon from './NoteIcon';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,14 +34,7 @@ export default function Header() {
           <Link href="/mission" className="nav-link">理念</Link>
           <Link href="/seminar" className="nav-link">勉強会詳細</Link>
           <Link href="/blog" className="nav-link">ブログ</Link>
-          <a href="https://cfg-s.vercel.app/" target="_blank" rel="noopener noreferrer" className="nav-link">キャッシュフローゲーム会</a>
           <Link href="/contact" className="nav-link">お問い合わせ</Link>
-          <a href="https://www.instagram.com/tobby_us_stock?igsh=czQwaXVzNmU5Y2V3&utm_source=qr" target="_blank" rel="noopener noreferrer" className="instagram-link" aria-label="Instagram">
-            <Instagram size={22} />
-          </a>
-          <a href="https://note.com/tobby_wellness" target="_blank" rel="noopener noreferrer" className="note-link" aria-label="Note">
-            <NoteIcon size={22} />
-          </a>
         </nav>
 
         {/* Mobile Toggle */}
@@ -59,16 +51,7 @@ export default function Header() {
           <Link href="/mission" className="nav-link" onClick={() => setIsOpen(false)}>理念</Link>
           <Link href="/seminar" className="nav-link" onClick={() => setIsOpen(false)}>勉強会詳細</Link>
           <Link href="/blog" className="nav-link" onClick={() => setIsOpen(false)}>ブログ</Link>
-          <a href="https://cfg-s.vercel.app/" target="_blank" rel="noopener noreferrer" className="nav-link" onClick={() => setIsOpen(false)}>キャッシュフローゲーム会</a>
           <Link href="/contact" className="nav-link" onClick={() => setIsOpen(false)}>お問い合わせ</Link>
-          <div className="mobile-social-links">
-            <a href="https://www.instagram.com/tobby_us_stock?igsh=czQwaXVzNmU5Y2V3&utm_source=qr" target="_blank" rel="noopener noreferrer" className="instagram-link" onClick={() => setIsOpen(false)}>
-              <Instagram size={24} /> <span>Instagramをフォロー</span>
-            </a>
-            <a href="https://note.com/tobby_wellness" target="_blank" rel="noopener noreferrer" className="note-link" onClick={() => setIsOpen(false)}>
-              <NoteIcon size={24} /> <span>Noteを読む</span>
-            </a>
-          </div>
         </nav>
       </div>
     </header>
