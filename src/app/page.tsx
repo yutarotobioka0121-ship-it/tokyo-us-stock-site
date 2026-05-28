@@ -14,9 +14,9 @@ export default async function Home() {
               <h1 className="hero-title">
                 <span className="segment block-segment">東京米国株クラブへようこそ</span>
                 <span className="segment-accent">
-                  <span className="segment">少人数制・駅近のカフェで開催している米国株の勉強会です。</span>
-                  <span className="segment">資産運用に興味はあるけど何から手をつけていいかわからない方も、</span>
-                  <span className="segment">気軽にご参加いただけます。</span>
+                  <span className="segment">米国株の長期投資に興味がある仲間が集まる、ゆるくて温かいコミュニティです。</span>
+                  <span className="segment">難しく考えなくて大丈夫。</span>
+                  <span className="segment">知識ゼロからでも、一緒に学んで一緒に成長できる場所を目指しています。</span>
                 </span>
               </h1>
 
