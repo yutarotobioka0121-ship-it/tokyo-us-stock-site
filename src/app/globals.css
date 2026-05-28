@@ -275,8 +275,8 @@ button {
 
 /* Hero Section */
 .hero {
-  min-height: 75vh;
-  padding: 140px 0 80px;
+  min-height: auto;
+  padding: 140px 0 40px;
   display: flex;
   align-items: center;
   position: relative;
@@ -425,7 +425,7 @@ button {
     gap: 3rem;
   }
   .hero {
-    padding: 120px 0 60px;
+    padding: 120px 0 30px;
   }
   .hero-content-left {
     text-align: left;
@@ -463,10 +463,11 @@ button {
 
 .featured-tag {
   display: inline-block;
-  padding: 0.1rem 0 0.1rem 0.75rem;
+  padding: 0.4rem 1rem;
   background: transparent;
   color: var(--primary);
-  border-left: 3px solid var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: 4px;
   font-weight: 800;
   font-size: 0.95rem;
   margin-bottom: 1.5rem;
@@ -605,7 +606,10 @@ button {
   letter-spacing: 3px;
   font-size: 0.85rem;
   margin-bottom: 1rem;
-  display: block;
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border: 2px solid var(--primary);
+  border-radius: 4px;
 }
 
 .section-title {

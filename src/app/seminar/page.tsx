@@ -341,7 +341,7 @@ export default async function SeminarPage() {
               <div>
                 <h4 style={{ fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.4rem' }}>● リアル会場（対面）</h4>
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: 0, paddingLeft: '0.5rem', lineHeight: '1.8' }}>
-                  駅近郊の落ち着いたカフェやミーティングスペースにて開催いたします。<br />
+                  駅近郊の落ち着いたカフェにて開催いたします。<br />
                   ※お申込み完了後、詳細な開催場所をメールにてご連絡いたします。
                 </p>
               </div>

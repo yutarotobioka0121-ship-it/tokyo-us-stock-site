@@ -170,7 +170,7 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
         {status === 'loading' ? (
           <><Loader2 className="animate-spin" size={20} /> 送信中...</>
         ) : (
-          <>申し込みを確定する <ArrowRight size={18} /></>
+          <>申し込み <ArrowRight size={18} /></>
         )}
       </button>
       
