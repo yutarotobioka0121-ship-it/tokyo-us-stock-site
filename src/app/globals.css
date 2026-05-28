@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
   --primary: #B03A2E;
@@ -15,8 +15,12 @@
   --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
   --shadow-red: 0 10px 30px rgba(176, 58, 46, 0.15);
   
-  --font-serif: 'Zen Maru Gothic', serif;
-  --font-sans: 'Zen Maru Gothic', sans-serif;
+  --font-heading: 'Zen Maru Gothic', serif;
+  --font-body: 'Noto Sans JP', sans-serif;
+  --font-accent: 'Inter', sans-serif;
+  /* Legacy aliases */
+  --font-serif: var(--font-heading);
+  --font-sans: var(--font-body);
   
   --max-width: 1200px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -39,16 +43,18 @@ html, body {
 body {
   background-color: var(--bg-warm);
   color: var(--text-main);
-  font-family: 'Zen Maru Gothic', sans-serif;
-  line-height: 1.6;
+  font-family: var(--font-body);
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.02em;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Zen Maru Gothic', serif;
+  font-family: var(--font-heading);
   color: var(--primary-dark);
-  line-height: 1.2;
+  line-height: 1.3;
   overflow-wrap: break-word;
+  letter-spacing: 0.01em;
 }
 
 img {
@@ -85,7 +91,7 @@ button {
 }
 
 .section-padding {
-  padding: clamp(4rem, 12vw, 8rem) 0;
+  padding: clamp(3.5rem, 10vw, 6rem) 0;
 }
 
 /* Glassmorphism Card */
@@ -108,7 +114,7 @@ button {
   font-weight: 700;
   transition: var(--transition);
   gap: 0.6rem;
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
 }
 
 .btn-primary {
@@ -187,7 +193,7 @@ button {
 }
 
 .logo-text, .logo-accent {
-  font-family: var(--font-serif);
+  font-family: var(--font-accent);
   font-size: clamp(0.95rem, 4.5vw, 1.25rem);
   font-weight: 800;
   color: var(--text-main);
@@ -211,6 +217,7 @@ button {
 }
 
 .nav-link {
+  font-family: var(--font-body);
   font-weight: 600;
   color: var(--text-main);
   position: relative;
@@ -396,8 +403,8 @@ button {
 .hero-subtitle {
   font-size: clamp(1rem, 3vw, 1.15rem);
   color: var(--text-muted);
-  margin-bottom: 2.5rem;
-  line-height: 1.7;
+  margin-bottom: 2rem;
+  line-height: 1.8;
 }
 
 .hero-actions {
@@ -494,7 +501,7 @@ button {
   font-weight: 500;
   color: var(--text-main);
   margin-bottom: 1.5rem;
-  line-height: 1.5;
+  line-height: 1.8;
 }
 
 .benefit-list {

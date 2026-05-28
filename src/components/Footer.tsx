@@ -14,8 +14,10 @@ export default function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand">
           <Link href="/" className="logo">
-            <span className="logo-text">Tokyo US Stock</span>
-            <span className="logo-accent">Club</span>
+            <span className="logo-title" style={{ whiteSpace: 'nowrap' }}>
+              <span className="logo-text">Tokyo US Stock</span>
+              <span className="logo-accent">Club</span>
+            </span>
             <span className="logo-sub">東京米国株クラブ</span>
           </Link>
           <p className="footer-desc">

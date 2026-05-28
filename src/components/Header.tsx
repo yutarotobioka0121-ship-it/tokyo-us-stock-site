@@ -32,7 +32,7 @@ export default function Header() {
           <Link href="/" className="nav-link">ホーム</Link>
           <Link href="/about" className="nav-link">自己紹介</Link>
           <Link href="/mission" className="nav-link">理念</Link>
-          <Link href="/seminar" className="nav-link">勉強会詳細</Link>
+          <Link href="/seminar" className="nav-link">勉強会</Link>
           <Link href="/blog" className="nav-link">ブログ</Link>
           <Link href="/contact" className="nav-link">お問い合わせ</Link>
         </nav>
@@ -49,7 +49,7 @@ export default function Header() {
           <Link href="/" className="nav-link" onClick={() => setIsOpen(false)}>ホーム</Link>
           <Link href="/about" className="nav-link" onClick={() => setIsOpen(false)}>自己紹介</Link>
           <Link href="/mission" className="nav-link" onClick={() => setIsOpen(false)}>理念</Link>
-          <Link href="/seminar" className="nav-link" onClick={() => setIsOpen(false)}>勉強会詳細</Link>
+          <Link href="/seminar" className="nav-link" onClick={() => setIsOpen(false)}>勉強会</Link>
           <Link href="/blog" className="nav-link" onClick={() => setIsOpen(false)}>ブログ</Link>
           <Link href="/contact" className="nav-link" onClick={() => setIsOpen(false)}>お問い合わせ</Link>
         </nav>

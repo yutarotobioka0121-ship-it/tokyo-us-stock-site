@@ -128,11 +128,11 @@ export default async function Home() {
         
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ maxWidth: '750px', margin: '0 auto' }}>
-            <p style={{ fontSize: '0.95rem', letterSpacing: '3px', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', textTransform: 'uppercase' }}>
+            <p style={{ fontFamily: 'var(--font-accent)', fontSize: '0.95rem', letterSpacing: '3px', fontWeight: '800', color: 'var(--primary)', marginBottom: '1rem', textTransform: 'uppercase' as const }}>
               Your Future Starts Here
             </p>
             
-            <h2 style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.4', marginBottom: '2.5rem', color: 'var(--text-main)' }}>
+            <h2 style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.4', marginBottom: '2rem', color: 'var(--text-main)' }}>
               <span className="segment">投資を学んで、</span>
               <span className="segment">あなたの人生に</span><br />
               <span className="segment">ワクワクしよう。</span>
@@ -158,7 +158,7 @@ export default async function Home() {
               </p>
             </div>
 
-            <p style={{ fontSize: '1rem', color: 'rgba(255, 255, 255, 0.85)', margin: 0, lineHeight: '1.8' }}>
+            <p style={{ fontSize: '1rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.8' }}>
               <span className="segment">難しいことは何もありません。</span>
               <span className="segment">まずは気軽に、</span>
               <span className="segment">仲間と一緒に考えることから始めましょう。</span>
