@@ -305,7 +305,7 @@ button {
 }
 
 .hero-title .segment-accent .segment {
-  color: var(--primary);
+  color: var(--text-main);
 }
 
 .hero-title .segment-accent {
