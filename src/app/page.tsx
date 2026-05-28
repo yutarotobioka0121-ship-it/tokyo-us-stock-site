@@ -75,12 +75,12 @@ export default async function Home() {
 
               {/* スマホ用Featured画像：タイトルの直下に配置 */}
               <div className="featured-image-mobile">
-                <div className="featured-image-wrapper" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)' }}>
+                <div className="featured-image-wrapper glass-card">
                   <Image
                     src="/workshop.png"
                     alt="Investment Workshop"
                     width={600}
-                    height={600}
+                    height={450}
                     style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
                     className="featured-image"
                   />
@@ -106,13 +106,13 @@ export default async function Home() {
             
             {/* PC用Featured画像 */}
             <div className="featured-image-container featured-image-desktop slide-up delay-1">
-              <div className="featured-image-wrapper">
+              <div className="featured-image-wrapper glass-card">
                 <Image
                   src="/workshop.png"
                   alt="Investment Workshop"
                   width={600}
-                  height={600}
-                  style={{ objectFit: 'cover' }}
+                  height={450}
+                  style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
                   className="featured-image"
                 />
               </div>
