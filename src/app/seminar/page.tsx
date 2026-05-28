@@ -62,7 +62,7 @@ export default async function SeminarPage() {
             <span className="sr-only">初心者向け米国株投資勉強会：</span>
             おすすめ勉強会
           </span>
-          <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3' }}>
+          <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3', marginLeft: '0', marginRight: 'auto', maxWidth: 'none' }}>
             <span className="segment">米国株投資勉強会</span>
           </h1>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1.1rem, 4vw, 1.4rem)', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', textAlign: 'left', lineHeight: '1.8' }}>
@@ -166,7 +166,7 @@ export default async function SeminarPage() {
                             </button>
                           ) : (
                             <Link href="#apply-form-section" className="btn btn-primary" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', whiteSpace: 'nowrap', justifyContent: 'center' }}>
-                              申し込む
+                              申し込み
                             </Link>
                           )}
                         </td>
@@ -278,7 +278,7 @@ export default async function SeminarPage() {
                         </button>
                       ) : (
                         <Link href="#apply-form-section" className="btn btn-primary" style={{ width: '100%', padding: '0.8rem', fontSize: '0.95rem', justifyContent: 'center', fontWeight: '800' }}>
-                          申し込む
+                          申し込み
                         </Link>
                       )}
                     </div>
@@ -297,7 +297,7 @@ export default async function SeminarPage() {
 
 
       {/* Details Sections based on Jimdo LP */}
-      <section className="section-padding" style={{ background: 'white' }}>
+      <section style={{ background: 'white', padding: '0 0 clamp(3.5rem, 10vw, 6rem) 0' }}>
         <div className="container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
           
           {/* 1. 主催・講師 */}
