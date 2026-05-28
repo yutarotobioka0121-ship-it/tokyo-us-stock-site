@@ -14,10 +14,8 @@ export default async function Home() {
               <h1 className="hero-title">
                 <span className="segment block-segment">東京米国株クラブへようこそ</span>
                 <span className="segment-accent">
-                  <span className="segment">初心者のための</span>
-                  <span className="segment">米国株 投資勉強会で、</span>
-                  <span className="segment">理想の未来を</span>
-                  <span className="segment">デザインする。</span>
+                  <span className="segment">米国株に興味はあるけど、</span>
+                  <span className="segment">何から始めればいいかわからない方へ。</span>
                 </span>
               </h1>
 
@@ -89,8 +87,11 @@ export default async function Home() {
               </div>
               <p className="featured-desc">
                 <span className="featured-lead-text">
-                  <span className="segment">カフェでお茶を飲むようにリラックスした雰囲気で、</span>
-                  <span className="segment">投資の「わからない」を「わかった」に変えませんか？</span>
+                  <span className="segment">米国株を基礎から学べる、初心者歓迎の勉強会です。</span>
+                  <span className="segment">難しい専門用語は使いません。</span>
+                  <span className="segment">カフェでお茶をするような気軽な雰囲気で、</span>
+                  <span className="segment">投資の「わからない」を「わかった」に変えましょう。</span>
+                  <span className="segment">一人で悩まず、仲間と一緒に学びませんか？</span>
                 </span>
               </p>
               <div style={{ marginTop: '2rem' }}>
