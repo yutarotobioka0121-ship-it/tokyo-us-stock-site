@@ -10,8 +10,8 @@ export default function AboutPage() {
           <Link href="/" className="btn-link" style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
             <ArrowLeft size={18} style={{ marginRight: '0.5rem' }} /> トップへ戻る
           </Link>
-          <span className="section-tag">ABOUT OUR COMMUNITY</span>
-          <h1 className="post-title">東京米国株クラブについて</h1>
+          <span className="section-tag">PROFILE</span>
+          <h1 className="post-title">運営代表者 プロフィール</h1>
         </div>
       </section>
 
@@ -22,7 +22,7 @@ export default function AboutPage() {
               <div className="about-image-wrapper glass-card">
                 <Image
                   src="/profile.png"
-                  alt="トビー"
+                  alt="とびー"
                   width={500}
                   height={500}
                   style={{ objectFit: 'cover', width: '100%', height: 'auto', aspectRatio: '1/1' }}
@@ -31,33 +31,38 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="about-content-text">
-              <h2 className="section-title">とびー<br className="sp-hide" />について</h2>
-              <p className="notion-p" style={{ fontWeight: '700', fontSize: '1.1rem', color: 'var(--primary-dark)', marginBottom: '2rem' }}>
-                運営代表者：とびー<br />
-                <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 'normal' }}>米国株長期投資家 / 東京米国株クラブ主宰</span>
+              <h2 className="section-title">とびー</h2>
+              <p className="notion-p" style={{ fontWeight: '700', fontSize: '1.1rem', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>
+                米国株長期投資家 / 東京米国株クラブ主宰
+              </p>
+              <p className="notion-p" style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '2rem', lineHeight: '1.7' }}>
+                「投資はギャンブル」と思っていた元・完全な素人が、失敗と学びを経て資産を13倍にするまでの話。
               </p>
 
               <div className="skills-list" style={{ marginBottom: '2rem' }}>
-                <h3 style={{ marginBottom: '1.2rem', color: 'var(--primary)', fontSize: '1rem', fontWeight: '800' }}>📌 経歴・実績</h3>
-                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>バイナリーオプションで約100万円を失った苦い経験あり</span></div>
-                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>その後、米国株長期投資を基礎から学び直し5年で+1300%超を達成</span></div>
-                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>サラリーマン・事業主として多忙な日々を送りながら、投資時間は1日1時間未満</span></div>
-                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>東京・オンラインで初心者向け投資勉強会を主催</span></div>
+                <h3 style={{ marginBottom: '1.2rem', color: 'var(--primary)', fontSize: '1rem', fontWeight: '800' }}>📌 経歴・ストーリー</h3>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>もともと「投資＝ギャンブル」と思っていた完全な素人からスタート</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>バイナリーオプションで合計100万円近くを失う痛烈な失敗を経験</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>「金持ち父さん貧乏父さん」との出会いをきっかけに投資の本質を学び直す</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>財務諸表の読み方から徹底的に学習し、米国個別株（NVIDIA等）への長期投資を開始</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>ノイズに惑わされない投資マインドセットを確立し、5年で+1300%超（約13倍）を達成</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>現在はサラリーマン・事業主として多忙な毎日を送りながら、投資時間は1日1時間未満</span></div>
               </div>
 
               <div className="skills-list" style={{ marginBottom: '2rem' }}>
-                <h3 style={{ marginBottom: '1.2rem', color: 'var(--primary)', fontSize: '1rem', fontWeight: '800' }}>📝 発信テーマ</h3>
+                <h3 style={{ marginBottom: '1.2rem', color: 'var(--primary)', fontSize: '1rem', fontWeight: '800' }}>📝 発信していること</h3>
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>初心者向けの米国株・NISA・長期投資の基礎知識</span></div>
-                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>米国個別株・ETFの選び方・考え方</span></div>
-                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>失敗から学んだお金のリアルを正直に発信</span></div>
-                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>ギャンブルではない、堅実な資産形成のマインドセット</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>米国個別株・ETFの選び方・財務諸表の読み方</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>バイナリー損失〜資産13倍まで、失敗から学んだリアルな経験談</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>ギャンブルにならない、堅実な長期資産形成のマインドセット</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>東京・オンラインで初心者向け投資勉強会を主催</span></div>
               </div>
 
               <div className="skills-list">
-                <h3 style={{ marginBottom: '1.2rem', color: 'var(--primary)', fontSize: '1rem', fontWeight: '800' }}>💬 クラブ設立の思い</h3>
-                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>「かつての自分のように、知識不足で損失を出す人を一人でも減らしたい」</span></div>
-                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>小手先のテクニックではなく、一生使える投資哲学をわかりやすくお伝えしたい</span></div>
-                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>一人で悩まず、仲間と一緒に学べる場所をつくりたい</span></div>
+                <h3 style={{ marginBottom: '1.2rem', color: 'var(--primary)', fontSize: '1rem', fontWeight: '800' }}>💬 クラブを立ち上げた理由</h3>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>「かつての自分のように、知識不足のまま損失を出す人を一人でも減らしたい」</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>小手先のテクニックではなく、一生使える投資哲学を初心者目線でわかりやすく伝えたい</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span>一人で悩まず、仲間と一緒に学べる温かいコミュニティをつくりたい</span></div>
               </div>
             </div>
           </div>
