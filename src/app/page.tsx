@@ -11,14 +11,14 @@ export default async function Home() {
         <div className="container">
           <div className="hero-grid">
             <div className="hero-content-left slide-up">
-              <h1 className="hero-title">
-                <span className="segment block-segment">東京米国株クラブへようこそ</span>
-                <span className="segment-accent">
-                  <span className="segment">米国株投資に興味がある仲間が集まる、</span><span className="segment">ゆるくて温かいコミュニティです。</span>
-                  <span className="segment" style={{ display: 'block', margin: '0.5rem 0' }}>難しく考えなくて大丈夫です。</span>
-                  <span className="segment">知識ゼロからでも、</span><span className="segment">一緒に学んで一緒に成長する</span><span className="segment">誰でも参加できる場所を目指しています。</span>
-                </span>
+              <h1 className="hero-title" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', color: 'var(--primary-dark)', lineHeight: '1.3', fontWeight: '900', marginBottom: '1.5rem' }}>
+                東京米国株クラブへようこそ
               </h1>
+              <p className="hero-subtitle-text" style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2.2vw, 1.15rem)', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2rem' }}>
+                米国株投資に興味がある仲間が集まる、ゆるくて温かいコミュニティです。<br />
+                難しく考えなくて大丈夫です。<br />
+                知識ゼロからでも、一緒に学んで一緒に成長する、誰でも参加できる場所を目指しています。
+              </p>
 
               {/* スマホ用Hero画像：タイトルの直下に配置 */}
               <div className="hero-image-mobile">
@@ -66,11 +66,11 @@ export default async function Home() {
             <div className="featured-content slide-up">
               <span className="featured-tag">おすすめ勉強会</span>
 
-              <h2 className="featured-title">
-                <span className="segment">米国株投資勉強会</span>
+              <h2 className="featured-title" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', color: 'var(--primary-dark)', lineHeight: '1.3', fontWeight: '900', marginBottom: '0.75rem' }}>
+                米国株投資勉強会
               </h2>
-              <h3 className="featured-subtitle-line">
-                <span className="segment">初心者向けの米国株投資勉強会です</span>
+              <h3 className="featured-subtitle-line" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.1rem, 3.5vw, 1.6rem)', color: 'var(--primary-light)', marginBottom: '1.5rem', fontWeight: '900', lineHeight: '1.3' }}>
+                初心者向けの米国株投資勉強会です
               </h3>
 
               {/* スマホ用Featured画像：タイトルの直下に配置 */}
@@ -86,14 +86,12 @@ export default async function Home() {
                   />
                 </div>
               </div>
-              <p className="featured-desc">
-                <span className="featured-lead-text">
-                  <span className="segment">米国株を基礎から学べる、初心者歓迎の勉強会です。</span>
-                  <span className="segment">難しい専門用語は使いません。</span>
-                  <span className="segment">カフェでお茶をするような気軽な雰囲気で、</span>
-                  <span className="segment">知識ゼロでも大丈夫。少しずつ、楽しみながらやっていきましょう。</span>
-                  <span className="segment">一人で悩まず、仲間と一緒に学びませんか？</span>
-                </span>
+              <p className="featured-desc" style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2.2vw, 1.15rem)', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2rem' }}>
+                米国株を基礎から学べる、初心者歓迎の勉強会です。<br />
+                難しい専門用語は使いません。<br />
+                カフェでお茶をするような気軽な雰囲気で、<br />
+                知識ゼロでも大丈夫。少しずつ、楽しみながらやっていきましょう。<br />
+                一人で悩まず、仲間と一緒に学びませんか？
               </p>
               <div style={{ marginTop: '2rem' }}>
                 <Link href="/seminar" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '1rem', padding: '0.8rem 2.2rem', borderRadius: '50px', fontWeight: '800' }}>
