@@ -11,12 +11,12 @@ export default async function Home() {
         <div className="container">
           <div className="hero-grid">
             <div className="hero-content-left slide-up">
-              <h1 className="hero-title" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', color: 'var(--primary-dark)', lineHeight: '1.3', fontWeight: '900', marginBottom: '1.5rem' }}>
+              <h1 className="hero-title" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.5rem, 5vw, 2.8rem)', color: 'var(--primary-dark)', lineHeight: '1.3', fontWeight: '900', marginBottom: '1.5rem' }}>
                 東京米国株クラブへようこそ
               </h1>
               <p className="hero-subtitle-text" style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2.2vw, 1.15rem)', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2rem' }}>
-                米国株投資に興味がある仲間が集まる、ゆるくて温かいコミュニティです。<br />
-                難しく考えなくて大丈夫です。<br />
+                米国株投資に興味がある仲間が集まる、ゆるくて温かいコミュニティです。<br className="sp-hide" />
+                難しく考えなくて大丈夫です。<br className="sp-hide" />
                 知識ゼロからでも、一緒に学んで一緒に成長する、誰でも参加できる場所を目指しています。
               </p>
 
@@ -87,10 +87,10 @@ export default async function Home() {
                 </div>
               </div>
               <p className="featured-desc" style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2.2vw, 1.15rem)', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2rem' }}>
-                米国株を基礎から学べる、初心者歓迎の勉強会です。<br />
-                難しい専門用語は使いません。<br />
-                カフェでお茶をするような気軽な雰囲気で、<br />
-                知識ゼロでも大丈夫。少しずつ、楽しみながらやっていきましょう。<br />
+                米国株を基礎から学べる、初心者歓迎の勉強会です。<br className="sp-hide" />
+                難しい専門用語は使いません。<br className="sp-hide" />
+                カフェでお茶をするような気軽な雰囲気で、<br className="sp-hide" />
+                知識ゼロでも大丈夫。少しずつ、楽しみながらやっていきましょう。<br className="sp-hide" />
                 一人で悩まず、仲間と一緒に学びませんか？
               </p>
               <div style={{ marginTop: '2rem' }}>
@@ -130,36 +130,30 @@ export default async function Home() {
               Your Future Starts Here
             </p>
             
-            <h2 style={{ fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.4', marginBottom: '2rem', color: 'var(--text-main)' }}>
-              <span className="segment">投資を学んで、</span>
-              <span className="segment">あなたの人生に</span><br />
-              <span className="segment">ワクワクしよう。</span>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.4', marginBottom: '2rem', color: 'var(--text-main)' }}>
+              投資を学んで、あなたの人生に<br className="sp-hide" />
+              ワクワクしよう。
             </h2>
-
+ 
             <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', lineHeight: '2', color: 'var(--text-main)', fontWeight: '700', marginBottom: '1.5rem' }}>
-              <span className="segment">もし、お金の不安がなくなったら</span>
-              <span className="segment">あなたは何をしたいですか？</span>
+              もし、お金の不安がなくなったら、あなたは何をしたいですか？
             </p>
-
-            <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.15rem)', lineHeight: '2', color: 'var(--text-muted)', marginBottom: '2rem' }}>
-              <span className="segment">家族との時間、好きな場所への旅、</span>
-              <span className="segment">夢だったあのチャレンジ ——</span><br />
-              <span className="segment">資産を育てることは、</span>
-              <span className="segment">未来の選択肢を増やすこと。</span>
+ 
+            <p style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.15rem)', lineHeight: '2', color: 'var(--text-muted)', marginBottom: '2rem' }}>
+              家族との時間、好きな場所への旅、夢だったあのチャレンジ ——<br className="sp-hide" />
+              資産を育てることは、未来の選択肢を増やすこと。
             </p>
-
+ 
             <div className="glass-card" style={{ background: 'var(--bg-white)', borderRadius: '20px', padding: '2.5rem 2rem', marginBottom: '2.5rem', border: '1px solid var(--glass-border)' }}>
               <p style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: '800', lineHeight: '1.8', margin: 0, color: 'var(--primary-dark)' }}>
-                <span className="segment">あなたの夢を叶えるための</span>
-                <span className="segment">「はじめの一歩」を、</span><br />
-                <span className="segment">一緒に踏み出しませんか？</span>
+                あなたの夢を叶えるための「はじめの一歩」を、<br className="sp-hide" />
+                一緒に踏み出しませんか？
               </p>
             </div>
-
+ 
             <p style={{ fontSize: '1rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.8' }}>
-              <span className="segment">難しいことは何もありません。</span>
-              <span className="segment">まずは気軽に、</span>
-              <span className="segment">仲間と一緒に考えることから始めましょう。</span>
+              難しいことは何もありません。まずは気軽に、<br className="sp-hide" />
+              仲間と一緒に考えることから始めましょう。
             </p>
           </div>
         </div>

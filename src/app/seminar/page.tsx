@@ -63,15 +63,14 @@ export default async function SeminarPage() {
             おすすめ勉強会
           </span>
           <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3', marginLeft: '0', marginRight: 'auto', maxWidth: 'none' }}>
-            <span className="segment">米国株投資勉強会</span>
+            米国株投資勉強会
           </h1>
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1.1rem, 4vw, 1.4rem)', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', textAlign: 'left', lineHeight: '1.8' }}>
-            <span className="segment">投資初心者に向けた内容で、</span>
-            <span className="segment">難しい専門用語などは無しでわかりやすくお話しします。</span>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1rem, 4vw, 1.4rem)', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', textAlign: 'left', lineHeight: '1.8' }}>
+            投資初心者に向けた内容で、難しい専門用語などは無しでわかりやすくお話しします。
           </p>
           <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '600px', marginBottom: '2.5rem', color: 'var(--text-muted)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)', lineHeight: '1.8' }}>
-            <span className="segment">カフェでお茶を飲むようにリラックスした雰囲気で、</span>
-            <span className="segment">投資の「わからない」を「わかった」に変えませんか？</span>
+            カフェでお茶を飲むようにリラックスした雰囲気で、<br className="sp-hide" />
+            投資の「わからない」を「わかった」に変えませんか？
           </p>
           <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '0 auto', aspectRatio: '16/9', position: 'relative' }}>
             <Image

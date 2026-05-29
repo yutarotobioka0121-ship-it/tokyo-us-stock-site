@@ -86,28 +86,24 @@ export default function AboutPage() {
               Dream Together
             </p>
             
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.4', marginBottom: '2rem', color: 'var(--text-main)' }}>
-              <span className="segment">あなたが手にした資産で、</span><br />
-              <span className="segment">どんな夢を叶えたいですか？</span>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.4', marginBottom: '2rem', color: 'var(--text-main)' }}>
+              あなたが手にした資産で、<br className="sp-hide" />
+              どんな夢を叶えたいですか？
             </h2>
 
             <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', lineHeight: '1.8', color: 'var(--text-main)', fontWeight: '700', marginBottom: '1.5rem' }}>
-              <span className="segment">大切な人との特別な時間、</span>
-              <span className="segment">まだ見ぬ景色への冒険、</span>
-              <span className="segment">ずっと温めてきた挑戦。</span>
+              大切な人との特別な時間、まだ見ぬ景色への冒険、ずっと温めてきた挑戦。
             </p>
 
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1rem, 2.5vw, 1.15rem)', lineHeight: '1.8', color: 'var(--text-muted)', marginBottom: '2rem' }}>
-              <span className="segment">投資は、そんな「ワクワクする未来」を</span>
-              <span className="segment">現実にするための手段です。</span><br />
-              <span className="segment">私たちは、その夢を叶えるお手伝いがしたい。</span>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2.5vw, 1.15rem)', lineHeight: '1.8', color: 'var(--text-muted)', marginBottom: '2rem' }}>
+              投資は、そんな「ワクワクする未来」を現実にするための手段です。<br className="sp-hide" />
+              私たちは、その夢を叶えるお手伝いがしたい。
             </p>
 
             <div className="glass-card" style={{ background: 'var(--bg-white)', borderRadius: '20px', padding: '2.5rem 2rem', margin: 0, border: '1px solid var(--glass-border)' }}>
               <p style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: '800', lineHeight: '1.8', margin: 0, color: 'var(--primary-dark)' }}>
-                <span className="segment">一人で悩まなくて大丈夫。</span><br />
-                <span className="segment">仲間と一緒に、</span>
-                <span className="segment">ワクワクする未来を描きましょう。</span>
+                一人で悩まなくて大丈夫。<br className="sp-hide" />
+                仲間と一緒に、ワクワクする未来を描きましょう。
               </p>
             </div>
           </div>
