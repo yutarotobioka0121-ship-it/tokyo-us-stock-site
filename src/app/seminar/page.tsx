@@ -56,7 +56,7 @@ export default async function SeminarPage() {
   return (
     <div className="seminar-page" style={{ overflowWrap: 'break-word' }}>
       {/* Hero Section */}
-      <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '120px 0 60px', textAlign: 'left' }}>
+      <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '120px 0 0', textAlign: 'left' }}>
         <div className="container">
           <span className="section-tag" style={{ display: 'inline-block', textAlign: 'left' }}>
             <span className="sr-only">初心者向け米国株投資勉強会：</span>
@@ -72,7 +72,7 @@ export default async function SeminarPage() {
             カフェでお茶を飲むようにリラックスした雰囲気で、<br className="sp-hide" />
             投資の「わからない」を「わかった」に変えませんか？
           </p>
-          <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem auto', aspectRatio: '16/9', position: 'relative' }}>
+          <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem auto 0 auto', aspectRatio: '16/9', position: 'relative' }}>
             <Image
               src="/workshop.png"
               alt="勉強会の様子"
@@ -85,7 +85,7 @@ export default async function SeminarPage() {
       </section>
 
       {/* Schedule Section */}
-      <section id="schedule" className="schedule-section" style={{ background: 'white', padding: '2.5rem 0 1.5rem 0' }}>
+      <section id="schedule" className="schedule-section" style={{ background: 'white', padding: '2rem 0 1.5rem 0' }}>
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">開催スケジュール</h2>
