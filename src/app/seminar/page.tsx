@@ -72,7 +72,7 @@ export default async function SeminarPage() {
             カフェでお茶を飲むようにリラックスした雰囲気で、<br className="sp-hide" />
             投資の「わからない」を「わかった」に変えませんか？
           </p>
-          <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '0 auto', aspectRatio: '16/9', position: 'relative' }}>
+          <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem auto', aspectRatio: '16/9', position: 'relative' }}>
             <Image
               src="/workshop.png"
               alt="勉強会の様子"

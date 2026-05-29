@@ -21,7 +21,7 @@ export default async function Home() {
               </p>
 
               {/* スマホ用Hero画像：タイトルの直下に配置 */}
-              <div className="hero-image-mobile">
+              <div className="hero-image-mobile" style={{ margin: '2rem auto', width: '100%' }}>
                 <div className="hero-image-wrapper glass-card">
                   <Image
                     src="/hero.png"
@@ -74,7 +74,7 @@ export default async function Home() {
               </h3>
 
               {/* スマホ用Featured画像：タイトルの直下に配置 */}
-              <div className="featured-image-mobile">
+              <div className="featured-image-mobile" style={{ margin: '2rem auto', width: '100%' }}>
                 <div className="featured-image-wrapper glass-card">
                   <Image
                     src="/workshop.png"
