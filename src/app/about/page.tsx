@@ -31,7 +31,7 @@ export default function AboutPage() {
           </div>
 
           <div className="about-grid" style={{ alignItems: 'flex-start' }}>
-            <div className="about-image-container">
+            <div className="about-image-container" style={{ position: 'sticky', top: '100px', maxWidth: '380px', width: '100%', margin: '0 auto' }}>
               <div className="about-image-wrapper glass-card">
                 <Image
                   src="/profile.png"
