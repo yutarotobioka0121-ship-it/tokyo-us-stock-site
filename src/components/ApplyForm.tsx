@@ -51,10 +51,10 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
 
   if (status === 'success') {
     return (
-      <div className="success-message slide-up" style={{ textAlign: 'center', padding: '3rem 0' }}>
+      <div className="success-message slide-up" style={{ textAlign: 'left', padding: '3rem 0', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
         <CheckCircle size={64} color="var(--primary)" style={{ marginBottom: '1.5rem' }} />
-        <h2 style={{ marginBottom: '1rem' }}>お申し込みを受け付けました</h2>
-        <p style={{ color: 'var(--text-muted)' }}>
+        <h2 style={{ marginBottom: '1rem', textAlign: 'left' }}>お申し込みを受け付けました</h2>
+        <p style={{ color: 'var(--text-muted)', textAlign: 'left' }}>
           ご入力いただいたメールアドレス宛に、詳細を記載したメールをお送りいたします。
         </p>
         <button onClick={() => setStatus('idle')} className="btn btn-outline" style={{ marginTop: '2rem' }}>
@@ -174,7 +174,7 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
         )}
       </button>
       
-      <p className="form-helper">
+      <p className="form-helper" style={{ textAlign: 'left', width: '100%' }}>
         ※申し込み後、詳細をメールにてお送りいたします。<br />
         ドメイン指定受信などの設定をご確認ください。
       </p>
