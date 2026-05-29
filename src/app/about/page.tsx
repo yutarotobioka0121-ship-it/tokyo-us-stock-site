@@ -18,7 +18,19 @@ export default function AboutPage() {
 
       <section style={{ padding: 'clamp(2.5rem, 6vw, 4rem) 0 clamp(3.5rem, 10vw, 6rem) 0', background: 'white' }}>
         <div className="container">
-          <div className="about-grid">
+          <div className="profile-intro-header" style={{ marginBottom: '2.5rem', maxWidth: '800px', textAlign: 'left' }}>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.5rem, 5vw, 2.4rem)', marginBottom: '0.75rem', lineHeight: '1.4', color: 'var(--primary-dark)', fontWeight: '900' }}>
+              とびー
+            </h2>
+            <p style={{ fontFamily: 'var(--font-body)', fontWeight: '700', fontSize: '1.1rem', color: 'var(--primary)', marginBottom: '0.5rem', lineHeight: '1.8' }}>
+              米国株長期投資家 / 東京米国株クラブ主宰
+            </p>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', color: 'var(--text-muted)', marginBottom: 0, lineHeight: '1.8' }}>
+              「投資はギャンブル」と思っていた元・完全な素人が、失敗と学びを経て資産を13倍にするまでの話。
+            </p>
+          </div>
+
+          <div className="about-grid" style={{ alignItems: 'flex-start' }}>
             <div className="about-image-container">
               <div className="about-image-wrapper glass-card">
                 <Image
@@ -32,13 +44,6 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="about-content-text">
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.4rem, 4vw, 2rem)', marginBottom: '0.75rem', lineHeight: '1.4', color: 'var(--primary-dark)', fontWeight: '900' }}>とびー</h2>
-              <p style={{ fontFamily: 'var(--font-body)', fontWeight: '700', fontSize: '1.05rem', color: 'var(--primary-dark)', marginBottom: '0.5rem', lineHeight: '1.8' }}>
-                米国株長期投資家 / 東京米国株クラブ主宰
-              </p>
-              <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '2rem', lineHeight: '1.8' }}>
-                「投資はギャンブル」と思っていた元・完全な素人が、失敗と学びを経て資産を13倍にするまでの話。
-              </p>
 
               <div className="skills-list" style={{ marginBottom: '2rem' }}>
                 <h3 style={{ fontFamily: 'var(--font-heading)', marginBottom: '1rem', color: 'var(--primary)', fontSize: '1rem', fontWeight: '800', lineHeight: '1.8' }}>📌 経歴・ストーリー</h3>
