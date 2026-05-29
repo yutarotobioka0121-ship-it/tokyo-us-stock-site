@@ -1517,7 +1517,7 @@ button {
     display: block;
     width: 100%;
     max-width: 500px;
-    margin: 1.5rem auto 2.5rem !important;
+    margin: 2rem auto 2rem !important;
   }
   .hero-image-desktop {
     display: none !important;
@@ -1527,10 +1527,14 @@ button {
     display: block;
     width: 100%;
     max-width: 500px;
-    margin: 1.5rem auto 2.5rem !important;
+    margin: 2rem auto 2rem !important;
   }
   .featured-image-desktop {
     display: none !important;
+  }
+
+  .seminar-hero-image {
+    margin: 2rem auto 2rem !important;
   }
 }
 

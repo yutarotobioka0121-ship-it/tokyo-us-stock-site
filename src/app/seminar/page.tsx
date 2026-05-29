@@ -86,7 +86,7 @@ export default async function SeminarPage() {
       </section>
 
       {/* Schedule Section */}
-      <section id="schedule" className="section-padding schedule-section" style={{ background: 'white' }}>
+      <section id="schedule" className="schedule-section" style={{ background: 'white', padding: '2.5rem 0 1.5rem 0' }}>
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">開催スケジュール</h2>
@@ -297,11 +297,11 @@ export default async function SeminarPage() {
 
 
       {/* Details Sections based on Jimdo LP */}
-      <section style={{ background: 'white', padding: '0 0 clamp(3.5rem, 10vw, 6rem) 0' }}>
-        <div className="container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+      <section style={{ background: 'white', padding: '0 0 2rem 0' }}>
+        <div className="container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           
           {/* 1. 主催・講師 */}
-          <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
+          <div className="glass-card" style={{ padding: '1.5rem' }}>
             <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【主催・講師】</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '1rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
@@ -335,7 +335,7 @@ export default async function SeminarPage() {
           </div>
 
           {/* 2. 会場情報 */}
-          <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
+          <div className="glass-card" style={{ padding: '1.5rem' }}>
             <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【会場情報】</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', marginTop: '0.5rem' }}>
               <div>
@@ -356,7 +356,7 @@ export default async function SeminarPage() {
           </div>
 
           {/* 3. 参加費 */}
-          <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
+          <div className="glass-card" style={{ padding: '1.5rem' }}>
             <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【参加費】</h3>
             <p style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--primary)', margin: 0, marginTop: '0.5rem' }}>
               無料
@@ -367,7 +367,7 @@ export default async function SeminarPage() {
           </div>
 
           {/* 4. 定員 */}
-          <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
+          <div className="glass-card" style={{ padding: '1.5rem' }}>
             <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【定員】</h3>
             <p style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--text-main)', margin: 0, marginTop: '0.5rem' }}>
               限定 4 名
@@ -378,7 +378,7 @@ export default async function SeminarPage() {
           </div>
 
           {/* 4. 内容 & アジェンダ */}
-          <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
+          <div className="glass-card" style={{ padding: '1.5rem' }}>
             <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【内容・流れ】</h3>
             <ol style={{ paddingLeft: '1.2rem', margin: '0 0 2rem 0', color: 'var(--text-muted)', fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', lineHeight: '1.8' }}>
               <li><strong>講師自己紹介：</strong> 投資を始めたきっかけと失敗・成功体験の共有</li>
@@ -400,7 +400,7 @@ export default async function SeminarPage() {
           </div>
 
           {/* 5. こんな方にお勧めします */}
-          <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
+          <div className="glass-card" style={{ padding: '1.5rem' }}>
             <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【こんな方にお勧めします】</h3>
             <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.8' }}>
               <li>・株投資や新NISAについて一から分かりやすく学びたい方</li>
@@ -415,9 +415,9 @@ export default async function SeminarPage() {
       </section>
 
       {/* 7. 講座の予約 (お申し込みフォーム) */}
-      <section id="apply-form-section" className="section-padding" style={{ background: 'var(--bg-warm)', padding: '5rem 0' }}>
+      <section id="apply-form-section" style={{ background: 'var(--bg-warm)', padding: '2.5rem 0' }}>
         <div className="container" style={{ maxWidth: '600px', margin: '0 auto' }}>
-          <div className="glass-card" style={{ padding: '3rem 2rem', borderRadius: '24px', border: '1px solid rgba(176, 58, 46, 0.15)', boxShadow: 'var(--shadow-soft)', background: 'white' }}>
+          <div className="glass-card" style={{ padding: '2rem 1.5rem', borderRadius: '24px', border: '1px solid rgba(176, 58, 46, 0.15)', boxShadow: 'var(--shadow-soft)', background: 'white' }}>
             <span className="section-tag" style={{ display: 'block', textAlign: 'center', marginBottom: '1rem', fontWeight: '800', fontFamily: 'var(--font-accent)' }}>APPLICATION</span>
             <h2 className="section-title" style={{ textAlign: 'center', fontSize: '1.8rem', fontWeight: '900', marginBottom: '2rem', color: 'var(--primary-dark)' }}>講座の予約</h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', textAlign: 'center', marginBottom: '2rem', lineHeight: '1.8' }}>
