@@ -14,11 +14,6 @@ export default async function Home() {
               <h1 className="hero-title" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.5rem, 5vw, 2.8rem)', color: 'var(--primary-dark)', lineHeight: '1.3', fontWeight: '900', marginBottom: '1.5rem' }}>
                 東京米国株クラブへようこそ
               </h1>
-              <p className="hero-subtitle-text" style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2.2vw, 1.15rem)', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2rem' }}>
-                米国株投資に興味がある仲間が集まる、ゆるくて温かいコミュニティです。<br className="sp-hide" />
-                難しく考えなくて大丈夫です。<br className="sp-hide" />
-                知識ゼロからでも、一緒に学んで一緒に成長する、誰でも参加できる場所を目指しています。
-              </p>
 
               {/* スマホ用Hero画像：タイトルの直下に配置 */}
               <div className="hero-image-mobile" style={{ margin: '2rem auto', width: '100%' }}>
@@ -34,6 +29,12 @@ export default async function Home() {
                   />
                 </div>
               </div>
+
+              <p className="hero-subtitle-text" style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2.2vw, 1.15rem)', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2rem' }}>
+                米国株投資に興味がある仲間が集まる、ゆるくて温かいコミュニティです。<br className="sp-hide" />
+                難しく考えなくて大丈夫です。<br className="sp-hide" />
+                知識ゼロからでも、一緒に学んで一緒に成長する、誰でも参加できる場所を目指しています。
+              </p>
 
               <div className="hero-actions">
                 <Link href="/about" className="btn btn-primary">
