@@ -151,7 +151,7 @@ export default async function Home() {
               </p>
             </div>
  
-            <p style={{ fontSize: '1rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.8' }}>
+            <p style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.15rem)', color: 'var(--text-muted)', margin: 0, lineHeight: '2' }}>
               難しいことは何もありません。まずは気軽に、<br className="sp-hide" />
               仲間と一緒に考えることから始めましょう。
             </p>
