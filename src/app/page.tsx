@@ -135,23 +135,23 @@ export default async function Home() {
               ワクワクしよう。
             </h2>
  
-            <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', lineHeight: '2', color: 'var(--text-main)', fontWeight: '700', marginBottom: '1.5rem' }}>
+            <p className="responsive-center-left" style={{ fontSize: 'clamp(1rem, 2.5vw, 1.2rem)', lineHeight: '2', color: 'var(--text-main)', fontWeight: '700', marginBottom: '1.5rem' }}>
               もし、お金の不安がなくなったら、あなたは何をしたいですか？
             </p>
  
-            <p style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.15rem)', lineHeight: '2', color: 'var(--text-muted)', marginBottom: '2rem' }}>
+            <p className="responsive-center-left" style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.15rem)', lineHeight: '2', color: 'var(--text-muted)', marginBottom: '2rem' }}>
               家族との時間、好きな場所への旅、夢だったあのチャレンジ ——<br className="sp-hide" />
               資産を育てることは、未来の選択肢を増やすこと。
             </p>
  
             <div className="glass-card" style={{ background: 'var(--bg-white)', borderRadius: '20px', padding: '2.5rem 2rem', marginBottom: '2.5rem', border: '1px solid var(--glass-border)' }}>
-              <p style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: '800', lineHeight: '1.8', margin: 0, color: 'var(--primary-dark)' }}>
+              <p className="responsive-center-left" style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: '800', lineHeight: '1.8', margin: 0, color: 'var(--primary-dark)' }}>
                 あなたの夢を叶えるための「はじめの一歩」を、<br className="sp-hide" />
                 一緒に踏み出しませんか？
               </p>
             </div>
  
-            <p style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.15rem)', color: 'var(--text-muted)', margin: 0, lineHeight: '2' }}>
+            <p className="responsive-center-left" style={{ fontSize: 'clamp(0.95rem, 2.5vw, 1.15rem)', color: 'var(--text-muted)', margin: 0, lineHeight: '2' }}>
               難しいことは何もありません。まずは気軽に、<br className="sp-hide" />
               仲間と一緒に考えることから始めましょう。
             </p>
