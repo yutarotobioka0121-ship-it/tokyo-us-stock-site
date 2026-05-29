@@ -56,12 +56,8 @@ export default async function SeminarPage() {
   return (
     <div className="seminar-page" style={{ overflowWrap: 'break-word' }}>
       {/* Hero Section */}
-      <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '120px 0 0', textAlign: 'left' }}>
+      <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '100px 0 0', textAlign: 'left' }}>
         <div className="container">
-          <span className="section-tag" style={{ display: 'inline-block', textAlign: 'left' }}>
-            <span className="sr-only">初心者向け米国株投資勉強会：</span>
-            おすすめ勉強会
-          </span>
           <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3', marginLeft: '0', marginRight: 'auto', maxWidth: 'none' }}>
             米国株投資勉強会
           </h1>
