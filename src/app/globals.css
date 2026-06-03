@@ -456,7 +456,7 @@ button {
 
 .featured-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr 1fr;
   gap: clamp(3rem, 5vw, 6rem);
   align-items: center;
 }
@@ -1524,11 +1524,11 @@ button {
 }
 
 @media (max-width: 992px) {
-  .hero-image-mobile {
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    margin: 2rem auto 2rem !important;
+  .hero-image-mobile.hero-peek-container {
+    display: block !important;
+    width: calc(100% - 100px) !important;
+    max-width: 275px !important;
+    margin: 2rem auto 2rem 15px !important;
   }
   .hero-image-desktop {
     display: none !important;
