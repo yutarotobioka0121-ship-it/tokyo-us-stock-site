@@ -282,7 +282,7 @@ button {
   position: relative;
   background: var(--bg-warm);
   color: var(--text-main);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero-grid {
@@ -1526,9 +1526,9 @@ button {
 @media (max-width: 992px) {
   .hero-image-mobile {
     display: block;
-    width: calc(100% - 80px) !important;
-    max-width: 250px !important;
-    margin: 2rem 80px 2rem 0 !important;
+    width: 100%;
+    max-width: 500px;
+    margin: 2rem auto 2rem !important;
   }
   .hero-image-desktop {
     display: none !important;
@@ -1746,13 +1746,13 @@ button {
   margin-left: auto;
 }
 
-/* Character: positioned BEHIND the image */
+/* Character: positioned in FRONT of the hero image, cutline aligned to container right edge. */
 .hero-peek-character {
   position: absolute;
   z-index: 3;
   pointer-events: none;
   top: -53px;
-  right: -78px;
+  right: -79px; /* 100px width - 21px cutline = 79px sticking out */
   width: 100px;
   height: 144px;
 }
@@ -1760,7 +1760,7 @@ button {
 /* Desktop character: larger */
 .hero-peek-character-desktop {
   top: -74px;
-  right: -98px;
+  right: -111px; /* 140px width - 29px cutline = 111px sticking out */
   width: 140px;
   height: 202px;
 }
