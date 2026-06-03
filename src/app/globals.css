@@ -1725,32 +1725,3 @@ button {
     text-align: left !important;
   }
 }
-
-/* Hero Character Badge styling & animations */
-.hero-character-badge {
-  position: absolute;
-  z-index: 10;
-  pointer-events: none;
-  animation: float-char 4s ease-in-out infinite;
-}
-
-.hero-image-desktop .hero-character-badge {
-  top: -55px;
-  right: -45px;
-  width: 160px;
-  height: 160px;
-}
-
-.hero-image-mobile .hero-character-badge {
-  top: -35px;
-  right: -15px;
-  width: 100px;
-  height: 100px;
-}
-
-@keyframes float-char {
-  0% { transform: translateY(0) rotate(12deg); }
-  50% { transform: translateY(-8px) rotate(9deg); }
-  100% { transform: translateY(0) rotate(12deg); }
-}
-
