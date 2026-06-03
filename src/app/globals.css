@@ -1746,10 +1746,10 @@ button {
 /* Character: positioned BEHIND the image */
 .hero-peek-character {
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   pointer-events: none;
   top: -53px;
-  right: -67px;
+  right: -61px;
   width: 100px;
   height: 144px;
 }
@@ -1757,7 +1757,7 @@ button {
 /* Desktop character: larger */
 .hero-peek-character-desktop {
   top: -74px;
-  right: -94px;
+  right: -86px;
   width: 140px;
   height: 202px;
 }
