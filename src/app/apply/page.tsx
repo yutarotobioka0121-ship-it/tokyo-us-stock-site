@@ -22,7 +22,6 @@ export default async function ApplyPage({
       <section className="form-section">
         <div className="container">
           <div className="form-container glass-card">
-            <span className="section-tag">APPLICATION</span>
             <h1 className="section-title">勉強会申し込み</h1>
             <p className="about-desc">
               現在募集中の勉強会への参加申し込みはこちらから承っております。

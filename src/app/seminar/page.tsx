@@ -413,7 +413,6 @@ export default async function SeminarPage() {
       <section id="apply-form-section" style={{ background: 'var(--bg-warm)', padding: '2.5rem 0' }}>
         <div className="container" style={{ maxWidth: '600px', margin: '0 auto' }}>
           <div className="glass-card" style={{ padding: '2rem 1.5rem', borderRadius: '24px', border: '1px solid rgba(176, 58, 46, 0.15)', boxShadow: 'var(--shadow-soft)', background: 'white', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
-            <span className="section-tag" style={{ display: 'inline-block', marginBottom: '1rem', fontWeight: '800', fontFamily: 'var(--font-accent)' }}>APPLICATION</span>
             <h2 className="section-title" style={{ textAlign: 'left', fontSize: '1.8rem', fontWeight: '900', marginBottom: '2rem', color: 'var(--primary-dark)', width: '100%' }}>講座の予約</h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', textAlign: 'left', marginBottom: '2rem', lineHeight: '1.8', width: '100%' }}>
               現在募集中の勉強会の日程を選択し、必要事項をご入力の上お申し込みください。<br />
