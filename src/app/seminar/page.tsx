@@ -70,7 +70,7 @@ export default async function SeminarPage() {
           </p>
           <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem auto 0 auto', aspectRatio: '16/9', position: 'relative' }}>
             <Image
-              src="/workshop.png"
+              src="/workshop.jpg"
               alt="勉強会の様子"
               fill
               style={{ objectFit: 'cover' }}

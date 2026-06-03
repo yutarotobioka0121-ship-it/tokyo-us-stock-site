@@ -100,7 +100,7 @@ export default async function Home() {
               <div className="featured-image-mobile" style={{ margin: '2rem auto', width: '100%' }}>
                 <div className="featured-image-wrapper glass-card">
                   <Image
-                    src="/workshop.png"
+                    src="/workshop.jpg"
                     alt="Investment Workshop"
                     width={600}
                     height={450}
@@ -129,7 +129,7 @@ export default async function Home() {
             <div className="featured-image-container featured-image-desktop slide-up delay-1">
               <div className="featured-image-wrapper glass-card">
                 <Image
-                  src="/workshop.png"
+                  src="/workshop.jpg"
                   alt="Investment Workshop"
                   width={600}
                   height={450}
