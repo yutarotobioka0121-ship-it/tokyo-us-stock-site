@@ -16,23 +16,25 @@ export default async function Home() {
               </h1>
 
               {/* スマホ用Hero画像：タイトルの直下に配置 */}
-              <div className="hero-image-mobile" style={{ margin: '2rem auto', width: '100%', position: 'relative' }}>
-                <div className="hero-character-badge">
+              <div className="hero-image-mobile hero-peek-container">
+                {/* キャラクター: 背面レイヤー */}
+                <div className="hero-peek-character">
                   <Image
                     src="/character.png"
                     alt="とびーキャラクター"
                     width={90}
                     height={120}
-                    style={{ objectFit: 'contain' }}
+                    style={{ objectFit: 'contain', width: '100%', height: '100%' }}
                   />
                 </div>
-                <div className="hero-image-wrapper glass-card" style={{ position: 'relative', zIndex: 2 }}>
+                {/* ヒーロー画像: 前面レイヤー */}
+                <div className="hero-peek-image">
                   <Image
                     src="/hero.png"
                     alt="米国株 投資勉強会"
                     width={600}
                     height={450}
-                    style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+                    style={{ objectFit: 'cover', width: '100%', height: 'auto', display: 'block', borderRadius: '24px' }}
                     priority
                     className="hero-image"
                   />
@@ -52,23 +54,25 @@ export default async function Home() {
               </div>
             </div>
             {/* PC用Hero画像 */}
-            <div className="hero-image-right hero-image-desktop slide-up delay-1" style={{ position: 'relative' }}>
-              <div className="hero-character-badge">
+            <div className="hero-image-right hero-image-desktop slide-up delay-1 hero-peek-container">
+              {/* キャラクター: 背面レイヤー */}
+              <div className="hero-peek-character hero-peek-character-desktop">
                 <Image
                   src="/character.png"
                   alt="とびーキャラクター"
                   width={140}
                   height={186}
-                  style={{ objectFit: 'contain' }}
+                  style={{ objectFit: 'contain', width: '100%', height: '100%' }}
                 />
               </div>
-              <div className="hero-image-wrapper glass-card" style={{ position: 'relative', zIndex: 2 }}>
+              {/* ヒーロー画像: 前面レイヤー */}
+              <div className="hero-peek-image">
                 <Image
                   src="/hero.png"
                   alt="米国株 投資勉強会"
                   width={600}
                   height={450}
-                  style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
+                  style={{ objectFit: 'cover', width: '100%', height: 'auto', display: 'block', borderRadius: '24px' }}
                   priority
                   className="hero-image"
                 />

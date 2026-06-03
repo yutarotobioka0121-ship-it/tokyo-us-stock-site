@@ -1725,48 +1725,57 @@ button {
     text-align: left !important;
   }
 }
+/* ============================
+   Hero Peek Character System
+   キャラクターがヒーロー画像の背面から覗き込む構図
+   
+   Structure:
+   .hero-peek-container (parent, isolation:isolate)
+     .hero-peek-character (z-index:1, behind)
+     .hero-peek-image (z-index:2, in front)
+   
+   Key: No backdrop-filter, no transform in animation
+   ============================ */
 
-/* Hero Character Badge styling & animations */
-.hero-character-badge {
-  position: absolute;
-  z-index: 1 !important;
-  pointer-events: none;
-  animation: float-char 4s ease-in-out infinite;
-}
-
-/* Hero image wrapper must be above character */
-.hero-image-mobile .hero-image-wrapper,
-.hero-image-desktop .hero-image-wrapper,
-.hero-image-right .hero-image-wrapper {
+.hero-peek-container {
   position: relative;
-  z-index: 3 !important;
-}
-
-.hero-image-desktop .hero-character-badge,
-.hero-image-right .hero-character-badge {
-  top: -30px;
-  right: -20px;
-  width: 150px;
-  height: 200px;
-}
-
-.hero-image-mobile .hero-character-badge {
-  top: -20px;
-  right: -5px;
-  width: 100px;
-  height: 133px;
-}
-
-/* Ensure parent containers don't clip the peeking character */
-.hero-image-mobile,
-.hero-image-right,
-.hero-image-desktop {
+  isolation: isolate;
   overflow: visible !important;
 }
 
-@keyframes float-char {
-  0% { transform: translateY(0) rotate(12deg); }
-  50% { transform: translateY(-8px) rotate(9deg); }
-  100% { transform: translateY(0) rotate(12deg); }
+/* Character: positioned BEHIND the image */
+.hero-peek-character {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  top: -25px;
+  right: -10px;
+  width: 100px;
+  height: 130px;
+  animation: peek-float 4s ease-in-out infinite;
 }
 
+/* Desktop character: larger */
+.hero-peek-character-desktop {
+  top: -35px;
+  right: -25px;
+  width: 140px;
+  height: 186px;
+}
+
+/* Image: positioned IN FRONT of character */
+.hero-peek-image {
+  position: relative;
+  z-index: 2;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 2px solid rgba(176, 58, 46, 0.08);
+}
+
+/* Animation: uses margin-top only (no transform = no stacking context) */
+@keyframes peek-float {
+  0% { margin-top: 0; }
+  50% { margin-top: -8px; }
+  100% { margin-top: 0; }
+}
