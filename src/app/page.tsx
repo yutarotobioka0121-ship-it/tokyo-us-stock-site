@@ -23,7 +23,7 @@ export default async function Home() {
                     src="/character-peek.png"
                     alt="とびーキャラクター"
                     width={100}
-                    height={186}
+                    height={140}
                     style={{ objectFit: 'contain', width: '100%', height: '100%' }}
                   />
                 </div>
@@ -61,7 +61,7 @@ export default async function Home() {
                   src="/character-peek.png"
                   alt="とびーキャラクター"
                   width={140}
-                  height={260}
+                  height={196}
                   style={{ objectFit: 'contain', width: '100%', height: '100%' }}
                 />
               </div>

@@ -1748,18 +1748,18 @@ button {
   position: absolute;
   z-index: 1;
   pointer-events: none;
-  top: -85px;
-  right: -42px;
+  top: -52px;
+  right: -66px;
   width: 100px;
-  height: 186px;
+  height: 140px;
 }
 
 /* Desktop character: larger */
 .hero-peek-character-desktop {
-  top: -120px;
-  right: -58px;
+  top: -72px;
+  right: -92px;
   width: 140px;
-  height: 260px;
+  height: 196px;
 }
 
 /* Image: positioned IN FRONT of character */
