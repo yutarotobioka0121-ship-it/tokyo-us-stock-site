@@ -167,7 +167,17 @@ export default async function Home() {
               資産を育てることは、未来の選択肢を増やすこと。
             </p>
  
-            <div className="glass-card" style={{ background: 'var(--bg-white)', borderRadius: '20px', padding: '2.5rem 2rem', marginBottom: '2.5rem', border: '1px solid var(--glass-border)' }}>
+            <div className="glass-card" style={{ position: 'relative', background: 'var(--bg-white)', borderRadius: '20px', padding: '2.5rem 2rem', marginBottom: '2.5rem', border: '1px solid var(--glass-border)' }}>
+              {/* ちびキャラ: 枠外左下に配置 */}
+              <div className="chibi-character-container">
+                <Image
+                  src="/chibi-character.png"
+                  alt="とびーちびキャラクター"
+                  width={125}
+                  height={168}
+                  style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+                />
+              </div>
               <p className="responsive-center-left" style={{ fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: '800', lineHeight: '1.8', margin: 0, color: 'var(--primary-dark)' }}>
                 あなたの夢を叶えるための「はじめの一歩」を、<br className="sp-hide" />
                 一緒に踏み出しませんか？

@@ -1781,3 +1781,23 @@ button {
   50% { margin-top: -8px; }
   100% { margin-top: 0; }
 }
+
+/* Chibi character placement in YOUR FUTURE STARTS HERE section */
+.chibi-character-container {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  bottom: -60px;
+  left: -75px;
+  width: 125px;
+  height: 168px;
+}
+
+@media (max-width: 992px) {
+  .chibi-character-container {
+    left: 5px;
+    bottom: -40px;
+    width: 75px;
+    height: 101px;
+  }
+}
