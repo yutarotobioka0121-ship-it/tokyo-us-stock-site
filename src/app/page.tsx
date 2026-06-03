@@ -20,10 +20,10 @@ export default async function Home() {
                 {/* キャラクター: 背面レイヤー */}
                 <div className="hero-peek-character">
                   <Image
-                    src="/character.png"
+                    src="/character-peek.png"
                     alt="とびーキャラクター"
-                    width={90}
-                    height={120}
+                    width={100}
+                    height={186}
                     style={{ objectFit: 'contain', width: '100%', height: '100%' }}
                   />
                 </div>
@@ -58,10 +58,10 @@ export default async function Home() {
               {/* キャラクター: 背面レイヤー */}
               <div className="hero-peek-character hero-peek-character-desktop">
                 <Image
-                  src="/character.png"
+                  src="/character-peek.png"
                   alt="とびーキャラクター"
                   width={140}
-                  height={186}
+                  height={260}
                   style={{ objectFit: 'contain', width: '100%', height: '100%' }}
                 />
               </div>
