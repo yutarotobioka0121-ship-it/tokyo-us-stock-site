@@ -1782,6 +1782,22 @@ button {
   100% { margin-top: 0; }
 }
 
+/* Dream Vision Section Card styling */
+.dream-vision-card {
+  position: relative;
+  background: var(--bg-white);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--glass-border);
+}
+
+@media (max-width: 992px) {
+  .dream-vision-card {
+    padding: 2.5rem 1.5rem 2.5rem 5.25rem !important; /* 左パディングを広げ、左右マージンもスマホ向けに最適化 */
+  }
+}
+
 /* Chibi character placement in YOUR FUTURE STARTS HERE section */
 .chibi-character-container {
   position: absolute;
@@ -1795,8 +1811,8 @@ button {
 
 @media (max-width: 992px) {
   .chibi-character-container {
-    left: 5px;
-    bottom: -40px;
+    left: 10px;
+    bottom: -35px;
     width: 75px;
     height: 101px;
   }

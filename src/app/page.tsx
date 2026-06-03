@@ -167,7 +167,7 @@ export default async function Home() {
               資産を育てることは、未来の選択肢を増やすこと。
             </p>
  
-            <div className="glass-card" style={{ position: 'relative', background: 'var(--bg-white)', borderRadius: '20px', padding: '2.5rem 2rem', marginBottom: '2.5rem', border: '1px solid var(--glass-border)' }}>
+            <div className="glass-card dream-vision-card">
               {/* ちびキャラ: 枠外左下に配置 */}
               <div className="chibi-character-container">
                 <Image
