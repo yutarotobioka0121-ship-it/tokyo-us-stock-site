@@ -1748,8 +1748,8 @@ button {
   position: absolute;
   z-index: 1;
   pointer-events: none;
-  top: -25px;
-  right: -10px;
+  top: -65px;
+  right: -75px;
   width: 100px;
   height: 130px;
   animation: peek-float 4s ease-in-out infinite;
@@ -1757,8 +1757,8 @@ button {
 
 /* Desktop character: larger */
 .hero-peek-character-desktop {
-  top: -35px;
-  right: -25px;
+  top: -95px;
+  right: -105px;
   width: 140px;
   height: 186px;
 }
