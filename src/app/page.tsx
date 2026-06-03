@@ -17,7 +17,16 @@ export default async function Home() {
 
               {/* スマホ用Hero画像：タイトルの直下に配置 */}
               <div className="hero-image-mobile" style={{ margin: '2rem auto', width: '100%', position: 'relative' }}>
-                <div className="hero-image-wrapper glass-card">
+                <div className="hero-character-badge">
+                  <Image
+                    src="/character.png"
+                    alt="とびーキャラクター"
+                    width={90}
+                    height={120}
+                    style={{ objectFit: 'contain' }}
+                  />
+                </div>
+                <div className="hero-image-wrapper glass-card" style={{ position: 'relative', zIndex: 2 }}>
                   <Image
                     src="/hero.png"
                     alt="米国株 投資勉強会"
@@ -26,15 +35,6 @@ export default async function Home() {
                     style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
                     priority
                     className="hero-image"
-                  />
-                </div>
-                <div className="hero-character-badge">
-                  <Image
-                    src="/character.png"
-                    alt="とびーキャラクター"
-                    width={100}
-                    height={133}
-                    style={{ objectFit: 'contain' }}
                   />
                 </div>
               </div>
@@ -53,7 +53,16 @@ export default async function Home() {
             </div>
             {/* PC用Hero画像 */}
             <div className="hero-image-right hero-image-desktop slide-up delay-1" style={{ position: 'relative' }}>
-              <div className="hero-image-wrapper glass-card">
+              <div className="hero-character-badge">
+                <Image
+                  src="/character.png"
+                  alt="とびーキャラクター"
+                  width={140}
+                  height={186}
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+              <div className="hero-image-wrapper glass-card" style={{ position: 'relative', zIndex: 2 }}>
                 <Image
                   src="/hero.png"
                   alt="米国株 投資勉強会"
@@ -62,15 +71,6 @@ export default async function Home() {
                   style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
                   priority
                   className="hero-image"
-                />
-              </div>
-              <div className="hero-character-badge">
-                <Image
-                  src="/character.png"
-                  alt="とびーキャラクター"
-                  width={150}
-                  height={200}
-                  style={{ objectFit: 'contain' }}
                 />
               </div>
             </div>

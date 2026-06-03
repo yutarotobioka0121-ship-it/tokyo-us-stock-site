@@ -1729,21 +1729,21 @@ button {
 /* Hero Character Badge styling & animations */
 .hero-character-badge {
   position: absolute;
-  z-index: 10;
+  z-index: 1;
   pointer-events: none;
   animation: float-char 4s ease-in-out infinite;
 }
 
 .hero-image-desktop .hero-character-badge {
-  top: -65px;
-  right: -35px;
+  top: -30px;
+  right: -20px;
   width: 150px;
   height: 200px;
 }
 
 .hero-image-mobile .hero-character-badge {
-  top: -45px;
-  right: -10px;
+  top: -20px;
+  right: -5px;
   width: 100px;
   height: 133px;
 }
@@ -1753,4 +1753,3 @@ button {
   50% { transform: translateY(-8px) rotate(9deg); }
   100% { transform: translateY(0) rotate(12deg); }
 }
-
