@@ -20,9 +20,6 @@ export default function KnowledgePage() {
           <h1 className="post-title" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 6vw, 2.8rem)', fontWeight: '900', textAlign: 'left', marginLeft: '0', marginRight: 'auto', maxWidth: 'none', marginBottom: '0.5rem', color: 'var(--primary-dark)', lineHeight: '1.3' }}>
             米国株（アメリカ株）とは？
           </h1>
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 3vw, 1.1rem)', color: 'var(--text-muted)', margin: '0', lineHeight: '1.6' }}>
-            東京米国株クラブが、初心者の方向けにやさしく解説します。
-          </p>
         </div>
       </section>
 
@@ -101,7 +98,7 @@ export default function KnowledgePage() {
           <div style={{ maxWidth: '700px', margin: '0 auto' }}>
 
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.4rem, 4vw, 2.2rem)', fontWeight: '900', lineHeight: '1.5', marginBottom: '1.5rem', color: 'var(--text-main)' }}>
-              「じゃあ、具体的にどう始めればいいの？」
+              では、何からスタートすれば<br />いいのでしょうか？
             </h2>
 
             <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)', lineHeight: '1.8', color: 'var(--text-muted)', marginBottom: '1rem' }}>
