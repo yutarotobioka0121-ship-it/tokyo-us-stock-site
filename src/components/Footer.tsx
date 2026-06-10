@@ -38,6 +38,7 @@ export default function Footer() {
           <ul className="footer-list">
             <li><Link href="/about">自己紹介</Link></li>
             <li><Link href="/mission">理念</Link></li>
+            <li><Link href="/knowledge">米国株とは</Link></li>
             <li><Link href="/seminar">勉強会</Link></li>
             <li><Link href="/blog">ブログ</Link></li>
           </ul>
