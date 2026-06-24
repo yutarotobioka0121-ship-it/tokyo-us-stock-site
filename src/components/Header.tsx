@@ -37,6 +37,7 @@ export default function Header() {
             <div className="nav-dropdown">
               <Link href="/knowledge" className="dropdown-item">米国株とは</Link>
               <Link href="/knowledge/stock-investment" className="dropdown-item">株式投資とは</Link>
+              <Link href="/knowledge/nisa" className="dropdown-item">NISAとは</Link>
             </div>
           </div>
           <Link href="/seminar" className="nav-link">勉強会</Link>
@@ -58,6 +59,7 @@ export default function Header() {
           <Link href="/mission" className="nav-link" onClick={() => setIsOpen(false)}>理念</Link>
           <Link href="/knowledge" className="nav-link" onClick={() => setIsOpen(false)}>米国株とは</Link>
           <Link href="/knowledge/stock-investment" className="nav-link" onClick={() => setIsOpen(false)}>株式投資とは</Link>
+          <Link href="/knowledge/nisa" className="nav-link" onClick={() => setIsOpen(false)}>NISAとは</Link>
           <Link href="/seminar" className="nav-link" onClick={() => setIsOpen(false)}>勉強会</Link>
           <Link href="/blog" className="nav-link" onClick={() => setIsOpen(false)}>ブログ</Link>
           <Link href="/contact" className="nav-link" onClick={() => setIsOpen(false)}>お問い合わせ</Link>
