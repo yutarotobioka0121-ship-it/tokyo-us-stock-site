@@ -33,7 +33,7 @@ export default function Header() {
           <Link href="/about" className="nav-link">自己紹介</Link>
           <Link href="/mission" className="nav-link">理念</Link>
           <div className="nav-dropdown-wrapper">
-            <span className="nav-link dropdown-trigger">米国株とは？</span>
+            <span className="nav-link dropdown-trigger">米国株とは</span>
             <div className="nav-dropdown">
               <Link href="/knowledge" className="dropdown-item">米国株とは</Link>
               <Link href="/knowledge/stock-investment" className="dropdown-item">株式投資とは</Link>
