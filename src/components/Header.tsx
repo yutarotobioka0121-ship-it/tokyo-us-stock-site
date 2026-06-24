@@ -32,7 +32,13 @@ export default function Header() {
           <Link href="/" className="nav-link">ホーム</Link>
           <Link href="/about" className="nav-link">自己紹介</Link>
           <Link href="/mission" className="nav-link">理念</Link>
-          <Link href="/knowledge" className="nav-link">米国株とは</Link>
+          <div className="nav-dropdown-wrapper">
+            <span className="nav-link dropdown-trigger">米国株とは？</span>
+            <div className="nav-dropdown">
+              <Link href="/knowledge" className="dropdown-item">米国株とは</Link>
+              <Link href="/knowledge/stock-investment" className="dropdown-item">株式投資とは</Link>
+            </div>
+          </div>
           <Link href="/seminar" className="nav-link">勉強会</Link>
           <Link href="/blog" className="nav-link">ブログ</Link>
           <Link href="/contact" className="nav-link">お問い合わせ</Link>
@@ -51,6 +57,7 @@ export default function Header() {
           <Link href="/about" className="nav-link" onClick={() => setIsOpen(false)}>自己紹介</Link>
           <Link href="/mission" className="nav-link" onClick={() => setIsOpen(false)}>理念</Link>
           <Link href="/knowledge" className="nav-link" onClick={() => setIsOpen(false)}>米国株とは</Link>
+          <Link href="/knowledge/stock-investment" className="nav-link" onClick={() => setIsOpen(false)}>株式投資とは</Link>
           <Link href="/seminar" className="nav-link" onClick={() => setIsOpen(false)}>勉強会</Link>
           <Link href="/blog" className="nav-link" onClick={() => setIsOpen(false)}>ブログ</Link>
           <Link href="/contact" className="nav-link" onClick={() => setIsOpen(false)}>お問い合わせ</Link>
