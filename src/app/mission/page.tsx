@@ -1,5 +1,14 @@
+import { Metadata } from 'next';
 import { ArrowLeft, Compass, BookOpen, Sun, Star } from "lucide-react";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: 'クラブ理念 | 東京米国株クラブ',
+  description: '東京米国株クラブの理念を紹介します。「投資をギャンブルにしない」「知識ゼロから一緒に学ぶ」「未来の選択肢を増やす」という3つの約束を掲げ、誰でも安心して学べる温かいコミュニティを目指しています。',
+  alternates: {
+    canonical: 'https://www.tokyo-us-stock.com/mission',
+  },
+};
 
 export default function MissionPage() {
   return (

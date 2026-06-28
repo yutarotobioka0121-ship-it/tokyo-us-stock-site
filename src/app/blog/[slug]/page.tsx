@@ -1,9 +1,61 @@
-import { getPostBySlug } from '@/lib/notion';
-import { Calendar, ArrowLeft } from 'lucide-react';
+import { getPostBySlug, getPosts } from '@/lib/notion';
+import RelatedPosts from '@/components/RelatedPosts';
+import { Calendar, ArrowLeft, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 
 export const dynamic = 'force-dynamic';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
+
+  if (!post) {
+    return {
+      title: '記事が見つかりません | 東京米国株クラブ',
+    };
+  }
+
+  // 本文ブロックからプレーンテキストを抽出してディスクリプションにする
+  const plainText = post.content
+    .filter((block: any) => block.type === 'paragraph')
+    .map((block: any) => block.paragraph.rich_text.map((t: any) => t.plain_text).join(''))
+    .join(' ');
+
+  const description = (post.summary || plainText || '')
+    .replace(/<[^>]*>/g, '')
+    .trim()
+    .slice(0, 120) + '…';
+
+  return {
+    title: `${post.title} | 東京米国株クラブ`,
+    description,
+    openGraph: {
+      title: post.title,
+      description,
+      url: `https://www.tokyo-us-stock.com/blog/${slug}`,
+      type: 'article',
+      publishedTime: post.date,
+      authors: ['とびー'],
+      images: [
+        {
+          url: post.cover || 'https://www.tokyo-us-stock.com/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    alternates: {
+      canonical: `https://www.tokyo-us-stock.com/blog/${slug}`,
+    },
+  };
+}
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -13,8 +65,90 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
+  // 前後の記事を取得
+  const allPosts = await getPosts();
+  const currentIndex = allPosts.findIndex((p) => p.slug === slug || p.id === post.id);
+  const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null; // 新しい記事
+  const prevPost = currentIndex !== -1 && currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null; // 古い記事
+
+  // 知識ページ案内バナーの選定
+  let knowledgeLink = '/knowledge';
+  let knowledgeTitle = '米国株（アメリカ株）の基礎知識';
+  let knowledgeDesc = '初心者でも安心！米国株の基本の仕組みや日本株との違いを比較表で徹底解説しています。';
+
+  const titleLower = post.title.toLowerCase();
+  if (titleLower.includes('nisa')) {
+    knowledgeLink = '/knowledge/nisa';
+    knowledgeTitle = 'NISA（ニーサ）の基本';
+    knowledgeDesc = '税金がずっとゼロになるお得な非課税制度「NISA」の仕組みやつみたて投資枠の活用法を詳しく解説しています。';
+  } else if (titleLower.includes('比較') || titleLower.includes('vs') || titleLower.includes('主要投資')) {
+    knowledgeLink = '/knowledge/stock-investment';
+    knowledgeTitle = '株式投資の基本';
+    knowledgeDesc = '株式投資のメリット（配当金・値上がり益）から、インフレに負けないリスク管理法までわかりやすく解説しています。';
+  }
+
+  // Article Schema
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: (post.summary || '').slice(0, 120),
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      '@type': 'Person',
+      name: 'とびー',
+      url: 'https://www.tokyo-us-stock.com/about',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: '東京米国株クラブ',
+      url: 'https://www.tokyo-us-stock.com',
+    },
+    url: `https://www.tokyo-us-stock.com/blog/${slug}`,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://www.tokyo-us-stock.com/blog/${slug}`,
+    },
+    image: post.cover ? [post.cover] : ['https://www.tokyo-us-stock.com/og-image.png'],
+  };
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'ホーム',
+        item: 'https://www.tokyo-us-stock.com',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'ブログ',
+        item: 'https://www.tokyo-us-stock.com/blog',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: `https://www.tokyo-us-stock.com/blog/${slug}`,
+      },
+    ],
+  };
+
   return (
     <article className="post-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <header className="post-header">
         <div className="container">
           <Link href="/blog" className="btn-link" style={{ marginBottom: '3rem', justifyContent: 'center' }}>
@@ -58,7 +192,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   };
 
                   if (href) {
-                    return <a key={i} href={href} target="_blank" rel="noopener noreferrer" style={style}>{t.plain_text}</a>;
+                    // Notionドメインを含む内部リンクを正規化
+                    const normalizedHref = href.replace(/^https?:\/\/(?:app\.|www\.)?notion\.com/, '');
+                    // 内部リンク判定（/blog/, /knowledge/ などサイト内パス）
+                    const isInternal = /^\/(?:blog|knowledge|about|contact|privacy)\b/.test(normalizedHref);
+
+                    if (isInternal) {
+                      return <a key={i} href={normalizedHref} style={style}>{t.plain_text}</a>;
+                    }
+                    return <a key={i} href={normalizedHref} target="_blank" rel="noopener noreferrer" style={style}>{t.plain_text}</a>;
                   }
                   return <span key={i} style={style}>{t.plain_text}</span>;
                 });
@@ -73,21 +215,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   );
                 case 'heading_1':
                   return (
-                    <h1 key={block.id} className="notion-h1 notion-block">
-                      {renderRichText(value.rich_text)}
-                    </h1>
-                  );
-                case 'heading_2':
-                  return (
-                    <h2 key={block.id} className="notion-h2 notion-block">
+                    <h2 key={block.id} className="notion-h1 notion-block">
                       {renderRichText(value.rich_text)}
                     </h2>
                   );
-                case 'heading_3':
+                case 'heading_2':
                   return (
-                    <h3 key={block.id} className="notion-h3 notion-block">
+                    <h3 key={block.id} className="notion-h2 notion-block">
                       {renderRichText(value.rich_text)}
                     </h3>
+                  );
+                case 'heading_3':
+                  return (
+                    <h4 key={block.id} className="notion-h3 notion-block">
+                      {renderRichText(value.rich_text)}
+                    </h4>
                   );
                 case 'bulleted_list_item':
                   return (
@@ -137,6 +279,44 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   return null;
               }
             })}
+
+            {/* 知識ページ案内バナー */}
+            <div className="knowledge-banner glass-card" style={{ marginTop: '3rem', padding: '2rem', background: 'var(--bg-warm)', borderRadius: '16px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '1rem', border: '1px solid var(--glass-border)' }}>
+              <span className="featured-tag" style={{ margin: 0 }}>あわせて読みたい</span>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: '900', color: 'var(--primary-dark)', margin: 0 }}>
+                {knowledgeTitle}
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
+                {knowledgeDesc}
+              </p>
+              <Link href={knowledgeLink} className="btn btn-primary" style={{ fontSize: '0.9rem', padding: '0.6rem 1.8rem', borderRadius: '30px', display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: '0.5rem', textDecoration: 'none' }}>
+                基礎知識を学び直す <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            {/* 前後の記事ナビゲーション */}
+            <div className="post-navigation" style={{ marginTop: '4rem', display: 'flex', justifyContent: 'space-between', gap: '1.5rem', borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '2rem', flexWrap: 'wrap' }}>
+              {prevPost ? (
+                <Link href={`/blog/${prevPost.slug}`} className="nav-prev-link btn-link" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.3rem', maxWidth: '45%', textDecoration: 'none' }}>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>&lt;&lt; 前の記事</span>
+                  <span style={{ fontSize: '0.95rem', color: 'var(--text-main)', fontWeight: '800', textAlign: 'left', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{prevPost.title}</span>
+                </Link>
+              ) : (
+                <div style={{ width: '45%' }}></div>
+              )}
+              
+              {nextPost ? (
+                <Link href={`/blog/${nextPost.slug}`} className="nav-next-link btn-link" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.3rem', maxWidth: '45%', textDecoration: 'none' }}>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>次の記事 &gt;&gt;</span>
+                  <span style={{ fontSize: '0.95rem', color: 'var(--text-main)', fontWeight: '800', textAlign: 'right', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{nextPost.title}</span>
+                </Link>
+              ) : (
+                <div style={{ width: '45%' }}></div>
+              )}
+            </div>
+
+            {/* 関連記事一覧 */}
+            <RelatedPosts currentSlug={slug} currentTitle={post.title} />
           </div>
         </div>
       </section>

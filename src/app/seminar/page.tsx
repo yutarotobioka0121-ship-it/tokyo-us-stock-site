@@ -1,9 +1,18 @@
+import { Metadata } from 'next';
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Users, Target, BookOpen, Coffee, Zap, PieChart, ShieldCheck } from "lucide-react";
 import { getSessions } from "@/lib/microcms";
 import { formatSessionDate, formatSessionTime, getSessionStartDateTime } from "@/lib/utils";
 import ApplyForm from "@/components/ApplyForm";
+
+export const metadata: Metadata = {
+  title: '米国株投資勉強会 | 東京米国株クラブ',
+  description: '東京で開催中の初心者向け米国株投資勉強会のご案内。5年で1300%以上の実績を持つ講師が、少人数制（定員4名）のカフェのような雰囲気で、長期投資の基礎をわかりやすく解説します。',
+  alternates: {
+    canonical: 'https://www.tokyo-us-stock.com/seminar',
+  },
+};
 
 export const dynamic = 'force-dynamic';
 

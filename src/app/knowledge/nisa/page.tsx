@@ -3,9 +3,11 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'NISAとは？初心者向けにわかりやすく解説 | 東京 米国株 勉強会 - 東京米国株クラブ',
-  description: '東京で開催中の米国株勉強会「東京米国株クラブ」が、NISA（少額投資非課税制度）の基本の仕組みやメリットを初心者向けにやさしく解説。税金をかけずに堅実に資産を増やすための考え方を紹介。',
-  keywords: '東京 米国株 勉強会, NISA 初心者, NISAとは, 東京米国株クラブ, 新NISA セミナー, 資産形成 積立投資',
+  title: 'NISA（ニーサ）とは？ | 東京 米国株 勉強会 - 東京米国株クラブ',
+  description: '東京の初心者向け米国株勉強会「東京米国株クラブ」が、NISA（少額投資非課税制度）の基本仕組みやメリットを解説。税金をかけずに堅実に資産を増やすための考え方やつみたて枠の活用法を紹介。',
+  alternates: {
+    canonical: 'https://www.tokyo-us-stock.com/knowledge/nisa',
+  },
 };
 
 export default function NisaKnowledgePage() {

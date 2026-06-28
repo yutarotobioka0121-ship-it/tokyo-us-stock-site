@@ -1,10 +1,19 @@
 import { Client } from '@notionhq/client';
+import { cache } from 'react';
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
 
 const DATABASE_ID = process.env.NOTION_DATABASE_ID;
+
+// 特定のNotion Page IDに対して、指定したSEOフレンドリーなスラッグを強制するマッピング
+// Notion側でSlugが一括変更されたため現在は空。今後新たなマッピングが必要になった場合に使用。
+export const SLUG_MAP: Record<string, string> = {};
+
+// SEOフレンドリースラッグからNotion Page IDへの逆引きマッピング（直接取得用）
+// Notion側でSlugが一括変更されたため現在は空。今後新たなマッピングが必要になった場合に使用。
+export const REVERSE_SLUG_MAP: Record<string, string> = {};
 
 export async function getPosts() {
   if (!DATABASE_ID) {
@@ -31,10 +40,13 @@ export async function getPosts() {
 
     return response.results.map((page: any) => {
       const props = page.properties;
+      const rawSlug = props.Slug?.rich_text?.[0]?.plain_text || page.id;
+      const mappedSlug = SLUG_MAP[page.id] || rawSlug;
+
       return {
         id: page.id,
         title: props.Title?.title?.[0]?.plain_text || 'Untitled',
-        slug: props.Slug?.rich_text?.[0]?.plain_text || page.id,
+        slug: mappedSlug,
         date: props.Date?.date?.start || '',
         summary: props.Summary?.rich_text?.[0]?.plain_text || '',
         cover: page.cover?.external?.url || page.cover?.file?.url || null,
@@ -46,7 +58,7 @@ export async function getPosts() {
   }
 }
 
-export async function getPostBySlug(slug: string) {
+export const getPostBySlug = cache(async (slug: string) => {
   if (!DATABASE_ID) return null;
 
   // URLエンコードされている可能性があるのでデコードし、日本語の正規化も行う
@@ -57,19 +69,35 @@ export async function getPostBySlug(slug: string) {
 
   let page;
 
-  // 1. データベース全件からSlugで検索（正規化して比較）
-  const response = await notion.databases.query({
-    database_id: DATABASE_ID,
-  });
+  // 1. マップに存在するかチェックし、存在すれば直接 ID で取得
+  const targetPageId = REVERSE_SLUG_MAP[decodedSlug];
+  if (targetPageId) {
+    try {
+      console.log('Slug matched override map, retrieving by Page ID:', targetPageId);
+      page = await notion.pages.retrieve({ page_id: targetPageId });
+    } catch (e) {
+      console.warn('Direct ID retrieval from map failed:', targetPageId);
+    }
+  }
 
-  page = response.results.find((p: any) => {
-    const s = p.properties.Slug?.rich_text?.[0]?.plain_text;
-    if (!s) return false;
-    const normalizedS = s.normalize().trim();
-    return normalizedS === decodedSlug;
-  });
+  // 2. マップで見つからない場合は通常通り全件からSlugで検索
+  if (!page) {
+    const response = await notion.databases.query({
+      database_id: DATABASE_ID,
+    });
 
-  // 2. Slugで見つからない場合、かつslugがUUID形式の場合のみID検索を試みる
+    page = response.results.find((p: any) => {
+      const s = p.properties.Slug?.rich_text?.[0]?.plain_text;
+      if (!s) return false;
+      const normalizedS = s.normalize().trim();
+      
+      // Notion側の元々のSlugを、SLUG_MAPで変換された値と比較できるように考慮
+      const mappedS = SLUG_MAP[p.id] || normalizedS;
+      return mappedS === decodedSlug;
+    });
+  }
+
+  // 3. それでも見つからない場合、かつslugがUUID形式の場合のみID検索を試みる
   if (!page) {
     console.log('Slug match failed, trying ID match...');
     const uuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -111,10 +139,11 @@ export async function getPostBySlug(slug: string) {
     id: page.id,
     title: props.Title?.title?.[0]?.plain_text || 'Untitled',
     date: props.Date?.date?.start || '',
+    summary: props.Summary?.rich_text?.[0]?.plain_text || '',
     cover: (page as any).cover?.external?.url || (page as any).cover?.file?.url || null,
     content: blocks,
   };
-}
+});
 
 export async function addCustomerToNotion(data: {
   name: string;

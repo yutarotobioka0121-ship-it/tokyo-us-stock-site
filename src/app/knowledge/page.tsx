@@ -3,9 +3,11 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '米国株とは？初心者向けにわかりやすく解説 | 東京 米国株 勉強会 - 東京米国株クラブ',
-  description: '東京で開催中の米国株勉強会「東京米国株クラブ」が、米国株の基礎知識を初心者向けにわかりやすく解説。日本株との違いを比較表で紹介。少人数制の勉強会で、投資の第一歩を一緒に踏み出しませんか？',
-  keywords: '東京 米国株 勉強会, 米国株 初心者, 米国株とは, 東京米国株クラブ, 米国株 セミナー, アメリカ株 始め方',
+  title: '米国株（アメリカ株）とは？ | 東京 米国株 勉強会 - 東京米国株クラブ',
+  description: '東京の初心者向け米国株勉強会「東京米国株クラブ」が、米国株の基礎知識をわかりやすく解説。日本株との違いの比較表、1株から買える少額投資、取引時間など初心者向けのメリットを紹介。',
+  alternates: {
+    canonical: 'https://www.tokyo-us-stock.com/knowledge',
+  },
 };
 
 export default function KnowledgePage() {

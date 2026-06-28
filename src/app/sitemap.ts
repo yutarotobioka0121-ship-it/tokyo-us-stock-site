@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getPosts } from '@/lib/notion';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://tokyo-us-stock.com';
+  const baseUrl = 'https://www.tokyo-us-stock.com';
 
   // 1. 静的ページ
   const routes = [

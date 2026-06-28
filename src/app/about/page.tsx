@@ -1,6 +1,15 @@
+import { Metadata } from 'next';
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, CheckCircle2, Compass, BookOpen, Sun, Star } from "lucide-react";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: '運営代表者 プロフィール | 東京米国株クラブ',
+  description: '東京米国株クラブの運営代表者「とびー」のプロフィール。投資を「ギャンブル」だと思っていた完全な初心者から、失敗を乗り越えて5年で資産13倍を達成したストーリーと当クラブへの想いを紹介。',
+  alternates: {
+    canonical: 'https://www.tokyo-us-stock.com/about',
+  },
+};
 
 export default function AboutPage() {
   return (

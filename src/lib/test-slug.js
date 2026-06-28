@@ -30,8 +30,9 @@ async function run() {
     // Check what is in the Slug property for all pages
     const all = await notion.databases.query({ database_id: databaseId });
     all.results.forEach(p => {
-      const s = p.properties.Slug;
-      console.log('Page ID:', p.id, 'Slug Prop:', JSON.stringify(s.rich_text[0]?.plain_text));
+      const s = p.properties.Slug?.rich_text[0]?.plain_text;
+      const title = p.properties.Title?.title[0]?.plain_text;
+      console.log('Page ID:', p.id, 'Slug:', JSON.stringify(s), 'Title:', JSON.stringify(title));
     });
   }
 }

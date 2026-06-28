@@ -1,5 +1,14 @@
+import { Metadata } from 'next';
 import { getSessions } from "@/lib/microcms";
 import ApplyForm from "@/components/ApplyForm";
+
+export const metadata: Metadata = {
+  title: '勉強会お申し込み | 東京米国株クラブ',
+  description: '東京米国株クラブが開催する初心者向け米国株投資勉強会への参加お申し込みページ。少人数制（定員4名）のため、日程を選んでお早めにお申し込みください。',
+  alternates: {
+    canonical: 'https://www.tokyo-us-stock.com/apply',
+  },
+};
 
 export const dynamic = 'force-dynamic';
 

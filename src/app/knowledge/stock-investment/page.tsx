@@ -3,9 +3,11 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '株式投資とは？初心者向けにわかりやすく解説 | 東京 米国株 勉強会 - 東京米国株クラブ',
-  description: '東京で開催中の米国株勉強会「東京米国株クラブ」が、株式投資の基本仕組みやメリットを初心者向けにやさしく解説。リスクを抑えて堅実に始めるための考え方を紹介。少人数制の勉強会で一歩を踏み出しませんか？',
-  keywords: '東京 米国株 勉強会, 株式投資 初心者, 株式投資とは, 東京米国株クラブ, 株式投資 セミナー, 資産形成 始め方',
+  title: '株式投資とは？ | 東京 米国株 勉強会 - 東京米国株クラブ',
+  description: '東京の初心者向け米国株勉強会「東京米国株クラブ」が、株式投資の基本仕組みやメリットをわかりやすく解説。インフレに負けない資産運用の考え方や、長期・積立・分散投資のリスク管理法を紹介。',
+  alternates: {
+    canonical: 'https://www.tokyo-us-stock.com/knowledge/stock-investment',
+  },
 };
 
 export default function StockInvestmentPage() {
