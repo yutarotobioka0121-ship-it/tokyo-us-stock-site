@@ -40,7 +40,7 @@ export default function AboutPage() {
           </div>
 
           <div className="about-grid" style={{ alignItems: 'flex-start' }}>
-            <div className="about-image-container" style={{ maxWidth: '380px', width: '100%', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <div className="about-image-container" style={{ maxWidth: '380px', width: '100%', margin: '0 auto' }}>
               <div className="about-image-wrapper glass-card">
                 <Image
                   src="/profile.png"
@@ -50,25 +50,6 @@ export default function AboutPage() {
                   style={{ objectFit: 'cover', width: '100%', height: 'auto', aspectRatio: '1/1' }}
                   className="about-image"
                 />
-              </div>
-
-              {/* 実績エビデンス画像 */}
-              <div className="evidence-card glass-card" style={{ padding: '1.5rem', background: 'var(--bg-white)', border: '1px solid var(--glass-border)', borderRadius: '20px' }}>
-                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '0.95rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <Star size={16} color="var(--primary)" /> 実際の運用成績（米国株）
-                </h4>
-                <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.08)', background: '#fff', marginBottom: '0.75rem' }}>
-                  <Image
-                    src="/performance-evidence.png"
-                    alt="とびーの投資成績（米国株+1302.55%）"
-                    width={400}
-                    height={400}
-                    style={{ width: '100%', height: 'auto', display: 'block' }}
-                  />
-                </div>
-                <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: 'var(--text-muted)', lineHeight: '1.5', margin: 0 }}>
-                  ※証券口座の損益グラフ。米国個別株・投資信託での長期運用により、主力の米国株損益率で +1302.55%（約13倍）を達成。
-                </p>
               </div>
             </div>
             <div className="about-content-text">
@@ -98,6 +79,24 @@ export default function AboutPage() {
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>小手先のテクニックではなく、一生使える投資哲学を初心者目線でわかりやすく伝えたい</span></div>
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>一人で悩まず、仲間と一緒に学べる温かいコミュニティをつくりたい</span></div>
               </div>
+            </div>
+          </div>
+
+
+          {/* 実績エビデンス画像セクション（スマホ・PCとも見やすく幅広で表示） */}
+          <div className="evidence-section glass-card" style={{ marginTop: '3.5rem', padding: '2rem 1.5rem', background: 'var(--bg-white)', border: '1px solid var(--glass-border)', borderRadius: '25px', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
+            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.6rem', justifyContent: 'center' }}>
+              <Star size={20} color="var(--primary)" /> 実際の運用成績（証券口座の損益グラフ）
+            </h3>
+            <div style={{ borderRadius: '15px', overflow: 'hidden', border: '1px solid rgba(0,0,0,0.08)', background: '#fff', maxWidth: '640px', margin: '0 auto', boxShadow: '0 4px 20px rgba(0,0,0,0.02)' }}>
+              <Image
+                src="/performance-evidence.png"
+                alt="とびーの投資成績（米国株+1302.55%）"
+                width={800}
+                height={800}
+                style={{ width: '100%', height: 'auto', display: 'block' }}
+                priority
+              />
             </div>
           </div>
         </div>
