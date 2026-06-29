@@ -42,14 +42,7 @@ export async function generateMetadata({
       type: 'article',
       publishedTime: post.date,
       authors: ['とびー'],
-      images: [
-        {
-          url: post.cover || 'https://www.tokyo-us-stock.com/og-image.png',
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
+      // images は指定しない → Next.js が opengraph-image.tsx を自動検出して使用する
     },
     alternates: {
       canonical: `https://www.tokyo-us-stock.com/blog/${slug}`,
@@ -63,6 +56,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   if (!post) {
     notFound();
+    return; // TypeScript に対して、これ以降 post は null でないことを保証
   }
 
   // 前後の記事を取得
