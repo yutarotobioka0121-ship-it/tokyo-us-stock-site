@@ -98,6 +98,75 @@ export default function AboutPage() {
                 priority
               />
             </div>
+
+            {/* 投資実績の詳細・E-E-A-T対策のテキスト */}
+            <div style={{ marginTop: '2.5rem', display: 'flex', flexDirection: 'column', gap: '2rem', textAlign: 'left' }}>
+              
+              {/* NVIDIA実績解説 */}
+              <div style={{ borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '2rem' }}>
+                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  📈 NVIDIA（エヌビディア）の長期保有実績
+                </h4>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.8', margin: 0 }}>
+                  主力の運用益+1302.55%（約13倍）を支える大きな要因となったのが、半導体大手**NVIDIA（NVDA）**への長期投資です。2020年のバイナリーオプションでの失敗後、小手先のテクニックを捨て「企業の財務諸表」をベースにしたファンダメンタルズ分析を学び直しました。<br />
+                  AI技術の将来的なインフラ化と財務上の圧倒的な強みを見抜き、2021年の初頭から保有を開始。一時的な下落局面（2022年のベアマーケット）でも売却せずホールドし続けた結果、生成AIブームの恩恵をフルに享受し、10倍株（テンバガー）を超えるリターンへと成長しました。
+                </p>
+              </div>
+
+              {/* 投資タイムライン */}
+              <div style={{ borderTop: '1px solid rgba(0,0,0,0.06)', paddingTop: '2rem' }}>
+                <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  ⏳ とびーの投資タイムライン（2020年〜現在）
+                </h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', borderLeft: '2px solid rgba(176, 58, 46, 0.15)', paddingLeft: '1.5rem', marginLeft: '0.5rem' }}>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', position: 'relative' }}>
+                      <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--primary)', position: 'absolute', left: '-31px', top: '50%', transform: 'translateY(-50%)' }} />
+                      <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2020年（暗黒期・スタート）</span>
+                    </div>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
+                      「投資＝すぐに稼げるギャンブル」と勘違いし、バイナリーオプションで約100万円を失う。この痛烈な失敗をきっかけに、「金持ち父さん貧乏父さん」を読み投資の本質を猛勉強。財務諸表を読めるようになるまで企業分析を重ねる。
+                    </p>
+                  </div>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', position: 'relative' }}>
+                      <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--primary)', position: 'absolute', left: '-31px', top: '50%', transform: 'translateY(-50%)' }} />
+                      <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2021年（米国個別株への長期投資開始）</span>
+                    </div>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
+                      NVIDIAをはじめ、競争優位性が極めて高い米国個別株の長期保有を本格化。ノイズ（短期的な市場ニュース）を一切遮断するバイ・アンド・ホールド戦略をとる。
+                    </p>
+                  </div>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', position: 'relative' }}>
+                      <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--primary)', position: 'absolute', left: '-31px', top: '50%', transform: 'translateY(-50%)' }} />
+                      <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2022年（試練の時期）</span>
+                    </div>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
+                      FRBの急激な利上げに伴う米国株の暴落期。保有銘柄も大きく値を下げるが、財務状況と成長ストーリーに変更がないことを確認し、一株も売らずに機械的に買い増しを継続。
+                    </p>
+                  </div>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', position: 'relative' }}>
+                      <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--primary)', position: 'absolute', left: '-31px', top: '50%', transform: 'translateY(-50%)' }} />
+                      <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2023年〜2024年（急成長と実績達成）</span>
+                    </div>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
+                      AIブームが本格化し、長期保有していたNVIDIA等が急騰。米国株全体のパフォーマンスが劇的に向上し、**5年未満で+1300%超（約13倍）**を達成。
+                    </p>
+                  </div>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', position: 'relative' }}>
+                      <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--primary)', position: 'absolute', left: '-31px', top: '50%', transform: 'translateY(-50%)' }} />
+                      <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2025年〜現在（コミュニティ活動の本格化）</span>
+                    </div>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
+                      「かつての自分のように無知なまま大損する人を減らしたい」という思いから、初心者向けに米国株・新NISAを基本から学べる投資コミュニティ「東京米国株クラブ」を設立。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
