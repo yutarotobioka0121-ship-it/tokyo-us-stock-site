@@ -109,7 +109,7 @@ export default function AboutPage() {
                 </h4>
                 <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.8', margin: 0 }}>
                   主力の運用益+1302.55%（約13倍）を支える大きな要因となったのが、半導体大手**NVIDIA（NVDA）**への長期投資です。2020年のバイナリーオプションでの失敗後、小手先のテクニックを捨て「企業の財務諸表」をベースにしたファンダメンタルズ分析を学び直しました。<br />
-                  AI技術の将来的なインフラ化と財務上の圧倒的な強みを見抜き、2021年の初頭から保有を開始。一時的な下落局面（2022年のベアマーケット）でも売却せずホールドし続けた結果、生成AIブームの恩恵をフルに享受し、10倍株（テンバガー）を超えるリターンへと成長しました。
+                  AI技術の将来的なインフラ化と財務上の圧倒的な強みを見抜き、2022年から保有を開始。一時的な下落局面（2022年のベアマーケット）や金利上昇局面でも売却せずホールドし続けた結果、生成AIブームの恩恵をフルに享受し、10倍株（テンバガー）を超えるリターンへと成長しました。
                 </p>
               </div>
 
@@ -134,16 +134,16 @@ export default function AboutPage() {
                       <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2021年（米国個別株への長期投資開始）</span>
                     </div>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
-                      NVIDIAをはじめ、競争優位性が極めて高い米国個別株の長期保有を本格化。ノイズ（短期的な市場ニュース）を一切遮断するバイ・アンド・ホールド戦略をとる。
+                      インデックス投資を中心に、米国個別株の長期投資を本格スタート。ノイズ（短期的な市場ニュース）を一切遮断するバイ・アンド・ホールド戦略の基礎を築く。
                     </p>
                   </div>
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', position: 'relative' }}>
                       <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--primary)', position: 'absolute', left: '-31px', top: '50%', transform: 'translateY(-50%)' }} />
-                      <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2022年（試練の時期）</span>
+                      <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2022年（試練の時期・NVIDIA株保有開始）</span>
                     </div>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
-                      FRBの急激な利上げに伴う米国株の暴落期。保有銘柄も大きく値を下げるが、財務状況と成長ストーリーに変更がないことを確認し、一株も売らずに機械的に買い増しを継続。
+                      FRBの急激な利上げに伴う米国株の暴落期。徹底的な財務分析に基づき、**NVIDIA（NVDA）株などの成長個別株を本格的に仕込み・保有開始**。暴落期でも売らずに買い増しを継続する。
                     </p>
                   </div>
                   <div>
