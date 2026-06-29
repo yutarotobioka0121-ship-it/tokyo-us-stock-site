@@ -131,19 +131,19 @@ export default function AboutPage() {
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', position: 'relative' }}>
                       <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--primary)', position: 'absolute', left: '-31px', top: '50%', transform: 'translateY(-50%)' }} />
-                      <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2021年（米国個別株への長期投資開始）</span>
+                      <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2021年（本格的な投資開始・日本株スタート）</span>
                     </div>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
-                      インデックス投資を中心に、米国個別株の長期投資を本格スタート。ノイズ（短期的な市場ニュース）を一切遮断するバイ・アンド・ホールド戦略の基礎を築く。
+                      まずは日本株の購入から運用をスタート。しかし、市場全体の成長力や企業分析の透明性、そして本質的な価値投資を最大化するためには米国株市場が最適であると確信し、翌年に向けて米国株の調査・準備を進める。
                     </p>
                   </div>
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', position: 'relative' }}>
                       <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--primary)', position: 'absolute', left: '-31px', top: '50%', transform: 'translateY(-50%)' }} />
-                      <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2022年（試練の時期・NVIDIA株保有開始）</span>
+                      <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2022年（米国株への移行・NVIDIA株保有開始）</span>
                     </div>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
-                      FRBの急激な利上げに伴う米国株の暴落期。徹底的な財務分析に基づき、**NVIDIA（NVDA）株などの成長個別株を本格的に仕込み・保有開始**。暴落期でも売らずに買い増しを継続する。
+                      日本株から米国株投資へ完全にシフト。FRBの急激な利上げに伴う米国株全体の暴落期だったが、徹底的な財務分析に基づき、**NVIDIA（NVDA）株をはじめとする成長個別株の保有・仕込みを開始**。暴落期でも売らずに買い増しを継続する。
                     </p>
                   </div>
                   <div>
