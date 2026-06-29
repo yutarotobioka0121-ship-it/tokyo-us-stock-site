@@ -3,16 +3,61 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '米国株（アメリカ株）とは？ | 東京 米国株 勉強会 - 東京米国株クラブ',
-  description: '東京の初心者向け米国株勉強会「東京米国株クラブ」が、米国株の基礎知識をわかりやすく解説。日本株との違いの比較表、1株から買える少額投資、取引時間など初心者向けのメリットを紹介。',
+  title: '米国株（アメリカ株）とは？特徴や日本株との違い・始め方を解説 | 東京 米国株 勉強会 - 東京米国株クラブ',
+  description: '東京の初心者向け米国株勉強会「東京米国株クラブ」が、米国株の基礎知識を3,000字以上で徹底解説。日本株との詳細比較、1株購入のメリット、配当金（年4回）、二重課税対策、FAQまで網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge',
   },
 };
 
 export default function KnowledgePage() {
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '英語が話せなくても米国株投資はできますか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'はい、全く問題ありません。SBI証券や楽天証券などの国内主要ネット証券を利用すれば、すべての取引画面、銘柄検索、注文、決算情報の日本語要約などを完全な日本語で行うことができます。米国の現地口座を開設する必要はなく、通常の日本株と同じような感覚で日本語だけで取引が完結します。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '米国株の配当金にかかる「二重課税」とは何ですか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '米国株の配当金は、まず米国内で10%の税金が源泉徴収され、その後、残りの金額に対して日本国内で約20.315%の税金が課されます。このように両国で課税されることを二重課税と呼びます。ただし、確定申告時に「外国税額控除」を申請することで、米国内で引かれた10%分の一部または全部を所得税・住民税から控除し、取り戻すことができます。なお、NISA口座で運用している場合は国内の約20%分は非課税になります（米国での10%のみ徴収）。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '米国株の取引時間は日本時間の何時からですか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '通常時間（11月第1日曜日〜3月第2土曜日）は日本時間の「23:30〜翌6:00」、サマータイム（3月第2日曜日〜11月第1日曜日）は日本時間の「22:30〜翌5:00」がメインの取引時間（市場の立会時間）です。日本国内のサラリーマンの方でも、仕事が終わって帰宅した夜間の時間にリアルタイムで落ち着いて市場を確認しながら取引することができます。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '米国株にも「株主優待」はありますか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '米国株には、日本の株式市場にあるような自社商品や割引券などを送る「株主優待制度」は原則として存在しません。アメリカの企業は株主への還元手段として、優待を配るのではなく、「配当金を増やす（増配）」ことや、市場から自社の株を買い戻して1株の価値を高める「自社株買い」を圧倒的に重視します。そのため、お金（現金）での還元率が非常に高いのが米国株の大きな特徴です。',
+        },
+      },
+    ],
+  };
+
   return (
     <div className="knowledge-page" style={{ overflowWrap: 'break-word' }}>
+      {/* JSON-LD FAQPage Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* Header Section */}
       <section className="post-header" style={{ background: 'var(--bg-warm)', padding: '100px 0 2.5rem 0', textAlign: 'left' }}>
         <div className="container">
@@ -20,32 +65,51 @@ export default function KnowledgePage() {
             <ArrowLeft size={18} style={{ marginRight: '0.5rem' }} /> トップへ戻る
           </Link>
           <h1 className="post-title" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 6vw, 2.8rem)', fontWeight: '900', textAlign: 'left', marginLeft: '0', marginRight: 'auto', maxWidth: 'none', marginBottom: '0.5rem', color: 'var(--primary-dark)', lineHeight: '1.3' }}>
-            米国株（アメリカ株）とは？
+            米国株（アメリカ株）とは？特徴や魅力・始め方を徹底解説
           </h1>
         </div>
       </section>
 
       {/* Main Content */}
       <section style={{ background: 'white', padding: 'clamp(3rem, 8vw, 5rem) 0' }}>
-        <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
+        <div className="container" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'left' }}>
 
-          {/* 米国株の定義 */}
+          {/* プロローグ */}
+          <div style={{ marginBottom: '3rem' }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+              私たちが日々使用しているiPhone（Apple）、検索エンジンやYouTube（Google / Alphabet）、日用品から仕事のインフラまで支えるクラウド（AmazonやMicrosoft）、SNS（Meta）などは、すべて**アメリカ（米国）を代表する超一流企業**が提供しています。
+            </p>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+              **米国株（アメリカ株）投資とは、これらのアメリカ市場に上場している企業の株を購入し、世界規模でビジネスを展開する企業のオーナーの一員になること**です。
+            </p>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: 0 }}>
+              世界の経済・金融の中心地である米国株式市場は、過去100年以上にわたり、数々の暴落や危機を乗り越えて右肩上がりに成長を遂げてきました。投資初心者にとって、なぜ米国株が最強の投資先と言われるのか、その基礎知識と日本株との決定的な違い、リスクの防ぎ方を分かりやすく解説します。
+            </p>
+          </div>
+
+          {/* 1章: 世界の時価総額に占める米国の割合と市場の魅力 */}
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
+            1. なぜ世界中の投資家が「米国株」にお金を投じるのか？
+          </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            米国株とは、<strong>アメリカの企業が発行する株式</strong>のことです。
+            米国株投資の最大の魅力は、圧倒的な**「市場の成長力」**と**「厚い信頼性」**です。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            Apple、Google、Amazon、Microsoftなど、私たちが日常的に使っているサービスの多くはアメリカの企業が提供しています。米国株を購入すると、こうした企業の株主になることができます。
+            全世界の株式市場の時価総額（全上場企業の価値の合計）のうち、**アメリカ市場だけで全体の約60%**を占めています（日本市場は約5%程度）。世界中のお金がニューヨーク証券取引所（NYSE）やNASDAQなどの米国市場に集まり、常に高い流動性と経済成長のエネルギーを供給し続けています。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
-            最近は日本でも米国株への関心が高まっていますが、日本株とはルールが異なる部分がいくつかあります。
+            また、米国市場には「人口増加し続ける先進国」という強力なマインドと、世界中から超優秀な人材が集まって新たなイノベーションを生み出し続ける文化があります。かつてのコカ・コーラやP&Gのような日用品大手から、現代のNVIDIAのようなAI半導体の王者まで、世界を牛耳るトップ企業へ直接出資できるのが米国株の唯一無二の魅力です。
           </p>
 
-          {/* 比較表 */}
-          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '2rem', marginBottom: '1.5rem' }}>
-            日本株と米国株の主な違い
+          {/* 2章: 日本株と米国株の5つの決定的な違い */}
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
+            2. 日本株と米国株の5つの違い（比較表）
           </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+            日本の株取引しか知らない人からすると、米国株の仕組みにはいくつかの衝撃的な違いがあります。比較表をベースに主要な違いを見ていきましょう。
+          </p>
 
-          <div style={{ overflowX: 'auto', marginBottom: '2rem', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.08)' }}>
+          <div style={{ overflowX: 'auto', marginBottom: '2.5rem', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.08)' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '480px', fontSize: '0.95rem', fontFamily: 'var(--font-body)' }}>
               <thead>
                 <tr style={{ backgroundColor: 'var(--bg-warm)', borderBottom: '2px solid rgba(0,0,0,0.08)' }}>
@@ -57,36 +121,157 @@ export default function KnowledgePage() {
               <tbody>
                 <tr style={{ borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
                   <td style={{ padding: '0.9rem 1rem', fontWeight: '700', backgroundColor: 'rgba(0,0,0,0.01)' }}>購入単位</td>
-                  <td style={{ padding: '0.9rem 1rem' }}>100株単位</td>
-                  <td style={{ padding: '0.9rem 1rem', fontWeight: '700', color: 'var(--primary-dark)' }}>1株から</td>
+                  <td style={{ padding: '0.9rem 1rem' }}>原則「100株単位」でしか買えない</td>
+                  <td style={{ padding: '0.9rem 1rem', fontWeight: '700', color: 'var(--primary)' }}>「1株単位」から自由に買える</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
                   <td style={{ padding: '0.9rem 1rem', fontWeight: '700', backgroundColor: 'rgba(0,0,0,0.01)' }}>配当回数</td>
-                  <td style={{ padding: '0.9rem 1rem' }}>年1〜2回</td>
-                  <td style={{ padding: '0.9rem 1rem', fontWeight: '700', color: 'var(--primary-dark)' }}>年4回が一般的</td>
+                  <td style={{ padding: '0.9rem 1rem' }}>年1〜2回が一般的</td>
+                  <td style={{ padding: '0.9rem 1rem', fontWeight: '700', color: 'var(--primary)' }}>「年4回」の支払いが主流（四半期ごと）</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
-                  <td style={{ padding: '0.9rem 1rem', fontWeight: '700', backgroundColor: 'rgba(0,0,0,0.01)' }}>取引時間</td>
-                  <td style={{ padding: '0.9rem 1rem' }}>日中（9:00〜15:00）</td>
-                  <td style={{ padding: '0.9rem 1rem' }}>夜間（23:30〜翌6:00）</td>
+                  <td style={{ padding: '0.9rem 1rem', fontWeight: '700', backgroundColor: 'rgba(0,0,0,0.01)' }}>主な取引時間（日本時間）</td>
+                  <td style={{ padding: '0.9rem 1rem' }}>日中の仕事中（9:00〜15:00）</td>
+                  <td style={{ padding: '0.9rem 1rem' }}>夜間の帰宅後（23:30〜翌6:00 / 冬時間）</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
-                  <td style={{ padding: '0.9rem 1rem', fontWeight: '700', backgroundColor: 'rgba(0,0,0,0.01)' }}>値幅制限</td>
-                  <td style={{ padding: '0.9rem 1rem' }}>あり</td>
-                  <td style={{ padding: '0.9rem 1rem' }}>なし</td>
+                  <td style={{ padding: '0.9rem 1rem', fontWeight: '700', backgroundColor: 'rgba(0,0,0,0.01)' }}>値幅制限（ストップ高・安）</td>
+                  <td style={{ padding: '0.9rem 1rem' }}>あり（急激な変動を防ぐ）</td>
+                  <td style={{ padding: '0.9rem 1rem' }}>なし（需給に応じた適正価格へ即座に収束）</td>
                 </tr>
                 <tr>
-                  <td style={{ padding: '0.9rem 1rem', fontWeight: '700', backgroundColor: 'rgba(0,0,0,0.01)' }}>為替の影響</td>
-                  <td style={{ padding: '0.9rem 1rem' }}>なし</td>
-                  <td style={{ padding: '0.9rem 1rem' }}>あり</td>
+                  <td style={{ padding: '0.9rem 1rem', fontWeight: '700', backgroundColor: 'rgba(0,0,0,0.01)' }}>主な還元手段</td>
+                  <td style={{ padding: '0.9rem 1rem' }}>株主優待（自社製品や優待券など）</td>
+                  <td style={{ padding: '0.9rem 1rem', fontWeight: '700', color: 'var(--primary)' }}>「増配（現金）」および「自社株買い」</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: '1.8', color: 'var(--text-muted)', marginBottom: '0' }}>
-            このように日本株と米国株にはいくつかの違いがありますが、<strong>少額から始められる</strong>点や、<strong>仕事終わりの夜間に取引できる</strong>点など、忙しい方にとって始めやすい仕組みが整っています。
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2.5rem' }}>
+            <div>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>
+                ・1株から買える（超少額投資）のメリット
+              </h3>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: '1.7', color: 'var(--text-main)', margin: 0 }}>
+                日本株では1株1万円の会社でも100株単位（最低10万円）からしか購入できず、初心者には資金の壁があります。しかし、米国株は1株単位で購入できるため、世界トップ企業のアップルやコカ・コーラなどの株が、数千円〜数万円という超低資金から手軽に購入して株主になれます。
+              </p>
+            </div>
+            <div>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>
+                ・年4回配当による「不労所得の複利システム」
+              </h3>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: '1.7', color: 'var(--text-main)', margin: 0 }}>
+                米国株の多くの企業は3ヶ月（四半期）に1度、配当金を支払います。異なる支払月の銘柄（例えば1・4・7・10月払い、2・5・8・11月払いなど）を3つ組み合わせるだけで、**「毎月配当金が自分の口座に振り込まれる」**という夢のキャッシュフローを簡単に設計できます。
+              </p>
+            </div>
+          </div>
+          <div className="knowledge-banner glass-card" style={{ padding: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
+            <span className="featured-tag" style={{ margin: 0 }}>もっと知りたい</span>
+            <p style={{ fontSize: '0.95rem', fontWeight: '800', margin: '0.5rem 0' }}>
+              日本株と米国株のよりデータに基づいた徹底比較や、投資初心者におけるメリット・デメリットはコラム記事でも比較・解説しています。
+            </p>
+            <Link href="/blog/investment-comparison-02" style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--primary)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+              日本株 vs 米国株｜それぞれのメリット・デメリットを徹底比較 <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          {/* 3章: 米国個別株とETFの選び方 */}
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
+            3. 米国個別株とETFの選び方の基本
+          </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+            米国株投資をスタートする際、何を購入するかは非常に重要です。大きく分けて「個別株」と「ETF（上場投資信託）」の2つのアプローチがあります。
           </p>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+            個別株を狙う場合は、強固なビジネスモデル、圧倒的なブランド力、そして強固な財務体質（高いフリーキャッシュフロー）を持つビッグテック（マイクロソフト、アップル、エヌビディア等）を徹底的な企業分析のもとで長期保有するのが原則です。
+          </p>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
+            一方、複数の企業に安全に分散したい場合は、**米国ETF**がおすすめです。例えば「VYM（バンガード・米国高配当株式ETF）」や「HDV（iシェアーズ・コア米国高配当株ETF）」を購入すれば、それだけで米国の優良高配当企業数百社に一括で分散投資ができ、かつ約3%前後の分配金を毎年安定して非課税枠（NISA等）で受け取ることができます。
+          </p>
+          <div className="knowledge-banner glass-card" style={{ padding: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
+            <span className="featured-tag" style={{ margin: 0 }}>もっと知りたい</span>
+            <p style={{ fontSize: '0.95rem', fontWeight: '800', margin: '0.5rem 0' }}>
+              NISAの成長投資枠や通常口座での個別株とETFの正しい選び方、取引を始める際の重要なルールはこちら。
+            </p>
+            <Link href="/blog/nisa-series-04" style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--primary)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+              成長投資枠の活用法｜個別株とETFの選び方 <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          {/* 4章: 米国株投資のリスク管理（為替と二重課税） */}
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
+            4. 米国株投資で絶対に知っておくべき2つのリスクと対策
+          </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+            米国株投資はリターンの期待値が高い非常に魅力的な投資ですが、国内の投資にはない特有のリスクが存在します。正しく対策を理解しておきましょう。
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2.5rem' }}>
+            <div>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>
+                ・為替リスク（円高・円安の影響）とドル・コスト平均法
+              </h3>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: '1.7', color: 'var(--text-main)', margin: 0 }}>
+                米国株は米ドルで取引されるため、為替の変動（為替差損益）が生じます。株価自体が上昇していても、急激な円高が進行すると円ベースでの評価額が下がる場合があります。この対策として、一度に全額を投資するのではなく、毎月決まった日に決まった額を購入する**「積立投資（ドル・コスト平均法）」**を行うことで、為替レートを平準化（平均化）して安全に運用できます。
+              </p>
+            </div>
+            <div>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>
+                ・「二重課税」のペナルティと外国税額控除
+              </h3>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: '1.7', color: 'var(--text-main)', margin: 0 }}>
+                特定口座などの課税口座で米国株の配当金を受け取る場合、まずアメリカ現地で10%が課税され、その残りの90%に対して日本国内で約20.315%が課税されます。この「二重課税」を防ぐため、確定申告時に**「外国税額控除」**を適用することで、米国内で徴収された10%分を所得税等から取り戻すことができます。なお、NISA口座を利用すれば日本の約20%分が非課税になるため、二重課税の影響を大きく抑えられます。
+              </p>
+            </div>
+          </div>
+          <div className="knowledge-banner glass-card" style={{ padding: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
+            <span className="featured-tag" style={{ margin: 0 }}>もっと知りたい</span>
+            <p style={{ fontSize: '0.95rem', fontWeight: '800', margin: '0.5rem 0' }}>
+              米国株の二重課税を解決するための手順や、SBI証券・楽天証券などネット証券会社でのNISA口座設定手順はこちら。
+            </p>
+            <Link href="/blog/nisa-series-02" style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--primary)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+              新NISAの口座開設の手順｜SBI証券・楽天証券での始め方 <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          {/* 5章: 米国株に関するFAQ */}
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
+            5. 米国株（アメリカ株）に関するよくある質問 (FAQ)
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '3rem' }}>
+            <div>
+              <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>
+                Q. 英語が話せなくても米国株投資はできますか？
+              </h4>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.7', color: 'var(--text-muted)', margin: 0 }}>
+                A. はい、全く問題なく取引できます。SBI証券や楽天証券、マネックス証券などの国内大手ネット証券口座を使用すれば、銘柄検索、取引注文の入力、現在の資産評価状況の確認など、すべての画面を完全な日本語で行うことができます。決算データの要約や業績ニュースなども日本語で配信されているため、英語力は一切不要です。
+              </p>
+            </div>
+            <div>
+              <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>
+                Q. 米国株の配当金にかかる「二重課税」とは何ですか？
+              </h4>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.7', color: 'var(--text-muted)', margin: 0 }}>
+                A. 米国個別株や米国ETFの配当金が支払われる際、まず米国内で10%が源泉徴収されます。そして、残りの90%の金額に対して日本国内で約20.315%の税金が差し引かれます。これを二重課税と呼びます。対策として、確定申告時に「外国税額控除」を行うことで、現地徴収分の10%を取り戻すことができます。また、NISA口座であれば日本国内分（約20%）は完全に非課税となります。
+              </p>
+            </div>
+            <div>
+              <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>
+                Q. 米国株の取引時間は日本時間の何時からですか？
+              </h4>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.7', color: 'var(--text-muted)', margin: 0 }}>
+                A. 通常期間（冬時間・11月上旬〜3月中旬）は日本時間の「23:30〜翌6:00」、夏時間（サマータイム・3月中旬〜11月上旬）は日本時間の「22:30〜翌5:00」です。日本のビジネスパーソンが退社して帰宅し、夜落ち着いたプライベートな時間にリアルタイムで株取引ができるため、非常に会社員向けのライフスタイルに適した市場です。
+              </p>
+            </div>
+            <div>
+              <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>
+                Q. 米国株にも「株主優待」はありますか？
+              </h4>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.7', color: 'var(--text-muted)', margin: 0 }}>
+                A. アメリカの株式市場には、日本独自の「株主優待（クオカードや自社商品等）」という制度は原則ありません。その代わりに、米国の経営陣は株主への最も確実な利益還元として「配当金の支払い（増配）」や「自社株の買い戻し（自社株買い）」を徹底的に優先します。そのため、キャッシュ（配当金）での株主還元姿勢は日本企業よりもはるかに進んでいます。
+              </p>
+            </div>
+          </div>
 
         </div>
       </section>
