@@ -16,9 +16,7 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug);
 
   if (!post) {
-    return {
-      title: '記事が見つかりません | 東京米国株クラブ',
-    };
+    notFound();
   }
 
   // 本文ブロックからプレーンテキストを抽出してディスクリプションにする
