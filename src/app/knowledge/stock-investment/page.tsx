@@ -77,10 +77,10 @@ export default function StockInvestmentPage() {
           {/* プロローグ */}
           <div style={{ marginBottom: '3rem' }}>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-              「汗水垂らして働いて得たお金は、銀行に貯金しておくのが一番安全」というのは、かつて日本が高金利だった時代の過去の話です。現在の日本は**歴史的な超低金利**であり、普通預金にお金を置いておいても年間で数十円しか増えません。その一方で、物価は上昇（インフレ）を続けているため、**現金のまま眠らせているお金の価値は、年々実質的に目減りしている**のが現状です。
+              「汗水垂らして働いて得たお金は、銀行に貯金しておくのが一番安全」というのは、かつて日本が高金利だった時代の過去の話です。現在の日本は<strong>歴史的な超低金利</strong>であり、普通預金にお金を置いておいても年間で数十円しか増えません。その一方で、物価は上昇（インフレ）を続けているため、<strong>現金のまま眠らせているお金の価値は、年々実質的に目減りしている</strong>のが現状です。
             </p>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-              この「現金の目減りリスク」から大切な自分の資産を守り、豊かでワクワクする将来を叶えるための最も強力な武器となるのが**株式投資（株）**です。
+              この「現金の目減りリスク」から大切な自分の資産を守り、豊かでワクワクする将来を叶えるための最も強力な武器となるのが<strong>株式投資（株）</strong>です。
             </p>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: 0 }}>
               「投資ってなんとなく難しそう」「損をするのが怖いから手が出せない」と感じる方は多いですが、それは株式投資の「正しい仕組み」と「リスクのコントロール法」を知らないからです。本ページでは、初心者の方が堅実に長期運用を成功させるための必須知識を体系的に解説します。
@@ -92,7 +92,7 @@ export default function StockInvestmentPage() {
             1. 株式投資とは何か？基本的な仕組み
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            株式投資の本質とは、**「企業にお金を出して（出資して）、共同経営者（株主）としてその企業の成長に伴う果実（利益）を分け合うこと」**です。
+            株式投資の本質とは、<strong>「企業にお金を出して（出資して）、共同経営者（株主）としてその企業の成長に伴う果実（利益）を分け合うこと」</strong>です。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
             私たちが株式を購入すると、その企業の「所有権（株主権）」の一部を手にすることになります。企業は集めたお金を使って事業を展開し、新しいテクノロジーを生み出したりサービスを提供して大きな利益を出します。その利益が、以下の2つの形（メリット）で株主に還元されます。
@@ -124,10 +124,10 @@ export default function StockInvestmentPage() {
             株式投資には、自分自身で特定の企業を分析して株を買う「個別株投資」と、特定の指標（指数）と同じ値動きを目指す「インデックス投資（投資信託やETF）」の2種類があります。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            初心者が最初にとるべき戦略は、圧倒的に**「インデックス投資」**です。なぜなら、1つの企業の業績に依存しないため、倒産による全損リスクがなく、市場全体（米国株全体や全世界株）の成長の波に乗ることができるからです。
+            初心者が最初にとるべき戦略は、圧倒的に<strong>「インデックス投資」</strong>です。なぜなら、1つの企業の業績に依存しないため、倒産による全損リスクがなく、市場全体（米国株全体や全世界株）の成長の波に乗ることができるからです。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            また、投資の世界には「プロの運用会社が目利きして株を選ぶアクティブファンド」もありますが、実は**過去のデータの80%以上で、手数料の安いシンプルなインデックスファンドがアクティブファンドの成績を上回っている**という事実があります。
+            また、投資の世界には「プロの運用会社が目利きして株を選ぶアクティブファンド」もありますが、実は<strong>過去のデータの80%以上で、手数料の安いシンプルなインデックスファンドがアクティブファンドの成績を上回っている</strong>という事実があります。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
             初心者を狙った「絶対に月利10%稼げる」「元本保証の特別な裏情報」といった謳い文句のぼったくり商品や投資詐欺は後を絶ちません。これらを防ぐための唯一の防衛策は、ネット証券で金融庁が認めたインデックスファンドを自分で積み立てることです。
@@ -152,7 +152,7 @@ export default function StockInvestmentPage() {
             3. なぜ「米国株」が最も選ばれているのか？他市場との比較
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            株式投資をする上で、どの国の市場にお金を置くかは非常に重要です。当クラブでは、日本株よりも**米国株市場への長期投資**を推奨しています。その理由は、アメリカ市場が持つ圧倒的な構造的強みにあります。
+            株式投資をする上で、どの国の市場にお金を置くかは非常に重要です。当クラブでは、日本株よりも<strong>米国株市場への長期投資</strong>を推奨しています。その理由は、アメリカ市場が持つ圧倒的な構造的強みにあります。
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2.5rem' }}>
             <div>
@@ -206,13 +206,13 @@ export default function StockInvestmentPage() {
             「投資」と一括りにされますが、アセットクラス（投資対象）によってその性質は完全に異なります。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            **FX（外国為替証拠金取引）**は、通貨の相対価値の変動を狙う「ゼロサムゲーム（誰かが得をすれば誰かが損をする）」であり、ハイレバレッジによる一発退場リスクが非常に高く、資産を増やす資産形成には全く適しません。
+            <strong>FX（外国為替証拠金取引）</strong>は、通貨の相対価値の変動を狙う「ゼロサムゲーム（誰かが得をすれば誰かが損をする）」であり、ハイレバレッジによる一発退場リスクが非常に高く、資産を増やす資産形成には全く適しません。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            **暗号資産（ビットコイン等）**は、デジタルゴールドとしての価値保存機能や爆発的な値上がり益が魅力ですが、キャッシュフロー（配当）を生まない資産であり、価格変動（ボラティリティ）が激しすぎるため、ポートフォリオの主役にはできません。
+            <strong>暗号資産（ビットコイン等）</strong>は、デジタルゴールドとしての価値保存機能や爆発的な値上がり益が魅力ですが、キャッシュフロー（配当）を生まない資産であり、価格変動（ボラティリティ）が激しすぎるため、ポートフォリオの主役にはできません。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
-            これらに対し、**「株式投資」**は、世界中の人々が働く経済活動そのもの（プラスサムゲーム・全体の価値が増加する）に投資するため、最も安全で堅実に右肩上がりの複利恩恵を受けられます。
+            これらに対し、<strong>「株式投資」</strong>は、世界中の人々が働く経済活動そのもの（プラスサムゲーム・全体の価値が増加する）に投資するため、最も安全で堅実に右肩上がりの複利恩恵を受けられます。
           </p>
           <div className="knowledge-banner glass-card" style={{ padding: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
             <span className="featured-tag" style={{ margin: 0 }}>もっと知りたい</span>
@@ -234,7 +234,7 @@ export default function StockInvestmentPage() {
             5. リスク許容度を知り、ギャンブルを回避する
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            投資を成功させるための最大の障壁は、市場の株価ではなく、**自分自身の「感情」**です。
+            投資を成功させるための最大の障壁は、市場の株価ではなく、<strong>自分自身の「感情」</strong>です。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
             どれだけ優秀な商品（S&P500など）を買っていても、暴落局面で自分の「リスク許容度（マイナスを精神的・経済的に耐えられる限界値）」を超えてしまうと、恐怖に耐えきれずに底値で売却（狼狽売り）してしまい、大損を被ることになります。
@@ -259,7 +259,7 @@ export default function StockInvestmentPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '3rem' }}>
             <div>
               <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>
-                Q. 初心者が株式投資を始める場合、最初に何を買うべきですか？
+                Q. 初心者が株式投資を始める場合、最初に何を買べきですか？
               </h4>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.7', color: 'var(--text-muted)', margin: 0 }}>
                 A. 初心者の方は、特定の企業の株（個別株）をいきなり買うのではなく、何千もの企業に丸ごと自動で分散投資を行ってくれる「S&P500」や「全世界株式（オルカン）」などの優れたインデックス投資信託を積立購入することをおすすめします。倒産リスクが事実上ゼロになり、手間をかけずに平均点以上の良好な成績を得ることができます。

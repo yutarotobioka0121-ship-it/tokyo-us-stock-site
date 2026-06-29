@@ -108,7 +108,7 @@ export default function AboutPage() {
                   📈 NVIDIA（エヌビディア）の長期保有実績
                 </h4>
                 <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.8', margin: 0 }}>
-                  主力の運用益+1302.55%（約13倍）を支える大きな要因となったのが、半導体大手**NVIDIA（NVDA）**への長期投資です。2020年のバイナリーオプションでの失敗後、小手先のテクニックを捨て「企業の財務諸表」をベースにしたファンダメンタルズ分析を学び直しました。<br />
+                  主力の運用益+1302.55%（約13倍）を支える大きな要因となったのが、半導体大手<strong>NVIDIA（NVDA）</strong>への長期投資です。2020年のバイナリーオプションでの失敗後、小手先のテクニックを捨て「企業の財務諸表」をベースにしたファンダメンタルズ分析を学び直しました。<br />
                   AI技術の将来的なインフラ化と財務上の圧倒的な強みを見抜き、2022年から保有を開始。一時的な下落局面（2022年のベアマーケット）や金利上昇局面でも売却せずホールドし続けた結果、生成AIブームの恩恵をフルに享受し、10倍株（テンバガー）を超えるリターンへと成長しました。
                 </p>
               </div>
@@ -143,7 +143,7 @@ export default function AboutPage() {
                       <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2022年（米国株への移行・NVIDIA株保有開始）</span>
                     </div>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
-                      日本株から米国株投資へ完全にシフト。FRBの急激な利上げに伴う米国株全体の暴落期だったが、徹底的な財務分析に基づき、**NVIDIA（NVDA）株をはじめとする成長個別株の保有・仕込みを開始**。暴落期でも売らずに買い増しを継続する。
+                      日本株から米国株投資へ完全にシフト。FRBの急激な利上げに伴う米国株全体の暴落期だったが、徹底的な財務分析に基づき、<strong>NVIDIA（NVDA）株をはじめとする成長個別株の保有・仕込みを開始</strong>。暴落期でも売らずに買い増しを継続する。
                     </p>
                   </div>
                   <div>
@@ -152,7 +152,7 @@ export default function AboutPage() {
                       <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2023年〜2024年（急成長と実績達成）</span>
                     </div>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
-                      AIブームが本格化し、長期保有していたNVIDIA等が急騰。米国株全体のパフォーマンスが劇的に向上し、**5年未満で+1300%超（約13倍）**を達成。
+                      AIブームが本格化し、長期保有していたNVIDIA等が急騰。米国株全体のパフォーマンスが劇的に向上し、<strong>5年未満で+1300%超（約13倍）</strong>を達成。
                     </p>
                   </div>
                   <div>

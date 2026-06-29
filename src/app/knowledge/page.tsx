@@ -77,10 +77,10 @@ export default function KnowledgePage() {
           {/* プロローグ */}
           <div style={{ marginBottom: '3rem' }}>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-              私たちが日々使用しているiPhone（Apple）、検索エンジンやYouTube（Google / Alphabet）、日用品から仕事のインフラまで支えるクラウド（AmazonやMicrosoft）、SNS（Meta）などは、すべて**アメリカ（米国）を代表する超一流企業**が提供しています。
+              私たちが日々使用しているiPhone（Apple）、検索エンジンやYouTube（Google / Alphabet）、日用品から仕事のインフラまで支えるクラウド（AmazonやMicrosoft）、SNS（Meta）などは、すべて<strong>アメリカ（米国）を代表する超一流企業</strong>が提供しています。
             </p>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-              **米国株（アメリカ株）投資とは、これらのアメリカ市場に上場している企業の株を購入し、世界規模でビジネスを展開する企業のオーナーの一員になること**です。
+              <strong>米国株（アメリカ株）投資とは、これらのアメリカ市場に上場している企業の株を購入し、世界規模でビジネスを展開する企業のオーナーの一員になること</strong>です。
             </p>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: 0 }}>
               世界の経済・金融の中心地である米国株式市場は、過去100年以上にわたり、数々の暴落や危機を乗り越えて右肩上がりに成長を遂げてきました。投資初心者にとって、なぜ米国株が最強の投資先と言われるのか、その基礎知識と日本株との決定的な違い、リスクの防ぎ方を分かりやすく解説します。
@@ -92,13 +92,13 @@ export default function KnowledgePage() {
             1. なぜ世界中の投資家が「米国株」にお金を投じるのか？
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            米国株投資の最大の魅力は、圧倒的な**「市場の成長力」**と**「厚い信頼性」**です。
+            米国株投資の最大の魅力は、圧倒的な<strong>「市場の成長力」</strong>と<strong>「厚い信頼性」</strong>です。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            全世界の株式市場の時価総額（全上場企業の価値の合計）のうち、**アメリカ市場だけで全体の約60%**を占めています（日本市場は約5%程度）。世界中のお金がニューヨーク証券取引所（NYSE）やNASDAQなどの米国市場に集まり、常に高い流動性と経済成長のエネルギーを供給し続けています。
+            全世界の株式市場の時価総額（全上場企業の価値の合計）のうち、<strong>アメリカ市場だけで全体の約60%</strong>を占めています（日本市場は約5%程度）。世界中のお金がニューヨーク証券取引所（NYSE）やNASDAQなどの米国市場に集まり、常に高い流動性と経済成長のエネルギーを供給し続けています。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
-            また、米国市場には「人口増加し続ける先進国」という強力なマインドと、世界中から超優秀な人材が集まって新たなイノベーションを生み出し続ける文化があります。かつてのコカ・コーラやP&Gのような日用品大手から、現代のNVIDIAのようなAI半導体の王者まで、世界を牛耳るトップ企業へ直接出資できるのが米国株の唯一無二の魅力です。
+            また、米国市場には「人口増加し続ける先進国」という強力なマインドと、世界中から超優秀な人材が集まって新たなイノベーションを生み出し続ける文化があります。かつてのコカ・コーラやP&Gのような日用品大手から、現代のNVIDIAのようなAI半導体の王者まで、世界を牛耳るトップ企業へ直接出資できるのが米国株の唯一無二 of 魅力です。
           </p>
 
           {/* 2章: 日本株と米国株の5つの決定的な違い */}
@@ -162,7 +162,7 @@ export default function KnowledgePage() {
                 ・年4回配当による「不労所得の複利システム」
               </h3>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: '1.7', color: 'var(--text-main)', margin: 0 }}>
-                米国株の多くの企業は3ヶ月（四半期）に1度、配当金を支払います。異なる支払月の銘柄（例えば1・4・7・10月払い、2・5・8・11月払いなど）を3つ組み合わせるだけで、**「毎月配当金が自分の口座に振り込まれる」**という夢のキャッシュフローを簡単に設計できます。
+                米国株の多くの企業は3ヶ月（四半期）に1度、配当金を支払います。異なる支払月の銘柄（例えば1・4・7・10月払い、2・5・8・11月払いなど）を3つ組み合わせるだけで、<strong>「毎月配当金が自分の口座に振り込まれる」</strong>という夢のキャッシュフローを簡単に設計できます。
               </p>
             </div>
           </div>
@@ -187,7 +187,7 @@ export default function KnowledgePage() {
             個別株を狙う場合は、強固なビジネスモデル、圧倒的なブランド力、そして強固な財務体質（高いフリーキャッシュフロー）を持つビッグテック（マイクロソフト、アップル、エヌビディア等）を徹底的な企業分析のもとで長期保有するのが原則です。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
-            一方、複数の企業に安全に分散したい場合は、**米国ETF**がおすすめです。例えば「VYM（バンガード・米国高配当株式ETF）」や「HDV（iシェアーズ・コア米国高配当株ETF）」を購入すれば、それだけで米国の優良高配当企業数百社に一括で分散投資ができ、かつ約3%前後の分配金を毎年安定して非課税枠（NISA等）で受け取ることができます。
+            一方、複数の企業に安全に分散したい場合は、<strong>米国ETF</strong>がおすすめです。例えば「VYM（バンガード・米国高配当株式ETF）」や「HDV（iシェアーズ・コア米国高配当株ETF）」を購入すれば、それだけで米国の優良高配当企業数百社に一括で分散投資ができ、かつ約3%前後の分配金を毎年安定して非課税枠（NISA等）で受け取ることができます。
           </p>
           <div className="knowledge-banner glass-card" style={{ padding: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
             <span className="featured-tag" style={{ margin: 0 }}>もっと知りたい</span>
@@ -212,7 +212,7 @@ export default function KnowledgePage() {
                 ・為替リスク（円高・円安の影響）とドル・コスト平均法
               </h3>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: '1.7', color: 'var(--text-main)', margin: 0 }}>
-                米国株は米ドルで取引されるため、為替の変動（為替差損益）が生じます。株価自体が上昇していても、急激な円高が進行すると円ベースでの評価額が下がる場合があります。この対策として、一度に全額を投資するのではなく、毎月決まった日に決まった額を購入する**「積立投資（ドル・コスト平均法）」**を行うことで、為替レートを平準化（平均化）して安全に運用できます。
+                米国株は米ドルで取引されるため、為替の変動（為替差損益）が生じます。株価自体が上昇していても、急激な円高が進行すると円ベースでの評価額が下がる場合があります。この対策として、一度に全額を投資するのではなく、毎月決まった日に決まった額を購入する<strong>「積立投資（ドル・コスト平均法）」</strong>を行うことで、為替レートを平準化（平均化）して安全に運用できます。
               </p>
             </div>
             <div>
@@ -220,7 +220,7 @@ export default function KnowledgePage() {
                 ・「二重課税」のペナルティと外国税額控除
               </h3>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: '1.7', color: 'var(--text-main)', margin: 0 }}>
-                特定口座などの課税口座で米国株の配当金を受け取る場合、まずアメリカ現地で10%が課税され、その残りの90%に対して日本国内で約20.315%が課税されます。この「二重課税」を防ぐため、確定申告時に**「外国税額控除」**を適用することで、米国内で徴収された10%分を所得税等から取り戻すことができます。なお、NISA口座を利用すれば日本の約20%分が非課税になるため、二重課税の影響を大きく抑えられます。
+                特定口座などの課税口座で米国株の配当金を受け取る場合、まずアメリカ現地で10%が課税され、その残りの90%に対して日本国内で約20.315%が課税されます。この「二重課税」を防ぐため、確定申告時に<strong>「外国税額控除」</strong>を適用することで、米国内で徴収された10%分を所得税等から取り戻すことができます。なお、NISA口座を利用すれば日本の約20%分が非課税になるため、二重課税の影響を大きく抑えられます。
               </p>
             </div>
           </div>
