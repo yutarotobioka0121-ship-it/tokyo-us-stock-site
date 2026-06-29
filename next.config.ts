@@ -78,6 +78,8 @@ const nextConfig: NextConfig = {
       { source: '/blog/longterm', destination: '/blog/long-term-investing-and-us-stocks', permanent: true },
       { source: '/blog/ETF1', destination: '/blog/us-etf-series-01', permanent: true },
       { source: '/blog/ETF2', destination: '/blog/us-etf-series-02', permanent: true },
+      { source: '/blog/richorpoor', destination: '/blog/rich-vs-poor-kiyosaki', permanent: true },
+      { source: '/blog/Money-tips', destination: '/blog/money-management-tips', permanent: true },
     ];
   },
 };

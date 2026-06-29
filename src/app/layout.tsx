@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "東京米国株クラブ｜初心者が基礎から学ぶ米国株の投資勉強会",
   description: "東京の米国株・初心者向け投資勉強会なら「東京米国株クラブ」。5年で1300%以上の実績を持つ講師が、ギャンブルにならない堅実な長期投資の基礎をわかりやすく解説。株式投資の第一歩を踏み出しませんか？",
   alternates: {
-    canonical: "/",
+    canonical: "https://www.tokyo-us-stock.com",
   },
   openGraph: {
     title: "東京米国株クラブ｜初心者が基礎から学ぶ米国株の投資勉強会",

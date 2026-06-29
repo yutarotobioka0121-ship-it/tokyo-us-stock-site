@@ -168,7 +168,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <section className="post-content slide-up delay-3">
         <div className="container">
           <div className="post-content-inner glass-card">
-            {post.content.map((block: any) => {
+            {post.content
+              .filter((block: any, index: number) => {
+                // 先頭のheading_1/heading_2がページタイトルと同じテキストの場合はスキップ
+                // （Notion本文の先頭にタイトルと同じ見出しが入っている旧記事への対応）
+                if (index === 0 && (block.type === 'heading_1' || block.type === 'heading_2')) {
+                  const headingText = block[block.type]?.rich_text?.map((t: any) => t.plain_text).join('') || '';
+                  if (headingText.trim() === post.title.trim()) {
+                    return false;
+                  }
+                }
+                return true;
+              })
+              .map((block: any) => {
               const { type } = block;
               const value = block[type];
 

@@ -9,11 +9,18 @@ const DATABASE_ID = process.env.NOTION_DATABASE_ID;
 
 // 特定のNotion Page IDに対して、指定したSEOフレンドリーなスラッグを強制するマッピング
 // Notion側でSlugが一括変更されたため現在は空。今後新たなマッピングが必要になった場合に使用。
-export const SLUG_MAP: Record<string, string> = {};
+export const SLUG_MAP: Record<string, string> = {
+  // Notion側でSlugが未変更の記事に対して、SEOフレンドリーなスラッグを強制する
+  '369e9ee8-b70b-80c5-af6d-df84d33f1adf': 'rich-vs-poor-kiyosaki',       // richorpoor → rich-vs-poor-kiyosaki
+  '34ae9ee8-b70b-8033-94d8-dc931024f54e': 'money-management-tips',       // Money-tips → money-management-tips
+};
 
 // SEOフレンドリースラッグからNotion Page IDへの逆引きマッピング（直接取得用）
 // Notion側でSlugが一括変更されたため現在は空。今後新たなマッピングが必要になった場合に使用。
-export const REVERSE_SLUG_MAP: Record<string, string> = {};
+export const REVERSE_SLUG_MAP: Record<string, string> = {
+  'rich-vs-poor-kiyosaki': '369e9ee8-b70b-80c5-af6d-df84d33f1adf',
+  'money-management-tips': '34ae9ee8-b70b-8033-94d8-dc931024f54e',
+};
 
 export async function getPosts() {
   if (!DATABASE_ID) {
