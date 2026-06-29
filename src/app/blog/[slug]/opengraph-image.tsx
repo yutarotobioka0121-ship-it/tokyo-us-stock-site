@@ -14,11 +14,11 @@ async function getPostTitleBySlug(slug: string): Promise<{ title: string; date: 
   const DATABASE_ID = process.env.NOTION_DATABASE_ID;
 
   if (!NOTION_TOKEN || !DATABASE_ID) {
+    console.error('OGP: Missing env vars', { NOTION_TOKEN: !!NOTION_TOKEN, DATABASE_ID: !!DATABASE_ID });
     return { title: slug, date: '' };
   }
 
   try {
-    // Notion Database Query API を直接 fetch で呼び出す
     const response = await fetch(`https://api.notion.com/v1/databases/${DATABASE_ID}/query`, {
       method: 'POST',
       headers: {
@@ -38,7 +38,7 @@ async function getPostTitleBySlug(slug: string): Promise<{ title: string; date: 
     });
 
     if (!response.ok) {
-      console.error('Notion API error:', response.status);
+      console.error('OGP: Notion API error:', response.status, await response.text());
       return { title: slug, date: '' };
     }
 
@@ -53,122 +53,111 @@ async function getPostTitleBySlug(slug: string): Promise<{ title: string; date: 
     const date = page.properties?.Date?.date?.start || '';
     return { title, date };
   } catch (error) {
-    console.error('Failed to fetch from Notion:', error);
+    console.error('OGP: Failed to fetch from Notion:', error);
     return { title: slug, date: '' };
   }
 }
 
 export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const { title, date } = await getPostTitleBySlug(slug);
-
-  // Google Fonts の Noto Sans JP を CDN から取得（Edge Runtime 互換）
-  let fontData: ArrayBuffer | null = null;
   try {
-    // Google Fonts CSS API で Noto Sans JP Bold の URL を取得
-    const cssResponse = await fetch(
-      'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap',
-      {
-        headers: {
-          // woff2 形式のフォントを取得するために User-Agent を指定
-          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
-        },
-      }
-    );
-    const cssText = await cssResponse.text();
+    const { slug } = await params;
+    const { title, date } = await getPostTitleBySlug(slug);
 
-    // CSS から woff2 の URL を抽出
-    const fontUrlMatch = cssText.match(/src:\s*url\(([^)]+)\)/);
-    if (fontUrlMatch?.[1]) {
-      const fontResponse = await fetch(fontUrlMatch[1]);
-      if (fontResponse.ok) {
-        fontData = await fontResponse.arrayBuffer();
-      }
-    }
-  } catch (error) {
-    console.error('Failed to fetch font:', error);
-  }
+    // タイトルの長さに応じてフォントサイズを調整
+    const fontSize = title.length > 40 ? 40 : title.length > 25 ? 48 : 56;
 
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%)',
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-          justifyContent: 'space-between',
-          padding: '80px',
-          fontFamily: fontData ? '"Noto Sans JP"' : 'sans-serif',
-        }}
-      >
-        {/* 上部：カテゴリラベル＋タイトル */}
-        <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '1040px' }}>
-          <div
-            style={{
-              color: '#38bdf8',
-              fontSize: '26px',
-              fontWeight: 700,
-              letterSpacing: '2px',
-              marginBottom: '28px',
-              textTransform: 'uppercase' as const,
-            }}
-          >
-            TOKYO US STOCK CLUB / 投資コラム
-          </div>
-          <div
-            style={{
-              color: '#f8fafc',
-              fontSize: title.length > 30 ? '44px' : '52px',
-              fontWeight: 700,
-              lineHeight: 1.4,
-              display: 'flex',
-              flexWrap: 'wrap',
-            }}
-          >
-            {title}
-          </div>
-        </div>
-
-        {/* 下部：著者情報＋日付 */}
+    return new ImageResponse(
+      (
         <div
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
+            background: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%)',
             width: '100%',
-            borderTop: '2px solid rgba(255, 255, 255, 0.12)',
-            paddingTop: '28px',
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            justifyContent: 'space-between',
+            padding: '80px',
           }}
         >
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ color: '#94a3b8', fontSize: '20px' }}>著者：とびー</div>
-            <div style={{ color: '#cbd5e1', fontSize: '22px', fontWeight: 600, marginTop: '6px' }}>
-              東京米国株クラブ
+          {/* 上部：カテゴリラベル＋タイトル */}
+          <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '1040px' }}>
+            <div
+              style={{
+                color: '#38bdf8',
+                fontSize: '26px',
+                fontWeight: 700,
+                letterSpacing: '2px',
+                marginBottom: '28px',
+              }}
+            >
+              TOKYO US STOCK CLUB
+            </div>
+            <div
+              style={{
+                color: '#f8fafc',
+                fontSize: `${fontSize}px`,
+                fontWeight: 700,
+                lineHeight: 1.4,
+                display: 'flex',
+                flexWrap: 'wrap',
+              }}
+            >
+              {title}
             </div>
           </div>
-          {date && (
-            <div style={{ color: '#64748b', fontSize: '20px' }}>
-              {date}
+
+          {/* 下部：著者情報＋日付 */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              width: '100%',
+              borderTop: '2px solid rgba(255, 255, 255, 0.12)',
+              paddingTop: '28px',
+            }}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ color: '#cbd5e1', fontSize: '22px', fontWeight: 600 }}>
+                東京米国株クラブ
+              </div>
             </div>
-          )}
+            {date && (
+              <div style={{ color: '#64748b', fontSize: '20px' }}>
+                {date}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
-    ),
-    {
-      ...size,
-      fonts: fontData
-        ? [
-            {
-              name: 'Noto Sans JP',
-              data: fontData,
-              style: 'normal' as const,
-              weight: 700 as const,
-            },
-          ]
-        : [],
-    }
-  );
+      ),
+      {
+        ...size,
+      }
+    );
+  } catch (error) {
+    console.error('OGP: ImageResponse generation failed:', error);
+    // エラー時はシンプルなフォールバック画像を返す
+    return new ImageResponse(
+      (
+        <div
+          style={{
+            background: '#0f172a',
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <div style={{ color: '#f8fafc', fontSize: '48px', fontWeight: 700 }}>
+            東京米国株クラブ
+          </div>
+        </div>
+      ),
+      {
+        ...size,
+      }
+    );
+  }
 }
