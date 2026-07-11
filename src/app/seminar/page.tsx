@@ -57,9 +57,15 @@ export default async function SeminarPage() {
     return new Date(a.date).getTime() - new Date(b.date).getTime();
   });
 
+  const now = new Date();
   const availableSessions = sortedSessions.filter(s => {
     const status = Array.isArray(s.status) ? s.status[0] : s.status;
-    return status === 'open' || status === '募集開始' || status === '受付中';
+    const isOpen = status === 'open' || status === '募集開始' || status === '受付中';
+    if (!isOpen) return false;
+
+    // 日時の検証 (JST基準で日付と時間を結合したDateオブジェクトを取得)
+    const startDateTime = getSessionStartDateTime(s.date, s.time || s.date);
+    return startDateTime > now;
   });
 
   return (
