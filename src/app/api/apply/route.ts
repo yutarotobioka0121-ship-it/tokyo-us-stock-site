@@ -91,7 +91,7 @@ ${sessionDetails}
 
     const adminMailOptions = {
       from: `"東京米国株クラブ" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER,
+      to: process.env.ADMIN_EMAIL || process.env.GMAIL_USER,
       subject: `【新規申込】${eventString}`,
       text: `
 以下の内容で勉強会への新規お申し込みがありました。

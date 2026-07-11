@@ -62,7 +62,7 @@ ${message}
     // 管理者（Yutaroさん）宛ての通知メール
     const adminMailOptions = {
       from: `"東京米国株クラブ" <${process.env.GMAIL_USER}>`,
-      to: process.env.GMAIL_USER,
+      to: process.env.ADMIN_EMAIL || process.env.GMAIL_USER,
       subject: `【ホームページからのお問い合わせ】${displaySubject}`,
       text: `
 ホームページから新しいお問い合わせがありました。
