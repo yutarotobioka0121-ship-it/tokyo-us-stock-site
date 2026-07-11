@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { getSessions } from "@/lib/microcms";
 import ApplyForm from "@/components/ApplyForm";
-import { getSessionStartDateTime } from "@/lib/utils";
+import { isSessionDeadlinePassed } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: '勉強会お申し込み | 東京米国株クラブ',
@@ -21,15 +21,14 @@ export default async function ApplyPage({
   const { session: selectedSessionId } = await searchParams;
   const allSessions = await getSessions();
   
-  // 募集中、満席でない、かつ現在時刻より後のセッションのみを表示
+  // 募集中、満席でない、かつ申し込み締め切り前のセッションのみを表示
   const now = new Date();
   const availableSessions = allSessions.filter(s => {
     const status = Array.isArray(s.status) ? s.status[0] : s.status;
     if (status !== 'open') return false;
 
-    // 日時の検証 (JST基準で日付と時間を結合したDateオブジェクトを取得)
-    const startDateTime = getSessionStartDateTime(s.date, s.time || s.date);
-    return startDateTime > now;
+    // 申し込み締め切りが過ぎていないか判定
+    return !isSessionDeadlinePassed(s, now);
   });
 
   return (

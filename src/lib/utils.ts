@@ -69,3 +69,29 @@ export function getSessionStartDateTime(dateStr: string, timeStr: string): Date 
   return new Date(`${jstDateFormatted}T${timePart}:00+09:00`);
 }
 
+export function isSessionDeadlinePassed(
+  session: { date: string; time?: string; type: string | string[] }, 
+  now: Date = new Date()
+): boolean {
+  const startDateTime = getSessionStartDateTime(session.date, session.time || session.date);
+  const type = Array.isArray(session.type) ? session.type[0] : session.type;
+  
+  if (type === 'online' || type === 'オンライン') {
+    // オンライン：開催時間の1時間前まで
+    const deadline = new Date(startDateTime.getTime() - 60 * 60 * 1000);
+    return now > deadline;
+  } else {
+    // 対面：開催日前日の21時まで
+    const prevDay = new Date(startDateTime.getTime() - 24 * 60 * 60 * 1000);
+    const prevDayFormatted = new Intl.DateTimeFormat('ja-JP', {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      timeZone: 'Asia/Tokyo'
+    }).format(prevDay).replace(/\//g, '-');
+    const deadline = new Date(`${prevDayFormatted}T21:00:00+09:00`);
+    return now > deadline;
+  }
+}
+
+
