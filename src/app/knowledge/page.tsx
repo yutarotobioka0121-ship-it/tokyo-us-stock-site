@@ -273,6 +273,20 @@ export default function KnowledgePage() {
             </div>
           </div>
 
+          {/* キーワード解説集への誘導バナー */}
+          <div className="knowledge-banner glass-card" style={{ padding: '2.5rem 2rem', background: 'var(--bg-warm)', borderRadius: '24px', border: '1px solid var(--glass-border)', marginTop: '4rem', textAlign: 'center' }}>
+            <span className="featured-tag" style={{ margin: '0 auto 1rem auto', display: 'table' }}>新着コンテンツ</span>
+            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.2rem, 3.5vw, 1.45rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.8rem' }}>
+              よく調べられる米国株の重要キーワード解説集
+            </h3>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.5rem', maxWidth: '600px', margin: '0 auto 1.5rem auto' }}>
+              「高配当」「取引時間」「時間外取引」「おすすめ」「モメンタム」など、米国株について検索でよく調べられる重要用語9選を初心者向けに分かりやすく解説しています。
+            </p>
+            <Link href="/knowledge/keywords" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 2.5rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
+              重要キーワード解説を見る <ArrowRight size={16} />
+            </Link>
+          </div>
+
         </div>
       </section>
 
