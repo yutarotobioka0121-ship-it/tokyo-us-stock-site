@@ -359,20 +359,33 @@ export default function KnowledgePage() {
           {/* ナレッジ・関連コンテンツへの誘導バナー */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem', marginTop: '4rem' }}>
             <div className="knowledge-banner glass-card" style={{ padding: '2rem 1.5rem', background: 'var(--bg-warm)', borderRadius: '20px', border: '1px solid var(--glass-border)', textAlign: 'center' }}>
-              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table' }}>おすすめコンテンツ</span>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table' }}>初心者向けガイド</span>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
-                米国株（アメリカ株）の取引時間・夏時間・祝日を徹底解説
+                米国株（アメリカ株）の買い方・始め方完全ガイド！
               </h3>
               <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.2rem', maxWidth: '600px', margin: '0 auto 1.2rem auto' }}>
-                日本時間でのサマータイム（22:30〜）や冬時間（23:30〜）、プレマーケット・アフターマーケット等の時間外取引、年間祝日（休場日）、会社員向け予約注文ルーティンを解説。
+                口座開設の4ステップ、指値・成行注文の違い、円貨決済vs外貨決済、NISA成長投資枠での購入手順、おすすめの最初に買うべき銘柄・ETFを徹底解説。
               </p>
-              <Link href="/knowledge/trading-hours" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 2rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
+              <Link href="/knowledge/how-to-buy" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 2rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
+                買い方ガイドを見る <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            <div className="glass-card" style={{ padding: '2rem 1.5rem', background: 'white', borderRadius: '20px', border: '1px solid rgba(0,0,0,0.08)', textAlign: 'center' }}>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary-dark)' }}>取引時間・サマータイム</span>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
+                米国株の取引時間は日本時間の何時？夏時間・祝日解説
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.2rem', maxWidth: '600px', margin: '0 auto 1.2rem auto' }}>
+                日本時間でのサマータイム（22:30〜）や冬時間（23:30〜）、プレマーケット・アフターマーケット等の時間外取引、年間祝日（休場日）、放置注文ルーティンを解説。
+              </p>
+              <Link href="/knowledge/trading-hours" className="btn btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 2rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
                 取引時間の詳細を見る <ArrowRight size={16} />
               </Link>
             </div>
 
             <div className="glass-card" style={{ padding: '2rem 1.5rem', background: 'white', borderRadius: '20px', border: '1px solid rgba(0,0,0,0.08)', textAlign: 'center' }}>
-              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary-dark)' }}>重要用語</span>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary)' }}>重要用語集</span>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
                 よく調べられる米国株の重要キーワード解説集
               </h3>
