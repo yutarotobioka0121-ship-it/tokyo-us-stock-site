@@ -522,21 +522,16 @@ button {
 
 .featured-tag {
   display: inline-block;
-  padding: 0.4rem 1rem;
-  background: transparent;
-  color: var(--primary);
-  border: 2px solid var(--primary);
-  border-radius: 4px;
+  padding: 0.35rem 1.1rem;
+  background: #fef2f2 !important;
+  color: #991b1b !important;
+  border: 1px solid #fecaca !important;
+  border-radius: 20px !important;
   font-weight: 800;
-  font-size: 0.95rem;
-  margin-bottom: 1.5rem;
-  letter-spacing: 1px;
+  font-size: 0.88rem;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.5px;
   line-height: 1.2;
-}
-
-.featured-tag[style*="background"] {
-  color: #ffffff !important;
-  border-color: transparent;
 }
 
 .featured-title {
