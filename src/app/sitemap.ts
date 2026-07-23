@@ -11,6 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/mission',
     '/knowledge',
     '/knowledge/how-to-start',
+    '/knowledge/account-setup',
     '/knowledge/tax',
     '/knowledge/returns',
     '/knowledge/yutai',

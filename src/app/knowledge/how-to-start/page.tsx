@@ -117,9 +117,12 @@ export default function HowToStartPage() {
               <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.4rem' }}>
                 STEP 2：大手ネット証券で口座を開設する（無料）
               </h3>
-              <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7' }}>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: '0 0 0.8rem 0', lineHeight: '1.7' }}>
                 SBI証券や楽天証券などのネット証券口座を開設します。店舗型銀行や対面証券は手数料が高いため避けましょう。同時に非課税制度である「NISA口座」の開設もセットで申し込みます。
               </p>
+              <Link href="/knowledge/account-setup" style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--primary)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+                👉 証券口座の作り方・必要書類の解説はこちら <ArrowRight size={14} />
+              </Link>
             </div>
 
             <div style={{ padding: '1.2rem 1.5rem', background: 'var(--bg-warm)', borderRadius: '16px', borderLeft: '5px solid var(--primary)' }}>
