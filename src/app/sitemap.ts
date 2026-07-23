@@ -10,6 +10,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/about',
     '/mission',
     '/knowledge',
+    '/knowledge/how-to-start',
+    '/knowledge/tax',
     '/knowledge/how-to-buy',
     '/knowledge/trading-hours',
     '/knowledge/keywords',

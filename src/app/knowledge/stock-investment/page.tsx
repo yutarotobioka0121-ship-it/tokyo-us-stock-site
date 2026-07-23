@@ -323,6 +323,35 @@ export default function StockInvestmentPage() {
             </div>
           </div>
 
+          {/* 新設ナレッジコンテンツへの誘導バナー */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem', marginTop: '4rem' }}>
+            <div className="knowledge-banner glass-card" style={{ padding: '2rem 1.5rem', background: 'var(--bg-warm)', borderRadius: '20px', border: '1px solid var(--glass-border)', textAlign: 'center' }}>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table' }}>初心者必須知識</span>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
+                株式投資の始め方完全ガイド！初心者向けの4ステップ
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.2rem', maxWidth: '600px', margin: '0 auto 1.2rem auto' }}>
+                目標設定、証券口座の開設（SBI・楽天）、投信・ETF・個別株の選び分け、100円〜1株少額投資の活用法、失敗しない3原則を解説。
+              </p>
+              <Link href="/knowledge/how-to-start" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 2rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
+                始め方ガイドを見る <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            <div className="glass-card" style={{ padding: '2rem 1.5rem', background: 'white', borderRadius: '20px', border: '1px solid rgba(0,0,0,0.08)', textAlign: 'center' }}>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary-dark)' }}>税金と節税</span>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
+                株式投資にかかる税金とは？税率20.315%の仕組みと確定申告
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.2rem', maxWidth: '600px', margin: '0 auto 1.2rem auto' }}>
+                税率20.315%の内訳、確定申告が要らない特定口座（源泉あり）、確定申告で得する3パターン（外国税額控除・損益通算）、NISA非課税を解説。
+              </p>
+              <Link href="/knowledge/tax" className="btn btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 2rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
+                税金の解説を見る <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
+
         </div>
       </section>
 
