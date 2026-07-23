@@ -359,7 +359,7 @@ export default function KnowledgePage() {
           {/* ナレッジ・関連コンテンツへの誘導バナー */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem', marginTop: '4rem' }}>
             <div className="knowledge-banner glass-card" style={{ padding: '2rem 1.5rem', background: 'var(--bg-warm)', borderRadius: '20px', border: '1px solid var(--glass-border)', textAlign: 'center' }}>
-              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table' }}>初心者向けガイド</span>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary-dark)', color: '#ffffff', border: 'none' }}>初心者向けガイド</span>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
                 米国株（アメリカ株）の買い方・始め方完全ガイド！
               </h3>
@@ -372,7 +372,7 @@ export default function KnowledgePage() {
             </div>
 
             <div className="glass-card" style={{ padding: '2rem 1.5rem', background: 'white', borderRadius: '20px', border: '1px solid rgba(0,0,0,0.08)', textAlign: 'center' }}>
-              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary-dark)' }}>取引時間・サマータイム</span>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary-dark)', color: '#ffffff', border: 'none' }}>取引時間・サマータイム</span>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
                 米国株の取引時間は日本時間の何時？夏時間・祝日解説
               </h3>
@@ -385,7 +385,7 @@ export default function KnowledgePage() {
             </div>
 
             <div className="glass-card" style={{ padding: '2rem 1.5rem', background: 'white', borderRadius: '20px', border: '1px solid rgba(0,0,0,0.08)', textAlign: 'center' }}>
-              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary)' }}>重要用語集</span>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary)', color: '#ffffff', border: 'none' }}>重要用語集</span>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
                 よく調べられる米国株の重要キーワード解説集
               </h3>

@@ -326,7 +326,7 @@ export default function StockInvestmentPage() {
           {/* 新設ナレッジコンテンツへの誘導バナー */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem', marginTop: '4rem' }}>
             <div className="knowledge-banner glass-card" style={{ padding: '2rem 1.5rem', background: 'var(--bg-warm)', borderRadius: '20px', border: '1px solid var(--glass-border)', textAlign: 'center' }}>
-              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table' }}>初心者必須知識</span>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary-dark)', color: '#ffffff', border: 'none' }}>初心者必須知識</span>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
                 株式投資の始め方完全ガイド！初心者向けの4ステップ
               </h3>
@@ -339,7 +339,7 @@ export default function StockInvestmentPage() {
             </div>
 
             <div className="glass-card" style={{ padding: '2rem 1.5rem', background: 'white', borderRadius: '20px', border: '1px solid rgba(0,0,0,0.08)', textAlign: 'center' }}>
-              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary)' }}>株価指数・インデックス</span>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary)', color: '#ffffff', border: 'none' }}>株価指数・インデックス</span>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
                 株式投資の指数（インデックス）とは？S&P500・ダウ・日経平均等の違い
               </h3>
@@ -352,7 +352,7 @@ export default function StockInvestmentPage() {
             </div>
 
             <div className="glass-card" style={{ padding: '2rem 1.5rem', background: 'white', borderRadius: '20px', border: '1px solid rgba(0,0,0,0.08)', textAlign: 'center' }}>
-              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary-dark)' }}>収益とリターン</span>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary-dark)', color: '#ffffff', border: 'none' }}>収益とリターン</span>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
                 株式投資の収益とは？キャピタルゲインとインカムゲインの違い
               </h3>
@@ -365,7 +365,7 @@ export default function StockInvestmentPage() {
             </div>
 
             <div className="glass-card" style={{ padding: '2rem 1.5rem', background: 'white', borderRadius: '20px', border: '1px solid rgba(0,0,0,0.08)', textAlign: 'center' }}>
-              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary-dark)' }}>口座開設の準備</span>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary-dark)', color: '#ffffff', border: 'none' }}>口座開設の準備</span>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
                 証券口座の作り方完全ガイド！手順・必要書類・初期設定
               </h3>
@@ -378,7 +378,7 @@ export default function StockInvestmentPage() {
             </div>
 
             <div className="glass-card" style={{ padding: '2rem 1.5rem', background: 'white', borderRadius: '20px', border: '1px solid rgba(0,0,0,0.08)', textAlign: 'center' }}>
-              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary-dark)' }}>株主優待</span>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary-dark)', color: '#ffffff', border: 'none' }}>株主優待</span>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
                 株主優待とは？仕組み・人気の優待・米国株との違い
               </h3>
@@ -391,7 +391,7 @@ export default function StockInvestmentPage() {
             </div>
 
             <div className="glass-card" style={{ padding: '2rem 1.5rem', background: 'white', borderRadius: '20px', border: '1px solid rgba(0,0,0,0.08)', textAlign: 'center' }}>
-              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary-dark)' }}>税金と節税</span>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary-dark)', color: '#ffffff', border: 'none' }}>税金と節税</span>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
                 株式投資にかかる税金とは？税率20.315%の仕組みと確定申告
               </h3>

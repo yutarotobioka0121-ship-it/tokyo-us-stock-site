@@ -534,6 +534,11 @@ button {
   line-height: 1.2;
 }
 
+.featured-tag[style*="background"] {
+  color: #ffffff !important;
+  border-color: transparent;
+}
+
 .featured-title {
   font-size: clamp(1.4rem, 4vw, 2.4rem);
   margin-bottom: 0.75rem;
