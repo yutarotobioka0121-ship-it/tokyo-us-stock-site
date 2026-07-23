@@ -242,6 +242,38 @@ export default function StockInvestmentPage() {
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
             投資を始める前に、自分の年齢、資産構成、収入、何のために投資をするのかを整理し、自分にとって適切なリスク比率（現金と株式の配分）を決めておく必要があります。これこそが、株式投資を安全な「資産形成」にとどめるための究極の知恵です。
           </p>
+
+          {/* 6章: インフレ時代の現金 vs 株式の購買力比較 */}
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
+            6. インフレ時代における「現金預金」と「株式」の試算比較
+          </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+            「株式投資は元本が減るリスクがあるから、銀行に預けておく方が安全」という考え方は、物価が上昇するインフレ局面前では大きな罠になります。
+          </p>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+            仮に毎年2%のインフレ（物価上昇）が続いた場合、銀行に預けた1,000万円の数字（通帳の表記）は変わりませんが、モノの値段が上がるため、<strong>30年後にはその1,000万円の実質的な購買力（買えるモノの量）は約550万円相当にまで目減り</strong>してしまいます。
+          </p>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
+            一方で、株式はインフレに合わせて値上げができる企業の所有権であるため、物価上昇と同時に価値が上がる「インフレヘッジ（防衛策）」として機能します。世界市場の成長に連動する株式に投資することで、購買力を守りながら資産を増やすことが可能になります。
+          </p>
+
+          {/* 7章: ドル・コスト平均法の算数的仕組みとメンタル管理 */}
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
+            7. ドル・コスト平均法の仕組みと長続きする「自分ルール」
+          </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+            初心者が相場のタイマー（いつ買っていつ売るか）を完璧に当てることは不可能です。これを解決するのが<strong>「ドル・コスト平均法（定額積立）」</strong>です。
+          </p>
+          <div style={{ background: 'var(--bg-warm)', padding: '1.2rem 1.5rem', borderRadius: '12px', fontSize: '0.95rem', lineHeight: '1.7', color: 'var(--text-main)', marginBottom: '2rem' }}>
+            <strong>【ドル・コスト平均法の効果例：毎月1万円ずつ積立】</strong><br />
+            ・1ヶ月目：基準価額 10,000円 ➔ 1.0口購入<br />
+            ・2ヶ月目：暴落で基準価額 5,000円に半減 ➔ <strong>2.0口多く購入（チャンス！）</strong><br />
+            ・3ヶ月目：基準価額 8,000円に回復 ➔ 1.25口購入<br />
+            ➔ 平均購入単価は約7,060円まで下がり、価格が完全に元の10,000円に戻る前の段階で大きなプラス利益が発生します。
+          </div>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
+            最後に、株式投資を一生の味方にするためのメンタルルールは<strong>「生活防衛資金（生活費半年〜1年分）を銀行に確保した上で、余剰資金のみで投資すること」</strong>、そして<strong>「一度クレジットカード自動積立を設定したら、日々の値動きの画面を見すぎない（放置する習慣）」</strong>ことです。これにより、日常の仕事やプライベートを楽しみながら、裏で資産を着実に育てることができます。
+          </p>
           <div className="knowledge-banner glass-card" style={{ padding: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
             <span className="featured-tag" style={{ margin: 0 }}>もっと知りたい</span>
             <p style={{ fontSize: '0.95rem', fontWeight: '800', margin: '0.5rem 0' }}>

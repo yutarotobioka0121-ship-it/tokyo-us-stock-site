@@ -269,6 +269,79 @@ export default function NisaKnowledgePage() {
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
             資産寿命を極限まで延ばすための出口戦略として定説となっているのが、米国のトリニティ大学が提唱した<strong>「4%ルール（定率取り崩し）」</strong>です。毎年、保有する資産総額の4%ずつを定期的に売却して生活費に充てることで、歴史的には高確率で元本を減らすことなく、死ぬまで資産を維持しながら取り崩しが可能になります。
           </p>
+
+          {/* 6章: 年代別・ライフステージ別のNISA活用パターン */}
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
+            6. 年代別・ライフステージ別の新NISAおすすめ活用シナリオ
+          </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+            年齢やライフプランによって、目指すべき投資スタイルやリスクの取り方は異なります。ご自身の年代に合った活用シナリオを参考にしてください。
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', marginBottom: '2.5rem' }}>
+            <div style={{ padding: '1.2rem 1.5rem', border: '1px solid rgba(0,0,0,0.08)', borderRadius: '12px', background: 'white' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary)', marginBottom: '0.4rem' }}>
+                ・20代〜30代（資産形成期）：つみたて枠メインの全力長期複利運用
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7' }}>
+                運用期間（時間）を最も長く確保できる世代です。毎月の余剰資金をつみたて投資枠の「S&P500」や「全世界株式（オルカン）」に全額投入し、複利効果を最大限に活かして1,800万円の枠を最短（月10万円で15年など）で埋めることを目指すのが王道シナリオです。
+              </p>
+            </div>
+            <div style={{ padding: '1.2rem 1.5rem', border: '1px solid rgba(0,0,0,0.08)', borderRadius: '12px', background: 'white' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary)', marginBottom: '0.4rem' }}>
+                ・40代（資産拡大・住宅・教育期）：積立＋高配当株ETFのハイブリッド
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7' }}>
+                収入が上がると同時に、子どもの教育費や住宅ローンなどの支出も増える世代です。つみたて枠での積立を継続しつつ、成長投資枠で「VYMなどの米国高配当ETF」を購入し、年間数万円〜数十万円の非課税配当金を得て日々の生活費や家族のレジャー費を潤すバランス運用が効果的です。
+              </p>
+            </div>
+            <div style={{ padding: '1.2rem 1.5rem', border: '1px solid rgba(0,0,0,0.08)', borderRadius: '12px', background: 'white' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary)', marginBottom: '0.4rem' }}>
+                ・50代〜60代（完成期・定年準備）：リスク抑制と取り崩し準備
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7' }}>
+                老後資金の着地を見据え、現金比率（無リスク資産）を少し高めに確保しながらNISAで運用を行います。成長投資枠を活用して非課税の配当収入（年金の上乗せ）を構築するか、定年退職後に4%ルールで計画的に取り崩す準備を行い、資産の保全と取り崩しを両立させます。
+              </p>
+            </div>
+          </div>
+
+          {/* 7章: NISAとiDeCoの比較・金融機関変更の注意点 */}
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
+            7. NISAとiDeCo（イデコ）の違い＆口座変更のポイント
+          </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+            非課税制度としてよく比較されるのが<strong>iDeCo（個人型確定拠出年金）</strong>です。両者は役割が大きく異なります。
+          </p>
+          <div style={{ overflowX: 'auto', marginBottom: '2rem', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.08)' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '480px', fontSize: '0.95rem', fontFamily: 'var(--font-body)' }}>
+              <thead>
+                <tr style={{ backgroundColor: 'var(--bg-warm)', borderBottom: '2px solid rgba(0,0,0,0.08)' }}>
+                  <th style={{ padding: '0.8rem 1rem', fontWeight: '800' }}>比較項目</th>
+                  <th style={{ padding: '0.8rem 1rem', fontWeight: '800', color: 'var(--primary)' }}>NISA（少額投資非課税制度）</th>
+                  <th style={{ padding: '0.8rem 1rem', fontWeight: '800', color: 'var(--primary-dark)' }}>iDeCo（確定拠出年金）</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
+                  <td style={{ padding: '0.8rem 1rem', fontWeight: '700' }}>引き出し制限</td>
+                  <td style={{ padding: '0.8rem 1rem', fontWeight: '700', color: 'var(--primary)' }}>いつでも自由に売却・引き出し可能</td>
+                  <td style={{ padding: '0.8rem 1rem' }}>原則60歳まで引き出し不可（年金目的）</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
+                  <td style={{ padding: '0.8rem 1rem', fontWeight: '700' }}>主な節税メリット</td>
+                  <td style={{ padding: '0.8rem 1rem' }}>運用益・配当金が完全非課税</td>
+                  <td style={{ padding: '0.8rem 1rem', fontWeight: '700', color: 'var(--primary)' }}>掛金が「全額所得控除」（毎年の税金が減る）</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '0.8rem 1rem', fontWeight: '700' }}>おすすめの優先順位</td>
+                  <td style={{ padding: '0.8rem 1rem', fontWeight: '700', color: 'var(--primary)' }}>第一優先（流動性が高く万能）</td>
+                  <td style={{ padding: '0.8rem 1rem' }}>第二優先（余剰資金があり所得税が高い人向け）</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
+            また、すでに銀行などでNISA口座を開設してしまった場合でも、1年単位で「SBI証券」や「楽天証券」などのネット証券へ金融機関を変更することができます。変更手続きは毎年10月1日〜翌年9月30日の間に行うことができ、過去に買い付けた商品を売却する必要はありません。手数料と商品数の観点から、早めにネット証券へ集約することをお勧めします。
+          </p>
           <div className="knowledge-banner glass-card" style={{ padding: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
             <span className="featured-tag" style={{ margin: 0 }}>もっと知りたい</span>
             <p style={{ fontSize: '0.95rem', fontWeight: '800', margin: '0.5rem 0' }}>

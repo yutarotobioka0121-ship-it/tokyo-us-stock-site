@@ -217,10 +217,93 @@ export default function KnowledgePage() {
             </div>
             <div>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>
-                ・「二重課税」のペナルティと外国税額控除
+                ・「二重課税」のペナルティと外国税額控除の計算例
               </h3>
-              <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: '1.7', color: 'var(--text-main)', margin: 0 }}>
-                特定口座などの課税口座で米国株の配当金を受け取る場合、まずアメリカ現地で10%が課税され、その残りの90%に対して日本国内で約20.315%が課税されます。この「二重課税」を防ぐため、確定申告時に<strong>「外国税額控除」</strong>を適用することで、米国内で徴収された10%分を所得税等から取り戻すことができます。なお、NISA口座を利用すれば日本の約20%分が非課税になるため、二重課税の影響を大きく抑えられます。
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: '1.7', color: 'var(--text-main)', marginBottom: '0.8rem' }}>
+                特定口座などの課税口座で米国株の配当金を受け取る場合、まずアメリカ現地で10%が課税され、その残りの90%に対して日本国内で約20.315%が課税されます。この「二重課税」を防ぐため、確定申告時に<strong>「外国税額控除」</strong>を適用することで、米国内で徴収された10%分を所得税等から取り戻すことができます。
+              </p>
+              <div style={{ background: 'var(--bg-warm)', padding: '1.2rem 1.5rem', borderRadius: '12px', fontSize: '0.95rem', lineHeight: '1.7', color: 'var(--text-main)' }}>
+                <strong>【具体例：米国株から年間10万円の配当金が出た場合】</strong><br />
+                1. 米国現地で10%（1万円）が源泉徴収される ➔ 残り9万円<br />
+                2. 日本国内で残り9万円に対し約20.315%（約1万8,283円）が課税される ➔ 手取り約7万1,717円<br />
+                3. 確定申告で「外国税額控除」を申請 ➔ 米国で支払った1万円分の一定額が日本の所得税から還付されます。<br />
+                ※なお、NISA口座で運用している場合は国内の約20.315%分が完全非課税になるため、二重課税の手続きの手間も大幅に削減されます。
+              </div>
+            </div>
+          </div>
+
+          {/* 5章: 米国株の主要セクターと選び方のコツ */}
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
+            5. 知っておくべき米国株の主要セクター（産業分類）
+          </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+            米国市場（S&P500など）はGICS（世界産業分類基準）によって11のセクターに分類されています。初心者が個別の銘柄を選ぶ際や、ポートフォリオのリスクを分散させる際には、セクターごとの性質を理解しておくことが不可欠です。
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.2rem', marginBottom: '2.5rem' }}>
+            <div style={{ padding: '1.2rem', border: '1px solid rgba(0,0,0,0.08)', borderRadius: '12px', background: 'white' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.4rem' }}>
+                ・情報技術（IT・ハイテク）セクター
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7' }}>
+                Apple、Microsoft、NVIDIAなどの世界を牽引する巨大イノベーション企業が属します。高い売上成長率と世界シェアを誇り、株価の値上がり益（キャピタルゲイン）を最も期待できるセクターです。
+              </p>
+            </div>
+            <div style={{ padding: '1.2rem', border: '1px solid rgba(0,0,0,0.08)', borderRadius: '12px', background: 'white' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.4rem' }}>
+                ・生活必需品セクター
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7' }}>
+                Procter & Gamble（P&G）、Coca-Cola、Walmartなど、不況期であっても消費者が買い続ける日用品・食品企業が含まれます。景気変動に強く（ディフェンシブ株）、長年にわたる連続増配と高い配当利回りが魅力です。
+              </p>
+            </div>
+            <div style={{ padding: '1.2rem', border: '1px solid rgba(0,0,0,0.08)', borderRadius: '12px', background: 'white' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.4rem' }}>
+                ・ヘルスケアセクター
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7' }}>
+                Johnson & Johnson、Eli Lilly、Pfizerなど、医薬品や医療機器を手掛ける企業です。世界的な高齢化の進展と医療需要の高まりを背景に、景気に左右されにくい安定した成長と高水準の配当を両立しています。
+              </p>
+            </div>
+            <div style={{ padding: '1.2rem', border: '1px solid rgba(0,0,0,0.08)', borderRadius: '12px', background: 'white' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.4rem' }}>
+                ・金融・エネルギー・一般消費財セクター
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7' }}>
+                JPMorgan ChaseやVisaなどの決済・金融機関、ExxonMobilなどのエネルギー大手、AmazonやTeslaなどの消費財企業が含まれます。金利の動きや景気循環（ビジネスサイクル）に合わせて業績が変動する特徴があります。
+              </p>
+            </div>
+          </div>
+
+          {/* 6章: 初心者が犯しやすい3つの失敗と回避策 */}
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
+            6. 初心者が犯しやすい3つの失敗パターンと回避策
+          </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+            米国株投資で成果を上げるためには、「素晴らしい銘柄を買うこと」と同じくらい「致命的な失敗を避けること」が大切です。特に初心者が陥りがちな3つの罠を把握しておきましょう。
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', marginBottom: '2.5rem' }}>
+            <div style={{ padding: '1.2rem 1.5rem', background: '#fff5f5', borderLeft: '4px solid #e53e3e', borderRadius: '8px' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: '800', color: '#c53030', marginBottom: '0.4rem' }}>
+                失敗①：株価暴落時の「狼狽売り（ろうばいうり）」
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7' }}>
+                市場が〇〇ショックなどで大きく値下がりした際、恐怖に耐えきれず保有株を底値で売却してしまう失敗です。米国市場は過去すべての暴落を数年以内に乗り越えて最高値を更新してきました。暴落期こそ安く買い増せるチャンスと捉え、売らずに保有し続ける「握力」を鍛えましょう。
+              </p>
+            </div>
+            <div style={{ padding: '1.2rem 1.5rem', background: '#fff5f5', borderLeft: '4px solid #e53e3e', borderRadius: '8px' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: '800', color: '#c53030', marginBottom: '0.4rem' }}>
+                失敗②：流行のテーマ株・ハイリスクな1銘柄への「一括集中投資」
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7' }}>
+                SNSで話題になっている流行の銘柄や急上昇株に、手元の資金を一度に全て投入する行為です。トレンドが終焉した途端に株価が半値以下になり取り返しのつかない打撃を受けます。まずはS&P500や全米株式などの広範なインデックスやETFを中心にポートフォリオの土台を作りましょう。
+              </p>
+            </div>
+            <div style={{ padding: '1.2rem 1.5rem', background: '#fff5f5', borderLeft: '4px solid #e53e3e', borderRadius: '8px' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: '800', color: '#c53030', marginBottom: '0.4rem' }}>
+                失敗③：為替手数料や取引手数料の意識不足
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7' }}>
+                日本円から米ドルに換金する際の為替手数料や、ネット証券ごとの取引手数料を考慮せずに頻繁に買戻しを繰り返すと、手数料負けが発生します。主要ネット証券（SBI証券や楽天証券）の「米国株NISA手数料無料化」サービスや、安い為替スプレッドを活用して賢く取引しましょう。
               </p>
             </div>
           </div>
