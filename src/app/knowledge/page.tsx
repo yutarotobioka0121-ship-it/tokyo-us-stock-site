@@ -356,18 +356,33 @@ export default function KnowledgePage() {
             </div>
           </div>
 
-          {/* キーワード解説集への誘導バナー */}
-          <div className="knowledge-banner glass-card" style={{ padding: '2.5rem 2rem', background: 'var(--bg-warm)', borderRadius: '24px', border: '1px solid var(--glass-border)', marginTop: '4rem', textAlign: 'center' }}>
-            <span className="featured-tag" style={{ margin: '0 auto 1rem auto', display: 'table' }}>新着コンテンツ</span>
-            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.2rem, 3.5vw, 1.45rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.8rem' }}>
-              よく調べられる米国株の重要キーワード解説集
-            </h3>
-            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.5rem', maxWidth: '600px', margin: '0 auto 1.5rem auto' }}>
-              「高配当」「取引時間」「時間外取引」「おすすめ」「モメンタム」など、米国株について検索でよく調べられる重要用語9選を初心者向けに分かりやすく解説しています。
-            </p>
-            <Link href="/knowledge/keywords" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.8rem 2.5rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
-              重要キーワード解説を見る <ArrowRight size={16} />
-            </Link>
+          {/* ナレッジ・関連コンテンツへの誘導バナー */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem', marginTop: '4rem' }}>
+            <div className="knowledge-banner glass-card" style={{ padding: '2rem 1.5rem', background: 'var(--bg-warm)', borderRadius: '20px', border: '1px solid var(--glass-border)', textAlign: 'center' }}>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table' }}>おすすめコンテンツ</span>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
+                米国株（アメリカ株）の取引時間・夏時間・祝日を徹底解説
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.2rem', maxWidth: '600px', margin: '0 auto 1.2rem auto' }}>
+                日本時間でのサマータイム（22:30〜）や冬時間（23:30〜）、プレマーケット・アフターマーケット等の時間外取引、年間祝日（休場日）、会社員向け予約注文ルーティンを解説。
+              </p>
+              <Link href="/knowledge/trading-hours" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 2rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
+                取引時間の詳細を見る <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            <div className="glass-card" style={{ padding: '2rem 1.5rem', background: 'white', borderRadius: '20px', border: '1px solid rgba(0,0,0,0.08)', textAlign: 'center' }}>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table', background: 'var(--primary-dark)' }}>重要用語</span>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
+                よく調べられる米国株の重要キーワード解説集
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.2rem', maxWidth: '600px', margin: '0 auto 1.2rem auto' }}>
+                「高配当」「取引時間」「時間外取引」「おすすめ」「モメンタム」など、検索で頻出する重要単語9選を初心者向けに分かりやすく解説。
+              </p>
+              <Link href="/knowledge/keywords" className="btn btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 2rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
+                重要キーワード解説を見る <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
 
         </div>
