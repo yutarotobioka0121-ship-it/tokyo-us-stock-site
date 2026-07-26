@@ -3,10 +3,32 @@ import { ArrowLeft, Compass, BookOpen, Sun, Star } from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: 'クラブ理念 | 東京米国株クラブ',
-  description: '東京米国株クラブの理念を紹介します。「投資をギャンブルにしない」「知識ゼロから一緒に学ぶ」「未来の選択肢を増やす」という3つの約束を掲げ、誰でも安心して学べる温かいコミュニティを目指しています。',
+  title: 'クラブ理念・ミッション | 東京米国株クラブ',
+  description: '東京米国株クラブの理念を紹介。「投資をギャンブルにしない」「知識ゼロから一緒に学ぶ」「未来の選択肢を増やす」という約束を掲げています。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/mission',
+  },
+  openGraph: {
+    title: 'クラブ理念・ミッション | 東京米国株クラブ',
+    description: '「投資をギャンブルにしない」「知識ゼロから学ぶ」「未来の選択肢を増やす」理念と当クラブのミッション。',
+    url: 'https://www.tokyo-us-stock.com/mission',
+    siteName: '東京米国株クラブ',
+    images: [
+      {
+        url: 'https://www.tokyo-us-stock.com/ogp.png',
+        width: 1200,
+        height: 630,
+        alt: '東京米国株クラブの理念',
+      },
+    ],
+    locale: 'ja_JP',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'クラブ理念・ミッション | 東京米国株クラブ',
+    description: '「投資をギャンブルにしない」「知識ゼロから学ぶ」「未来の選択肢を増やす」理念と当クラブのミッション。',
+    images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },
 };
 

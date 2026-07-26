@@ -9,6 +9,28 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/about',
   },
+  openGraph: {
+    title: '運営代表者 プロフィール | 東京米国株クラブ',
+    description: '投資初心者から5年で資産13倍を達成した運営者「とびー」のプロフィールと当クラブへの想い。',
+    url: 'https://www.tokyo-us-stock.com/about',
+    siteName: '東京米国株クラブ',
+    images: [
+      {
+        url: 'https://www.tokyo-us-stock.com/ogp.png',
+        width: 1200,
+        height: 630,
+        alt: '東京米国株クラブ 運営代表者プロフィール',
+      },
+    ],
+    locale: 'ja_JP',
+    type: 'profile',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '運営代表者 プロフィール | 東京米国株クラブ',
+    description: '投資初心者から5年で資産13倍を達成した運営者「とびー」のプロフィールと当クラブへの想い。',
+    images: ['https://www.tokyo-us-stock.com/ogp.png'],
+  },
 };
 
 export default function AboutPage() {

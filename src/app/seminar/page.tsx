@@ -7,10 +7,32 @@ import { formatSessionDate, formatSessionTime, getSessionStartDateTime, isSessio
 import ApplyForm from "@/components/ApplyForm";
 
 export const metadata: Metadata = {
-  title: '米国株投資勉強会 | 東京米国株クラブ',
-  description: '東京で開催中の初心者向け米国株投資勉強会のご案内。5年で1300%以上の実績を持つ講師が、少人数制（定員4名）のカフェのような雰囲気で、長期投資の基礎をわかりやすく解説します。',
+  title: '東京の初心者向け米国株投資勉強会・申し込み日程 | 東京米国株クラブ',
+  description: '東京で開催中の初心者向け米国株・NISA投資勉強会のご案内。5年で1300%以上の実績を持つ講師が、少人数制（定員4名）のカフェのような雰囲気で、長期投資の基礎をわかりやすく解説します。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/seminar',
+  },
+  openGraph: {
+    title: '東京の初心者向け米国株投資勉強会・申し込み日程 | 東京米国株クラブ',
+    description: '少人数制（定員4名）のカフェスタイル勉強会。知識ゼロから安全に始める米国株・新NISAの長期投資をわかりやすく解説します。',
+    url: 'https://www.tokyo-us-stock.com/seminar',
+    siteName: '東京米国株クラブ',
+    images: [
+      {
+        url: 'https://www.tokyo-us-stock.com/ogp.png',
+        width: 1200,
+        height: 630,
+        alt: '東京米国株クラブ 初心者向け米国株投資勉強会',
+      },
+    ],
+    locale: 'ja_JP',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '東京の初心者向け米国株投資勉強会・申し込み日程 | 東京米国株クラブ',
+    description: '少人数制（定員4名）のカフェスタイル勉強会。知識ゼロから安全に始める米国株・新NISAの長期投資をわかりやすく解説。',
+    images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },
 };
 
@@ -58,6 +80,42 @@ export default async function SeminarPage() {
   });
 
   const now = new Date();
+
+  const eventSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'EducationEvent',
+    name: '初心者向け米国株・NISA投資勉強会',
+    description: '定員4名の少人数制カフェスタイル勉強会。知識ゼロから学べる米国株・S&P500・新NISAの長期投資基礎講座。',
+    eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
+    eventStatus: 'https://schema.org/EventScheduled',
+    location: [
+      {
+        '@type': 'Place',
+        name: '東京会場（渋谷・新宿等のカフェ・レンタルスペース）',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: '東京都',
+          addressCountry: 'JP',
+        },
+      },
+      {
+        '@type': 'VirtualLocation',
+        url: 'https://www.tokyo-us-stock.com/seminar',
+      },
+    ],
+    organizer: {
+      '@type': 'Organization',
+      name: '東京米国株クラブ',
+      url: 'https://www.tokyo-us-stock.com',
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '3000',
+      priceCurrency: 'JPY',
+      availability: 'https://schema.org/InStock',
+      url: 'https://www.tokyo-us-stock.com/seminar',
+    },
+  };
   const availableSessions = sortedSessions.filter(s => {
     const status = Array.isArray(s.status) ? s.status[0] : s.status;
     const isOpen = status === 'open' || status === '募集開始' || status === '受付中';
@@ -69,6 +127,12 @@ export default async function SeminarPage() {
 
   return (
     <div className="seminar-page" style={{ overflowWrap: 'break-word' }}>
+      {/* JSON-LD Event Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchema) }}
+      />
+
       {/* Hero Section */}
       <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '100px 0 0', textAlign: 'left' }}>
         <div className="container">

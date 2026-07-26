@@ -3,10 +3,32 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '米国株（アメリカ株）とは？特徴や日本株との違い・始め方を解説 | 東京 米国株 勉強会 - 東京米国株クラブ',
-  description: '東京の初心者向け米国株勉強会「東京米国株クラブ」が、米国株の基礎知識を3,000字以上で徹底解説。日本株との詳細比較、1株購入のメリット、配当金（年4回）、二重課税対策、FAQまで網羅。',
+  title: '米国株（アメリカ株）とは？特徴や日本株との違い・始め方を解説 | 東京米国株クラブ',
+  description: '初心者向けに米国株の基礎知識を徹底解説。日本株との違い、1株購入のメリット、年4回配当金、二重課税対策、FAQまで網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge',
+  },
+  openGraph: {
+    title: '米国株（アメリカ株）とは？特徴や日本株との違い・始め方を解説 | 東京米国株クラブ',
+    description: '初心者向けに米国株の基礎知識を徹底解説。日本株との違い、1株購入のメリット、年4回配当金、FAQまで網羅。',
+    url: 'https://www.tokyo-us-stock.com/knowledge',
+    siteName: '東京米国株クラブ',
+    images: [
+      {
+        url: 'https://www.tokyo-us-stock.com/ogp.png',
+        width: 1200,
+        height: 630,
+        alt: '米国株とは？初心者向け解説',
+      },
+    ],
+    locale: 'ja_JP',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '米国株（アメリカ株）とは？特徴や日本株との違い・始め方を解説 | 東京米国株クラブ',
+    description: '初心者向けに米国株の基礎知識を徹底解説。日本株との違い、1株購入のメリット、年4回配当金、FAQまで網羅。',
+    images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },
 };
 
