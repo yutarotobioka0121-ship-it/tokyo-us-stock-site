@@ -204,12 +204,18 @@ export default function Home() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.8rem', alignItems: 'stretch' }}>
             {/* カラム1: 米国株式勉強会 */}
-            <div className="glass-card" style={{ padding: '2rem 1.8rem', borderRadius: '24px', background: 'white', border: '1px solid rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '24px', background: 'white', border: '1px solid rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflow: 'hidden' }}>
               <div>
-                <span className="featured-tag" style={{ margin: '0 0 1rem 0' }}>米国株基礎コース</span>
-                <div style={{ width: '52px', height: '52px', borderRadius: '16px', background: 'var(--bg-warm)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.2rem', color: 'var(--primary)' }}>
-                  <TrendingUp size={28} />
+                <div style={{ position: 'relative', width: '100%', height: '180px', borderRadius: '16px', overflow: 'hidden', marginBottom: '1.2rem' }}>
+                  <Image
+                    src="/workshop.jpg"
+                    alt="米国株投資勉強会の様子"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: 'cover' }}
+                  />
                 </div>
+                <span className="featured-tag" style={{ margin: '0 0 0.8rem 0' }}>米国株基礎コース</span>
                 <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.8rem', lineHeight: '1.4' }}>
                   米国株式勉強会
                 </h3>
@@ -225,12 +231,18 @@ export default function Home() {
             </div>
 
             {/* カラム2: NISA初心者勉強会 */}
-            <div className="glass-card" style={{ padding: '2rem 1.8rem', borderRadius: '24px', background: 'white', border: '1px solid rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '24px', background: 'white', border: '1px solid rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflow: 'hidden' }}>
               <div>
-                <span className="featured-tag" style={{ margin: '0 0 1rem 0' }}>新NISA特化コース</span>
-                <div style={{ width: '52px', height: '52px', borderRadius: '16px', background: 'var(--bg-warm)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.2rem', color: 'var(--primary)' }}>
-                  <PieChart size={28} />
+                <div style={{ position: 'relative', width: '100%', height: '180px', borderRadius: '16px', overflow: 'hidden', marginBottom: '1.2rem' }}>
+                  <Image
+                    src="/hero.jpg"
+                    alt="NISA初心者勉強会の様子"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: 'cover' }}
+                  />
                 </div>
+                <span className="featured-tag" style={{ margin: '0 0 0.8rem 0' }}>新NISA特化コース</span>
                 <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.8rem', lineHeight: '1.4' }}>
                   NISA初心者勉強会
                 </h3>
@@ -246,12 +258,18 @@ export default function Home() {
             </div>
 
             {/* カラム3: 個別相談受付 */}
-            <div className="glass-card" style={{ padding: '2rem 1.8rem', borderRadius: '24px', background: 'white', border: '1px solid rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '24px', background: 'white', border: '1px solid rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflow: 'hidden' }}>
               <div>
-                <span className="featured-tag" style={{ margin: '0 0 1rem 0' }}>マンツーマン対応</span>
-                <div style={{ width: '52px', height: '52px', borderRadius: '16px', background: 'var(--bg-warm)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.2rem', color: 'var(--primary)' }}>
-                  <UserCheck size={28} />
+                <div style={{ position: 'relative', width: '100%', height: '180px', borderRadius: '16px', overflow: 'hidden', marginBottom: '1.2rem' }}>
+                  <Image
+                    src="/consultation.jpg"
+                    alt="対面での個別投資相談・カウンセリングの様子"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: 'cover' }}
+                  />
                 </div>
+                <span className="featured-tag" style={{ margin: '0 0 0.8rem 0' }}>マンツーマン対応</span>
                 <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.8rem', lineHeight: '1.4' }}>
                   個別相談受付
                 </h3>
