@@ -2,9 +2,7 @@ import { Metadata } from 'next';
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Users, Target, BookOpen, Coffee, Zap, UserCheck, ShieldCheck, ArrowLeft } from "lucide-react";
-import { getSessions } from "@/lib/microcms";
-import { formatSessionDate, formatSessionTime, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
-import ApplyForm from "@/components/ApplyForm";
+import ConsultationApplyForm from "@/components/ConsultationApplyForm";
 
 export const metadata: Metadata = {
   title: 'マンツーマン個別相談受付・申し込み日程 | 東京米国株クラブ',
@@ -73,14 +71,7 @@ function formatSessionTimeRange(timeStr: string) {
   return `${pad(startHour)}:${pad(startMinute)}〜${pad(endHour)}:${pad(startMinute)}`;
 }
 
-export default async function ConsultationPage() {
-  const sessions = await getSessions();
-  const sortedSessions = [...sessions].sort((a, b) => {
-    return new Date(a.date).getTime() - new Date(b.date).getTime();
-  });
-
-  const now = new Date();
-
+export default function ConsultationPage() {
   const eventSchema = {
     '@context': 'https://schema.org',
     '@type': 'EducationEvent',
@@ -116,13 +107,6 @@ export default async function ConsultationPage() {
       url: 'https://www.tokyo-us-stock.com/seminar/consultation',
     },
   };
-
-  const availableSessions = sortedSessions.filter(s => {
-    const status = Array.isArray(s.status) ? s.status[0] : s.status;
-    const isOpen = status === 'open' || status === '募集開始' || status === '受付中';
-    if (!isOpen) return false;
-    return !isSessionDeadlinePassed(s, now);
-  });
 
   return (
     <div className="seminar-page" style={{ overflowWrap: 'break-word' }}>
@@ -204,12 +188,12 @@ export default async function ConsultationPage() {
               個別相談 お申し込みフォーム
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-              ご希望の日程を選択し、必要事項をご入力の上ご送信ください。
+              ご希望のスタイル・日時・必要事項をご入力の上ご送信ください。
             </p>
           </div>
 
           <div className="glass-card" style={{ padding: '2rem', background: 'white', borderRadius: '24px' }}>
-            <ApplyForm sessions={availableSessions} />
+            <ConsultationApplyForm />
           </div>
         </div>
       </section>
