@@ -75,7 +75,15 @@ function formatSessionTimeRange(timeStr: string) {
 
 export default async function NisaSeminarPage() {
   const sessions = await getSessions();
-  const sortedSessions = [...sessions].sort((a, b) => {
+  
+  // NISA初心者勉強会専用セッションのみフィルタリング（type等に 'nisa' や 'NISA' が含まれるもの）
+  const nisaSessions = sessions.filter(s => {
+    const typeArr = Array.isArray(s.type) ? s.type : [s.type];
+    const typeStr = (typeArr.join(' ') + ' ' + (s.location || '')).toLowerCase();
+    return typeStr.includes('nisa') || typeStr.includes('ニーサ');
+  });
+
+  const sortedSessions = [...nisaSessions].sort((a, b) => {
     return new Date(a.date).getTime() - new Date(b.date).getTime();
   });
 
