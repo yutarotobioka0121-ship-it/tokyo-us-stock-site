@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, ShieldCheck, Users, TrendingUp, Heart, BookOpen, PieChart, UserCheck } from "lucide-react";
 import { Metadata } from "next";
-import { getPosts } from "@/lib/notion";
 
 export const dynamic = 'force-dynamic';
 
@@ -36,10 +35,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Home() {
-  const posts = await getPosts();
-  const recentPosts = posts.slice(0, 3);
-
+export default function Home() {
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'EducationalOrganization',
@@ -274,59 +270,6 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 最新ブログコラム（新追加：鮮度シグナル ＆ 内部リンク強化） */}
-      {recentPosts.length > 0 && (
-        <section style={{ background: 'white', padding: 'clamp(3rem, 6vw, 5rem) 0' }}>
-          <div className="container" style={{ maxWidth: '1000px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-              <span className="featured-tag">最新コラム</span>
-              <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: '900', color: 'var(--primary-dark)', margin: '0.5rem 0' }}>
-                米国株投資の知恵袋・最新ブログ記事
-              </h2>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-                初心者の方が知っておくべき投資のコツや最新トピックを発信しています。
-              </p>
-            </div>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem' }}>
-              {recentPosts.map((post) => (
-                <Link
-                  key={post.id}
-                  href={`/blog/${post.slug}`}
-                  style={{ textDecoration: 'none', color: 'inherit' }}
-                >
-                  <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px', border: '1px solid rgba(0,0,0,0.08)', background: 'white', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', transition: 'all 0.3s ease' }}>
-                    <div>
-                      {post.date && (
-                        <span style={{ fontSize: '0.8rem', color: 'var(--primary)', fontWeight: '700', display: 'block', marginBottom: '0.4rem' }}>
-                          {post.date}
-                        </span>
-                      )}
-                      <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.6rem', lineHeight: '1.4', fontFamily: 'var(--font-heading)' }}>
-                        {post.title}
-                      </h3>
-                      {post.summary && (
-                        <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', lineHeight: '1.6', margin: 0, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-                          {post.summary}
-                        </p>
-                      )}
-                    </div>
-                    <div style={{ marginTop: '1rem', paddingTop: '0.8rem', borderTop: '1px solid #f3f4f6', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', fontSize: '0.85rem', fontWeight: '800', color: 'var(--primary)' }}>
-                      読む <ArrowRight size={14} style={{ marginLeft: '0.2rem' }} />
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-
-            <div style={{ textAlign: 'center' }}>
-              <Link href="/blog" className="btn btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', borderRadius: '30px', padding: '0.75rem 2rem', fontWeight: '800' }}>
-                ブログ記事一覧を見る <BookOpen size={16} />
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Dream Vision Section */}
       <section className="section-padding" style={{ background: 'var(--bg-warm)', color: 'var(--text-main)', position: 'relative', overflow: 'hidden', textAlign: 'center', padding: '3.5rem 0' }}>
