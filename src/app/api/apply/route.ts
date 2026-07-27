@@ -51,6 +51,8 @@ ${session.location || '都内近郊'}
 
     // GASへの転送は廃止
 
+    const isConsultation = typeof sessionId === 'string' && sessionId.includes('個別相談');
+
     // 3. Send automatic reply email
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -63,8 +65,32 @@ ${session.location || '都内近郊'}
     const mailOptions = {
       from: `"東京米国株クラブ" <${process.env.GMAIL_USER}>`,
       to: email,
-      subject: `【お申し込み完了】${eventString} 勉強会`,
-      text: `
+      subject: isConsultation 
+        ? `【お申し込み受付】マンツーマン個別相談 | 東京米国株クラブ`
+        : `【お申し込み完了】${eventString} 勉強会`,
+      text: isConsultation ? `
+${name} 様
+
+東京米国株クラブのマンツーマン個別相談にお申し込みいただき、誠にありがとうございます。
+以下のお申し込み内容を受付いたしました。
+
+■お申し込み内容
+種別：マンツーマン個別相談
+詳細：${eventString}
+
+■事前メッセージ・ご希望詳細
+${message || '（なし）'}
+
+■今後の流れ
+講師（トビー）より、ご希望日時に関する日程調整および実施案内メールを原則24時間以内にお送りいたします。
+今しばらくお待ちくださいますようお願い申し上げます。
+
+--------------------------------------------------
+東京米国株クラブ
+講師：トビー
+公式サイト: https://www.tokyo-us-stock.com
+--------------------------------------------------
+` : `
 ${name} 様
 
 東京米国株クラブの勉強会にお申し込みいただき、誠にありがとうございます。
@@ -84,7 +110,7 @@ ${sessionDetails}
 --------------------------------------------------
 東京米国株クラブ
 講師：トビー
-公式サイト: https://tokyo-us-stock.com
+公式サイト: https://www.tokyo-us-stock.com
 --------------------------------------------------
 `,
     };
@@ -92,8 +118,25 @@ ${sessionDetails}
     const adminMailOptions = {
       from: `"東京米国株クラブ" <${process.env.GMAIL_USER}>`,
       to: process.env.ADMIN_EMAIL || process.env.GMAIL_USER,
-      subject: `【新規申込】${eventString}`,
-      text: `
+      subject: isConsultation
+        ? `【個別相談お申し込み】${name} 様`
+        : `【新規申込】${eventString}`,
+      text: isConsultation ? `
+以下の内容でマンツーマン個別相談への新規お申し込みがありました。
+
+■お客様情報
+お名前：${name} 様
+メールアドレス：${email}
+
+■お申し込み内容・希望詳細
+${eventString}
+
+■詳細・メッセージ
+${message || '（記入なし）'}
+
+--------------------------------------------------
+※このメールはシステムから自動送信されています。
+` : `
 以下の内容で勉強会への新規お申し込みがありました。
 
 ■お申し込み内容
