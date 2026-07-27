@@ -133,7 +133,7 @@ export default function ConsultationPage() {
             「他の参加者を気にせず自分のペースでじっくり質問したい」「自分に合った投資の進め方や学習計画をマンツーマンで相談したい」という方のための1対1個別相談枠です。
           </p>
           <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '600px', marginBottom: '2.5rem', color: 'var(--text-muted)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)', lineHeight: '1.8' }}>
-            オンラインまたはカフェでの対面形式から選択可能。<br className="sp-hide" />
+            オンラインまたはカフェでの対面形式から選択可能（1回 30分間）。<br className="sp-hide" />
             疑問や不安をその場で解消しながら、第一歩の進め方を一緒に整理します。
           </p>
           <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem auto 0 auto', aspectRatio: '16/9', position: 'relative' }}>
@@ -155,6 +155,10 @@ export default function ConsultationPage() {
           <div className="glass-card" style={{ padding: '2rem' }}>
             <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【個別相談の特徴・メリット】</h3>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
+              <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                <Clock color="var(--primary)" size={20} style={{ flexShrink: 0, marginTop: '2px' }} />
+                <span><strong>1回 30分間の集中相談</strong>：1回の個別相談時間は「30分間」となっております。知りたいポイントを絞って効率よくご質問・ご相談いただけます。</span>
+              </li>
               <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
                 <CheckCircle2 color="var(--primary)" size={20} style={{ flexShrink: 0, marginTop: '2px' }} />
                 <span><strong>完全1対1で気兼ねなく質問できる</strong>：他の参加者を気にせず、自分の理解度に合わせたスピードで何でも質問・相談いただけます。</span>
