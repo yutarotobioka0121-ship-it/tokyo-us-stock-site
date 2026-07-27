@@ -156,10 +156,6 @@ export default function ConsultationPage() {
             <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【個別相談の特徴・メリット】</h3>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
               <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-                <Clock color="var(--primary)" size={20} style={{ flexShrink: 0, marginTop: '2px' }} />
-                <span><strong>1回 30分間の集中相談</strong>：1回の個別相談時間は「30分間」となっております。知りたいポイントを絞って効率よくご質問・ご相談いただけます。</span>
-              </li>
-              <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
                 <CheckCircle2 color="var(--primary)" size={20} style={{ flexShrink: 0, marginTop: '2px' }} />
                 <span><strong>完全1対1で気兼ねなく質問できる</strong>：他の参加者を気にせず、自分の理解度に合わせたスピードで何でも質問・相談いただけます。</span>
               </li>

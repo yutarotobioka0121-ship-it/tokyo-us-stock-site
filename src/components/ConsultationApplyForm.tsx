@@ -81,10 +81,9 @@ export default function ConsultationApplyForm() {
       {/* 2. 希望日時の入力 */}
       <div className="form-group" style={{ marginBottom: '1.8rem' }}>
         <label className="form-label" htmlFor="preferredDate" style={{ fontWeight: '800', marginBottom: '0.4rem', display: 'block' }}>
-          ご希望の日時・時間帯 <span style={{ fontSize: '0.85rem', color: 'var(--primary)', fontWeight: 'normal', marginLeft: '0.5rem' }}>（1回 30分間）</span>
+          ご希望の日時・時間帯 <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 'normal', marginLeft: '0.5rem' }}>（時間：1回 30分）</span>
         </label>
         <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '0.6rem' }}>
-          ※1回の個別相談時間は「30分間」となります。<br />
           例：8月1日(土) 14:00以降、平日19時以降 など（候補をいくつか挙げていただけますとスムーズです）
         </p>
         <input
