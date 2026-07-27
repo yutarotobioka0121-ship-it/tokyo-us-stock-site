@@ -22,6 +22,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/knowledge/stock-investment',
     '/knowledge/nisa',
     '/seminar',
+    '/seminar/nisa',
+    '/seminar/consultation',
     '/blog',
     '/apply',
     '/contact',

@@ -251,7 +251,7 @@ export default function Home() {
                 </p>
               </div>
               <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
-                <Link href="/seminar" className="btn btn-primary" style={{ width: '100%', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center', padding: '0.85rem 1.5rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
+                <Link href="/seminar/nisa" className="btn btn-primary" style={{ width: '100%', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center', padding: '0.85rem 1.5rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
                   NISA勉強会の詳細 <ArrowRight size={18} />
                 </Link>
               </div>
@@ -278,7 +278,7 @@ export default function Home() {
                 </p>
               </div>
               <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
-                <Link href="/seminar" className="btn btn-outline" style={{ width: '100%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '0.85rem 1.5rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
+                <Link href="/seminar/consultation" className="btn btn-outline" style={{ width: '100%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '0.85rem 1.5rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
                   個別相談を申し込む <ArrowRight size={18} />
                 </Link>
               </div>
