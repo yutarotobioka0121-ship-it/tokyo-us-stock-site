@@ -87,8 +87,10 @@ export default function NisaApplyForm({ sessions, selectedSessionId }: NisaApply
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           {sessions && sessions.length > 0 ? (
             sessions.map((session) => {
-              const type = Array.isArray(session.type) ? session.type[0] : session.type;
-              const isOffline = type !== 'online' && type !== 'オンライン';
+              const typeArr = Array.isArray(session.type) ? session.type : [session.type];
+              const typeStr = typeArr.join(' ').toLowerCase();
+              const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
+              const isOffline = !isOnline;
               const labelText = `${formatSessionDate(session.date)} ${formatSessionTime(session.date)}〜${isOffline && session.location ? ` (${session.location})` : ''}${isOffline ? ' [対面]' : ' [オンライン]'}`;
               return (
                 <label

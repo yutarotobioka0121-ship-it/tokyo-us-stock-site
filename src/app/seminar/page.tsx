@@ -194,7 +194,10 @@ export default async function SeminarPage() {
                 {sortedSessions && sortedSessions.length > 0 ? (
                   sortedSessions.map((session, index) => {
                     const status = Array.isArray(session.status) ? session.status[0] : session.status;
-                    const type = Array.isArray(session.type) ? session.type[0] : session.type;
+                    const typeArr = Array.isArray(session.type) ? session.type : [session.type];
+                    const typeStr = typeArr.join(' ').toLowerCase();
+                    const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
+                    
                     const formattedDate = formatSessionDate(session.date);
                     const formattedTime = formatSessionTimeRange(session.time || session.date);
                     
@@ -213,12 +216,12 @@ export default async function SeminarPage() {
                         <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary-dark)', wordBreak: 'keep-all' }}>{formattedDate}</td>
                         <td style={{ padding: '1.2rem 0.5rem', fontWeight: '700', wordBreak: 'keep-all' }}>{formattedTime}</td>
                         <td style={{ padding: '1.2rem 0.5rem' }}>
-                          <span className="badge badge-type" style={{ fontSize: '0.85rem', padding: '0.3rem 0.8rem', wordBreak: 'keep-all', background: type === 'online' || type === 'オンライン' ? 'var(--bg-warm)' : 'var(--primary)', color: type === 'online' || type === 'オンライン' ? 'var(--text-main)' : 'white' }}>
-                            {type === 'online' || type === 'オンライン' ? 'オンライン' : '対面開催'}
+                          <span className="badge badge-type" style={{ fontSize: '0.85rem', padding: '0.3rem 0.8rem', wordBreak: 'keep-all', background: isOnline ? 'var(--bg-warm)' : 'var(--primary)', color: isOnline ? 'var(--text-main)' : 'white' }}>
+                            {isOnline ? 'オンライン' : '対面開催'}
                           </span>
                         </td>
                         <td style={{ padding: '1.2rem 0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                          {type === 'online' || type === 'オンライン' ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`}
+                          {isOnline ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`}
                         </td>
                         <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary)' }}>無料</td>
                         <td style={{ padding: '1.2rem 0.5rem' }}>
@@ -256,7 +259,9 @@ export default async function SeminarPage() {
               {sortedSessions && sortedSessions.length > 0 ? (
                 sortedSessions.map((session) => {
                   const status = Array.isArray(session.status) ? session.status[0] : session.status;
-                  const type = Array.isArray(session.type) ? session.type[0] : session.type;
+                  const typeArr = Array.isArray(session.type) ? session.type : [session.type];
+                  const typeStr = typeArr.join(' ').toLowerCase();
+                  const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
                   const formattedDate = formatSessionDate(session.date);
                   const formattedTime = formatSessionTimeRange(session.time || session.date);
                   
@@ -285,8 +290,8 @@ export default async function SeminarPage() {
                       }}
                     >
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
-                        <span className="badge badge-type" style={{ fontSize: '0.8rem', padding: '0.3rem 0.8rem', background: type === 'online' || type === 'オンライン' ? 'var(--bg-warm)' : 'var(--primary)', color: type === 'online' || type === 'オンライン' ? 'var(--text-main)' : 'white', borderRadius: '20px', fontWeight: '800' }}>
-                          {type === 'online' || type === 'オンライン' ? 'オンライン' : '対面開催'}
+                        <span className="badge badge-type" style={{ fontSize: '0.8rem', padding: '0.3rem 0.8rem', background: isOnline ? 'var(--bg-warm)' : 'var(--primary)', color: isOnline ? 'var(--text-main)' : 'white', borderRadius: '20px', fontWeight: '800' }}>
+                          {isOnline ? 'オンライン' : '対面開催'}
                         </span>
                         {isEnded ? (
                           <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: '700' }}>受付終了</span>
@@ -309,7 +314,7 @@ export default async function SeminarPage() {
                         <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
                           <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '60px' }}>場所：</span>
                           <span style={{ color: 'var(--text-muted)' }}>
-                            {type === 'online' || type === 'オンライン' ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`}
+                            {isOnline ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`}
                           </span>
                         </div>
                         <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
