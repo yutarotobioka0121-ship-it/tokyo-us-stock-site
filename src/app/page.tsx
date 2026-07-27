@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ShieldCheck, Users, TrendingUp, Heart, BookOpen } from "lucide-react";
+import { ArrowRight, CheckCircle2, ShieldCheck, Users, TrendingUp, Heart, BookOpen, PieChart, UserCheck } from "lucide-react";
 import { Metadata } from "next";
 import { getPosts } from "@/lib/notion";
 
@@ -192,57 +192,84 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Featured Study Session Section */}
+      {/* 3 Column Study Session Section */}
       <section className="featured-section section-padding" style={{ background: 'var(--bg-warm)' }}>
-        <div className="container">
-          <div className="featured-grid">
-            <div className="featured-content slide-up">
-              <span className="featured-tag">おすすめ勉強会</span>
+        <div className="container" style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <span className="featured-tag">選べる学び方・ご相談</span>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.6rem, 4.5vw, 2.5rem)', color: 'var(--primary-dark)', lineHeight: '1.3', fontWeight: '900', margin: '0.5rem 0 1rem 0' }}>
+              東京開催の勉強会 ＆ 個別相談コース
+            </h2>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', color: 'var(--text-muted)', lineHeight: '1.8', maxWidth: '750px', margin: '0 auto' }}>
+              ご自身の目的やご都合に合わせて、3つのスタイルからお選びいただけます。<br className="sp-hide" />
+              知識ゼロの方でも、カフェでお茶を飲むようなリラックスした雰囲気でご参加いただけます。
+            </p>
+          </div>
 
-              <h2 className="featured-title" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.6rem, 4.5vw, 2.5rem)', color: 'var(--primary-dark)', lineHeight: '1.3', fontWeight: '900', marginBottom: '0.75rem' }}>
-                東京開催の米国株・NISA初心者勉強会
-              </h2>
-              <h3 className="featured-subtitle-line" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.05rem, 3vw, 1.4rem)', color: 'var(--primary-light)', marginBottom: '1.5rem', fontWeight: '900', lineHeight: '1.3' }}>
-                カフェでお茶を飲むような雰囲気で質問しながら楽しく学べます
-              </h3>
-
-              {/* スマホ用Featured画像：タイトルの直下に配置 */}
-              <div className="featured-image-mobile" style={{ margin: '2rem auto', width: '100%' }}>
-                <div className="featured-image-wrapper glass-card">
-                  <Image
-                    src="/workshop.jpg"
-                    alt="東京で開催されている初心者向け米国株投資勉強会の様子"
-                    width={600}
-                    height={450}
-                    style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
-                    className="featured-image"
-                  />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.8rem', alignItems: 'stretch' }}>
+            {/* カラム1: 米国株式勉強会 */}
+            <div className="glass-card" style={{ padding: '2rem 1.8rem', borderRadius: '24px', background: 'white', border: '1px solid rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <span className="featured-tag" style={{ margin: '0 0 1rem 0' }}>米国株基礎コース</span>
+                <div style={{ width: '52px', height: '52px', borderRadius: '16px', background: 'var(--bg-warm)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.2rem', color: 'var(--primary)' }}>
+                  <TrendingUp size={28} />
                 </div>
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.8rem', lineHeight: '1.4' }}>
+                  米国株式勉強会
+                </h3>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text-main)', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                  S&P500や主要個別株、年4回の配当金（不労所得）を受け取る仕組みなど、過去100年成長し続ける米国市場へ投資するための基礎知識を少人数（定員4名）で楽しく学びます。
+                </p>
               </div>
-              <p className="featured-desc" style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2.2vw, 1.15rem)', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2rem' }}>
-                「証券口座の作り方が分からない」「指値と成行の違いは？」「配当金（不労所得）を受け取るには？」といった基本的な疑問から丁寧に解説します。<br className="sp-hide" />
-                対面だけでなくオンライン開催も選べますので、ご都合に合わせて気軽にご参加いただけます。
-              </p>
-              <div style={{ marginTop: '2rem' }}>
-                <Link href="/seminar" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '1rem', padding: '0.8rem 2.2rem', borderRadius: '50px', fontWeight: '800' }}>
-                  勉強会の開催日程と詳細はこちら <ArrowRight size={20} />
+              <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
+                <Link href="/seminar" className="btn btn-primary" style={{ width: '100%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '0.85rem 1.5rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
+                  米国株勉強会の詳細 <ArrowRight size={18} />
                 </Link>
               </div>
             </div>
-            
-            {/* PC用Featured画像 */}
-            <div className="featured-image-container featured-image-desktop slide-up delay-1">
-              <div className="featured-image-wrapper glass-card">
-                <Image
-                  src="/workshop.jpg"
-                  alt="東京で開催されている初心者向け米国株投資勉強会の様子"
-                  width={600}
-                  height={450}
-                  style={{ objectFit: 'cover', width: '100%', height: 'auto' }}
-                  className="featured-image"
-                />
+
+            {/* カラム2: NISA初心者勉強会 */}
+            <div className="glass-card" style={{ padding: '2rem 1.8rem', borderRadius: '24px', background: 'white', border: '1px solid rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <span className="featured-tag" style={{ margin: '0 0 1rem 0' }}>新NISA特化コース</span>
+                <div style={{ width: '52px', height: '52px', borderRadius: '16px', background: 'var(--bg-warm)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.2rem', color: 'var(--primary)' }}>
+                  <PieChart size={28} />
+                </div>
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.8rem', lineHeight: '1.4' }}>
+                  NISA初心者勉強会
+                </h3>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text-main)', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                  「つみたて投資枠」と「成長投資枠」の正しい活用法、非課税メリットの最大化、SBI・楽天証券での設定手順まで、失敗しないNISAの始め方を丁寧に解説します。
+                </p>
+              </div>
+              <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
+                <Link href="/seminar" className="btn btn-primary" style={{ width: '100%', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center', padding: '0.85rem 1.5rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
+                  NISA勉強会の詳細 <ArrowRight size={18} />
+                </Link>
               </div>
             </div>
+
+            {/* カラム3: 個別相談受付 */}
+            <div className="glass-card" style={{ padding: '2rem 1.8rem', borderRadius: '24px', background: 'white', border: '1px solid rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+              <div>
+                <span className="featured-tag" style={{ margin: '0 0 1rem 0' }}>マンツーマン対応</span>
+                <div style={{ width: '52px', height: '52px', borderRadius: '16px', background: 'var(--bg-warm)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.2rem', color: 'var(--primary)' }}>
+                  <UserCheck size={28} />
+                </div>
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.8rem', lineHeight: '1.4' }}>
+                  個別相談受付
+                </h3>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text-main)', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                  「他の参加者を気にせず自分の資産状況や悩みをじっくり相談したい」「自分の証券口座の設定やポートフォリオを直接確認してほしい」方のための1対1個別カウンセリング枠です。
+                </p>
+              </div>
+              <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
+                <Link href="/seminar" className="btn btn-outline" style={{ width: '100%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '0.85rem 1.5rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
+                  個別相談を申し込む <ArrowRight size={18} />
+                </Link>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
