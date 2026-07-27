@@ -51,7 +51,7 @@ export default function ConsultationApplyForm() {
           ※現時点ではまだ日時は確定しておりません。
         </p>
         <p style={{ color: 'var(--text-muted)', textAlign: 'left', lineHeight: '1.8' }}>
-          ご入力いただいた希望日時を元に、講師より改めて日程確定・調整に関する案内メール（自動受付確認メール）をお送りいたしました。<br />
+          ご入力いただいた希望日時を元に、運営より改めて日程確定・調整に関する案内メール（自動受付確認メール）をお送りいたしました。<br />
           折り返しの連絡をお待ちくださいますようお願い申し上げます。
         </p>
         <button onClick={() => setStatus('idle')} className="btn btn-outline" style={{ marginTop: '2rem' }}>
