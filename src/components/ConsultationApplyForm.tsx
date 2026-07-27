@@ -46,9 +46,13 @@ export default function ConsultationApplyForm() {
     return (
       <div className="success-message slide-up" style={{ textAlign: 'left', padding: '3rem 0', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
         <CheckCircle size={64} color="var(--primary)" style={{ marginBottom: '1.5rem' }} />
-        <h2 style={{ marginBottom: '1rem', textAlign: 'left' }}>個別相談のお申し込みを受け付けました</h2>
+        <h2 style={{ marginBottom: '1rem', textAlign: 'left' }}>お申し込みを受け付けました</h2>
+        <p style={{ color: 'var(--text-main)', textAlign: 'left', lineHeight: '1.8', fontWeight: '700', marginBottom: '0.5rem' }}>
+          ※現時点ではまだ日時は確定しておりません。
+        </p>
         <p style={{ color: 'var(--text-muted)', textAlign: 'left', lineHeight: '1.8' }}>
-          ご入力いただいたメールアドレス宛に、日程調整に関するご案内メールをお送りいたします。しばらくお待ちください。
+          ご入力いただいた希望日時を元に、講師より改めて日程確定・調整に関する案内メール（自動受付確認メール）をお送りいたしました。<br />
+          折り返しの連絡をお待ちくださいますようお願い申し上げます。
         </p>
         <button onClick={() => setStatus('idle')} className="btn btn-outline" style={{ marginTop: '2rem' }}>
           別の内容でお申し込み
