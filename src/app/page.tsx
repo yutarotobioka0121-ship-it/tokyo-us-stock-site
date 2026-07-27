@@ -274,7 +274,7 @@ export default function Home() {
                   個別相談受付
                 </h3>
                 <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text-main)', lineHeight: '1.7', marginBottom: '1.5rem' }}>
-                  「他の参加者を気にせず自分の資産状況や悩みをじっくり相談したい」「自分の証券口座の設定やポートフォリオを直接確認してほしい」方のための1対1個別カウンセリング枠です。
+                  「他の参加者を気にせず自分のペースでじっくり質問したい」「自分に合った投資の進め方や学習計画をマンツーマンで相談したい」という方のための1対1個別相談枠です。
                 </p>
               </div>
               <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
