@@ -76,11 +76,12 @@ function formatSessionTimeRange(timeStr: string) {
 export default async function NisaSeminarPage() {
   const sessions = await getSessions();
   
-  // NISA初心者勉強会専用セッションのみフィルタリング（type等に 'nisa' や 'NISA' が含まれるもの）
+  // MicroCMSの type, category, title, location のいずれかに 'nisa' または 'NISA'、'ニーサ' が入っているセッションを自動判定
   const nisaSessions = sessions.filter(s => {
     const typeArr = Array.isArray(s.type) ? s.type : [s.type];
-    const typeStr = (typeArr.join(' ') + ' ' + (s.location || '')).toLowerCase();
-    return typeStr.includes('nisa') || typeStr.includes('ニーサ');
+    const categoryStr = String((s as any).category || (s as any).title || '');
+    const fullText = (typeArr.join(' ') + ' ' + (s.location || '') + ' ' + categoryStr).toLowerCase();
+    return fullText.includes('nisa') || fullText.includes('ニーサ');
   });
 
   const sortedSessions = [...nisaSessions].sort((a, b) => {

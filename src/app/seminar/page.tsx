@@ -76,11 +76,12 @@ function formatSessionTimeRange(timeStr: string) {
 export default async function SeminarPage() {
   const sessions = await getSessions();
 
-  // 米国株投資勉強会専用のセッション（NISA専用セッションを除外）
+  // 米国株投資勉強会専用のセッション（MicroCMSでNISA指定されたセッションを除外）
   const usStockSessions = sessions.filter(s => {
     const typeArr = Array.isArray(s.type) ? s.type : [s.type];
-    const typeStr = (typeArr.join(' ') + ' ' + (s.location || '')).toLowerCase();
-    return !(typeStr.includes('nisa') || typeStr.includes('ニーサ'));
+    const categoryStr = String((s as any).category || (s as any).title || '');
+    const fullText = (typeArr.join(' ') + ' ' + (s.location || '') + ' ' + categoryStr).toLowerCase();
+    return !(fullText.includes('nisa') || fullText.includes('ニーサ'));
   });
 
   const sortedSessions = [...usStockSessions].sort((a, b) => {
