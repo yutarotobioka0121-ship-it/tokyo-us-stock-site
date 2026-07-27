@@ -203,7 +203,7 @@ export default function Home() {
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.8rem', alignItems: 'stretch' }}>
-            {/* カラム1: 米国株式勉強会 */}
+            {/* カラム1: 米国株式勉強会 (Image embedded) */}
             <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '24px', background: 'white', border: '1px solid rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflow: 'hidden' }}>
               <div>
                 <div style={{ position: 'relative', width: '100%', height: '180px', borderRadius: '16px', overflow: 'hidden', marginBottom: '1.2rem' }}>
