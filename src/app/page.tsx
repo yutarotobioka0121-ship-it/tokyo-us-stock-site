@@ -83,7 +83,7 @@ export default async function Home() {
         name: '初心者に米国株のおすすめ銘柄・商品を教えてください',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: '投資初心者には、米国の優良企業500社に分散投資できる「S&P500連動インデックスファンド」が一般的に長期投資に向いているとされています。新NISAのつみたて投資枠で購入すれば利益に対する税金が非課税になります。投資にはリスクが伴いますのでご自身の判断でご検討ください。',
+          text: '投資初心者には、米国の優良企業500社に分散投資できる「S&P500連動インデックスファンド」が最もおすすめです。代表的な商品は「eMAXIS Slim 米国株式（S&P500）」で、新NISAのつみたて投資枠で購入すれば利益に対する税金が永久にゼロになります。',
         },
       },
       {
@@ -91,7 +91,7 @@ export default async function Home() {
         name: 'NISAで米国株・S&P500に投資できますか？',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'はい、新NISAの「つみたて投資枠（年間120万円）」と「成長投資枠（年間240万円）」の両方で米国株・S&P500連動ファンドを購入できます。合計年間360万円・生涯1,800万円まで非課税で運用できるため、長期の米国株投資との相性は良いとされています。',
+          text: 'はい、新NISAの「つみたて投資枠（年間120万円）」と「成長投資枠（年間240万円）」の両方で米国株・S&P500連動ファンドを購入できます。合計年間360万円・生涯1,800万円まで非課税で運用できるため、長期の米国株投資との相性は抜群です。',
         },
       },
     ],
@@ -353,9 +353,6 @@ export default async function Home() {
 
       <BlogPreviewSection posts={latestPosts} />
 
-      {/* タスク1: FAQ Section - CTAセクション直前 */}
-      <HomeFAQ />
-
       {/* Dream Vision Section */}
       <section className="section-padding" style={{ background: 'var(--bg-warm)', color: 'var(--text-main)', position: 'relative', overflow: 'hidden', textAlign: 'center', padding: '3.5rem 0' }}>
         <div style={{ position: 'absolute', top: '-50px', right: '-50px', width: '200px', height: '200px', borderRadius: '50%', background: 'rgba(176, 58, 46, 0.03)' }} />
@@ -411,6 +408,9 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      {/* タスク1: FAQ Section - ページ末尾（フッター直前・CTAボタンの後） */}
+      <HomeFAQ />
     </div>
   );
 }
