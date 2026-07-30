@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { BookOpen, Calendar, ChevronRight, ArrowRight } from "lucide-react";
+import { Calendar, ChevronRight, ArrowRight, TrendingUp } from "lucide-react";
 
 type Post = {
   id: string;
@@ -13,11 +12,17 @@ type Post = {
   cover: string | null;
 };
 
+const ACCENT_COLORS = [
+  { bg: 'linear-gradient(135deg, #b03a2e 0%, #e74c3c 100%)' },
+  { bg: 'linear-gradient(135deg, #1a5276 0%, #2980b9 100%)' },
+  { bg: 'linear-gradient(135deg, #1e8449 0%, #27ae60 100%)' },
+];
+
 export default function BlogPreviewSection({ posts }: { posts: Post[] }) {
   if (posts.length === 0) return null;
 
   return (
-    <section className="section-padding" style={{ background: "white" }}>
+    <section className="section-padding" style={{ background: "var(--bg-warm)" }}>
       <div className="container">
         <div style={{ textAlign: "center", marginBottom: "3rem" }}>
           <span className="section-tag">LATEST BLOG</span>
@@ -37,141 +42,144 @@ export default function BlogPreviewSection({ posts }: { posts: Post[] }) {
             marginBottom: "2.5rem",
           }}
         >
-          {posts.map((post) => (
-            <Link
-              key={post.id}
-              href={`/blog/${post.slug}`}
-              style={{ textDecoration: "none", display: "block" }}
-            >
-              <article
-                className="blog-preview-card"
-                style={{
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                  border: "1px solid rgba(176, 58, 46, 0.1)",
-                  transition: "transform 0.25s ease, box-shadow 0.25s ease",
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  background: "white",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 32px rgba(176,58,46,0.13)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "";
-                }}
-              >
-                {/* サムネイル */}
-                <div
-                  style={{
-                    width: "100%",
-                    aspectRatio: "16/9",
-                    background: "linear-gradient(135deg, var(--bg-warm) 0%, rgba(176,58,46,0.08) 100%)",
-                    position: "relative",
-                    overflow: "hidden",
-                    flexShrink: 0,
-                  }}
-                >
-                  {post.cover ? (
-                    <Image
-                      src={post.cover}
-                      alt={post.title}
-                      fill
-                      style={{ objectFit: "cover" }}
-                    />
-                  ) : (
-                    <div
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <BookOpen size={36} style={{ color: "var(--primary)", opacity: 0.4 }} />
-                    </div>
-                  )}
-                </div>
+          {posts.map((post, index) => {
+            const accent = ACCENT_COLORS[index % ACCENT_COLORS.length];
+            const readingMins = post.summary ? Math.max(3, Math.ceil(post.summary.length / 200)) : 5;
 
-                {/* コンテンツ */}
-                <div
+            return (
+              <Link
+                key={post.id}
+                href={`/blog/${post.slug}`}
+                style={{ textDecoration: "none", display: "block" }}
+              >
+                <article
                   style={{
-                    padding: "1.25rem 1.5rem 1.5rem",
+                    borderRadius: "20px",
+                    overflow: "hidden",
+                    background: "white",
+                    border: "1px solid rgba(0,0,0,0.06)",
+                    boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
+                    height: "100%",
                     display: "flex",
                     flexDirection: "column",
-                    gap: "0.5rem",
-                    flex: 1,
+                    transition: "transform 0.25s ease, box-shadow 0.25s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)";
+                    (e.currentTarget as HTMLElement).style.boxShadow = "0 16px 40px rgba(0,0,0,0.12)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+                    (e.currentTarget as HTMLElement).style.boxShadow = "0 2px 12px rgba(0,0,0,0.05)";
                   }}
                 >
-                  {post.date && (
+                  {/* カラーアクセントヘッダー */}
+                  <div
+                    style={{
+                      background: accent.bg,
+                      padding: "1.25rem 1.5rem",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      gap: "1rem",
+                    }}
+                  >
                     <div
                       style={{
+                        background: "rgba(255,255,255,0.22)",
+                        borderRadius: "8px",
+                        padding: "0.3rem 0.7rem",
                         display: "flex",
                         alignItems: "center",
                         gap: "0.4rem",
-                        color: "var(--text-muted)",
-                        fontSize: "0.8rem",
                       }}
                     >
-                      <Calendar size={13} />
-                      <span>
-                        {new Date(post.date).toLocaleDateString("ja-JP", {
-                          year: "numeric",
-                          month: "long",
-                          day: "numeric",
-                        })}
+                      <TrendingUp size={13} style={{ color: "rgba(255,255,255,0.95)" }} />
+                      <span style={{ color: "white", fontSize: "0.72rem", fontWeight: "800", letterSpacing: "0.06em" }}>
+                        ARTICLE
                       </span>
                     </div>
-                  )}
-                  <h3
+                    <span style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.75rem", fontWeight: "600", whiteSpace: "nowrap" }}>
+                      約{readingMins}分で読める
+                    </span>
+                  </div>
+
+                  {/* コンテンツ */}
+                  <div
                     style={{
-                      fontSize: "1rem",
-                      fontWeight: "800",
-                      lineHeight: "1.5",
-                      color: "var(--text-main)",
-                      margin: 0,
+                      padding: "1.4rem 1.5rem 1.5rem",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "0.75rem",
+                      flex: 1,
                     }}
                   >
-                    {post.title}
-                  </h3>
-                  {post.summary && (
-                    <p
+                    {post.date && (
+                      <div style={{ display: "flex", alignItems: "center", gap: "0.4rem", color: "var(--text-muted)", fontSize: "0.78rem" }}>
+                        <Calendar size={12} />
+                        <span>
+                          {new Date(post.date).toLocaleDateString("ja-JP", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}
+                        </span>
+                      </div>
+                    )}
+
+                    <h3
                       style={{
-                        fontSize: "0.875rem",
-                        color: "var(--text-muted)",
-                        lineHeight: "1.7",
+                        fontSize: "1rem",
+                        fontWeight: "800",
+                        lineHeight: "1.65",
+                        color: "var(--text-main)",
                         margin: 0,
                         display: "-webkit-box",
-                        WebkitLineClamp: 2,
+                        WebkitLineClamp: 3,
                         WebkitBoxOrient: "vertical",
                         overflow: "hidden",
                       }}
                     >
-                      {post.summary}
-                    </p>
-                  )}
-                  <div
-                    style={{
-                      marginTop: "auto",
-                      paddingTop: "0.75rem",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "0.25rem",
-                      color: "var(--primary)",
-                      fontSize: "0.875rem",
-                      fontWeight: "700",
-                    }}
-                  >
-                    続きを読む <ChevronRight size={15} />
+                      {post.title}
+                    </h3>
+
+                    {post.summary && (
+                      <p
+                        style={{
+                          fontSize: "0.85rem",
+                          color: "var(--text-muted)",
+                          lineHeight: "1.75",
+                          margin: 0,
+                          display: "-webkit-box",
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: "vertical",
+                          overflow: "hidden",
+                        }}
+                      >
+                        {post.summary}
+                      </p>
+                    )}
+
+                    <div
+                      style={{
+                        marginTop: "auto",
+                        paddingTop: "1rem",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "0.3rem",
+                        color: "var(--primary)",
+                        fontSize: "0.875rem",
+                        fontWeight: "800",
+                        borderTop: "1px solid rgba(0,0,0,0.06)",
+                      }}
+                    >
+                      続きを読む <ChevronRight size={15} />
+                    </div>
                   </div>
-                </div>
-              </article>
-            </Link>
-          ))}
+                </article>
+              </Link>
+            );
+          })}
         </div>
 
         <div style={{ textAlign: "center" }}>
