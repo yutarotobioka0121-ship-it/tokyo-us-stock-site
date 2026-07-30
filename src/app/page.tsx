@@ -4,18 +4,19 @@ import { ArrowRight, CheckCircle2, ShieldCheck, Users, TrendingUp, Heart, BookOp
 import { Metadata } from "next";
 import { getPosts } from "@/lib/notion";
 import BlogPreviewSection from "@/components/BlogPreviewSection";
+import HomeFAQ from "@/components/HomeFAQ";
 
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: '東京米国株クラブ｜初心者が基礎から学ぶ米国株の投資勉強会',
-  description: '東京の米国株・初心者向け投資勉強会なら「東京米国株クラブ」。5年で1300%以上の実績を持つ講師が、ギャンブルにならない堅実な長期投資の基礎をわかりやすく解説。株式投資の第一歩を踏み出しませんか？',
+  title: '米国株の始め方・おすすめを学ぶ東京の勉強会｜東京米国株クラブ',
+  description: '「米国株の始め方がわからない」初心者向けの東京の投資勉強会。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。参加費無料。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com',
   },
   openGraph: {
-    title: '東京米国株クラブ｜初心者が基礎から学ぶ米国株の投資勉強会',
-    description: '東京の米国株・初心者向け投資勉強会なら「東京米国株クラブ」。5年で1300%以上の実績を持つ講師が、ギャンブルにならない堅実な長期投資の基礎をわかりやすく解説。',
+    title: '米国株の始め方・おすすめを学ぶ東京の勉強会｜東京米国株クラブ',
+    description: '「米国株の始め方がわからない」初心者向けの東京の投資勉強会。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。',
     url: 'https://www.tokyo-us-stock.com',
     siteName: '東京米国株クラブ',
     images: [
@@ -31,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '東京米国株クラブ｜初心者が基礎から学ぶ米国株の投資勉強会',
-    description: '東京の米国株・初心者向け投資勉強会なら「東京米国株クラブ」。ギャンブルにならない堅実な長期投資の基礎をわかりやすく解説。',
+    title: '米国株の始め方・おすすめを学ぶ東京の勉強会｜東京米国株クラブ',
+    description: '「米国株の始め方がわからない」初心者向けの東京の投資勉強会。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。',
     images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },
 };
@@ -65,12 +66,48 @@ export default async function Home() {
     latestPosts = [];
   }
 
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '米国株の始め方がわかりません。何から始めればいいですか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '米国株投資の始め方は大きく3ステップです。①SBI証券・楽天証券などのネット証券で口座を開設する、②新NISA口座を設定する、③S&P500などのインデックスファンドを毎月一定額で積立購入する、という流れが初心者におすすめです。当クラブの少人数制勉強会で一つひとつ丁寧に解説しています。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '初心者に米国株のおすすめ銘柄・商品を教えてください',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '投資初心者には、米国の優良企業500社に分散投資できる「S&P500連動インデックスファンド」が一般的に長期投資に向いているとされています。新NISAのつみたて投資枠で購入すれば利益に対する税金が非課税になります。投資にはリスクが伴いますのでご自身の判断でご検討ください。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'NISAで米国株・S&P500に投資できますか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'はい、新NISAの「つみたて投資枠（年間120万円）」と「成長投資枠（年間240万円）」の両方で米国株・S&P500連動ファンドを購入できます。合計年間360万円・生涯1,800万円まで非課税で運用できるため、長期の米国株投資との相性は良いとされています。',
+        },
+      },
+    ],
+  };
+
   return (
     <div className="home-page" style={{ overflowWrap: 'break-word' }}>
       {/* JSON-LD Organization Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      {/* JSON-LD FAQPage Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Hero Section */}
@@ -146,6 +183,19 @@ export default async function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Feature / Concept Section（本文テキスト増強セクション） */}
+      {/* タスク2: 米国株の始め方キーワードブロック（ヒーロー直下） */}
+      <section style={{ background: 'white', padding: 'clamp(2rem, 4vw, 3rem) 0', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
+        <div className="container" style={{ maxWidth: '860px', margin: '0 auto', textAlign: 'center' }}>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', color: 'var(--text-main)', lineHeight: '2', margin: 0 }}>
+            「<strong>米国株に興味はあるけれど、始め方がわからない</strong>」「<strong>S&P500やNISAを活用したいが、何を買えばいいかわからない</strong>」という方のために、
+            東京米国株クラブでは<strong>米国株投資の始め方をゼロから解説</strong>しています。<br className="sp-hide" />
+            初心者におすすめの<strong>S&P500・ETF・新NISAを使った積立投資</strong>の具体的なやり方を、難しい専門用語を使わず、
+            カフェでお茶を飲みながら話すような気軽な雰囲気で学べます。
+          </p>
         </div>
       </section>
 
@@ -302,6 +352,9 @@ export default async function Home() {
 
 
       <BlogPreviewSection posts={latestPosts} />
+
+      {/* タスク1: FAQ Section - CTAセクション直前 */}
+      <HomeFAQ />
 
       {/* Dream Vision Section */}
       <section className="section-padding" style={{ background: 'var(--bg-warm)', color: 'var(--text-main)', position: 'relative', overflow: 'hidden', textAlign: 'center', padding: '3.5rem 0' }}>
