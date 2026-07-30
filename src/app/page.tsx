@@ -38,13 +38,14 @@ export const metadata: Metadata = {
 export default function Home() {
   const organizationSchema = {
     '@context': 'https://schema.org',
-    '@type': 'EducationalOrganization',
+    '@type': 'Organization',
     name: '東京米国株クラブ',
     url: 'https://www.tokyo-us-stock.com',
-    logo: 'https://www.tokyo-us-stock.com/icon.png',
+    logo: 'https://www.tokyo-us-stock.com/ogp.png',
     description: '東京で開催する初心者向け米国株・NISA・長期投資の学習コミュニティ。カフェスタイルの少人数勉強会を定期開催。',
     sameAs: [
-      'https://www.instagram.com/yutaro_tokyo_us_stock',
+      'https://www.instagram.com/tobby_us_stock',
+      'https://note.com/tobby_wellness',
     ],
     address: {
       '@type': 'PostalAddress',
