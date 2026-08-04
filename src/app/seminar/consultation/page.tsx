@@ -79,10 +79,18 @@ export default function ConsultationPage() {
     description: '1対1でじっくり相談できる個別投資カウンセリング枠。自分に合った投資の始め方や学習計画をサポート。',
     eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
     eventStatus: 'https://schema.org/EventScheduled',
+    startDate: '2026-08-15T19:00:00+09:00',
+    endDate: '2026-08-15T20:00:00+09:00',
+    image: 'https://www.tokyo-us-stock.com/ogp.png',
+    performer: {
+      '@type': 'Person',
+      name: 'とびー',
+      url: 'https://www.tokyo-us-stock.com/about',
+    },
     location: [
       {
         '@type': 'Place',
-        name: '東京会場（渋谷・新宿等のカフェ・レンタルスペース）',
+        name: '東京都内のカフェ（詳細は申込み後にメールにてご案内）',
         address: {
           '@type': 'PostalAddress',
           addressLocality: '東京都',
@@ -91,20 +99,22 @@ export default function ConsultationPage() {
       },
       {
         '@type': 'VirtualLocation',
-        url: 'https://www.tokyo-us-stock.com/seminar/consultation',
+        url: 'https://zoom.us',
+        name: 'Zoom（オンライン開催）',
       },
     ],
     organizer: {
       '@type': 'Organization',
       name: '東京米国株クラブ',
-      url: 'https://www.tokyo-us-stock.com',
+      url: 'https://www.tokyo-us-stock.com/',
     },
     offers: {
       '@type': 'Offer',
-      price: '3000',
+      price: '0',
       priceCurrency: 'JPY',
       availability: 'https://schema.org/InStock',
       url: 'https://www.tokyo-us-stock.com/seminar/consultation',
+      validFrom: '2026-01-01',
     },
   };
 
