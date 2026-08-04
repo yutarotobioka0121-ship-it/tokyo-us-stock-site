@@ -4,8 +4,8 @@ import ApplyForm from "@/components/ApplyForm";
 import { isSessionDeadlinePassed } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: '勉強会お申し込み | 東京米国株クラブ',
-  description: '東京米国株クラブが開催する初心者向け米国株投資勉強会への参加お申し込みページ。少人数制（定員4名）のため、日程を選んでお早めにお申し込みください。',
+  title: 'セミナーお申し込み | 東京米国株クラブ',
+  description: '東京米国株クラブが開催する初心者向け米国株投資セミナーへの参加お申し込みページ。少人数制（定員4名）のため、日程を選んでお早めにお申し込みください。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/apply',
   },
@@ -36,9 +36,9 @@ export default async function ApplyPage({
       <section className="form-section">
         <div className="container">
           <div className="form-container glass-card">
-            <h1 className="section-title">勉強会申し込み</h1>
+            <h1 className="section-title">セミナー申し込み</h1>
             <p className="about-desc">
-              現在募集中の勉強会への参加申し込みはこちらから承っております。
+              現在募集中のセミナーへの参加申し込みはこちらから承っております。
             </p>
 
             <ApplyForm sessions={availableSessions} selectedSessionId={selectedSessionId} />

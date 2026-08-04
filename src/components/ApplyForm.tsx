@@ -158,7 +158,7 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
 
       <div className="form-group">
         <label htmlFor="reason" className="form-label">参加動機・期待すること</label>
-        <textarea id="message" name="message" className="form-textarea" placeholder="この勉強会で学びたいことなどを自由にご記入ください"></textarea>
+        <textarea id="message" name="message" className="form-textarea" placeholder="このセミナーで学びたいことなどを自由にご記入ください"></textarea>
       </div>
 
       {status === 'error' && (

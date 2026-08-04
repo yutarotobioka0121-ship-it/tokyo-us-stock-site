@@ -9,7 +9,7 @@ export async function POST(request: Request) {
 
     // 件名のマッピング
     const subjectMap: Record<string, string> = {
-      'study-group': '勉強会について',
+      'study-group': 'セミナーについて',
       'consultation': '個別相談の依頼',
       'business': '仕事のご依頼',
       'other': 'その他'

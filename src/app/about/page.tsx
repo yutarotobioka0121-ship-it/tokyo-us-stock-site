@@ -92,7 +92,7 @@ export default function AboutPage() {
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>米国個別株・ETFの選び方・財務諸表の読み方</span></div>
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>バイナリー損失〜資産13倍まで、失敗から学んだリアルな経験談</span></div>
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>ギャンブルにならない、堅実な長期資産形成のマインドセット</span></div>
-                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>東京・オンラインで初心者向け投資勉強会を主催</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>東京・オンラインで初心者向け投資セミナーを主催</span></div>
               </div>
 
               <div className="skills-list">

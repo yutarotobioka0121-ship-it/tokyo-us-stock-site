@@ -46,7 +46,7 @@ export default function Footer() {
                 <Link href="/knowledge/nisa" className="footer-dropdown-item">NISAとは</Link>
               </div>
             </li>
-            <li><Link href="/seminar">勉強会</Link></li>
+            <li><Link href="/seminar">セミナー</Link></li>
             <li><Link href="/blog">ブログ</Link></li>
           </ul>
         </div>
@@ -82,7 +82,7 @@ export default function Footer() {
         <div className="container" style={{ marginTop: '2rem', padding: '1.5rem', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '12px', fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.8', textAlign: 'left' }}>
           <h4 style={{ color: 'white', marginBottom: '1rem', fontSize: '0.95rem', fontWeight: '800' }}>免責事項</h4>
           <p style={{ marginBottom: '1rem' }}>
-            東京米国株クラブ（以下「当クラブ」）が提供するウェブサイト、勉強会、SNSアカウント、各種コンテンツおよび教材（以下「本サービス」）において提供される情報は、米国株投資や資産形成に関する一般的な知識の普及、学習および情報提供のみを目的としたものであり、特定の金融商品の購入、売却、または特定の投資戦略の勧誘、投資助言、取引の推奨を目的としたものではありません。
+            東京米国株クラブ（以下「当クラブ」）が提供するウェブサイト、セミナー、SNSアカウント、各種コンテンツおよび教材（以下「本サービス」）において提供される情報は、米国株投資や資産形成に関する一般的な知識の普及、学習および情報提供のみを目的としたものであり、特定の金融商品の購入、売却、または特定の投資戦略の勧誘、投資助言、取引の推奨を目的としたものではありません。
           </p>
           <p style={{ marginBottom: '1rem' }}>
             本サービスで紹介する過去の投資実績（5年で1300%超等）や分析データは、特定期間における運営者の実体験に基づくものであり、将来の投資成果や特定の運用利回りを保証または示唆するものではありません。

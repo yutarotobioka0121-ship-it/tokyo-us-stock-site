@@ -354,17 +354,17 @@ export default function IndicesKnowledgePage() {
             </p>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)', lineHeight: '1.8', color: 'var(--text-muted)', marginBottom: '2.5rem' }}>
               ネットの情報だけでは不安な方のために、<br className="sp-hide" />
-              東京米国株クラブでは<strong>少人数制（限定4名）の米国株勉強会</strong>を東京で開催しています。<br className="sp-hide" />
+              東京米国株クラブでは<strong>少人数制（限定4名）の米国株セミナー</strong>を東京で開催しています。<br className="sp-hide" />
               カフェでお茶を飲むような気軽な雰囲気で、初心者の方でも安心してご参加いただけます。
             </p>
 
             <div className="glass-card" style={{ background: 'var(--bg-white)', borderRadius: '24px', padding: '2rem 1.5rem', border: '1px solid var(--glass-border)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <p style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1rem, 3vw, 1.2rem)', fontWeight: '800', lineHeight: '1.7', marginBottom: '1.5rem', color: 'var(--primary-dark)' }}>
-                勉強会の詳細・開催スケジュールはこちら
+                セミナーの詳細・開催スケジュールはこちら
               </p>
 
               <Link href="/seminar" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', transition: 'all 0.3s ease', textDecoration: 'none' }}>
-                勉強会の詳細を見る <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
+                セミナーの詳細を見る <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
               </Link>
             </div>
           </div>

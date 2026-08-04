@@ -7,14 +7,14 @@ import { formatSessionDate, formatSessionTime, getSessionStartDateTime, isSessio
 import ApplyForm from "@/components/ApplyForm";
 
 export const metadata: Metadata = {
-  title: '東京の初心者向け米国株投資勉強会・申し込み日程 | 東京米国株クラブ',
-  description: '東京で開催中の初心者向け米国株・NISA投資勉強会のご案内。5年で1300%以上の実績を持つ講師が、少人数制（定員4名）のカフェのような雰囲気で、長期投資の基礎をわかりやすく解説します。',
+  title: '東京の初心者向け米国株投資セミナー・申し込み日程 | 東京米国株クラブ',
+  description: '東京で開催中の初心者向け米国株・NISA投資セミナーのご案内。5年で1300%以上の実績を持つ講師が、少人数制（定員4名）のカフェのような雰囲気で、長期投資の基礎をわかりやすく解説します。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/seminar',
   },
   openGraph: {
-    title: '東京の初心者向け米国株投資勉強会・申し込み日程 | 東京米国株クラブ',
-    description: '少人数制（定員4名）のカフェスタイル勉強会。知識ゼロから安全に始める米国株・新NISAの長期投資をわかりやすく解説します。',
+    title: '東京の初心者向け米国株投資セミナー・申し込み日程 | 東京米国株クラブ',
+    description: '少人数制（定員4名）のカフェスタイルセミナー。知識ゼロから安全に始める米国株・新NISAの長期投資をわかりやすく解説します。',
     url: 'https://www.tokyo-us-stock.com/seminar',
     siteName: '東京米国株クラブ',
     images: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         url: 'https://www.tokyo-us-stock.com/ogp.png',
         width: 1200,
         height: 630,
-        alt: '東京米国株クラブ 初心者向け米国株投資勉強会',
+        alt: '東京米国株クラブ 初心者向け米国株投資セミナー',
       },
     ],
     locale: 'ja_JP',
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '東京の初心者向け米国株投資勉強会・申し込み日程 | 東京米国株クラブ',
-    description: '少人数制（定員4名）のカフェスタイル勉強会。知識ゼロから安全に始める米国株・新NISAの長期投資をわかりやすく解説。',
+    title: '東京の初心者向け米国株投資セミナー・申し込み日程 | 東京米国株クラブ',
+    description: '少人数制（定員4名）のカフェスタイルセミナー。知識ゼロから安全に始める米国株・新NISAの長期投資をわかりやすく解説。',
     images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },
 };
@@ -76,7 +76,7 @@ function formatSessionTimeRange(timeStr: string) {
 export default async function SeminarPage() {
   const sessions = await getSessions();
 
-  // 米国株投資勉強会専用のセッション（MicroCMSでNISA指定されたセッションを除外）
+  // 米国株投資セミナー専用のセッション（MicroCMSでNISA指定されたセッションを除外）
   const usStockSessions = sessions.filter(s => {
     const typeArr = Array.isArray(s.type) ? s.type : [s.type];
     const categoryStr = String((s as any).category || (s as any).title || '');
@@ -93,8 +93,8 @@ export default async function SeminarPage() {
   const eventSchema = {
     '@context': 'https://schema.org',
     '@type': 'EducationEvent',
-    name: '初心者向け米国株・NISA投資勉強会',
-    description: '定員4名の少人数制カフェスタイル勉強会。知識ゼロから学べる米国株・S&P500・新NISAの長期投資基礎講座。',
+    name: '初心者向け米国株・NISA投資セミナー',
+    description: '定員4名の少人数制カフェスタイルセミナー。知識ゼロから学べる米国株・S&P500・新NISAの長期投資基礎講座。',
     eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
     eventStatus: 'https://schema.org/EventScheduled',
     location: [
@@ -146,7 +146,7 @@ export default async function SeminarPage() {
       <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '100px 0 0', textAlign: 'left' }}>
         <div className="container">
           <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3', marginLeft: '0', marginRight: 'auto', maxWidth: 'none' }}>
-            米国株投資勉強会
+            米国株投資セミナー
           </h1>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1rem, 4vw, 1.4rem)', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', textAlign: 'left', lineHeight: '1.8' }}>
             投資初心者に向けた内容で、難しい専門用語などは無しでわかりやすくお話しします。
@@ -158,7 +158,7 @@ export default async function SeminarPage() {
           <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem auto 0 auto', aspectRatio: '16/9', position: 'relative' }}>
             <Image
               src="/workshop.jpg"
-              alt="勉強会の様子"
+              alt="セミナーの様子"
               fill
               style={{ objectFit: 'cover' }}
               priority
@@ -245,7 +245,7 @@ export default async function SeminarPage() {
                 ) : (
                   <tr>
                     <td colSpan={5} style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-muted)' }}>
-                      現在、予定されている勉強会はありません。
+                      現在、予定されているセミナーはありません。
                     </td>
                   </tr>
                 )}
@@ -341,7 +341,7 @@ export default async function SeminarPage() {
                 })
               ) : (
                 <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', color: 'var(--text-muted)' }}>
-                  現在、予定されている勉強会はありません。
+                  現在、予定されているセミナーはありません。
                 </div>
               )}
             </div>
@@ -438,11 +438,11 @@ export default async function SeminarPage() {
             <ol style={{ paddingLeft: '1.2rem', margin: '0 0 2rem 0', color: 'var(--text-muted)', fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', lineHeight: '1.8' }}>
               <li><strong>講師自己紹介：</strong> 投資を始めたきっかけと失敗・成功体験の共有</li>
               <li><strong>投資の基本マインド：</strong> 資産形成における最重要マインドセット</li>
-              <li><strong>初心者向け米国株投資勉強会：</strong> 米国株の強みと具体的な長期投資の手法</li>
+              <li><strong>初心者向け米国株投資セミナー：</strong> 米国株の強みと具体的な長期投資の手法</li>
               <li><strong>質疑応答・相談タイム：</strong> 個別の疑問や不安に丁寧にお答えします</li>
             </ol>
 
-            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【米国株投資勉強会の内容】</h3>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【米国株投資セミナーの内容】</h3>
             <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem', color: 'var(--text-muted)', fontSize: '1rem', lineHeight: '1.8' }}>
               <li><strong style={{ color: 'var(--text-main)' }}>第1章：</strong> なぜ今「米国株」なのか？他の投資との決定的な違い</li>
               <li><strong style={{ color: 'var(--text-main)' }}>第2章：</strong> 買ってはいけない「罠銘柄」の特徴と見分け方</li>
@@ -475,7 +475,7 @@ export default async function SeminarPage() {
           <div className="glass-card" style={{ padding: '2rem 1.5rem', borderRadius: '24px', border: '1px solid rgba(176, 58, 46, 0.15)', boxShadow: 'var(--shadow-soft)', background: 'white', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
             <h2 className="section-title" style={{ textAlign: 'left', fontSize: '1.8rem', fontWeight: '900', marginBottom: '2rem', color: 'var(--primary-dark)', width: '100%' }}>講座の予約</h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', textAlign: 'left', marginBottom: '2rem', lineHeight: '1.8', width: '100%' }}>
-              現在募集中の勉強会の日程を選択し、必要事項をご入力の上お申し込みください。<br />
+              現在募集中のセミナーの日程を選択し、必要事項をご入力の上お申し込みください。<br />
               （※少人数制のため、満席になり次第受付終了となります）
             </p>
             <div style={{ width: '100%' }}>

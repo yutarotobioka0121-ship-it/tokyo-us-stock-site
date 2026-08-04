@@ -45,14 +45,14 @@ export default function Header() {
             </div>
           </div>
 
-          {/* 勉強会ドロップダウン */}
+          {/* セミナードロップダウン */}
           <div className="nav-dropdown-wrapper">
             <Link href="/seminar" className="nav-link dropdown-trigger" style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
-              勉強会 <ChevronDown size={14} />
+              セミナー <ChevronDown size={14} />
             </Link>
             <div className="nav-dropdown" style={{ minWidth: '200px' }}>
-              <Link href="/seminar" className="dropdown-item">米国株式勉強会</Link>
-              <Link href="/seminar/nisa" className="dropdown-item">NISA初心者勉強会</Link>
+              <Link href="/seminar" className="dropdown-item">米国株式セミナー</Link>
+              <Link href="/seminar/nisa" className="dropdown-item">NISA初心者セミナー</Link>
               <Link href="/seminar/consultation" className="dropdown-item">マンツーマン個別相談</Link>
             </div>
           </div>
@@ -82,9 +82,9 @@ export default function Header() {
           </div>
 
           <div style={{ padding: '0.5rem 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
-            <span style={{ fontSize: '0.85rem', fontWeight: '800', color: 'var(--primary)', display: 'block', marginBottom: '0.4rem' }}>勉強会・個別相談</span>
-            <Link href="/seminar" className="nav-link" onClick={() => setIsOpen(false)} style={{ paddingLeft: '0.75rem', fontSize: '0.95rem' }}>米国株式勉強会</Link>
-            <Link href="/seminar/nisa" className="nav-link" onClick={() => setIsOpen(false)} style={{ paddingLeft: '0.75rem', fontSize: '0.95rem' }}>NISA初心者勉強会</Link>
+            <span style={{ fontSize: '0.85rem', fontWeight: '800', color: 'var(--primary)', display: 'block', marginBottom: '0.4rem' }}>セミナー・個別相談</span>
+            <Link href="/seminar" className="nav-link" onClick={() => setIsOpen(false)} style={{ paddingLeft: '0.75rem', fontSize: '0.95rem' }}>米国株式セミナー</Link>
+            <Link href="/seminar/nisa" className="nav-link" onClick={() => setIsOpen(false)} style={{ paddingLeft: '0.75rem', fontSize: '0.95rem' }}>NISA初心者セミナー</Link>
             <Link href="/seminar/consultation" className="nav-link" onClick={() => setIsOpen(false)} style={{ paddingLeft: '0.75rem', fontSize: '0.95rem' }}>マンツーマン個別相談</Link>
           </div>
 

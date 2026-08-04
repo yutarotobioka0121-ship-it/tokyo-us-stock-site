@@ -7,16 +7,16 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.tokyo-us-stock.com"),
   title: {
-    default: "東京米国株クラブ｜米国株の始め方・おすすめを学ぶ投資勉強会",
+    default: "東京米国株クラブ｜米国株の始め方・おすすめを学ぶ投資セミナー",
     template: "%s",
   },
-  description: "「米国株の始め方がわからない」初心者向けの東京の投資勉強会。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。参加費無料。",
+  description: "「米国株の始め方がわからない」初心者向けの東京の投資セミナー。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。参加費無料。",
   alternates: {
     canonical: "https://www.tokyo-us-stock.com",
   },
   openGraph: {
-    title: "米国株の始め方・おすすめを学ぶ東京の勉強会｜東京米国株クラブ",
-    description: "「米国株の始め方がわからない」初心者向けの東京の投資勉強会。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。",
+    title: "米国株の始め方・おすすめを学ぶ東京のセミナー｜東京米国株クラブ",
+    description: "「米国株の始め方がわからない」初心者向けの東京の投資セミナー。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。",
     url: "https://www.tokyo-us-stock.com",
     siteName: "東京米国株クラブ",
     locale: "ja_JP",
@@ -41,7 +41,7 @@ const organizationSchema = {
   name: '東京米国株クラブ',
   url: 'https://www.tokyo-us-stock.com',
   logo: 'https://www.tokyo-us-stock.com/icon.png',
-  description: '東京の米国株・初心者向け投資勉強会。5年で1300%以上の実績を持つ講師が、堅実な長期投資の基礎を解説。',
+  description: '東京の米国株・初心者向け投資セミナー。5年で1300%以上の実績を持つ講師が、堅実な長期投資の基礎を解説。',
   sameAs: [
     'https://www.instagram.com/tobby_us_stock?igsh=czQwaXVzNmU5Y2V3&utm_source=qr',
     'https://note.com/tobby_wellness',

@@ -21,11 +21,11 @@ interface KeywordItem {
 export default function KeywordsPage() {
   const keywords: KeywordItem[] = [
     {
-      keyword: '米国株 勉強会',
+      keyword: '米国株 セミナー',
       kana: 'べいこくかぶ べんきょうかい',
       icon: <BookOpen className="text-primary" size={24} />,
       summary: '初心者向けに投資の基本や正しい銘柄選定、新NISA the 仕組みを基礎から学べる少人数の対面・オンラインセミナー。',
-      description: '本やネットだけの独学投資には「偏った知識で損をする」「相談相手がいない」というリスクがあります。初心者向けの米国株勉強会は、実績のある講師から体系的な基本マインドや失敗しない始め方を直接学べる場です。「東京米国株クラブ」では、定員4名の少人数制カフェスタイルで、質問しやすいリラックスした勉強会を開催しています。',
+      description: '本やネットだけの独学投資には「偏った知識で損をする」「相談相手がいない」というリスクがあります。初心者向けの米国株セミナーは、実績のある講師から体系的な基本マインドや失敗しない始め方を直接学べる場です。「東京米国株クラブ」では、定員4名の少人数制カフェスタイルで、質問しやすいリラックスしたセミナーを開催しています。',
     },
     {
       keyword: '米国株 高配当',
@@ -189,7 +189,7 @@ export default function KeywordsPage() {
             </h2>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)', lineHeight: '1.8', color: 'var(--text-muted)', marginBottom: '2rem' }}>
               ネットや本で調べるだけでは解決しない「具体的に何を買えばいい？」「証券口座の設定は合っている？」という疑問。
-              東京米国株クラブの<strong>少人数制勉強会（定員4名）</strong>なら、カフェのようなリラックスした雰囲気で、疑問をその場で解決できます。
+              東京米国株クラブの<strong>少人数制セミナー（定員4名）</strong>なら、カフェのようなリラックスした雰囲気で、疑問をその場で解決できます。
             </p>
 
             <div className="glass-card" style={{ background: 'white', borderRadius: '24px', padding: '2rem', border: '1px solid var(--glass-border)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -197,7 +197,7 @@ export default function KeywordsPage() {
                 現在の開催スケジュールおよびお申し込みはこちらから
               </p>
               <Link href="/seminar" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', transition: 'all 0.3s ease', textDecoration: 'none' }}>
-                勉強会のスケジュールを見る <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
+                セミナーのスケジュールを見る <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
               </Link>
             </div>
           </div>

@@ -9,14 +9,14 @@ import HomeFAQ from "@/components/HomeFAQ";
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: '米国株の始め方・おすすめを学ぶ東京の勉強会｜東京米国株クラブ',
-  description: '「米国株の始め方がわからない」初心者向けの東京の投資勉強会。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。参加費無料。',
+  title: '米国株の始め方・おすすめを学ぶ東京のセミナー｜東京米国株クラブ',
+  description: '「米国株の始め方がわからない」初心者向けの東京の投資セミナー。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。参加費無料。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com',
   },
   openGraph: {
-    title: '米国株の始め方・おすすめを学ぶ東京の勉強会｜東京米国株クラブ',
-    description: '「米国株の始め方がわからない」初心者向けの東京の投資勉強会。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。',
+    title: '米国株の始め方・おすすめを学ぶ東京のセミナー｜東京米国株クラブ',
+    description: '「米国株の始め方がわからない」初心者向けの東京の投資セミナー。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。',
     url: 'https://www.tokyo-us-stock.com',
     siteName: '東京米国株クラブ',
     images: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: 'https://www.tokyo-us-stock.com/ogp.png',
         width: 1200,
         height: 630,
-        alt: '東京米国株クラブ｜初心者向け米国株投資勉強会',
+        alt: '東京米国株クラブ｜初心者向け米国株投資セミナー',
       },
     ],
     locale: 'ja_JP',
@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '米国株の始め方・おすすめを学ぶ東京の勉強会｜東京米国株クラブ',
-    description: '「米国株の始め方がわからない」初心者向けの東京の投資勉強会。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。',
+    title: '米国株の始め方・おすすめを学ぶ東京のセミナー｜東京米国株クラブ',
+    description: '「米国株の始め方がわからない」初心者向けの東京の投資セミナー。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。',
     images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },
 };
@@ -45,7 +45,7 @@ export default async function Home() {
     name: '東京米国株クラブ',
     url: 'https://www.tokyo-us-stock.com',
     logo: 'https://www.tokyo-us-stock.com/ogp.png',
-    description: '東京で開催する初心者向け米国株・NISA・長期投資の学習コミュニティ。カフェスタイルの少人数勉強会を定期開催。',
+    description: '東京で開催する初心者向け米国株・NISA・長期投資の学習コミュニティ。カフェスタイルの少人数セミナーを定期開催。',
     sameAs: [
       'https://www.instagram.com/tobby_us_stock',
       'https://note.com/tobby_wellness',
@@ -75,7 +75,7 @@ export default async function Home() {
         name: '米国株の始め方がわかりません。何から始めればいいですか？',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: '米国株投資の始め方は大きく3ステップです。①SBI証券・楽天証券などのネット証券で口座を開設する、②新NISA口座を設定する、③S&P500などのインデックスファンドを毎月一定額で積立購入する、という流れが初心者におすすめです。当クラブの少人数制勉強会で一つひとつ丁寧に解説しています。',
+          text: '米国株投資の始め方は大きく3ステップです。①SBI証券・楽天証券などのネット証券で口座を開設する、②新NISA口座を設定する、③S&P500などのインデックスファンドを毎月一定額で積立購入する、という流れが初心者におすすめです。当クラブの少人数制セミナーで一つひとつ丁寧に解説しています。',
         },
       },
       {
@@ -117,7 +117,7 @@ export default async function Home() {
             <div className="hero-content-left slide-up">
               {/* 最重要キーワード入りのH1タグ */}
               <h1 className="hero-title" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.5rem, 4.5vw, 2.5rem)', color: 'var(--primary-dark)', lineHeight: '1.3', fontWeight: '900', marginBottom: '1.5rem' }}>
-                東京の米国株投資勉強会｜初心者から始められる長期投資コミュニティ
+                東京の米国株投資セミナー｜初心者から始められる長期投資コミュニティ
               </h1>
 
               {/* スマホ用Hero画像：タイトルの直下に配置 */}
@@ -134,7 +134,7 @@ export default async function Home() {
                 <div className="hero-peek-image">
                   <Image
                     src="/hero.png"
-                    alt="東京米国株クラブの初心者向け米国株投資勉強会"
+                    alt="東京米国株クラブの初心者向け米国株投資セミナー"
                     width={600}
                     height={450}
                     style={{ objectFit: 'cover', width: '100%', height: 'auto', display: 'block', borderRadius: '24px' }}
@@ -151,7 +151,7 @@ export default async function Home() {
 
               <div className="hero-actions" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                 <Link href="/seminar" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                  勉強会の詳細を見る <ArrowRight size={20} />
+                  セミナーの詳細を見る <ArrowRight size={20} />
                 </Link>
                 <Link href="/about" className="btn btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
                   当クラブについて
@@ -173,7 +173,7 @@ export default async function Home() {
               <div className="hero-peek-image">
                 <Image
                   src="/hero.png"
-                  alt="東京米国株クラブの初心者向け米国株投資勉強会"
+                  alt="東京米国株クラブの初心者向け米国株投資セミナー"
                   width={600}
                   height={450}
                   style={{ objectFit: 'cover', width: '100%', height: 'auto', display: 'block', borderRadius: '24px' }}
@@ -256,7 +256,7 @@ export default async function Home() {
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <span className="featured-tag">選べる学び方・ご相談</span>
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.6rem, 4.5vw, 2.5rem)', color: 'var(--primary-dark)', lineHeight: '1.3', fontWeight: '900', margin: '0.5rem 0 1rem 0' }}>
-              東京開催の勉強会 ＆ 個別相談コース
+              東京開催のセミナー ＆ 個別相談コース
             </h2>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', color: 'var(--text-muted)', lineHeight: '1.8', maxWidth: '750px', margin: '0 auto' }}>
               ご自身の目的やご都合に合わせて、3つのスタイルからお選びいただけます。<br className="sp-hide" />
@@ -265,13 +265,13 @@ export default async function Home() {
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.8rem', alignItems: 'stretch' }}>
-            {/* カラム1: 米国株式勉強会 (Image embedded) */}
+            {/* カラム1: 米国株式セミナー (Image embedded) */}
             <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '24px', background: 'white', border: '1px solid rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflow: 'hidden' }}>
               <div>
                 <div style={{ position: 'relative', width: '100%', height: '180px', borderRadius: '16px', overflow: 'hidden', marginBottom: '1.2rem' }}>
                   <Image
                     src="/workshop.jpg"
-                    alt="米国株投資勉強会の様子"
+                    alt="米国株投資セミナーの様子"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     style={{ objectFit: 'cover' }}
@@ -279,7 +279,7 @@ export default async function Home() {
                 </div>
                 <span className="featured-tag" style={{ margin: '0 0 0.8rem 0' }}>米国株基礎コース</span>
                 <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.8rem', lineHeight: '1.4' }}>
-                  米国株式勉強会
+                  米国株式セミナー
                 </h3>
                 <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text-main)', lineHeight: '1.7', marginBottom: '1.5rem' }}>
                   S&P500や主要個別株、年4回の配当金（不労所得）を受け取る仕組みなど、過去100年成長し続ける米国市場へ投資するための基礎知識を少人数（定員4名）で楽しく学びます。
@@ -287,18 +287,18 @@ export default async function Home() {
               </div>
               <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
                 <Link href="/seminar" className="btn btn-primary" style={{ width: '100%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '0.85rem 1.5rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
-                  米国株勉強会の詳細 <ArrowRight size={18} />
+                  米国株セミナーの詳細 <ArrowRight size={18} />
                 </Link>
               </div>
             </div>
 
-            {/* カラム2: NISA初心者勉強会 */}
+            {/* カラム2: NISA初心者セミナー */}
             <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '24px', background: 'white', border: '1px solid rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflow: 'hidden' }}>
               <div>
                 <div style={{ position: 'relative', width: '100%', height: '180px', borderRadius: '16px', overflow: 'hidden', marginBottom: '1.2rem' }}>
                   <Image
                     src="/hero.jpg"
-                    alt="NISA初心者勉強会の様子"
+                    alt="NISA初心者セミナーの様子"
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     style={{ objectFit: 'cover' }}
@@ -306,7 +306,7 @@ export default async function Home() {
                 </div>
                 <span className="featured-tag" style={{ margin: '0 0 0.8rem 0' }}>新NISA特化コース</span>
                 <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.8rem', lineHeight: '1.4' }}>
-                  NISA初心者勉強会
+                  NISA初心者セミナー
                 </h3>
                 <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text-main)', lineHeight: '1.7', marginBottom: '1.5rem' }}>
                   「つみたて投資枠」と「成長投資枠」の正しい活用法、非課税メリットの最大化、SBI・楽天証券での設定手順まで、失敗しないNISAの始め方を丁寧に解説します。
@@ -314,7 +314,7 @@ export default async function Home() {
               </div>
               <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
                 <Link href="/seminar/nisa" className="btn btn-primary" style={{ width: '100%', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', justifyContent: 'center', padding: '0.85rem 1.5rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
-                  NISA勉強会の詳細 <ArrowRight size={18} />
+                  NISAセミナーの詳細 <ArrowRight size={18} />
                 </Link>
               </div>
             </div>
@@ -402,7 +402,7 @@ export default async function Home() {
 
             <div style={{ marginTop: '2rem' }}>
               <Link href="/seminar" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '1rem 2.5rem', borderRadius: '50px', fontSize: '1.05rem', fontWeight: '800' }}>
-                勉強会の詳細・お申し込みはこちら <ArrowRight size={20} />
+                セミナーの詳細・お申し込みはこちら <ArrowRight size={20} />
               </Link>
             </div>
           </div>

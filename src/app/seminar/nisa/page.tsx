@@ -7,14 +7,14 @@ import { formatSessionDate, formatSessionTime, getSessionStartDateTime, isSessio
 import NisaApplyForm from "@/components/NisaApplyForm";
 
 export const metadata: Metadata = {
-  title: 'NISA初心者勉強会・申し込み日程 | 東京米国株クラブ',
-  description: '東京で開催中の初心者向け新NISA活用勉強会。「つみたて投資枠」と「成長投資枠」の違いや、非課税メリットを活かす設定方法まで、定員4名の少人数カフェスタイルで丁寧に解説します。',
+  title: 'NISA初心者セミナー・申し込み日程 | 東京米国株クラブ',
+  description: '東京で開催中の初心者向け新NISA活用セミナー。「つみたて投資枠」と「成長投資枠」の違いや、非課税メリットを活かす設定方法まで、定員4名の少人数カフェスタイルで丁寧に解説します。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/seminar/nisa',
   },
   openGraph: {
-    title: 'NISA初心者勉強会・申し込み日程 | 東京米国株クラブ',
-    description: '少人数制（定員4名）のカフェスタイル勉強会。知識ゼロから安全に始める新NISAの活用法をわかりやすく解説します。',
+    title: 'NISA初心者セミナー・申し込み日程 | 東京米国株クラブ',
+    description: '少人数制（定員4名）のカフェスタイルセミナー。知識ゼロから安全に始める新NISAの活用法をわかりやすく解説します。',
     url: 'https://www.tokyo-us-stock.com/seminar/nisa',
     siteName: '東京米国株クラブ',
     images: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         url: 'https://www.tokyo-us-stock.com/ogp.png',
         width: 1200,
         height: 630,
-        alt: '東京米国株クラブ NISA初心者勉強会',
+        alt: '東京米国株クラブ NISA初心者セミナー',
       },
     ],
     locale: 'ja_JP',
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NISA初心者勉強会・申し込み日程 | 東京米国株クラブ',
-    description: '少人数制（定員4名）のカフェスタイル勉強会。知識ゼロから安全に始める新NISAの活用法をわかりやすく解説。',
+    title: 'NISA初心者セミナー・申し込み日程 | 東京米国株クラブ',
+    description: '少人数制（定員4名）のカフェスタイルセミナー。知識ゼロから安全に始める新NISAの活用法をわかりやすく解説。',
     images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },
 };
@@ -93,8 +93,8 @@ export default async function NisaSeminarPage() {
   const eventSchema = {
     '@context': 'https://schema.org',
     '@type': 'EducationEvent',
-    name: 'NISA初心者勉強会',
-    description: '定員4名の少人数制カフェスタイル勉強会。新NISAの活用法と始め方をやさしく解説。',
+    name: 'NISA初心者セミナー',
+    description: '定員4名の少人数制カフェスタイルセミナー。新NISAの活用法と始め方をやさしく解説。',
     eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
     eventStatus: 'https://schema.org/EventScheduled',
     location: [
@@ -152,7 +152,7 @@ export default async function NisaSeminarPage() {
           </div>
 
           <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3', marginLeft: '0', marginRight: 'auto', maxWidth: 'none' }}>
-            NISA初心者勉強会
+            NISA初心者セミナー
           </h1>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1rem, 4vw, 1.4rem)', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', textAlign: 'left', lineHeight: '1.8' }}>
             「つみたて投資枠」と「成長投資枠」の活用法から、証券口座の選び方・非課税設定まで。初心者目線でわかりやすく解説します。
@@ -164,7 +164,7 @@ export default async function NisaSeminarPage() {
           <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem auto 0 auto', aspectRatio: '16/9', position: 'relative' }}>
             <Image
               src="/hero.jpg"
-              alt="NISA初心者勉強会の様子"
+              alt="NISA初心者セミナーの様子"
               fill
               style={{ objectFit: 'cover' }}
               priority
@@ -179,7 +179,7 @@ export default async function NisaSeminarPage() {
 
           {/* キャッチコピー */}
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <span className="featured-tag">この勉強会が選ばれる理由</span>
+            <span className="featured-tag">このセミナーが選ばれる理由</span>
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: '900', color: 'var(--primary-dark)', marginTop: '0.75rem', lineHeight: '1.5' }}>
               「知っている人」ではなく、<br className="sp-hide" />
               「実際に稼いでいる人」から学ぶ。
@@ -224,7 +224,7 @@ export default async function NisaSeminarPage() {
 
           {/* 補足メッセージ */}
           <p style={{ textAlign: 'center', fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text-muted)', marginTop: '2rem', lineHeight: '1.8' }}>
-            ※ 投資に関する最終的な判断はご自身でお願いいたします。当勉強会は金融商品の勧誘を目的としておりません。
+            ※ 投資に関する最終的な判断はご自身でお願いいたします。当セミナーは金融商品の勧誘を目的としておりません。
           </p>
 
         </div>
@@ -236,7 +236,7 @@ export default async function NisaSeminarPage() {
           <div className="section-header">
             <h2 className="section-title">開催スケジュール</h2>
             <p className="section-subtitle">
-              NISA初心者勉強会の開催日程一覧です。<br className="sp-hide" />少人数制のため、お早めにお申し込みください。
+              NISA初心者セミナーの開催日程一覧です。<br className="sp-hide" />少人数制のため、お早めにお申し込みください。
             </p>
           </div>
 
@@ -357,7 +357,7 @@ export default async function NisaSeminarPage() {
         <div className="container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           
           <div className="glass-card" style={{ padding: '2rem' }}>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【NISA勉強会で学べること】</h3>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【NISAセミナーで学べること】</h3>
             <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
               <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
                 <CheckCircle2 color="var(--primary)" size={20} style={{ flexShrink: 0, marginTop: '2px' }} />
@@ -389,7 +389,7 @@ export default async function NisaSeminarPage() {
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
             <span className="featured-tag">お申し込み</span>
             <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: '900', color: 'var(--primary-dark)', margin: '0.5rem 0' }}>
-              NISA初心者勉強会 お申し込みフォーム
+              NISA初心者セミナー お申し込みフォーム
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
               ご希望の日程を選択し、必要事項をご入力の上ご送信ください。

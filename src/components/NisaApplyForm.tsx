@@ -20,18 +20,18 @@ export default function NisaApplyForm({ sessions, selectedSessionId }: NisaApply
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
     
-    // イベント名にNISA初心者勉強会とわかる文言を付与
+    // イベント名にNISA初心者セミナーとわかる文言を付与
     const eventVal = String(data.event || '');
-    let eventName = `NISA初心者勉強会 (${eventVal})`;
+    let eventName = `NISA初心者セミナー (${eventVal})`;
     
     if (eventVal === 'other') {
-      eventName = 'NISA初心者勉強会 (日程選択: その他・個別調整希望)';
+      eventName = 'NISA初心者セミナー (日程選択: その他・個別調整希望)';
     } else {
       const foundSession = sessions.find(s => s.id === eventVal);
       if (foundSession) {
         const type = Array.isArray(foundSession.type) ? foundSession.type[0] : foundSession.type;
         const isOffline = type !== 'online' && type !== 'オンライン';
-        eventName = `NISA初心者勉強会 [${formatSessionDate(foundSession.date)} ${formatSessionTime(foundSession.date)}〜 ${isOffline ? '[対面]' : '[オンライン]'}]`;
+        eventName = `NISA初心者セミナー [${formatSessionDate(foundSession.date)} ${formatSessionTime(foundSession.date)}〜 ${isOffline ? '[対面]' : '[オンライン]'}]`;
       }
     }
 
