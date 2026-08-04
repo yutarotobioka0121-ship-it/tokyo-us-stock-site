@@ -39,24 +39,6 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: '東京米国株クラブ',
-    url: 'https://www.tokyo-us-stock.com',
-    logo: 'https://www.tokyo-us-stock.com/ogp.png',
-    description: '東京で開催する初心者向け米国株・NISA・長期投資の学習コミュニティ。カフェスタイルの少人数セミナーを定期開催。',
-    sameAs: [
-      'https://www.instagram.com/tobby_us_stock',
-      'https://note.com/tobby_wellness',
-    ],
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: '東京都',
-      addressCountry: 'JP',
-    },
-  };
-
   // 最新ブログ記事を最大3件取得
   let latestPosts: { id: string; title: string; slug: string; date: string; summary: string; cover: string | null }[] = [];
   try {
@@ -91,7 +73,7 @@ export default async function Home() {
         name: 'NISAで米国株・S&P500に投資できますか？',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'はい、新NISAの「つみたて投資枠（年間120万円）」と「成長投資枠（年間240万円）」の両方で米国株・S&P500連動ファンドを購入できます。合計年間360万円・生涯1,800万円まで非課税で運用できるため、長期の米国株投資との相性は抜群です。',
+          text: 'はい、新NISAの「つみたて投資枠（年間120万円）」と「成長投資枠（年間240万円）」の両方で米国株・S&P500連動ファンドを購入できます。合計年間360万円・生涯1,800万円まで非課税で運用できます。',
         },
       },
     ],
@@ -99,11 +81,6 @@ export default async function Home() {
 
   return (
     <div className="home-page" style={{ overflowWrap: 'break-word' }}>
-      {/* JSON-LD Organization Schema */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
       {/* JSON-LD FAQPage Schema */}
       <script
         type="application/ld+json"
@@ -120,30 +97,6 @@ export default async function Home() {
                 東京の米国株投資セミナー｜初心者から始められる長期投資コミュニティ
               </h1>
 
-              {/* スマホ用Hero画像：タイトルの直下に配置 */}
-              <div className="hero-image-mobile hero-peek-container">
-                <div className="hero-peek-character">
-                  <Image
-                    src="/character-peek.png"
-                    alt="東京米国株クラブの公式キャラクター とびー"
-                    width={100}
-                    height={144}
-                    style={{ objectFit: 'contain', width: '100%', height: '100%' }}
-                  />
-                </div>
-                <div className="hero-peek-image">
-                  <Image
-                    src="/hero.png"
-                    alt="東京米国株クラブの初心者向け米国株投資セミナー"
-                    width={600}
-                    height={450}
-                    style={{ objectFit: 'cover', width: '100%', height: 'auto', display: 'block', borderRadius: '24px' }}
-                    priority
-                    className="hero-image"
-                  />
-                </div>
-              </div>
-
               <p className="hero-subtitle-text" style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2.2vw, 1.15rem)', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2rem' }}>
                 「米国株や新NISAを始めたいけれど何から手をつければいいか分からない」「本やSNSの情報だけでは不安」という方のための、ゆるくて温かい学習コミュニティです。<br className="sp-hide" />
                 難しい専門用語を使わず、知識ゼロから安全に資産を育てる長期・分散投資の基礎を楽しく学べます。
@@ -159,8 +112,8 @@ export default async function Home() {
               </div>
             </div>
 
-            {/* PC用Hero画像 */}
-            <div className="hero-image-right hero-image-desktop slide-up delay-1 hero-peek-container">
+            {/* Hero画像（スマホ・PC共通でHTML上に1回のみ出力） */}
+            <div className="hero-peek-container slide-up delay-1">
               <div className="hero-peek-character hero-peek-character-desktop">
                 <Image
                   src="/character-peek.png"
@@ -361,7 +314,7 @@ export default async function Home() {
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ maxWidth: '750px', margin: '0 auto' }}>
             <p style={{ fontFamily: 'var(--font-accent)', fontSize: '0.95rem', letterSpacing: '3px', fontWeight: '800', color: 'var(--primary)', marginBottom: '1rem', textTransform: 'uppercase' as const }}>
-              Your Future Starts Here
+              未来への第一歩
             </p>
             
             <h2 style={{ fontSize: 'clamp(1.5rem, 4.5vw, 2.8rem)', fontWeight: '900', lineHeight: '1.4', marginBottom: '2rem', color: 'var(--text-main)' }}>

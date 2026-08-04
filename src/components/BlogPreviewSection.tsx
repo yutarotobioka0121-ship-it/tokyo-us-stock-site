@@ -25,7 +25,7 @@ export default function BlogPreviewSection({ posts }: { posts: Post[] }) {
     <section className="section-padding" style={{ background: "var(--bg-warm)" }}>
       <div className="container">
         <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-          <span className="section-tag">LATEST BLOG</span>
+          <span className="section-tag">最新ブログ記事</span>
           <h2 className="section-title" style={{ marginTop: "0.75rem" }}>
             最新ブログ記事
           </h2>
@@ -96,7 +96,7 @@ export default function BlogPreviewSection({ posts }: { posts: Post[] }) {
                     >
                       <TrendingUp size={13} style={{ color: "rgba(255,255,255,0.95)" }} />
                       <span style={{ color: "white", fontSize: "0.72rem", fontWeight: "800", letterSpacing: "0.06em" }}>
-                        ARTICLE
+                        ブログ記事
                       </span>
                     </div>
                     <span style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.75rem", fontWeight: "600", whiteSpace: "nowrap" }}>

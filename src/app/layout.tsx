@@ -38,14 +38,24 @@ export const metadata: Metadata = {
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': 'https://www.tokyo-us-stock.com/#organization',
   name: '東京米国株クラブ',
   url: 'https://www.tokyo-us-stock.com',
-  logo: 'https://www.tokyo-us-stock.com/icon.png',
+  logo: {
+    '@type': 'ImageObject',
+    url: 'https://www.tokyo-us-stock.com/ogp.png',
+  },
+  image: 'https://www.tokyo-us-stock.com/ogp.png',
   description: '東京の米国株・初心者向け投資セミナー。5年で1300%以上の実績を持つ講師が、堅実な長期投資の基礎を解説。',
   sameAs: [
     'https://www.instagram.com/tobby_us_stock?igsh=czQwaXVzNmU5Y2V3&utm_source=qr',
     'https://note.com/tobby_wellness',
   ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: '東京都',
+    addressCountry: 'JP',
+  },
 };
 
 export default function RootLayout({
