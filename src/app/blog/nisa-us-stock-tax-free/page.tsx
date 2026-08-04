@@ -5,14 +5,14 @@ import StaticBlogPost from "@/components/StaticBlogPost";
 export const metadata: Metadata = {
   title: "新NISAで米国株を買えば税金はかからない？非課税の仕組みを解説 | 東京米国株クラブ",
   description:
-    "新NISA（つみたて投資枠・成長投資枠）で米国株やS&P500を買うと税金はどうなる？日本の税金約20%が非課税になる仕組み、米国現地10%の注意点、特定口座との使い分けまで分かりやすく解説。",
+    "新NISA（つみたて投資枠・成長投資枠）で米国株やS&P500を買うと税金はどうなる？日本の税金約20%が非課税になる仕組み、米国現地10%の注意点、特定口座との使い分けまで分かりやすく徹底解説。",
   alternates: {
     canonical: "https://www.tokyo-us-stock.com/blog/nisa-us-stock-tax-free",
   },
   openGraph: {
     title: "新NISAで米国株を買えば税金はかからない？非課税の仕組みを解説",
     description:
-      "新NISA（つみたて投資枠・成長投資枠）で米国株やS&P500を買うと税金はどうなる？日本の税金約20%が非課税になる仕組み、米国現地10%の注意点、特定口座との使い分けまで分かりやすく解説。",
+      "新NISA（つみたて投資枠・成長投資枠）で米国株やS&P500を買うと税金はどうなる？日本の税金約20%が非課税になる仕組み、米国現地10%の注意点、特定口座との使い分けまで分かりやすく徹底解説。",
     url: "https://www.tokyo-us-stock.com/blog/nisa-us-stock-tax-free",
     type: "article",
     publishedTime: "2026-08-04",
@@ -34,16 +34,16 @@ export default function NisaUsStockTaxFreePage() {
     >
       <div className="article-body-content">
         <p>
-          2024年から大きくパワーアップした「新NISA（少額投資非課税制度）」。
+          2024年からスタートし大きくパワーアップした「新NISA（少額投資非課税制度）」。
         </p>
         <p>
-          「新NISAで米国株（アメリカ株）やS&P500に投資すれば、税金は一切かからず完全ゼロになるの？」という疑問を持つ方は非常に多いです。
+          「新NISAを使って米国株（アメリカ株）やS&P500に投資すれば、税金は一切かからず完全ゼロになるの？」という疑問を持つ方は非常に多いです。
         </p>
         <p>
           結論から言うと、<strong>日本の税金（約20.315%）は完全にゼロ（非課税）になりますが、米国現地での配当金にかかる税金（10%）は例外的に発生する</strong>という注意点があります。
         </p>
         <p>
-          本記事では、新NISAで米国株やS&P500連動ファンドを運用した際の非課税の仕組み、米国現地10%の注意点、投資信託と個別株の違いまで徹底解説します。
+          本記事では、新NISAで米国株やS&P500連動ファンドを運用した際の非課税の仕組み、米国現地10%の注意点、投資信託と個別株の違いまでを詳しく徹底解説します。
         </p>
 
         <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
@@ -67,14 +67,14 @@ export default function NisaUsStockTaxFreePage() {
           ② 配当金（分配金）：米国現地税10%のみ発生
         </h3>
         <p>
-          個別の米国株や米国現地ETF（VYMやHDVなど）を新NISAで保有し配当金を受け取る場合、<strong>日本の税金（20.315%）は非課税になりますが、米国現地で徴収される10%の税金はかかります</strong>。
+          個別の米国株や米国現地ETF（VYMやHDVなど）を新NISAで保有し配当金を受け取る場合、<strong>日本の税金（20.315%）は非課税になりますが、米国現地で自動徴収される10%の税金はかかります</strong>。
         </p>
 
         <div style={{ background: "var(--bg-warm)", padding: "1.5rem", borderRadius: "16px", margin: "1.5rem 0", border: "1px solid rgba(0,0,0,0.06)" }}>
           <p style={{ fontWeight: "bold", margin: "0 0 0.5rem 0", color: "var(--primary-dark)" }}>【口座ごとの配当金にかかる税金比較】</p>
           <ul style={{ margin: 0, paddingLeft: "1.2rem", lineHeight: "1.8" }}>
-            <li><strong>特定口座（課税）</strong>：米国税10% ＋ 日本税20.315%（合計約28.2%引かれる）</li>
-            <li><strong>新NISA口座（非課税）</strong>：米国税10% ＋ 日本税0%（合計10%のみ引かれる）★お得！</li>
+            <li style={{ marginBottom: "0.5rem" }}><strong>特定口座（課税）</strong>：米国税10% ＋ 日本税20.315%（合計約28.2%引かれる）</li>
+            <li style={{ marginBottom: "0.5rem" }}><strong>新NISA口座（非課税）</strong>：米国税10% ＋ 日本税0%（合計10%のみ引かれる）★圧倒的にお得！</li>
           </ul>
         </div>
 
@@ -82,24 +82,59 @@ export default function NisaUsStockTaxFreePage() {
           米国株インデックスファンド（eMAXIS Slim S&P500など）の場合は？
         </h2>
         <p>
-          日本で大人気の「eMAXIS Slim 米国株式（S&P500）」や「楽天・S&P500」などの<strong>投資信託（インデックスファンド）</strong>を新NISAのつみたて投資枠で購入している場合はどうでしょうか？
+          日本で大人気の「eMAXIS Slim 米国株式（S&P500）」や「楽天・S&P500」などの<strong>投資信託（インデックスファンド）</strong>をつみたて投資枠で購入している場合はどうでしょうか？
         </p>
-
         <p>
-          この場合、投資信託がファンド内部で組み入れ企業の配当金を受け取る段階で米国現地税10%が差し引かれますが、ファンド内部でそのまま自動で再投資されます。個人の手元に直接配当金が分配されないため、個人が確定申告や複雑な税金計算を行う必要は一切ありません。
+          この場合、投資信託がファンド内部で組み入れ企業の配当金を受け取る段階で米国現地税10%が差し引かれますが、ファンド内部でそのまま自動で再投資されます。個人投資家の手元に直接配当金が分配されないため、個人が確定申告や複雑な税金計算を行う必要は一切ありません。
         </p>
 
         <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
           注意：新NISAの米国10%分は「外国税額控除」が使えない
         </h2>
         <p>
-          前の章でも触れましたが、特定口座であれば確定申告で「外国税額控除」を使って米国の10%分を取り戻すことができます。しかし、<strong>新NISA口座は日本国内の税金がゼロになっているため、外国税額控除の対象外</strong>となります。
+          ここ一つ非常に重要なポイントがあります。<strong>「新NISA口座」で受け取った米国株配当金は、外国税額控除の対象外（申請不可）</strong>です。
         </p>
         <p>
-          「外国税額控除が使えないなら損では？」と思うかもしれませんが、日本の約20%分が丸々浮くメリットの方が圧倒的に大きいため、基本的には新NISAを優先するのが最も効率的な税金対策になります。
+          外国税額控除は「日本の税金（約20%）が課されていること」を前提として二重課税を調整する制度です。新NISA口座では日本の税金がそもそも全額非課税（ゼロ）になっているため、二重課税状態ではないとみなされ、米国の10%分を取り戻すことはできません。詳しくは<Link href="/blog/us-stock-gaikoku-zei-kojo" style={{ color: "var(--primary)", fontWeight: "bold" }}>外国税額控除の解説記事</Link>をご覧ください。
         </p>
         <p>
-          特定口座と新NISA口座の詳しい使い分けルールについては、<Link href="/blog/us-stock-tokutei-koza-guide" style={{ color: "var(--primary)", fontWeight: "bold" }}>特定口座と新NISAの使い分け解説記事</Link>をご覧ください。
+          「外国税額控除が使えないなら損では？」と思うかもしれませんが、日本の約20%分が丸々浮くメリットの方が圧倒的に大きいため、基本的には新NISAを優先するのが最も効率的な税金対策になります。特定口座との比較は<Link href="/blog/us-stock-tokutei-koza-guide" style={{ color: "var(--primary)", fontWeight: "bold" }}>特定口座と新NISAの使い分け解説記事</Link>でまとめています。
+        </p>
+
+        <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
+          税金シリーズ・関連記事一覧
+        </h2>
+        <p>
+          当サイトの<Link href="/knowledge/nisa" style={{ color: "var(--primary)", fontWeight: "bold" }}>NISA活用ナレッジページ</Link>および下記関連記事もぜひご覧ください。
+        </p>
+        <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", margin: "1rem 0" }}>
+          <Link href="/blog/us-stock-tax-guide" style={{ color: "var(--primary)", fontWeight: "bold", textDecoration: "underline" }}>
+            ▶ 米国株の税金の仕組みを初心者向けに徹底解説（親記事）
+          </Link>
+          <Link href="/blog/us-stock-kakutei-shinkoku" style={{ color: "var(--primary)", fontWeight: "bold", textDecoration: "underline" }}>
+            ▶ 米国株の確定申告は必要？不要？条件と手順を解説
+          </Link>
+          <Link href="/blog/us-stock-gaikoku-zei-kojo" style={{ color: "var(--primary)", fontWeight: "bold", textDecoration: "underline" }}>
+            ▶ 米国株の外国税額控除とは？確定申告で税金を取り戻す方法
+          </Link>
+          <Link href="/blog/us-stock-tokutei-koza-guide" style={{ color: "var(--primary)", fontWeight: "bold", textDecoration: "underline" }}>
+            ▶ 米国株の特定口座とは？一般口座との違いとおすすめ選び方
+          </Link>
+        </div>
+
+        <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
+          新NISAを活用したおすすめの米国株投資戦略
+        </h2>
+        <p>
+          「結局、新NISAで何を買えばいいの？」と悩む初心者の方におすすめの組み合わせ戦略は以下の2パターンです。
+        </p>
+        <p>
+          <strong>① つみたて投資枠でS&P500インデックスを毎月積立</strong><br />
+          つみたて投資枠（年間120万円まで）を使い、「eMAXIS Slim 米国株式（S&P500）」などの超低コストファンドを毎月定額で積立設定します。全自動で世界最強の500社に分散投資できます。
+        </p>
+        <p>
+          <strong>② 成長投資枠で米国ETFや連続増配株を購入</strong><br />
+          成長投資枠（年間240万円まで）を使い、米国の代表的ETF（VYMやVOO）や、コカ・コーラ、P&Gなどの「連続増配株」をスポット購入します。値上がり益も配当金（国内税ゼロ）も非課税枠でダブルに恩恵を受けられます。
         </p>
 
         <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
@@ -109,10 +144,7 @@ export default function NisaUsStockTaxFreePage() {
           新NISAを活用した米国株投資は、値上がり益も配当金も日本の税金（約20%）がゼロになる圧倒的にお得な神制度です。
         </p>
         <p>
-          生涯非課税枠1,800万円（うち成長投資枠1,200万円）を最大限に活かして、長期的な資産形成を最短ルートで進めましょう！
-        </p>
-        <p>
-          米国株の税金ルール全体について復習したい方は、<Link href="/blog/us-stock-tax-guide" style={{ color: "var(--primary)", fontWeight: "bold" }}>米国株の税金全体ガイド</Link>も合わせてご確認ください。
+          生涯非課税枠1,800万円（うち成長投資枠1,200万円）を最大限に活かして、長期的な資産形成を最短ルートで進めましょう。初心者向けセミナーで直接相談したい方は<Link href="/seminar/nisa" style={{ color: "var(--primary)", fontWeight: "bold" }}>NISA初心者セミナー</Link>や<Link href="/seminar" style={{ color: "var(--primary)", fontWeight: "bold" }}>米国株セミナー</Link>でご参加をお待ちしております！
         </p>
       </div>
     </StaticBlogPost>
