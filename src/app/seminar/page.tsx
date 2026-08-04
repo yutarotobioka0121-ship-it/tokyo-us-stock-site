@@ -125,7 +125,7 @@ export default async function SeminarPage() {
     location: [
       {
         '@type': 'Place',
-        name: '東京会場（渋谷・新宿等のカフェ・レンタルスペース）',
+        name: '東京都内のカフェ（詳細は申込み後にメールにてご案内）',
         address: {
           '@type': 'PostalAddress',
           addressLocality: '東京都',
@@ -134,7 +134,8 @@ export default async function SeminarPage() {
       },
       {
         '@type': 'VirtualLocation',
-        url: 'https://www.tokyo-us-stock.com/seminar',
+        url: 'https://zoom.us',
+        name: 'Zoom（オンライン開催）',
       },
     ],
     organizer: {
@@ -144,7 +145,7 @@ export default async function SeminarPage() {
     },
     offers: {
       '@type': 'Offer',
-      price: '3000',
+      price: '0',
       priceCurrency: 'JPY',
       availability: 'https://schema.org/InStock',
       url: 'https://www.tokyo-us-stock.com/seminar',
