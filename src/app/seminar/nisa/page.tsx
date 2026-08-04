@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Users, Target, BookOpen, Coffee, Zap, PieChart, ShieldCheck, ArrowLeft } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Users, Target, BookOpen, Coffee, Zap, PieChart, ShieldCheck, ArrowLeft, TrendingUp } from "lucide-react";
 import { getSessions } from "@/lib/microcms";
 import { formatSessionDate, formatSessionTime, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
 import NisaApplyForm from "@/components/NisaApplyForm";
@@ -170,6 +170,63 @@ export default async function NisaSeminarPage() {
               priority
             />
           </div>
+        </div>
+      </section>
+
+      {/* PR Section: 現役投資家から直接学べる */}
+      <section style={{ background: 'white', padding: 'clamp(2.5rem, 5vw, 4rem) 0', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
+        <div className="container" style={{ maxWidth: '860px', margin: '0 auto' }}>
+
+          {/* キャッチコピー */}
+          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+            <span className="featured-tag">この勉強会が選ばれる理由</span>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: '900', color: 'var(--primary-dark)', marginTop: '0.75rem', lineHeight: '1.5' }}>
+              「知っている人」ではなく、<br className="sp-hide" />
+              「実際に稼いでいる人」から学ぶ。
+            </h2>
+          </div>
+
+          {/* 2カラムカード */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+
+            {/* カード1 */}
+            <div style={{ background: 'var(--bg-warm)', borderRadius: '20px', padding: '2rem 1.75rem', border: '1px solid rgba(176,58,46,0.12)', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(176,58,46,0.06)' }} />
+              <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
+                <Users size={24} style={{ color: 'white' }} />
+              </div>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.75rem', lineHeight: '1.5' }}>
+                現役の個人投資家から<br />直接学べる、唯一の場所
+              </h3>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.975rem', color: 'var(--text-main)', lineHeight: '1.85', margin: 0 }}>
+                講師は今この瞬間も、自分のお金を実際に運用している現役の個人投資家です。
+                教科書に書かれた「理論」だけでなく、<strong>リアルな運用経験に基づいた生きた知識</strong>をそのまま届けます。
+              </p>
+            </div>
+
+            {/* カード2 */}
+            <div style={{ background: 'linear-gradient(135deg, var(--primary-dark) 0%, #c0392b 100%)', borderRadius: '20px', padding: '2rem 1.75rem', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)' }} />
+              <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(255,255,255,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
+                <TrendingUp size={24} style={{ color: 'white' }} />
+              </div>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', fontWeight: '900', color: 'white', marginBottom: '0.75rem', lineHeight: '1.5' }}>
+                FP・証券会社では<br />聞けない「本音」がある
+              </h3>
+              <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.975rem', color: 'rgba(255,255,255,0.88)', lineHeight: '1.85', margin: 0 }}>
+                FPや証券会社の担当者は「知識のプロ」ですが、自分でNISA口座を育てているわけではありません。
+                当クラブでは、<strong style={{ color: 'white' }}>実際に成果を出している投資家が本音で語る</strong>、
+                どこにも売っていない"実践知"をお伝えしています。
+              </p>
+            </div>
+
+          </div>
+
+          {/* 補足メッセージ */}
+          <p style={{ textAlign: 'center', fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text-muted)', marginTop: '2rem', lineHeight: '1.8' }}>
+            ※ 投資に関する最終的な判断はご自身でお願いいたします。当勉強会は金融商品の勧誘を目的としておりません。
+          </p>
+
         </div>
       </section>
 
