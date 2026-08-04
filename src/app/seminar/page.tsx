@@ -90,6 +90,23 @@ export default async function SeminarPage() {
 
   const now = new Date();
 
+  // 次回セッションからstartDate/endDateを動的生成
+  const nextSession = sortedSessions.find(s => {
+    const status = Array.isArray(s.status) ? s.status[0] : s.status;
+    return status === 'open' || status === '募集開始' || status === '受付中';
+  }) || sortedSessions[0];
+
+  const buildEventDate = (session: typeof nextSession, offsetHours = 0) => {
+    if (!session) return '2026-08-15T19:00:00+09:00';
+    try {
+      const base = getSessionStartDateTime(session.date, session.time || session.date);
+      if (!base) return '2026-08-15T19:00:00+09:00';
+      const d = new Date(base);
+      d.setHours(d.getHours() + offsetHours);
+      return d.toISOString().replace('Z', '+09:00').replace(/\.\d{3}/, '');
+    } catch { return '2026-08-15T19:00:00+09:00'; }
+  };
+
   const eventSchema = {
     '@context': 'https://schema.org',
     '@type': 'EducationEvent',
@@ -97,6 +114,14 @@ export default async function SeminarPage() {
     description: '定員4名の少人数制カフェスタイルセミナー。知識ゼロから学べる米国株・S&P500・新NISAの長期投資基礎講座。',
     eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
     eventStatus: 'https://schema.org/EventScheduled',
+    startDate: buildEventDate(nextSession, 0),
+    endDate: buildEventDate(nextSession, 2),
+    image: 'https://www.tokyo-us-stock.com/ogp.png',
+    performer: {
+      '@type': 'Person',
+      name: 'とびー',
+      url: 'https://www.tokyo-us-stock.com/about',
+    },
     location: [
       {
         '@type': 'Place',
@@ -115,7 +140,7 @@ export default async function SeminarPage() {
     organizer: {
       '@type': 'Organization',
       name: '東京米国株クラブ',
-      url: 'https://www.tokyo-us-stock.com',
+      url: 'https://www.tokyo-us-stock.com/',
     },
     offers: {
       '@type': 'Offer',
@@ -123,6 +148,7 @@ export default async function SeminarPage() {
       priceCurrency: 'JPY',
       availability: 'https://schema.org/InStock',
       url: 'https://www.tokyo-us-stock.com/seminar',
+      validFrom: '2026-01-01',
     },
   };
   const availableSessions = sortedSessions.filter(s => {
