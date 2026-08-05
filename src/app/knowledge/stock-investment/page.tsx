@@ -378,6 +378,19 @@ export default function StockInvestmentPage() {
             </div>
 
             <div className="glass-card" style={{ padding: '2rem 1.5rem', background: 'white', borderRadius: '20px', border: '1px solid rgba(0,0,0,0.08)', textAlign: 'center' }}>
+              <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table' }}>講座・口座選び</span>
+              <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
+                特定口座とは？源泉あり・なしの違いと選び方
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.6', marginBottom: '1.2rem', maxWidth: '600px', margin: '0 auto 1.2rem auto' }}>
+                「源泉徴収あり」と「源泉徴収なし」の違い、確定申告が不要になる仕組み、新NISAや一般口座との使い分けを解説。
+              </p>
+              <Link href="/knowledge/tokutei-koza" className="btn btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 2rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
+                特定口座の解説を見る <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            <div className="glass-card" style={{ padding: '2rem 1.5rem', background: 'white', borderRadius: '20px', border: '1px solid rgba(0,0,0,0.08)', textAlign: 'center' }}>
               <span className="featured-tag" style={{ margin: '0 auto 0.8rem auto', display: 'table' }}>株主優待</span>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.15rem, 3vw, 1.35rem)', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.6rem' }}>
                 株主優待とは？仕組み・人気の優待・米国株との違い

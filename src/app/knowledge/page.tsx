@@ -290,6 +290,9 @@ export default function KnowledgePage() {
               初心者向けの口座開設手順から新NISA活用法、税金の知識まで各テーマ別に詳しくまとめています。
             </p>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+              <Link href="/knowledge/tokutei-koza" className="btn btn-outline" style={{ borderRadius: '30px', fontSize: '0.9rem' }}>
+                特定口座とは？
+              </Link>
               <Link href="/knowledge/nisa" className="btn btn-outline" style={{ borderRadius: '30px', fontSize: '0.9rem' }}>
                 NISAの活用ガイド
               </Link>
