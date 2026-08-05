@@ -3,14 +3,14 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, ShieldCheck, CheckCircle2, FileText, HelpCircle, AlertCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '特定口座とは？源泉徴収あり・なしの違いと初心者におすすめの選び方 | 東京米国株クラブ',
-  description: '初心者向けに特定口座の仕組みを徹底解説。「源泉徴収あり」と「源泉徴収なし」の違い、一般口座や新NISAとの比較、確定申告の手間をなくす方法、米国株での注意点まで完全網羅。',
+  title: '米国株・米国株式の特定口座とは？源泉徴収あり・なしの違いと選び方 | 東京米国株クラブ',
+  description: '初心者向けに米国株・米国株式の特定口座の仕組みを徹底解説。「源泉徴収あり」と「源泉徴収なし」の違い、一般口座や新NISAとの比較、確定申告の手間を無くす方法まで完全網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge/tokutei-koza',
   },
   openGraph: {
-    title: '特定口座とは？源泉徴収あり・なしの違いと初心者におすすめの選び方 | 東京米国株クラブ',
-    description: '特定口座の仕組みを徹底解説。「源泉徴収あり」と「源泉徴収なし」の違い、一般口座や新NISAとの比較、確定申告の手間をなくす方法まで網羅。',
+    title: '米国株・米国株式の特定口座とは？源泉徴収あり・なしの違いと選び方 | 東京米国株クラブ',
+    description: '初心者向けに米国株・米国株式の特定口座の仕組みを徹底解説。「源泉徴収あり」と「源泉徴収なし」の違い、一般口座や新NISAとの比較、確定申告の手間を無くす方法まで完全網羅。',
     url: 'https://www.tokyo-us-stock.com/knowledge/tokutei-koza',
     siteName: '東京米国株クラブ',
     images: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         url: 'https://www.tokyo-us-stock.com/ogp.png',
         width: 1200,
         height: 630,
-        alt: '特定口座とは？解説ガイド',
+        alt: '米国株・米国株式の特定口座解説ガイド',
       },
     ],
     locale: 'ja_JP',
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '特定口座とは？源泉徴収あり・なしの違いと初心者におすすめの選び方 | 東京米国株クラブ',
-    description: '特定口座の仕組みを徹底解説。「源泉徴収あり」と「源泉徴収なし」の違い、一般口座や新NISAとの比較、確定申告の手間をなくす方法まで網羅。',
+    title: '米国株・米国株式の特定口座とは？源泉徴収あり・なしの違いと選び方 | 東京米国株クラブ',
+    description: '初心者向けに米国株・米国株式の特定口座の仕組みを徹底解説。「源泉徴収あり」と「源泉徴収なし」の違い、一般口座や新NISAとの比較、確定申告の手間を無くす方法まで完全網羅。',
     images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },
 };
@@ -39,7 +39,7 @@ export default function TokuteiKozaKnowledgePage() {
     mainEntity: [
       {
         '@type': 'Question',
-        name: '特定口座（源泉徴収あり）を選べば確定申告は完全に不要ですか？',
+        name: '米国株・米国株式の特定口座（源泉徴収あり）を選べば確定申告は不要ですか？',
         acceptedAnswer: {
           '@type': 'Answer',
           text: '原則として確定申告は不要です。証券会社が取引のたびに利益から約20.315%の税金を自動で天引き（源泉徴収）して国に納めてくれるため、面倒な計算や確定申告の手間が一切かかりません。ただし、米国株配当金の二重課税を取り戻す（外国税額控除）場合や、他の証券会社の赤字と相殺する（損益通算）場合のみ、任意で確定申告を行うことができます。',
@@ -58,7 +58,7 @@ export default function TokuteiKozaKnowledgePage() {
         name: '扶養に入っている主婦や学生でも特定口座（源泉あり）なら扶養から外れませんか？',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'はい、扶養から外れる心配はありません。特定口座（源泉徴収あり）で得た株式の利益や配当金は、確定申告をしない限り「合計所得金額」に含まれない仕組みになっています。そのため、どれだけ大きな利益が出たとしても配偶者控除や親の扶養控除に影響を与えることはありません。',
+          text: 'はい、扶養から外れる心配はありません。特定口座（源泉徴収あり）で得た株式の利益や配当金は、確定申告をしない限り「合計所得金額」に含まれない仕組みになっています。そのため、どれだけ大きな利益が出ても配偶者控除や親の扶養控除に影響を与えることはありません。',
         },
       },
       {
@@ -87,7 +87,7 @@ export default function TokuteiKozaKnowledgePage() {
             <ArrowLeft size={18} style={{ marginRight: '0.5rem' }} /> 株式投資とは？のページへ戻る
           </Link>
           <h1 className="post-title" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 6vw, 2.8rem)', fontWeight: '900', textAlign: 'left', marginLeft: '0', marginRight: 'auto', maxWidth: 'none', marginBottom: '0.5rem', color: 'var(--primary-dark)', lineHeight: '1.3' }}>
-            特定口座とは？源泉徴収あり・なしの違いと初心者におすすめの選び方
+            米国株・米国株式の特定口座とは？源泉徴収あり・なしの違いと初心者におすすめの選び方
           </h1>
         </div>
       </section>
@@ -99,19 +99,19 @@ export default function TokuteiKozaKnowledgePage() {
           {/* プロローグ */}
           <div style={{ marginBottom: '3rem' }}>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-              ネット証券（SBI証券や楽天証券など）で口座を開設する際、誰もが最初につまずく選択肢が「<strong>特定口座（源泉徴収あり）</strong>」「<strong>特定口座（源泉徴収なし）</strong>」「<strong>一般口座</strong>」のどれを選ぶかという問題です。
+              ネット証券（SBI証券や楽天証券など）で米国株・米国株式口座を開設する際、誰もが最初につまずく選択肢が「<strong>特定口座（源泉徴収あり）</strong>」「<strong>特定口座（源泉徴収なし）</strong>」「<strong>一般口座</strong>」のどれを選ぶかという問題です。
             </p>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
               「選択肢の意味が難しくてよく分からない」「選び方を間違えたら確定申告で大変な目にあうのでは…」と不安を感じる方も多いでしょう。
             </p>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: 0 }}>
-              結論から申し上げますと、<strong>投資初心者は迷わず「特定口座（源泉徴収あり）」を選ぶのが一番安全で確実な正解</strong>です。本ページでは、特定口座の基本的な仕組みから「源泉あり/なし」の違い、新NISAや一般口座との比較、米国株投資における注意点まで分かりやすく徹底解説します。
+              結論から申し上げますと、<strong>米国株・米国株式投資の初心者は迷わず「特定口座（源泉徴収あり）」を選ぶのが一番安全で確実な正解</strong>です。本ページでは、米国株・米国株式の特定口座の基本的な仕組みから「源泉あり/なし」の違い、新NISAや一般口座との比較、確定申告の手間を省くポイントまで分かりやすく徹底解説します。
             </p>
           </div>
 
-          {/* 1章: 特定口座とは何か？基本的な仕組み */}
+          {/* 1章: 米国株・米国株式の特定口座とは何か？ */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            1. 特定口座とは何か？基本的な仕組み
+            1. 米国株・米国株式の特定口座とは何か？基本的な仕組み
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
             <strong>特定口座（とくていこうざ）</strong>とは、一言で言えば「<strong>証券会社が投資家に代わって年間の売買損益や配当金を自動で計算し、専用の年間取引報告書を作成してくれる口座</strong>」のことです。
@@ -243,10 +243,10 @@ export default function TokuteiKozaKnowledgePage() {
 
           {/* 5章: 米国株投資で特定口座を使う場合のポイント */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            5. 米国株投資で特定口座を使う場合の注意点
+            5. 米国株・米国株式投資で特定口座を使う場合の注意点
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            米国株を特定口座で取引する場合、日本株にはない「<strong>配当金の二重課税（米国10%＋日本20%）</strong>」という仕組みが存在します。
+            米国株・米国株式を特定口座で取引する場合、日本株にはない「<strong>配当金の二重課税（米国10%＋日本20%）</strong>」という仕組みが存在します。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
             特定口座（源泉徴収あり）を選んでいれば自動で税金が引かれて完結しますが、二重課税された米国の10%分を取り戻したい場合のみ、確定申告を行って「外国税額控除」を申請することができます。
@@ -257,13 +257,13 @@ export default function TokuteiKozaKnowledgePage() {
 
           {/* 6章: よくある質問（FAQ） */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            6. 特定口座についてよくある質問（FAQ）
+            6. 米国株・米国株式の特定口座についてよくある質問（FAQ）
           </h2>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', marginBottom: '3rem' }}>
             <div style={{ background: '#fdfefe', border: '1px solid #e5e7e9', borderRadius: '14px', padding: '1.3rem 1.5rem' }}>
               <h3 style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary-dark)', margin: '0 0 0.5rem 0' }}>
-                Q. 特定口座（源泉徴収あり）を選べば確定申告は完全に不要ですか？
+                Q. 米国株・米国株式の特定口座（源泉徴収あり）を選べば確定申告は不要ですか？
               </h3>
               <p style={{ fontSize: '0.95rem', lineHeight: '1.8', margin: 0, color: 'var(--text-main)' }}>
                 原則として確定申告は不要です。証券会社が自動で税金を天引きして納付してくれます。ただし、米国株配当金の外国税額控除を受ける場合や、他の証券会社の赤字と損益通算をする場合のみ、任意で申告ができます。
@@ -305,7 +305,7 @@ export default function TokuteiKozaKnowledgePage() {
                 口座開設の手順
               </Link>
               <Link href="/knowledge/tax" className="btn btn-outline" style={{ borderRadius: '30px', fontSize: '0.9rem' }}>
-                株式投資の税金
+                米国株の税金ガイド
               </Link>
               <Link href="/knowledge/nisa" className="btn btn-outline" style={{ borderRadius: '30px', fontSize: '0.9rem' }}>
                 NISAの基本

@@ -3,14 +3,14 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '米国株（アメリカ株）とは？特徴や日本株との違い・始め方を解説 | 東京米国株クラブ',
-  description: '初心者向けに米国株の基礎知識を徹底解説。日本株との違い、1株購入のメリット、S&P500、年4回配当金、新NISA活用、リスクやFAQまで網羅。',
+  title: '米国株（米国株式）とは？5つの大きな特徴や日本株との違い・始め方を徹底解説 | 東京米国株クラブ',
+  description: '初心者向けに米国株（米国株式）とは何か、5つの大きな特徴やメリット、日本株との比較、1株購入・S&P500・年4回配当・新NISA活用からリスク対策・FAQまで完全網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge',
   },
   openGraph: {
-    title: '米国株（アメリカ株）とは？特徴や日本株との違い・始め方を解説 | 東京米国株クラブ',
-    description: '初心者向けに米国株の基礎知識を徹底解説。日本株との違い、1株購入のメリット、S&P500、年4回配当金、FAQまで網羅。',
+    title: '米国株（米国株式）とは？5つの大きな特徴や日本株との違い・始め方を徹底解説 | 東京米国株クラブ',
+    description: '初心者向けに米国株（米国株式）とは何か、5つの大きな特徴やメリット、日本株との比較、1株購入・S&P500・年4回配当・新NISA活用からリスク対策・FAQまで完全網羅。',
     url: 'https://www.tokyo-us-stock.com/knowledge',
     siteName: '東京米国株クラブ',
     images: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         url: 'https://www.tokyo-us-stock.com/ogp.png',
         width: 1200,
         height: 630,
-        alt: '米国株とは？初心者向け解説',
+        alt: '米国株（米国株式）とは？特徴と初心者向け解説',
       },
     ],
     locale: 'ja_JP',
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '米国株（アメリカ株）とは？特徴や日本株との違い・始め方を解説 | 東京米国株クラブ',
-    description: '初心者向けに米国株の基礎知識を徹底解説。日本株との違い、1株購入のメリット、S&P500、年4回配当金、FAQまで網羅。',
+    title: '米国株（米国株式）とは？5つの大きな特徴や日本株との違い・始め方を徹底解説 | 東京米国株クラブ',
+    description: '初心者向けに米国株（米国株式）とは何か、5つの大きな特徴やメリット、日本株との比較、1株購入・S&P500・年4回配当・新NISA活用からリスク対策・FAQまで完全網羅。',
     images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },
 };
@@ -39,10 +39,10 @@ export default function KnowledgePage() {
     mainEntity: [
       {
         '@type': 'Question',
-        name: '米国株はいくらから始められますか？',
+        name: '米国株（米国株式）はいくらから始められますか？',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: '米国株は証券会社によって異なりますが、SBI証券・楽天証券では1株から購入できます。人気銘柄のAppleであれば数万円から投資できます。新NISAのつみたて投資枠を使えば月100円から始めることも可能です。',
+          text: '米国株（米国株式）は証券会社によって異なりますが、SBI証券・楽天証券では1株から購入できます。人気銘柄のAppleであれば数万円から投資できます。新NISAのつみたて投資枠を使えば月100円から始めることも可能です。',
         },
       },
       {
@@ -55,15 +55,15 @@ export default function KnowledgePage() {
       },
       {
         '@type': 'Question',
-        name: '米国株の特徴を教えてください',
+        name: '米国株（米国株式）の主な特徴を教えてください',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: '米国株の主な特徴は①世界最大規模の株式市場、②配当文化が強く年4回配当が多い、③1株から購入可能、④S&P500など代表的な指数がある、⑤新NISAで非課税投資ができる、の5点です。',
+          text: '米国株（米国株式）の主な特徴は①世界最大規模の株式市場、②配当文化が強く年4回配当が多い、③1株から購入可能、④S&P500など代表的な指数がある、⑤新NISAで非課税投資ができる、の5点です。',
         },
       },
       {
         '@type': 'Question',
-        name: '英語が話せなくても米国株投資はできますか？',
+        name: '英語が話せなくても米国株（米国株式）投資はできますか？',
         acceptedAnswer: {
           '@type': 'Answer',
           text: 'はい、全く問題ありません。SBI証券や楽天証券などの国内主要ネット証券を利用すれば、すべての取引画面、銘柄検索、注文、決算情報の日本語要約などを完全な日本語で行うことができます。米国の現地口座を開設する必要はなく、通常の日本株と同じような感覚で日本語だけで取引が完結します。',
@@ -95,7 +95,7 @@ export default function KnowledgePage() {
             <ArrowLeft size={18} style={{ marginRight: '0.5rem' }} /> トップへ戻る
           </Link>
           <h1 className="post-title" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 6vw, 2.8rem)', fontWeight: '900', textAlign: 'left', marginLeft: '0', marginRight: 'auto', maxWidth: 'none', marginBottom: '0.5rem', color: 'var(--primary-dark)', lineHeight: '1.3' }}>
-            米国株（アメリカ株）とは？特徴や日本株との違い・始め方を解説
+            米国株（米国株式）とは？5つの大きな特徴や日本株との違い・始め方を解説
           </h1>
         </div>
       </section>
@@ -107,33 +107,33 @@ export default function KnowledgePage() {
           {/* プロローグ */}
           <div style={{ marginBottom: '3rem' }}>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-              私たちが日々使用しているiPhone（Apple）、検索エンジンやYouTube（Google / Alphabet）、日用品から仕事のインフラまで支えるクラウド（AmazonやMicrosoft）、SNS（Meta）などは、すべて<strong>アメリカ（米国）を代表する超一流企業</strong>が提供しています。
+              私たちが日々使用しているiPhone（Apple）、検索エンジンやYouTube（Google / Alphabet）、日用品から仕事のインフレまで支えるクラウド（AmazonやMicrosoft）、SNS（Meta）などは、すべて<strong>アメリカ（米国）を代表する超一流企業</strong>が提供しています。
             </p>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-              <strong>米国株（アメリカ株）とは何か？一言で言えば、これらのアメリカ市場に上場している企業の株を購入し、世界規模でビジネスを展開する企業のオーナーの一員になること</strong>です。
+              <strong>米国株（米国株式）とは何か？一言で言えば、これらのアメリカ市場に上場している企業の株（米国株式）を購入し、世界規模でビジネスを展開する企業のオーナーの一員になること</strong>です。
             </p>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: 0 }}>
-              世界の経済・金融の中心地である米国株式市場は、過去100年以上にわたり、数々の暴落や危機を乗り越えて右肩上がりに成長を遂げてきました。本ページでは、米国株とは何か、日本株との根本的な違い、5つの大きな特徴、リスクやよくある質問まで分かりやすく解説します。
+              世界の経済・金融の中心地である米国株式市場は、過去100年以上にわたり、数々の暴落や危機を乗り越えて右肩上がりに成長を遂げてきました。本ページでは、米国株・米国株式とは何か、日本株との根本的な違い、5つの大きな特徴、リスクやよくある質問まで分かりやすく解説します。
             </p>
           </div>
 
-          {/* 1章: 米国株とは何か？日本株との根本的な違い */}
+          {/* 1章: 米国株（米国株式）とは何か？日本株との根本的な違い */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            1. 米国株とは何か？日本株との根本的な違い
+            1. 米国株（米国株式）とは何か？日本株との根本的な違い
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            米国株（アメリカ株）は、日本の株式市場（東証など）とは異なる数多くの決定的なメリットと特徴を持っています。
+            米国株（米国株式）は、日本の株式市場（東証など）とは異なる数多くの決定的なメリットと特徴を持っています。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            日本株の場合、原則として「100株単位」で購入する必要があるため、有名企業（任天堂やトヨタなど）の株を買うには数十万円〜百万円単位のまとまった元本が必要です。しかし米国株は<strong>すべての銘柄が「1株から」自由に購入できる</strong>ため、数千円〜数万円という少額から世界トップ企業への投資をスタートできます。
+            日本株の場合、原則として「100株単位」で購入する必要があるため、有名企業（任天堂やトヨタなど）の株を買うには数十万円〜百万円単位のまとまった元本が必要です。しかし米国株（米国株式）は<strong>すべての銘柄が「1株から」自由に購入できる</strong>ため、数千円〜数万円という少額から世界トップ企業への投資をスタートできます。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
             また、日本株の多くが配当金を「年1回〜2回」しか支払わないのに対し、米国企業の多くは<strong>「年4回（3ヶ月ごと）」に配当金を支払う</strong>文化が定着しており、インカムゲイン（配当収入）を得やすい点も根本的な違いです。
           </p>
 
-          {/* 2章: 米国株の5つの特徴 */}
+          {/* 2章: 米国株（米国株式）の5つの大きな特徴 */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            2. 米国株の5つの特徴
+            2. 米国株（米国株式）の5つの大きな特徴
           </h2>
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2.5rem' }}>

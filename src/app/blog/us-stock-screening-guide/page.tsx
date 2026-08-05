@@ -3,16 +3,16 @@ import Link from "next/link";
 import StaticBlogPost from "@/components/StaticBlogPost";
 
 export const metadata: Metadata = {
-  title: "米国株のスクリーニングとは？初心者向けに銘柄の絞り込み方を徹底解説 | 東京米国株クラブ",
+  title: "米国株・米国株式のスクリーニングとは？初心者向け銘柄スクリーニングのやり方を徹底解説 | 東京米国株クラブ",
   description:
-    "米国株のスクリーニング（銘柄スクリーニング）の基本と、初心者でも使えるSBI・楽天証券の無料ツールを使った具体的な絞り込み方をわかりやすく徹底解説します。条件設定から決算確認まで網羅。",
+    "米国株・米国株式のスクリーニング（銘柄スクリーニング）の基本と、初心者でも使えるSBI・楽天証券の無料スクリーナーツールを使った銘柄の絞り込み方をわかりやすく徹底解説します。",
   alternates: {
     canonical: "https://www.tokyo-us-stock.com/blog/us-stock-screening-guide",
   },
   openGraph: {
-    title: "米国株のスクリーニングとは？初心者向けに銘柄の絞り込み方を徹底解説",
+    title: "米国株・米国株式のスクリーニングとは？初心者向け銘柄スクリーニングのやり方を徹底解説",
     description:
-      "米国株のスクリーニング（銘柄スクリーニング）の基本と、初心者でも使えるSBI・楽天証券の無料ツールを使った具体的な絞り込み方をわかりやすく徹底解説します。",
+      "米国株・米国株式のスクリーニング（銘柄スクリーニング）の基本と、初心者でも使えるSBI・楽天証券の無料スクリーナーツールを使った銘柄の絞り込み方をわかりやすく徹底解説します。",
     url: "https://www.tokyo-us-stock.com/blog/us-stock-screening-guide",
     type: "article",
     publishedTime: "2026-08-04",
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
 export default function UsStockScreeningGuidePage() {
   return (
     <StaticBlogPost
-      title="米国株のスクリーニングとは？初心者向けに銘柄の絞り込み方を徹底解説"
+      title="米国株・米国株式のスクリーニングとは？初心者向け銘柄の絞り込み方を徹底解説"
       date="2026-08-04"
-      summary="米国株のスクリーニング（銘柄スクリーニング）の基本と、初心者でも使えるSBI・楽天証券の無料ツールを使った具体的な絞り込み方をわかりやすく解説します。"
+      summary="米国株・米国株式のスクリーニング（銘柄スクリーニング）の基本と、初心者でも使えるSBI・楽天証券の無料ツールを使った具体的な絞り込み方をわかりやすく解説します。"
       slug="us-stock-screening-guide"
       knowledgeLink="/knowledge/stock-investment"
       knowledgeTitle="株式投資の基本"

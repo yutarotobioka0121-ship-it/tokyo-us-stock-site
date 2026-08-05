@@ -3,16 +3,16 @@ import Link from "next/link";
 import StaticBlogPost from "@/components/StaticBlogPost";
 
 export const metadata: Metadata = {
-  title: "米国株の確定申告は必要？不要？条件と手順を初心者向けに解説 | 東京米国株クラブ",
+  title: "米国株・米国株式の確定申告は必要？不要？条件と手順を初心者向けに解説 | 東京米国株クラブ",
   description:
-    "米国株投資で確定申告が必要なケースと不要なケースを分かりやすく判定。特定口座（源泉あり/なし）、一般口座、年間20万円ルール、申告手順まで丁寧に徹底解説します。",
+    "米国株・米国株式投資で確定申告が必要なケースと不要なケースを分かりやすく判定。特定口座（源泉あり/なし）、一般口座、年間20万円ルール、米国株式の確定申告手順まで丁寧に徹底解説します。",
   alternates: {
     canonical: "https://www.tokyo-us-stock.com/blog/us-stock-kakutei-shinkoku",
   },
   openGraph: {
-    title: "米国株の確定申告は必要？不要？条件と手順を初心者向けに解説",
+    title: "米国株・米国株式の確定申告は必要？不要？条件と手順を初心者向けに解説",
     description:
-      "米国株投資で確定申告が必要なケースと不要なケースを分かりやすく判定。特定口座（源泉あり/なし）、一般口座、年間20万円ルール、申告手順まで丁寧に徹底解説します。",
+      "米国株・米国株式投資で確定申告が必要なケースと不要なケースを分かりやすく判定。特定口座（源泉あり/なし）、一般口座、年間20万円ルール、米国株式の確定申告手順まで丁寧に徹底解説します。",
     url: "https://www.tokyo-us-stock.com/blog/us-stock-kakutei-shinkoku",
     type: "article",
     publishedTime: "2026-08-04",
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
 export default function UsStockKakuteiShinkokuPage() {
   return (
     <StaticBlogPost
-      title="米国株の確定申告は必要？不要？条件と手順を初心者向けに解説"
+      title="米国株・米国株式の確定申告は必要？不要？条件と手順を初心者向けに解説"
       date="2026-08-04"
-      summary="米国株投資で確定申告が必要なケースと不要なケースを分かりやすく判定。特定口座（源泉あり/なし）、一般口座、年間20万円ルール、申告手順まで丁寧に解説。"
+      summary="米国株・米国株式投資で確定申告が必要なケースと不要なケースを分かりやすく判定。特定口座（源泉あり/なし）、一般口座、年間20万円ルール、申告手順まで丁寧に解説。"
       slug="us-stock-kakutei-shinkoku"
       knowledgeLink="/blog/us-stock-tax-guide"
       knowledgeTitle="米国株の税金全体ガイド"
@@ -34,17 +34,17 @@ export default function UsStockKakuteiShinkokuPage() {
     >
       <div className="article-body-content">
         <p>
-          米国株（アメリカ株）投資を始めた方が真っ先に抱く疑問の一つが「<strong>米国株で利益が出たら確定申告をしなければいけないのか？</strong>」という点です。
+          米国株（米国株式）投資を始めた方が真っ先に抱く疑問の一つが「<strong>米国株・米国株式で利益が出たら確定申告をしなければいけないのか？</strong>」という点です。
         </p>
         <p>
           結論から言うと、<strong>大半の個人投資家の方は確定申告をする必要がありません</strong>。利用している証券口座の種類や利益の金額によって、申告の要不要が明確に決まっています。
         </p>
         <p>
-          本記事では、確定申告が必要なケースと不要なケースの判定条件、会社員に関係する「20万円ルール」、あえて確定申告を行った方が得するパターン（外国税額控除・損益通算）、具体的な手続きの流れまでを分かりやすく解説します。
+          本記事では、米国株式の確定申告が必要なケースと不要なケースの判定条件、会社員に関係する「20万円ルール」、あえて確定申告を行った方が得するパターン（外国税額控除・損益通算）、具体的な手続きの流れまでを分かりやすく解説します。
         </p>
 
         <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
-          【判定表】米国株の確定申告が必要な人・不要な人
+          【判定表】米国株・米国株式の確定申告が必要な人・不要な人
         </h2>
 
         <div style={{ background: "var(--bg-warm)", padding: "1.5rem", borderRadius: "16px", margin: "1.5rem 0", border: "1px solid rgba(0,0,0,0.06)" }}>

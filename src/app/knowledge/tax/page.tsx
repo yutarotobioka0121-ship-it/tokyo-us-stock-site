@@ -3,10 +3,32 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, ShieldCheck, DollarSign, FileText, CheckCircle2, AlertCircle, HelpCircle, Scale } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '株式投資にかかる税金とは？税率20.315%の仕組み・確定申告・NISAでの節税を徹底解説 | 東京米国株クラブ',
-  description: '株式投資で得た利益にかかる税金（20.315%）の仕組みを初心者向けに徹底解説。特定口座（源泉徴収あり）のメリット、確定申告で得する3パターン（外国税額控除・損益通算）、NISA制度での非課税節税まで網羅。',
+  title: '米国株・米国株式の税金とは？確定申告の必要性・二重課税・NISA節税を徹底解説 | 東京米国株クラブ',
+  description: '初心者向けに米国株・米国株式にかかる税金の仕組み（20.315%＋米国10%）を徹底解説。特定口座（源泉徴収あり）の確定申告不要ルール、米国株式の確定申告手順、外国税額控除や新NISA非課税まで網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge/tax',
+  },
+  openGraph: {
+    title: '米国株・米国株式の税金とは？確定申告の必要性・二重課税・NISA節税を徹底解説 | 東京米国株クラブ',
+    description: '初心者向けに米国株・米国株式にかかる税金の仕組み（20.315%＋米国10%）を徹底解説。特定口座（源泉徴収あり）の確定申告不要ルール、米国株式の確定申告手順、外国税額控除や新NISA非課税まで網羅。',
+    url: 'https://www.tokyo-us-stock.com/knowledge/tax',
+    siteName: '東京米国株クラブ',
+    images: [
+      {
+        url: 'https://www.tokyo-us-stock.com/ogp.png',
+        width: 1200,
+        height: 630,
+        alt: '米国株・米国株式の税金と確定申告解説',
+      },
+    ],
+    locale: 'ja_JP',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '米国株・米国株式の税金とは？確定申告の必要性・二重課税・NISA節税を徹底解説 | 東京米国株クラブ',
+    description: '初心者向けに米国株・米国株式にかかる税金の仕組み（20.315%＋米国10%）を徹底解説。特定口座（源泉徴収あり）の確定申告不要ルール、米国株式の確定申告手順、外国税額控除や新NISA非課税まで網羅。',
+    images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },
 };
 
@@ -17,23 +39,23 @@ export default function TaxKnowledgePage() {
     mainEntity: [
       {
         '@type': 'Question',
-        name: '株で得た利益にかかる税金は何パーセントですか？',
+        name: '米国株・米国株式で得た利益にかかる税金は何パーセントですか？',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: '株の売却益（譲渡益）や配当金にかかる税率は一律「20.315%」です。内訳は所得税15%、復興特別所得税0.315%、住民税5%となります。利益の約2割が税金として引かれる計算になります。',
+          text: '米国株・米国株式の売却益（譲渡益）にかかる税率は日本国内で一律「20.315%」です。配当金に関しては、米国現地で10%が引かれた後、残りに対して日本で20.315%が課税されます。',
         },
       },
       {
         '@type': 'Question',
-        name: '「特定口座（源泉徴収あり）」を選べば確定申告は不要ですか？会社にバレますか？',
+        name: '「特定口座（源泉徴収あり）」を選べば米国株式の確定申告は不要ですか？会社にバレますか？',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'はい、「特定口座（源泉徴収あり）」を選択しておけば、証券会社が利益から税金を自動的に差し引いて代わりに納税してくれるため、確定申告は一切不要です。また、会社に株式投資の収入が通知されることもないため、副業禁止やプライバシーが気になる方でも安心です。',
+          text: 'はい、「特定口座（源泉徴収あり）」を選択しておけば、証券会社が利益から税金を自動的に差し引いて代わりに納税してくれるため、米国株式の確定申告は原則として一切不要です。また、会社に株式投資の収入が通知されることもないため安心です。',
         },
       },
       {
         '@type': 'Question',
-        name: '米国株の配当金にかかる「外国税額控除」とは何ですか？',
+        name: '米国株・米国株式の配当金にかかる「外国税額控除」とは何ですか？',
         acceptedAnswer: {
           '@type': 'Answer',
           text: '米国株の配当金は、アメリカ現地で10%が課税され、残りに対して日本で20.315%が課税される「二重課税」の状態になります。確定申告で「外国税額控除」を申請することで、米国内で支払った10%分の税金の一定額を日本の所得税から取り戻すことができます。',
@@ -49,7 +71,7 @@ export default function TaxKnowledgePage() {
       },
       {
         '@type': 'Question',
-        name: 'NISA口座で取引すれば税金は完全にかかりませんか？',
+        name: 'NISA口座で取引すれば米国株の税金は完全にかかりませんか？',
         acceptedAnswer: {
           '@type': 'Answer',
           text: 'はい、NISA口座内で得られた株式の売却益や配当金（国内分）に対する約20.315%の税金は完全非課税になります。ただし、米国株の配当金に対する現地での10%課税は引かれます（NISA口座では外国税額控除の対象外となります）。',
@@ -73,7 +95,7 @@ export default function TaxKnowledgePage() {
             <ArrowLeft size={18} style={{ marginRight: '0.5rem' }} /> 株式投資とはへ戻る
           </Link>
           <h1 className="post-title" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.8rem, 6vw, 2.8rem)', fontWeight: '900', textAlign: 'left', marginLeft: '0', marginRight: 'auto', maxWidth: 'none', marginBottom: '0.5rem', color: 'var(--primary-dark)', lineHeight: '1.3' }}>
-            株式投資にかかる税金とは？税率20.315%の仕組みと確定申告・節税対策
+            米国株・米国株式にかかる税金とは？税率の仕組みと確定申告・二重課税対策
           </h1>
         </div>
       </section>
@@ -85,19 +107,19 @@ export default function TaxKnowledgePage() {
           {/* プロローグ */}
           <div style={{ marginBottom: '3rem' }}>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-              「株で利益が出たら、税金はいくら引かれるの？」「会社員でも確定申告が必要になるの？」といった税金面の不安をお持ちではありませんか？
+              「米国株・米国株式で利益が出たら、税金はいくら引かれるの？」「米国株式の確定申告は会社員でも必要なの？」といった税金面の疑問をお持ちではありませんか？
             </p>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-              結論から言えば、日本の株式投資で得られた利益には**一律約20.315%の税金**がかかります。しかし、口座開設時に**「特定口座（源泉徴収あり）」を選択しておけば、確定申告の手間は一切不要**となり、会社に知られることもありません。
+              結論から言えば、<strong>米国株・米国株式投資で得られた利益には、日本国内で一律約20.315%の税金</strong>がかかり、配当金には米国現地での10%課税も発生します。しかし、口座開設時に**「特定口座（源泉徴収あり）」を選択しておけば、米国株式の確定申告の手間は原則不要**となり、会社に知られることもありません。
             </p>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: 0 }}>
-              さらに「NISA制度」を活用すれば税金を完全にゼロ（非課税）に抑えることが可能です。本ページでは、初心者の方が押さえるべき税金の基本ルール、確定申告で得するケース、節税の極意を分かりやすく解説します。
+              さらに「新NISA制度」を活用すれば国内の税金を完全にゼロ（非課税）に抑えることが可能です。本ページでは、初心者の方が押さえるべき**米国株・米国株式の税金ルール**、米国株式の確定申告で得するケース、外国税額控除のやり方を分かりやすく解説します。
             </p>
           </div>
 
           {/* 1章: 税金の基本ルール（20.315%の内訳） */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            1. 株式投資にかかる税金の基本原理（税率20.315%）
+            1. 米国株・米国株式にかかる税金の基本原理（国内20.315%＋米国10%）
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
             課税口座（特定口座や一般口座）で株式投資を行って得た利益には、給料などの所得とは切り離して計算される**「申告分離課税」**が適用されます。税率はいくら儲かっても一律**20.315%**です。
