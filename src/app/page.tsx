@@ -93,8 +93,8 @@ export default async function Home() {
           <div className="hero-grid">
             <div className="hero-content-left slide-up">
               {/* 最重要キーワード入りのH1タグ */}
-              <h1 className="hero-title" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.5rem, 4.5vw, 2.5rem)', color: 'var(--primary-dark)', lineHeight: '1.3', fontWeight: '900', marginBottom: '1.5rem' }}>
-                東京の米国株投資セミナー｜初心者から始められる長期投資コミュニティ
+              <h1 className="hero-title" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.5rem, 5vw, 2.8rem)', color: 'var(--primary-dark)', lineHeight: '1.3', fontWeight: '900', marginBottom: '1.5rem' }}>
+                東京米国株クラブへようこそ
               </h1>
 
               <p className="hero-subtitle-text" style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2.2vw, 1.15rem)', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2rem' }}>
@@ -140,13 +140,12 @@ export default async function Home() {
       </section>
 
       {/* Feature / Concept Section（本文テキスト増強セクション） */}
-      {/* タスク2: 米国株の始め方キーワードブロック（ヒーロー直下） */}
       <section style={{ background: 'white', padding: 'clamp(2rem, 4vw, 3rem) 0', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
-        <div className="container" style={{ maxWidth: '860px', margin: '0 auto', textAlign: 'center' }}>
+        <div className="container" style={{ maxWidth: '860px', margin: '0 auto', textAlign: 'left' }}>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', color: 'var(--text-main)', lineHeight: '2', margin: 0 }}>
-            「<strong>米国株に興味はあるけれど、始め方がわからない</strong>」「<strong>S&P500やNISAを活用したいが、何を買えばいいかわからない</strong>」という方のために、
+            「米国株に興味はあるけれど、始め方がわからない」「S&P500やNISAを活用したいが、何を買えばいいかわからない」という方のために、
             東京米国株クラブでは<strong>米国株投資の始め方をゼロから解説</strong>しています。<br className="sp-hide" />
-            初心者におすすめの<strong>S&P500・ETF・新NISAを使った積立投資</strong>の具体的なやり方を、難しい専門用語を使わず、
+            初心者におすすめのS&P500・ETF・新NISAを使った積立投資の具体的なやり方を、難しい専門用語を使わず、
             カフェでお茶を飲みながら話すような気軽な雰囲気で学べます。
           </p>
         </div>
