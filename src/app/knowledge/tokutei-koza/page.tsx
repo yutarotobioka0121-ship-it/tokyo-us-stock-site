@@ -4,13 +4,13 @@ import { ArrowLeft, ArrowRight, ShieldCheck, CheckCircle2, FileText, HelpCircle,
 
 export const metadata: Metadata = {
   title: '米国株・米国株式の特定口座とは？源泉徴収あり・なしの違いと選び方 | 東京米国株クラブ',
-  description: '初心者向けに米国株・米国株式の特定口座の仕組みを徹底解説。「源泉徴収あり」と「源泉徴収なし」の違い、一般口座や新NISAとの比較、確定申告の手間を無くす方法まで完全網羅。',
+  description: '初心者向けに米国株・米国株式の特定口座の仕組みを徹底解説。「源泉徴収あり」と「源泉徴収なし」の違い、一般口座や新NISAとの比較、年間取引報告書の見方、確定申告の手間を無くす方法まで完全網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge/tokutei-koza',
   },
   openGraph: {
     title: '米国株・米国株式の特定口座とは？源泉徴収あり・なしの違いと選び方 | 東京米国株クラブ',
-    description: '初心者向けに米国株・米国株式の特定口座の仕組みを徹底解説。「源泉徴収あり」と「源泉徴収なし」の違い、一般口座や新NISAとの比較、確定申告の手間を無くす方法まで完全網羅。',
+    description: '初心者向けに米国株・米国株式の特定口座の仕組みを徹底解説。「源泉徴収あり」と「源泉徴収なし」の違い、一般口座や新NISAとの比較、年間取引報告書の見方、確定申告の手間を無くす方法まで完全網羅。',
     url: 'https://www.tokyo-us-stock.com/knowledge/tokutei-koza',
     siteName: '東京米国株クラブ',
     images: [
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '米国株・米国株式の特定口座とは？源泉徴収あり・なしの違いと選び方 | 東京米国株クラブ',
-    description: '初心者向けに米国株・米国株式の特定口座の仕組みを徹底解説。「源泉徴収あり」と「源泉徴収なし」の違い、一般口座や新NISAとの比較、確定申告の手間を無くす方法まで完全網羅。',
+    description: '初心者向けに米国株・米国株式の特定口座の仕組みを徹底解説。「源泉徴収あり」と「源泉徴収なし」の違い、一般口座や新NISAとの比較、年間取引報告書の見方、確定申告の手間を無くす方法まで完全網羅。',
     images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },
 };
@@ -241,23 +241,65 @@ export default function TokuteiKozaKnowledgePage() {
             </div>
           </div>
 
-          {/* 5章: 米国株投資で特定口座を使う場合のポイント */}
+          {/* 5章: 主要ネット証券（SBI・楽天・マネックス）での設定確認・変更方法 */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            5. 米国株・米国株式投資で特定口座を使う場合の注意点
+            5. 主要ネット証券（SBI証券・楽天証券）での特定口座確認と変更手順
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            米国株・米国株式を特定口座で取引する場合、日本株にはない「<strong>配当金の二重課税（米国10%＋日本20%）</strong>」という仕組みが存在します。
-          </p>
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            特定口座（源泉徴収あり）を選んでいれば自動で税金が引かれて完結しますが、二重課税された米国の10%分を取り戻したい場合のみ、確定申告を行って「外国税額控除」を申請することができます。
-          </p>
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
-            また、新NISA口座であれば日本の税金（20%）がそもそも全額非課税になります。そのため、<strong>まずは「新NISA」の非課税枠を最優先で使い切り、溢れた分やNISA対象外の投資に「特定口座（源泉あり）」を使う</strong>のが黄金パターンです。
+            「自分がどの口座を選んだか忘れてしまった」「今の設定を変更したい」という場合、各ネット証券のマイページから簡単に確認・変更が可能です。
           </p>
 
-          {/* 6章: よくある質問（FAQ） */}
+          <ul style={{ lineHeight: '1.9', marginBottom: '2.5rem' }}>
+            <li style={{ marginBottom: '1rem' }}>
+              <strong>SBI証券での確認方法：</strong><br />
+              ログイン後、画面上部メニューの「口座管理」＞「お客様情報設定・変更」＞「お取引関連・口座情報」をクリック。「特定口座」の欄で「源泉徴収あり」か「源泉徴収なし」かが確認できます。変更する場合は同一画面の変更手続きボタンから年末までに申請します。
+            </li>
+            <li style={{ marginBottom: '1rem' }}>
+              <strong>楽天証券での確認方法：</strong><br />
+              ログイン後、「マイメニュー」＞「お客様情報の設定・変更」＞「口座（NISA・特定・FX等）」を選択。「特定口座区分」で現在の源泉徴収設定が確認できます。
+            </li>
+          </ul>
+
+          {/* 6章: 特定口座（源泉あり）でもあえて確定申告した方が得するケース */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            6. 米国株・米国株式の特定口座についてよくある質問（FAQ）
+            6. あえて確定申告した方が得する2つのパターン
+          </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+            特定口座（源泉あり）は原則確定申告が不要ですが、以下の条件に該当する場合は任意で申告することで税金が戻ってくる（還付される）可能性があります。
+          </p>
+
+          <div style={{ background: '#fdfefe', border: '1px solid #e5e7e9', borderRadius: '16px', padding: '1.5rem', marginBottom: '1.5rem' }}>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginTop: 0, marginBottom: '0.5rem' }}>
+              パターン①：外国税額控除を受ける場合（二重課税の取り戻し）
+            </h3>
+            <p style={{ fontSize: '0.95rem', lineHeight: '1.8', color: 'var(--text-main)', margin: 0 }}>
+              米国株の配当金は米国で10%が天引きされ、残りに日本の約20%がかかります。確定申告で「外国税額控除」を申請すると、米国の10%分を取り戻すことができます。
+            </p>
+          </div>
+
+          <div style={{ background: '#fdfefe', border: '1px solid #e5e7e9', borderRadius: '16px', padding: '1.5rem', marginBottom: '2.5rem' }}>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginTop: 0, marginBottom: '0.5rem' }}>
+              パターン②：複数証券会社の損益通算や赤字の3年間繰越
+            </h3>
+            <p style={{ fontSize: '0.95rem', lineHeight: '1.8', color: 'var(--text-main)', margin: 0 }}>
+              「A証券でプラス50万円、B証券でマイナス30万円」のように損益が分かれている場合、確定申告で合算（損益通算）すれば、納め過ぎた税金が還付されます。また、年間で赤字が出た場合、3年間損失を繰り越して翌年以降の利益と相殺できます。
+            </p>
+          </div>
+
+          {/* 6章: 米国株投資で特定口座を使う場合の注意点 */}
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
+            6. 米国株・米国株式投資で特定口座を使う場合の注意点
+          </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+            米国株・米国株式を特定口座で取引する場合、新NISA口座との優先順位を整理しておくことが重要です。
+          </p>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
+            新NISA口座であれば日本の税金（20%）が全額非課税になります。そのため、<strong>まずは「新NISA」の非課税枠（最大1,800万円）を最優先で使い切り、溢れた分やNISA対象外の銘柄投資に「特定口座（源泉あり）」を活用する</strong>のが効率的な資産運用の黄金パターンです。
+          </p>
+
+          {/* 7章: よくある質問（FAQ） */}
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
+            7. 米国株・米国株式の特定口座についてよくある質問（FAQ）
           </h2>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', marginBottom: '3rem' }}>
@@ -316,7 +358,7 @@ export default function TokuteiKozaKnowledgePage() {
         </div>
       </section>
 
-      {/* CTA Section - セミナーへの誘導 */}
+      {/* CTA Section */}
       <section style={{ background: 'var(--bg-warm)', color: 'var(--text-main)', position: 'relative', overflow: 'hidden', textAlign: 'center', padding: 'clamp(3rem, 8vw, 5rem) 0' }}>
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div style={{ maxWidth: '700px', margin: '0 auto' }}>
