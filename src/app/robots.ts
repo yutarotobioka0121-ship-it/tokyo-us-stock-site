@@ -5,7 +5,10 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/privacy', // プライバシーポリシーなどは検索から除外する場合
+      disallow: [
+        '/_next/',     // Next.jsのビルド・ハッシュアセット（woff2フォント, js, css等）をインデックス対象から除外
+        '/privacy',   // プライバシーポリシー
+      ],
     },
     sitemap: 'https://www.tokyo-us-stock.com/sitemap.xml',
   };
