@@ -39,7 +39,7 @@ export default function Footer() {
             <li><Link href="/about">自己紹介</Link></li>
             <li><Link href="/mission">理念</Link></li>
             <li className="footer-dropdown-wrapper">
-              <span className="footer-dropdown-trigger">米国株とは</span>
+              <Link href="/knowledge" className="footer-dropdown-trigger">米国株とは</Link>
               <div className="footer-dropdown">
                 <Link href="/knowledge" className="footer-dropdown-item">米国株とは</Link>
                 <Link href="/knowledge/stock-investment" className="footer-dropdown-item">株式投資とは</Link>

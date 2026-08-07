@@ -35,9 +35,9 @@ export default function Header() {
 
           {/* 知識ドロップダウン */}
           <div className="nav-dropdown-wrapper">
-            <span className="nav-link dropdown-trigger" style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+            <Link href="/knowledge" className="nav-link dropdown-trigger" style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
               米国株とは <ChevronDown size={14} />
-            </span>
+            </Link>
             <div className="nav-dropdown">
               <Link href="/knowledge" className="dropdown-item">米国株とは</Link>
               <Link href="/knowledge/stock-investment" className="dropdown-item">株式投資とは</Link>
