@@ -4,7 +4,7 @@ import { getPosts } from '@/lib/notion';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.tokyo-us-stock.com';
 
-  // 1. 静的ページ
+  // 1. 静的ページおよび固定ブログ記事
   const routes = [
     '',
     '/about',
@@ -21,27 +21,34 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/knowledge/keywords',
     '/knowledge/stock-investment',
     '/knowledge/nisa',
+    '/knowledge/tokutei-koza',
     '/seminar',
     '/seminar/nisa',
     '/seminar/consultation',
     '/blog',
+    '/blog/us-stock-screening-guide',
+    '/blog/us-stock-tokutei-koza-guide',
+    '/blog/us-stock-tax-guide',
+    '/blog/us-stock-kakutei-shinkoku',
+    '/blog/us-stock-gaikoku-zei-kojo',
+    '/blog/nisa-us-stock-tax-free',
     '/apply',
     '/contact',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1 : 0.8,
+    priority: route === '' ? 1 : route.startsWith('/blog/') || route.startsWith('/knowledge/') ? 0.9 : 0.8,
   }));
 
-  // 2. ブログ記事ページをNotionから取得して追加
+  // 2. Notion CMSの動的ブログ記事ページを追加
   try {
     const posts = await getPosts();
     const blogRoutes = posts.map((post) => ({
       url: `${baseUrl}/blog/${post.slug}`,
       lastModified: new Date(post.date),
       changeFrequency: 'monthly' as const,
-      priority: 0.6,
+      priority: 0.7,
     }));
 
     return [...routes, ...blogRoutes];
