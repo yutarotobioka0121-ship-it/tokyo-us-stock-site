@@ -21,6 +21,7 @@ export async function POST(request: Request) {
       name,
       email,
       type: 'お問い合わせ',
+      seminarType: 'お問い合わせ',
       subject: displaySubject,
       message: message || '',
     });

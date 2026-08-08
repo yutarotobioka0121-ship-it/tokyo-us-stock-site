@@ -40,19 +40,25 @@ ${session.location || '都内近郊'}
       }
     }
 
+    const isConsultation = (typeof sessionId === 'string' && sessionId.includes('個別相談')) || data.seminarType === 'マンツーマン個別相談';
+    const isNisa = (typeof sessionId === 'string' && sessionId.includes('NISA初心者セミナー')) || data.seminarType === 'NISA初心者セミナー';
+
+    let notionType = '米国株セミナー';
+    if (isConsultation) {
+      notionType = 'マンツーマン個別相談';
+    } else if (isNisa) {
+      notionType = 'NISA初心者セミナー';
+    }
+
     // Notionへ顧客データを登録
     await addCustomerToNotion({
       name,
       email,
-      type: 'セミナー申込',
+      type: notionType,
+      seminarType: notionType,
       subject: eventString,
       message: message || '',
     });
-
-    // GASへの転送は廃止
-
-    const isConsultation = typeof sessionId === 'string' && sessionId.includes('個別相談');
-    const isNisa = typeof sessionId === 'string' && sessionId.includes('NISA初心者セミナー');
 
     // 3. Send automatic reply email
     const transporter = nodemailer.createTransport({

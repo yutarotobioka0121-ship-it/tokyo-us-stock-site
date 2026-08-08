@@ -18,6 +18,7 @@ export default function ConsultationApplyForm() {
       name: data.name,
       email: data.email,
       event: `個別相談希望 (${data.consultationStyle || '形式未指定'}) [ご希望日時: ${data.preferredDate || '指定なし'}]`,
+      seminarType: 'マンツーマン個別相談',
       message: `【希望スタイル】${data.consultationStyle || '未選択'}\n【希望日時】${data.preferredDate || '指定なし'}\n\n【相談したい内容・メッセージ】\n${data.message || '特になし'}`,
     };
 

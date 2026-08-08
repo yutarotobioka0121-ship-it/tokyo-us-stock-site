@@ -20,13 +20,10 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
     
-    const gasUrl = process.env.NEXT_PUBLIC_GAS_URL;
-    
-    if (!gasUrl) {
-      console.error('GAS URL is not configured');
-      setStatus('error');
-      return;
-    }
+    const payload = {
+      ...data,
+      seminarType: '米国株セミナー',
+    };
 
     try {
       const response = await fetch('/api/apply', {
@@ -34,7 +31,7 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {

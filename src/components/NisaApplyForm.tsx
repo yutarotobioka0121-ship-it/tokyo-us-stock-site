@@ -39,6 +39,7 @@ export default function NisaApplyForm({ sessions, selectedSessionId }: NisaApply
       name: data.name,
       email: data.email,
       event: eventName,
+      seminarType: 'NISA初心者セミナー',
       message: data.message ? String(data.message) : '',
     };
 
