@@ -55,7 +55,6 @@ ${session.location || '都内近郊'}
       name,
       email,
       type: notionType,
-      seminarType: notionType,
       subject: eventString,
       message: message || '',
     });

@@ -156,7 +156,6 @@ export async function addCustomerToNotion(data: {
   name: string;
   email: string;
   type: string;
-  seminarType?: string;
   subject: string;
   message: string;
 }) {
@@ -166,72 +165,50 @@ export async function addCustomerToNotion(data: {
     return null;
   }
 
-  const seminarTypeValue = data.seminarType || data.type;
-
-  const baseProperties: Record<string, any> = {
-    'お名前': {
-      title: [
-        {
-          text: {
-            content: data.name,
-          },
-        },
-      ],
-    },
-    'メールアドレス': {
-      email: data.email,
-    },
-    '種別': {
-      select: {
-        name: data.type,
-      },
-    },
-    '希望日程・件名': {
-      rich_text: [
-        {
-          text: {
-            content: data.subject,
-          },
-        },
-      ],
-    },
-    'メッセージ': {
-      rich_text: [
-        {
-          text: {
-            content: data.message.substring(0, 2000), // Notion has a 2000 char limit per text block
-          },
-        },
-      ],
-    },
-  };
-
-  // 勉強会の種別プロパティを含めた登録を試行
   try {
     const response = await notion.pages.create({
       parent: { database_id: CUSTOMER_DB_ID },
       properties: {
-        ...baseProperties,
-        '勉強会の種別': {
+        'お名前': {
+          title: [
+            {
+              text: {
+                content: data.name,
+              },
+            },
+          ],
+        },
+        'メールアドレス': {
+          email: data.email,
+        },
+        '種別': {
           select: {
-            name: seminarTypeValue,
+            name: data.type,
           },
+        },
+        '希望日程・件名': {
+          rich_text: [
+            {
+              text: {
+                content: data.subject,
+              },
+            },
+          ],
+        },
+        'メッセージ': {
+          rich_text: [
+            {
+              text: {
+                content: data.message.substring(0, 2000), // Notion has a 2000 char limit per text block
+              },
+            },
+          ],
         },
       },
     });
     return response;
   } catch (error) {
-    // もしNotion DBに「勉強会の種別」プロパティが作成されていない場合、ベースプロパティのみで登録
-    console.warn('Failed with "勉強会の種別" property, falling back to base properties:', error);
-    try {
-      const fallbackResponse = await notion.pages.create({
-        parent: { database_id: CUSTOMER_DB_ID },
-        properties: baseProperties,
-      });
-      return fallbackResponse;
-    } catch (fallbackError) {
-      console.error('Failed to add customer to Notion:', fallbackError);
-      return null;
-    }
+    console.error('Failed to add customer to Notion:', error);
+    return null;
   }
 }
