@@ -88,58 +88,154 @@ export default async function CashflowGamePage() {
       </section>
 
       {/* Schedule Section */}
-      <section id="schedule" className="schedule-section" style={{ background: 'white', padding: '5rem 0' }}>
-        <div className="container" style={{ maxWidth: '900px' }}>
-          <div className="section-header text-center" style={{ marginBottom: '3rem' }}>
-            <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '1rem', color: 'var(--primary-dark)' }}>開催日程・場所</h2>
-            <p className="section-subtitle" style={{ color: 'var(--text-muted)' }}>
-              ご都合の良い日程を選んでお申し込みください。<br />※各回定員に達し次第、締め切らせていただきます。
+      <section id="schedule" className="schedule-section" style={{ background: 'white', padding: '2rem 0 1.5rem 0' }}>
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">開催スケジュール</h2>
+            <p className="section-subtitle">
+              次回の開催日程はこちらです。<br className="sp-hide" />少人数制のため、お早めにお申し込みください。
             </p>
           </div>
 
-          <div className="schedule-list" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            {schedule && schedule.length > 0 ? (
-              schedule.map((event) => (
-                <div key={event.id} style={{ background: 'white', borderRadius: '16px', padding: '1.5rem 2rem', boxShadow: 'var(--shadow-soft)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem', border: event.status === 'open' ? '2px solid transparent' : '2px solid transparent', transition: 'var(--transition)' }}>
-                  
-                  <div style={{ flex: '1 1 300px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
-                      <h3 style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--primary-dark)', margin: 0 }}>{event.date}</h3>
-                      {event.status === 'open' ? (
-                        <span className="badge" style={{ background: 'var(--primary)', color: 'white', padding: '4px 12px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 'bold' }}>募集中</span>
-                      ) : event.status === 'full' ? (
-                        <span className="badge" style={{ background: '#fee2e2', color: '#b91c1c', padding: '4px 12px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 'bold' }}>満席</span>
+          {/* Desktop schedule table */}
+          <div className="schedule-table-container schedule-desktop-only" style={{ width: '100%', overflowX: 'auto', WebkitOverflowScrolling: 'touch' as any, paddingBottom: '1rem' }}>
+            <table className="schedule-table" style={{ width: '100%', minWidth: '700px', borderCollapse: 'collapse', textAlign: 'center', background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', margin: '0 auto' }}>
+              <thead style={{ background: 'var(--primary)', color: 'white' }}>
+                <tr>
+                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>開催日</th>
+                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>開催時間</th>
+                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>開催場所</th>
+                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>参加費</th>
+                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>定員</th>
+                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>お申し込み</th>
+                </tr>
+              </thead>
+              <tbody>
+                {schedule && schedule.length > 0 ? (
+                  schedule.map((event, index) => {
+                    const isFull = event.status === 'full';
+                    const isEnded = event.status === 'closed';
+
+                    return (
+                      <tr key={event.id} style={{ borderBottom: index === schedule.length - 1 ? 'none' : '1px solid var(--border)', background: isEnded ? '#f9fafb' : 'white', opacity: isEnded ? 0.6 : 1 }}>
+                        <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary-dark)', wordBreak: 'keep-all' }}>{event.date}</td>
+                        <td style={{ padding: '1.2rem 0.5rem', fontWeight: '700', wordBreak: 'keep-all' }}>{event.time}</td>
+                        <td style={{ padding: '1.2rem 0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>{event.location}</td>
+                        <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary)' }}>{event.fee}</td>
+                        <td style={{ padding: '1.2rem 0.5rem', color: 'var(--text-muted)' }}>{event.capacity}名</td>
+                        <td style={{ padding: '1.2rem 0.5rem' }}>
+                          {isEnded ? (
+                            <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', background: '#f3f4f6', color: '#9ca3af', borderColor: '#d1d5db', whiteSpace: 'nowrap' }}>
+                              受付終了
+                            </button>
+                          ) : isFull ? (
+                            <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', opacity: 0.5, whiteSpace: 'nowrap' }}>
+                              満席
+                            </button>
+                          ) : (
+                            <a href="#apply" className="btn btn-primary" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', whiteSpace: 'nowrap', justifyContent: 'center', display: 'inline-flex', textDecoration: 'none' }}>
+                              申し込み
+                            </a>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })
+                ) : (
+                  <tr>
+                    <td colSpan={6} style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-muted)' }}>
+                      現在、予定されているイベントはありません。
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Mobile schedule cards */}
+          <div className="schedule-mobile-only">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              {schedule && schedule.length > 0 ? (
+                schedule.map((event) => {
+                  const isFull = event.status === 'full';
+                  const isEnded = event.status === 'closed';
+
+                  return (
+                    <div
+                      key={event.id}
+                      className="glass-card"
+                      style={{
+                        padding: '1.5rem',
+                        borderRadius: '16px',
+                        border: '1px solid rgba(176, 58, 46, 0.15)',
+                        background: isEnded ? '#f9fafb' : 'white',
+                        opacity: isEnded ? 0.7 : 1,
+                        boxShadow: 'var(--shadow-soft)',
+                        textAlign: 'left'
+                      }}
+                    >
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
+                        <span className="badge badge-type" style={{ fontSize: '0.8rem', padding: '0.3rem 0.8rem', background: 'var(--primary)', color: 'white', borderRadius: '20px', fontWeight: '800' }}>
+                          対面開催
+                        </span>
+                        {isEnded ? (
+                          <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: '700' }}>受付終了</span>
+                        ) : isFull ? (
+                          <span style={{ fontSize: '0.85rem', color: 'var(--primary)', fontWeight: '700' }}>満席</span>
+                        ) : (
+                          <span style={{ fontSize: '0.85rem', color: 'var(--accent)', fontWeight: '700' }}>受付中</span>
+                        )}
+                      </div>
+
+                      <h3 style={{ fontSize: '1.3rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', fontFamily: 'var(--font-serif)' }}>
+                        {event.date}
+                      </h3>
+
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
+                        <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
+                          <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '60px' }}>時間：</span>
+                          <span>{event.time}</span>
+                        </div>
+                        <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
+                          <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '60px' }}>場所：</span>
+                          <span style={{ color: 'var(--text-muted)' }}>{event.location}</span>
+                        </div>
+                        <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
+                          <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '60px' }}>参加費：</span>
+                          <span style={{ fontWeight: '800', color: 'var(--primary)' }}>{event.fee}</span>
+                        </div>
+                        <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
+                          <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '60px' }}>定員：</span>
+                          <span>{event.capacity}名</span>
+                        </div>
+                      </div>
+
+                      {isEnded ? (
+                        <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.8rem', fontSize: '0.95rem', background: '#f3f4f6', color: '#9ca3af', borderColor: '#d1d5db', justifyContent: 'center' }}>
+                          受付終了
+                        </button>
+                      ) : isFull ? (
+                        <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.8rem', fontSize: '0.95rem', opacity: 0.5, justifyContent: 'center' }}>
+                          満席
+                        </button>
                       ) : (
-                        <span className="badge" style={{ background: '#e5e7eb', color: '#4b5563', padding: '4px 12px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: 'bold' }}>受付終了</span>
+                        <a href="#apply" className="btn btn-primary" style={{ width: '100%', padding: '0.8rem', fontSize: '0.95rem', justifyContent: 'center', fontWeight: '800', display: 'inline-flex', textDecoration: 'none' }}>
+                          申し込み
+                        </a>
                       )}
                     </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', color: 'var(--text-main)', fontSize: '0.95rem' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><BookOpen size={16} /> <span>{event.time}</span></div>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><MapPin size={16} /> <span>{event.location}</span></div>
-                    </div>
-                  </div>
-
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', flex: '1 1 200px', padding: '1rem', background: 'var(--bg-warm)', borderRadius: '12px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem' }}>
-                      <span style={{ color: 'var(--text-muted)' }}>参加費:</span>
-                      <strong style={{ color: 'var(--primary-dark)' }}>{event.fee}</strong>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem' }}>
-                      <span style={{ color: 'var(--text-muted)' }}>定員:</span>
-                      <strong style={{ color: 'var(--primary-dark)' }}>{event.capacity}名</strong>
-                    </div>
-                  </div>
-
+                  );
+                })
+              ) : (
+                <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', color: 'var(--text-muted)' }}>
+                  現在、予定されているイベントはありません。
                 </div>
-              ))
-            ) : (
-              <div style={{ textAlign: 'center', padding: '3rem', background: 'white', borderRadius: '16px', color: 'var(--text-muted)' }}>
-                現在、予定されている開催日程はありません。<br />次回開催のお知らせをお待ちください。
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </section>
+
 
       {/* Details Sections based on Jimdo LP */}
       <section style={{ background: 'var(--bg-light)', padding: '4rem 0 2rem 0' }}>
