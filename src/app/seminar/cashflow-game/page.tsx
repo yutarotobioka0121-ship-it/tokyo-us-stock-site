@@ -292,7 +292,7 @@ export default async function CashflowGamePage() {
           <div className="glass-card" style={{ padding: '1.5rem' }}>
             <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【参加費】</h3>
             <p style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--primary)', margin: 0, marginTop: '0.5rem' }}>
-              2,000円
+              1,000円
             </p>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: 0, marginTop: '0.3rem', lineHeight: '1.8' }}>
               ※会場や日程により異なる場合があります。詳細は開催日程一覧をご確認ください。
@@ -303,7 +303,7 @@ export default async function CashflowGamePage() {
           <div className="glass-card" style={{ padding: '1.5rem' }}>
             <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【定員】</h3>
             <p style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--text-main)', margin: 0, marginTop: '0.5rem' }}>
-              各回 4 名〜8名
+              各回 3 名〜5名
             </p>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: 0, marginTop: '0.3rem', lineHeight: '1.8' }}>
               ※少人数制のため、質問がしやすい環境です
