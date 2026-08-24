@@ -54,6 +54,7 @@ export default function Header() {
               <Link href="/seminar" className="dropdown-item">米国株式セミナー</Link>
               <Link href="/seminar/nisa" className="dropdown-item">NISA初心者セミナー</Link>
               <Link href="/seminar/consultation" className="dropdown-item">マンツーマン個別相談</Link>
+              <Link href="/seminar/cashflow-game" className="dropdown-item">キャッシュフローゲーム会</Link>
             </div>
           </div>
 
@@ -86,6 +87,7 @@ export default function Header() {
             <Link href="/seminar" className="nav-link" onClick={() => setIsOpen(false)} style={{ paddingLeft: '0.75rem', fontSize: '0.95rem' }}>米国株式セミナー</Link>
             <Link href="/seminar/nisa" className="nav-link" onClick={() => setIsOpen(false)} style={{ paddingLeft: '0.75rem', fontSize: '0.95rem' }}>NISA初心者セミナー</Link>
             <Link href="/seminar/consultation" className="nav-link" onClick={() => setIsOpen(false)} style={{ paddingLeft: '0.75rem', fontSize: '0.95rem' }}>マンツーマン個別相談</Link>
+            <Link href="/seminar/cashflow-game" className="nav-link" onClick={() => setIsOpen(false)} style={{ paddingLeft: '0.75rem', fontSize: '0.95rem' }}>キャッシュフローゲーム会</Link>
           </div>
 
           <Link href="/blog" className="nav-link" onClick={() => setIsOpen(false)}>ブログ</Link>

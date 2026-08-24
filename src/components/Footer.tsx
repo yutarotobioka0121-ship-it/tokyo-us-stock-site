@@ -46,7 +46,15 @@ export default function Footer() {
                 <Link href="/knowledge/nisa" className="footer-dropdown-item">NISAとは</Link>
               </div>
             </li>
-            <li><Link href="/seminar">セミナー</Link></li>
+            <li className="footer-dropdown-wrapper">
+              <Link href="/seminar" className="footer-dropdown-trigger">セミナー</Link>
+              <div className="footer-dropdown">
+                <Link href="/seminar" className="footer-dropdown-item">米国株式セミナー</Link>
+                <Link href="/seminar/nisa" className="footer-dropdown-item">NISA初心者セミナー</Link>
+                <Link href="/seminar/consultation" className="footer-dropdown-item">マンツーマン個別相談</Link>
+                <Link href="/seminar/cashflow-game" className="footer-dropdown-item">キャッシュフローゲーム会</Link>
+              </div>
+            </li>
             <li><Link href="/blog">ブログ</Link></li>
           </ul>
         </div>

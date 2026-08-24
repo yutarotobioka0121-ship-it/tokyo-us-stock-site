@@ -159,9 +159,9 @@ export async function addCustomerToNotion(data: {
   subject: string;
   message: string;
 }) {
-  const CUSTOMER_DB_ID = process.env.NOTION_CUSTOMER_DB_ID;
+  const CUSTOMER_DB_ID = process.env.NOTION_CUSTOMER_DB_ID || process.env.NOTION_DATABASE_ID;
   if (!CUSTOMER_DB_ID) {
-    console.warn('NOTION_CUSTOMER_DB_ID is not configured. Customer will not be saved to Notion.');
+    console.warn('NOTION_CUSTOMER_DB_ID or NOTION_DATABASE_ID is not configured. Customer will not be saved to Notion.');
     return null;
   }
 
