@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Image from "next/image";
 import { getCFGSchedule, CFGEvent } from "@/lib/microcms";
 import CfgApplyForm from "@/components/CfgApplyForm";
-import { MapPin, Target, BookOpen, Target as TargetIcon, CheckCircle2, Users } from "lucide-react";
+import { MapPin, Target, BookOpen } from "lucide-react";
 
 export const metadata: Metadata = {
   title: 'キャッシュフローゲーム会 | 東京米国株クラブ',
@@ -87,117 +87,6 @@ export default async function CashflowGamePage() {
         </div>
       </section>
 
-      {/* Target Audience Section (こんなお悩みありませんか？) */}
-      <section style={{ background: 'var(--bg-light)', padding: '5rem 0' }}>
-        <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <div className="text-center" style={{ marginBottom: '3rem' }}>
-            <span className="featured-tag">対象となる方</span>
-            <h2 className="section-title" style={{ fontSize: '1.8rem', color: 'var(--primary-dark)', marginTop: '1rem' }}>こんなお悩みありませんか？</h2>
-          </div>
-          
-          <div className="glass-card" style={{ padding: '2.5rem 2rem', borderRadius: '24px', borderTop: '4px solid var(--primary)' }}>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <li style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <CheckCircle2 size={24} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '2px' }} />
-                <span style={{ fontSize: '1.1rem', color: 'var(--text-main)', fontWeight: '700', lineHeight: '1.6' }}>投資に興味はあるけれど、難しそうで何から手をつければいいかわからない</span>
-              </li>
-              <li style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <CheckCircle2 size={24} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '2px' }} />
-                <span style={{ fontSize: '1.1rem', color: 'var(--text-main)', fontWeight: '700', lineHeight: '1.6' }}>いきなり自分のお金で投資を始めるのはリスクが怖くて踏み出せない</span>
-              </li>
-              <li style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <CheckCircle2 size={24} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '2px' }} />
-                <span style={{ fontSize: '1.1rem', color: 'var(--text-main)', fontWeight: '700', lineHeight: '1.6' }}>『金持ち父さん 貧乏父さん』を読んで感銘を受けたが、どう行動していいか迷っている</span>
-              </li>
-              <li style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                <CheckCircle2 size={24} style={{ color: 'var(--primary)', flexShrink: 0, marginTop: '2px' }} />
-                <span style={{ fontSize: '1.1rem', color: 'var(--text-main)', fontWeight: '700', lineHeight: '1.6' }}>同じように投資や資産形成を真剣に考えている仲間と交流したい</span>
-              </li>
-            </ul>
-            <div style={{ marginTop: '2.5rem', padding: '1.5rem', background: 'var(--bg-warm)', borderRadius: '12px', textAlign: 'center' }}>
-              <p style={{ margin: 0, fontSize: '1.05rem', color: 'var(--primary-dark)', fontWeight: '800', lineHeight: '1.6' }}>
-                キャッシュフローゲーム会は、まさに<br className="sp-hide" />そんなあなたのための実践的なシミュレーションの場です！
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section (当ゲーム会が選ばれる理由) */}
-      <section style={{ background: 'white', padding: '5rem 0', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
-        <div className="container" style={{ maxWidth: '860px', margin: '0 auto' }}>
-          <div className="text-center" style={{ marginBottom: '3rem' }}>
-            <span className="featured-tag">このゲーム会で得られること</span>
-            <h2 className="section-title" style={{ fontSize: '1.8rem', color: 'var(--primary-dark)', marginTop: '1rem' }}>
-              単なるゲームではなく、<br className="sp-hide" />現実の投資スキルに直結する体験を。
-            </h2>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
-            <div style={{ background: 'var(--bg-warm)', borderRadius: '20px', padding: '2rem 1.75rem', border: '1px solid rgba(176,58,46,0.12)' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
-                <TargetIcon size={24} style={{ color: 'white' }} />
-              </div>
-              <h3 style={{ fontSize: '1.15rem', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.75rem', lineHeight: '1.5' }}>
-                現役投資家による<br />リアルなフィードバック
-              </h3>
-              <p style={{ fontSize: '0.975rem', color: 'var(--text-main)', lineHeight: '1.85', margin: 0 }}>
-                ゲームをプレイするだけでなく、現在も自分の資金で運用を行っている現役の個人投資家がファシリテーターを務めます。ゲーム内の出来事を「現実世界ではどうなるか？」に落とし込んで解説します。
-              </p>
-            </div>
-
-            <div style={{ background: 'linear-gradient(135deg, var(--primary-dark) 0%, #c0392b 100%)', borderRadius: '20px', padding: '2rem 1.75rem' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(255,255,255,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.25rem' }}>
-                <Users size={24} style={{ color: 'white' }} />
-              </div>
-              <h3 style={{ fontSize: '1.15rem', fontWeight: '900', color: 'white', marginBottom: '0.75rem', lineHeight: '1.5' }}>
-                楽しく学び合う<br />ポジティブなコミュニティ
-              </h3>
-              <p style={{ fontSize: '0.975rem', color: 'rgba(255,255,255,0.88)', lineHeight: '1.85', margin: 0 }}>
-                参加者の多くは、これから投資を始めたいと考えている初心者の方々です。お互いに相談したり、ゲーム中の気づきをシェアしたりと、和気あいあいとした雰囲気の中で学びを深めることができます。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Instructor Section (主催・講師) */}
-      <section style={{ background: 'var(--bg-light)', padding: '5rem 0' }}>
-        <div className="container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-          <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.5rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【ファシリテーター・主催】</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '0.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
-                <div style={{ width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden', border: '3px solid var(--primary)', boxShadow: 'var(--shadow-soft)' }}>
-                  <Image
-                    src="/profile.png"
-                    alt="講師 トビー"
-                    width={100}
-                    height={100}
-                    style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-                  />
-                </div>
-                <div>
-                  <p style={{ fontSize: '1.1rem', color: 'var(--text-main)', margin: 0, fontWeight: '700' }}>
-                    トビー
-                  </p>
-                  <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', margin: 0, fontWeight: '600', marginTop: '0.2rem' }}>
-                    サラリーマン ／ 事業主 ／ 個人投資家
-                  </p>
-                </div>
-              </div>
-              <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.8', fontWeight: '500' }}>
-                <li>・2020年に投資をスタート、当初は数十万円の損失を出す失敗を経験</li>
-                <li>・その後、投資を基礎から真剣に学び直し、長期投資の本質を習得</li>
-                <li>・現在の投資成績は1300%以上（投資歴5年）</li>
-                <li>・サラリーマンと事業を並行しながら、1日の投資時間は平均1時間未満</li>
-                <li>・「投資で痛い思いをする人を一人でも減らしたい」との想いから初心者向けに発信・教育活動中</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Schedule Section */}
       <section id="schedule" className="schedule-section" style={{ background: 'white', padding: '5rem 0' }}>
         <div className="container" style={{ maxWidth: '900px' }}>
@@ -248,6 +137,81 @@ export default async function CashflowGamePage() {
                 現在、予定されている開催日程はありません。<br />次回開催のお知らせをお待ちください。
               </div>
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* Details Sections based on Jimdo LP */}
+      <section style={{ background: 'var(--bg-light)', padding: '4rem 0 2rem 0' }}>
+        <div className="container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          
+          {/* 1. 主催・講師 */}
+          <div className="glass-card" style={{ padding: '1.5rem' }}>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【主催・ファシリテーター】</h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '1rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+                <div style={{ width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden', border: '3px solid var(--primary)', boxShadow: 'var(--shadow-soft)' }}>
+                  <Image
+                    src="/profile.png"
+                    alt="講師 トビー"
+                    width={100}
+                    height={100}
+                    style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                  />
+                </div>
+                <div>
+                  <p style={{ fontSize: '1.1rem', color: 'var(--text-main)', margin: 0, fontWeight: '700' }}>
+                    トビー
+                  </p>
+                  <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', margin: 0, fontWeight: '600', marginTop: '0.2rem' }}>
+                    サラリーマン ／ 事業主 ／ 個人投資家
+                  </p>
+                </div>
+              </div>
+              <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.8', fontWeight: '500' }}>
+                <li>・2020年に投資をスタート、当初は数十万円の損失を出す失敗を経験</li>
+                <li>・その後、投資を基礎から真剣に学び直し、長期投資の本質を習得</li>
+                <li>・現在の投資成績は1300%以上（投資歴5年）</li>
+                <li>・サラリーマンと事業を並行しながら、1日の投資時間は平均1時間未満</li>
+                <li>・「投資で痛い思いをする人を一人でも減らしたい」との想いから初心者向けに発信・教育活動中</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* 2. 会場情報 */}
+          <div className="glass-card" style={{ padding: '1.5rem' }}>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【会場情報】</h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', marginTop: '0.5rem' }}>
+              <div>
+                <h4 style={{ fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.4rem' }}>● リアル会場（対面）</h4>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: 0, paddingLeft: '0.5rem', lineHeight: '1.8' }}>
+                  都内近郊の会議室等にて開催いたします。<br />
+                  ※お申込み完了後、詳細な開催場所をメールにてご連絡いたします。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 3. 参加費 */}
+          <div className="glass-card" style={{ padding: '1.5rem' }}>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【参加費】</h3>
+            <p style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--primary)', margin: 0, marginTop: '0.5rem' }}>
+              2,000円
+            </p>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: 0, marginTop: '0.3rem', lineHeight: '1.8' }}>
+              ※会場や日程により異なる場合があります。詳細は開催日程一覧をご確認ください。
+            </p>
+          </div>
+
+          {/* 4. 定員 */}
+          <div className="glass-card" style={{ padding: '1.5rem' }}>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【定員】</h3>
+            <p style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--text-main)', margin: 0, marginTop: '0.5rem' }}>
+              各回 4 名〜8名
+            </p>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: 0, marginTop: '0.3rem', lineHeight: '1.8' }}>
+              ※少人数制のため、質問がしやすい環境です
+            </p>
           </div>
         </div>
       </section>
