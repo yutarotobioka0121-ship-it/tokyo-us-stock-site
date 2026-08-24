@@ -35,7 +35,7 @@ export default async function CashflowGamePage() {
           </p>
           <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '900px', margin: '0 auto', aspectRatio: '21/9', position: 'relative' }}>
             <Image
-              src="/images/cfg/hero-bg.png"
+              src="/images/cfg/cfg-hero.jpg"
               alt="キャッシュフローゲーム会の様子"
               fill
               style={{ objectFit: 'cover' }}
