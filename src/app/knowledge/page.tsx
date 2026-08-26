@@ -80,9 +80,37 @@ export default function KnowledgePage() {
     ],
   };
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: '米国株（米国株式）とは？5つの大きな特徴や日本株との違い・始め方を徹底解説',
+    description: '初心者向けに米国株（米国株式）とは何か、5つの大きな特徴やメリット、日本株との比較、代表セクター、3大指数（S&P500・NYダウ・ナスダック）、1株購入・年4回配当・新NISA活用からリスク対策・FAQまで完全網羅。',
+    image: 'https://www.tokyo-us-stock.com/ogp.png',
+    author: {
+      '@type': 'Organization',
+      name: '東京米国株クラブ',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: '東京米国株クラブ',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.tokyo-us-stock.com/logo.png',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': 'https://www.tokyo-us-stock.com/knowledge',
+    },
+  };
+
   return (
     <div className="knowledge-page" style={{ overflowWrap: 'break-word' }}>
-      {/* JSON-LD FAQPage Schema */}
+      {/* JSON-LD Schemas */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -141,8 +169,8 @@ export default function KnowledgePage() {
               <h3 style={{ fontSize: '1.15rem', fontWeight: '900', color: 'var(--primary-dark)', margin: '0 0 0.5rem 0' }}>
                 ① 世界最大の株式市場（全世界の時価総額シェア約60%）
               </h3>
-              <p style={{ fontSize: '0.975rem', lineHeight: '1.8', margin: 0, color: 'var(--text-main)' }}>
-                全世界の株式市場の合計時価総額のうち、アメリカ市場だけで約60%を占めます。日本市場（約5%前後）と比較しても桁違いの規模を誇り、世界中から巨額の投資資金と最優秀な頭脳が集中しています。
+              <p style={{ fontSize: '1rem', lineHeight: '1.8', margin: 0, color: 'var(--text-main)' }}>
+                米国株（米国株式）市場の最大の特徴は、その圧倒的な規模と流動性の高さにあります。全世界の株式市場の合計時価総額のうち、アメリカの株式市場だけで約60%という驚異的なシェアを占めています。対して、日本市場のシェアはわずか5%前後に過ぎません。この圧倒的な規模の違いは、投資家にとって非常に大きな意味を持ちます。市場規模が大きいということは、世界中から巨額の投資資金が集まるだけでなく、最も優秀な人材や最先端のテクノロジー企業が米国市場を目指して上場することを意味します。例えば、AI（人工知能）、クラウドコンピューティング、バイオテクノロジーなどの次世代を担うイノベーションは、ほとんどが米国企業から生まれています。また、取引参加者が世界中に存在するため、「流動性」が極めて高く、買いたい時に買い、売りたい時に売ることができるという安心感もあります。機関投資家から個人投資家まで、あらゆる層が参加する米国市場は、まさに世界の経済成長のエンジンそのものと言えるでしょう。この巨大でダイナミックな市場に直接投資できることこそが、米国株（米国株式）の最大の魅力です。
               </p>
             </div>
 
@@ -150,8 +178,8 @@ export default function KnowledgePage() {
               <h3 style={{ fontSize: '1.15rem', fontWeight: '900', color: 'var(--primary-dark)', margin: '0 0 0.5rem 0' }}>
                 ② 株主還元（配当金増額・自社株買い）の意識が世界一高い
               </h3>
-              <p style={{ fontSize: '0.975rem', lineHeight: '1.8', margin: 0, color: 'var(--text-main)' }}>
-                アメリカの企業経営者は「株主価値の最大化」が命題とされており、25年以上連続して配当金を増やし続ける「配当貴族」企業が100社以上、50年以上連続増配の「配当王」も多数存在します。
+              <p style={{ fontSize: '1rem', lineHeight: '1.8', margin: 0, color: 'var(--text-main)' }}>
+                アメリカの企業経営において最も重要視されているのが「株主価値の最大化」です。米国の経営者は、利益を社内にため込むのではなく、配当金の支払いや自社株買いを通じて積極的に株主に還元することが求められます。実際、経営陣の報酬の多くは自社の株価パフォーマンスと連動しているため、彼らは株価を上げ、株主に利益をもたらすことに非常に強いインセンティブを持っています。この株主第一主義を象徴するのが「配当貴族」や「配当王」と呼ばれる企業群です。米国株（米国株式）市場には、25年以上連続して配当金を増やし続けている「配当貴族」が100社以上存在し、さらに50年以上連続増配の「配当王」も多数存在します。これに対し、日本企業で長期連続増配を行っている企業は極めて少数です。また、配当だけでなく「自社株買い」も頻繁に行われます。企業が自らの利益で市場から自社の株式を買い戻すことで、発行済株式総数が減少し、1株あたりの価値（利益）が向上するため、結果的に株価の上昇に直結します。このように、配当と自社株買いの両輪で投資家に報いる姿勢こそが、米国株の大きな特徴です。
               </p>
             </div>
 
@@ -159,8 +187,8 @@ export default function KnowledgePage() {
               <h3 style={{ fontSize: '1.15rem', fontWeight: '900', color: 'var(--primary-dark)', margin: '0 0 0.5rem 0' }}>
                 ③ 1株単位から少額で購入でき、分散投資が簡単
               </h3>
-              <p style={{ fontSize: '0.975rem', lineHeight: '1.8', margin: 0, color: 'var(--text-main)' }}>
-                1株数千円〜数万円で買えるため、少額から複数の優良企業に資金を分散して購入できます。初心者でも大きなリスクを取らずに自分だけのポートフォリオを構築できます。
+              <p style={{ fontSize: '1rem', lineHeight: '1.8', margin: 0, color: 'var(--text-main)' }}>
+                投資を始める際のハードルの低さも、米国株（米国株式）の大きな特徴です。日本株の場合、原則として「100株単位（単元株）」での取引となるため、有名企業の株を購入しようとすると、数十万円から数百万円といったまとまった初期資金が必要になるケースがほとんどです。これでは、資金の少ない初心者が複数の銘柄に分散投資することは困難です。しかし、米国株（米国株式）はすべての銘柄が「1株単位」から自由に購入可能です。AppleやMicrosoft、Amazonといった世界を代表する超巨大企業であっても、数千円から数万円という非常に少額から株主になることができます。この「1株から買える」という仕組みのおかげで、少額の資金でもIT、ヘルスケア、消費財など異なるセクターの企業を少しずつ買い集め、自分だけのリスク分散されたポートフォリオを簡単に構築することができます。毎月のお小遣いの範囲でコツコツと優良企業の株を買い増していくスタイルが可能になるため、時間を味方につけた長期投資を無理なく実践できるのは、初心者にとって非常に大きなメリットと言えるでしょう。
               </p>
             </div>
 
@@ -168,8 +196,8 @@ export default function KnowledgePage() {
               <h3 style={{ fontSize: '1.15rem', fontWeight: '900', color: 'var(--primary-dark)', margin: '0 0 0.5rem 0' }}>
                 ④ S&P500など長期で最高値を更新し続ける最強の代表指数がある
               </h3>
-              <p style={{ fontSize: '0.975rem', lineHeight: '1.8', margin: 0, color: 'var(--text-main)' }}>
-                米国を代表する優良500社で構成される「S&P500」や、ハイテク・イノベーション企業が集まる「ナスダック100」など、長期で保有するだけで資産が増えてきた歴史ある指数に簡単に投資できます。
+              <p style={{ fontSize: '1rem', lineHeight: '1.8', margin: 0, color: 'var(--text-main)' }}>
+                米国株（米国株式）市場には、長期投資の王道と呼ばれる優れた株価指数が存在します。その筆頭が「S&P500（エスアンドピー500）」です。S&P500は、米国の主要産業を代表する優良企業500社で構成されており、米国株式市場全体の時価総額の約80%をカバーしています。驚くべきことに、S&P500は過去数十年にわたり、ITバブルの崩壊、リーマンショック、コロナショックなど幾多の歴史的な大暴落を経験しながらも、その都度力強く回復し、長期的な視点では常に過去最高値を更新し続けてきました。この強さの秘密は、指数の構成銘柄が定期的に入れ替えられる「新陳代謝」の仕組みにあります。成長が鈍化した企業は指数から外され、代わりに急成長を遂げている新たな企業が組み込まれるため、常に時代を牽引する最強の500社パックが維持されるのです。個別株の選定が難しい初心者でも、このS&P500に連動するインデックスファンドを一本購入するだけで、米国経済全体の成長の恩恵を丸ごと享受できます。その他にも、ハイテク企業中心の「ナスダック100」など、投資家の目的を満たす魅力的な指数が豊富に揃っています。
               </p>
             </div>
 
@@ -177,15 +205,66 @@ export default function KnowledgePage() {
               <h3 style={{ fontSize: '1.15rem', fontWeight: '900', color: 'var(--primary-dark)', margin: '0 0 0.5rem 0' }}>
                 ⑤ 日本の「新NISA」制度を使って非課税で運用できる
               </h3>
-              <p style={{ fontSize: '0.975rem', lineHeight: '1.8', margin: 0, color: 'var(--text-main)' }}>
-                新NISA（つみたて投資枠・成長投資枠）を活用することで、米国株インデックスファンドの運用益や個別の米国株で得た利益（国内分約20%）を全額非課税で受け取ることができます。
+              <p style={{ fontSize: '1rem', lineHeight: '1.8', margin: 0, color: 'var(--text-main)' }}>
+                米国株（米国株式）投資を行う上で、日本の個人投資家にとって最大の追い風となっているのが「新NISA」制度の存在です。通常、株式投資で得た利益（値上がり益や配当金）には日本国内で約20.315%の税金がかかります。しかし、新NISA口座を通じて投資を行えば、これらの利益に対する国内の税金が完全に非課税（ゼロ）となります。新NISAには、毎月定額を積み立てる「つみたて投資枠」（年間120万円まで）と、一括投資や個別株も買える「成長投資枠」（年間240万円まで）があり、生涯で最大1,800万円まで非課税で運用可能です。例えば、米国株のインデックスファンドをつみたて投資枠で長期運用し、大きく成長した資産を老後に引き出す際にも、利益をまるまる受け取ることができます。また、成長投資枠を使って米国の高配当個別株を購入し、非課税で配当金を受け取り続ける戦略も人気です。（※ただし、米国株の配当金に対しては米国現地で10%の源泉徴収がされる点には注意が必要です。詳しくは<Link href="/knowledge/tax" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>米国株の税金ガイド</Link>をご参照ください）。このように、米国株の強力な成長力と新NISAの非課税メリットを掛け合わせることで、極めて効率的な資産形成が可能になります。
               </p>
             </div>
           </div>
 
-          {/* 3章: 米国株と日本株の比較表 */}
+          {/* 3章: 米国株（米国株式）の特徴まとめ */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            3. 米国株と日本株の比較表
+            3. 米国株（米国株式）の特徴まとめ
+          </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+            米国株（米国株式）がなぜ世界中の投資家から選ばれ続けているのか、その特徴とは何なのかを分かりやすくまとめました。
+          </p>
+          <div style={{ background: '#fdfefe', border: '1px solid rgba(176,58,46,0.15)', borderRadius: '14px', padding: '1.5rem', marginBottom: '2.5rem' }}>
+            <ul style={{ lineHeight: '1.9', color: 'var(--text-main)', paddingLeft: '1.2rem', marginBottom: 0 }}>
+              <li style={{ marginBottom: '0.8rem' }}><strong>世界最大の市場規模：</strong>世界中の投資マネーが集まり、流動性が極めて高い。イノベーションの震源地。</li>
+              <li style={{ marginBottom: '0.8rem' }}><strong>圧倒的な株主還元：</strong>年4回配当が基本。25年・50年連続増配企業が多数存在し、自社株買いも活発。</li>
+              <li style={{ marginBottom: '0.8rem' }}><strong>少額投資が可能：</strong>1株単位（数千円〜数万円）で世界的大企業に投資でき、分散投資が簡単。</li>
+              <li style={{ marginBottom: '0.8rem' }}><strong>右肩上がりの株価指数：</strong>S&P500など、長期で最高値を更新し続ける最強の代表指数がある。</li>
+              <li><strong>新NISAとの相性抜群：</strong>日本の非課税制度を活用し、米国経済の成長を税制優遇を受けながら効率よく取り込める。</li>
+            </ul>
+          </div>
+
+          {/* 4章: 初心者が米国株（米国株式）を始めるための3ステップ */}
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
+            4. 初心者が米国株（米国株式）を始めるための3ステップ
+          </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+            米国株（米国株式）の魅力や特徴とは何かを理解したところで、実際に投資を始めるための具体的な手順を3つのステップで解説します。初心者でも迷わず始められるよう、重要なポイントを押さえておきましょう。
+          </p>
+
+          <div style={{ marginBottom: '2.5rem' }}>
+            <h3 style={{ fontSize: '1.15rem', fontWeight: '800', color: 'var(--primary-dark)', margin: '0 0 1rem 0', display: 'flex', alignItems: 'center' }}>
+              <span style={{ display: 'inline-block', background: 'var(--primary)', color: 'white', padding: '0.2rem 0.8rem', borderRadius: '20px', marginRight: '0.8rem', fontSize: '0.9rem' }}>ステップ1</span>
+              米国株を取り扱う証券会社で口座を開設する
+            </h3>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem', paddingLeft: '1rem', borderLeft: '3px solid var(--bg-warm)' }}>
+              まずは投資の窓口となる証券口座を開設します。米国株投資においては、手数料が圧倒的に安く、取扱銘柄数が豊富な「ネット証券」を選ぶのが鉄則です。中でも、SBI証券や楽天証券、マネックス証券は、取引画面が使いやすく、日本語での情報提供も充実しているため、英語が苦手な方でも安心して利用できます。口座開設はスマートフォンから最短数分で申し込みが完了します。<Link href="/knowledge/stock-investment" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>株式投資の基礎</Link>も併せて確認し、自分に合った証券会社を選びましょう。
+            </p>
+
+            <h3 style={{ fontSize: '1.15rem', fontWeight: '800', color: 'var(--primary-dark)', margin: '0 0 1rem 0', display: 'flex', alignItems: 'center' }}>
+              <span style={{ display: 'inline-block', background: 'var(--primary)', color: 'white', padding: '0.2rem 0.8rem', borderRadius: '20px', marginRight: '0.8rem', fontSize: '0.9rem' }}>ステップ2</span>
+              口座の種類を選び、投資資金を入金する
+            </h3>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem', paddingLeft: '1rem', borderLeft: '3px solid var(--bg-warm)' }}>
+              口座開設時に重要になるのが口座の種類です。初心者の方は、面倒な確定申告を証券会社が代行してくれる「特定口座（源泉徴収あり）」を選ぶのが最も無難です。詳しくは<Link href="/knowledge/tokutei-koza" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>特定口座とは？</Link>をご覧ください。また、非課税メリットを最大限に活かすために「新NISA口座」の同時開設も忘れないようにしましょう。口座の準備ができたら、日本円を証券口座に入金します。米国株を買う際は、日本円のまま決済する「円貨決済」と、事前に米ドルに両替する「外貨決済」が選べます。
+            </p>
+
+            <h3 style={{ fontSize: '1.15rem', fontWeight: '800', color: 'var(--primary-dark)', margin: '0 0 1rem 0', display: 'flex', alignItems: 'center' }}>
+              <span style={{ display: 'inline-block', background: 'var(--primary)', color: 'white', padding: '0.2rem 0.8rem', borderRadius: '20px', marginRight: '0.8rem', fontSize: '0.9rem' }}>ステップ3</span>
+              銘柄を選んで実際に購入する
+            </h3>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem', paddingLeft: '1rem', borderLeft: '3px solid var(--bg-warm)' }}>
+              資金の準備ができたら、いよいよ米国株の購入です。初心者の方には、個別の企業リスクを避けられる「S&P500」や「全世界株式（オール・カントリー）」などに連動するインデックスファンド（投資信託またはETF）から始めることを強くおすすめします。これらは新NISAのつみたて投資枠を利用して月100円から自動積立が可能です。少し慣れてきて個別企業に投資したくなったら、自分がよく知っているAppleやAmazonなどの身近な企業の株を1株から買ってみるのも良いでしょう。
+            </p>
+          </div>
+
+          {/* 5章: 米国株と日本株の比較表 */}
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
+            5. 米国株と日本株の比較表
           </h2>
 
           <div style={{ overflowX: 'auto', marginBottom: '2.5rem', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.08)' }}>
@@ -227,9 +306,9 @@ export default function KnowledgePage() {
             </table>
           </div>
 
-          {/* 4章: 初心者が知っておくべき米国株の代表セクター */}
+          {/* 6章: 初心者が知っておくべき米国株の代表セクター */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            4. 初心者が知っておくべき米国株の主要セクター（業種）
+            6. 初心者が知っておくべき米国株の主要セクター（業種）
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
             米国株はGICS（世界産業分類基準）により11のセクター（業種）に分類されます。初心者の方が特に押さえておきたい主要4大セクターの特徴を紹介します。
@@ -273,9 +352,9 @@ export default function KnowledgePage() {
             </div>
           </div>
 
-          {/* 5章: 米国株の代表的3大指数 */}
+          {/* 7章: 米国株の代表的3大指数 */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            5. 米国株の代表的3大指数（S&P500・NYダウ・ナスダック100）
+            7. 米国株の代表的3大指数（S&P500・NYダウ・ナスダック100）
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
             米国株全体の値動きを把握したり、インデックス投資を行う際によく使われる3つの代表的な株式指数を紹介します。
@@ -296,9 +375,9 @@ export default function KnowledgePage() {
             </li>
           </ul>
 
-          {/* 6章: 米国株のリスク（デメリット）と失敗しない対策 */}
+          {/* 8章: 米国株のリスク（デメリット）と失敗しない対策 */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            6. 米国株のリスク（デメリット）と失敗しない対策
+            8. 米国株のリスク（デメリット）と失敗しない対策
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
             米国株投資には数多くのメリットがありますが、投資である以上リスクも存在します。あらかじめリスクを正しく理解し対策を立てておきましょう。
@@ -322,9 +401,9 @@ export default function KnowledgePage() {
             </li>
           </ol>
 
-          {/* 7章: よくある質問（FAQ） */}
+          {/* 9章: よくある質問（FAQ） */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            7. 米国株についてよくある質問（FAQ）
+            9. 米国株についてよくある質問（FAQ）
           </h2>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', marginBottom: '3rem' }}>
@@ -354,6 +433,24 @@ export default function KnowledgePage() {
                 米国株の主な特徴は①世界最大規模の株式市場、②配当文化が強く年4回配当が多い、③1株から購入可能、④S&P500など代表的な指数がある、⑤新NISAで非課税投資ができる、の5点です。
               </p>
             </div>
+            
+            <div style={{ background: '#fdfefe', border: '1px solid #e5e7e9', borderRadius: '14px', padding: '1.3rem 1.5rem' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary-dark)', margin: '0 0 0.5rem 0' }}>
+                Q. 英語が話せなくても米国株（米国株式）投資はできますか？
+              </h3>
+              <p style={{ fontSize: '0.95rem', lineHeight: '1.8', margin: 0, color: 'var(--text-main)' }}>
+                はい、全く問題ありません。SBI証券や楽天証券などの国内主要ネット証券を利用すれば、すべての取引画面、銘柄検索、注文、決算情報の日本語要約などを完全な日本語で行うことができます。
+              </p>
+            </div>
+
+            <div style={{ background: '#fdfefe', border: '1px solid #e5e7e9', borderRadius: '14px', padding: '1.3rem 1.5rem' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary-dark)', margin: '0 0 0.5rem 0' }}>
+                Q. 米国株の配当金にかかる「二重課税」とは何ですか？
+              </h3>
+              <p style={{ fontSize: '0.95rem', lineHeight: '1.8', margin: 0, color: 'var(--text-main)' }}>
+                米国株の配当金は、まず米国内で10%の税金が源泉徴収され、その後、残りの金額に対して日本国内で約20.315%の税金が課されます。確定申告時に「外国税額控除」を申請することで、米国内で引かれた分を取り戻すことができます。詳しくは<Link href="/knowledge/tax" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>米国株の税金ガイド</Link>も併せてご確認ください。
+              </p>
+            </div>
           </div>
 
           {/* ナレッジナビゲーションリンク */}
@@ -365,6 +462,9 @@ export default function KnowledgePage() {
               初心者向けの口座開設手順から特定口座・新NISA活用法、税金の知識まで各テーマ別に詳しくまとめています。
             </p>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+              <Link href="/knowledge/stock-investment" className="btn btn-outline" style={{ borderRadius: '30px', fontSize: '0.9rem' }}>
+                株式投資の基礎
+              </Link>
               <Link href="/knowledge/tokutei-koza" className="btn btn-outline" style={{ borderRadius: '30px', fontSize: '0.9rem' }}>
                 特定口座とは？
               </Link>

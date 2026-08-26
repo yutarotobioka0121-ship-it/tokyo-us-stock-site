@@ -7,14 +7,14 @@ import { formatSessionDate, formatSessionTime, getSessionStartDateTime, isSessio
 import ApplyForm from "@/components/ApplyForm";
 
 export const metadata: Metadata = {
-  title: '東京の初心者向け米国株投資セミナー・申し込み日程 | 東京米国株クラブ',
-  description: '東京で開催中の初心者向け米国株・NISA投資セミナーのご案内。5年で1300%以上の実績を持つ講師が、少人数制（定員4名）のカフェのような雰囲気で、長期投資の基礎をわかりやすく解説します。',
+  title: '東京の初心者向け投資勉強会・米国株セミナー｜申し込み日程 | 東京米国株クラブ',
+  description: '東京で開催中の初心者向け投資勉強会・米国株セミナーのご案内。5年で1300%以上の実績を持つ現役投資家が講師を務め、少人数制（定員4名）のカフェのような雰囲気で、米国株・新NISAの長期投資の基礎をわかりやすく解説する勉強会です。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/seminar',
   },
   openGraph: {
-    title: '東京の初心者向け米国株投資セミナー・申し込み日程 | 東京米国株クラブ',
-    description: '少人数制（定員4名）のカフェスタイルセミナー。知識ゼロから安全に始める米国株・新NISAの長期投資をわかりやすく解説します。',
+    title: '東京の初心者向け投資勉強会・米国株セミナー｜申し込み日程 | 東京米国株クラブ',
+    description: '東京で開催の少人数制（定員4名）投資勉強会。知識ゼロから安全に始める米国株・新NISAの長期投資をわかりやすく解説します。',
     url: 'https://www.tokyo-us-stock.com/seminar',
     siteName: '東京米国株クラブ',
     images: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         url: 'https://www.tokyo-us-stock.com/ogp.png',
         width: 1200,
         height: 630,
-        alt: '東京米国株クラブ 初心者向け米国株投資セミナー',
+        alt: '東京米国株クラブ 初心者向け投資勉強会・米国株セミナー',
       },
     ],
     locale: 'ja_JP',
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '東京の初心者向け米国株投資セミナー・申し込み日程 | 東京米国株クラブ',
-    description: '少人数制（定員4名）のカフェスタイルセミナー。知識ゼロから安全に始める米国株・新NISAの長期投資をわかりやすく解説。',
+    title: '東京の初心者向け投資勉強会・米国株セミナー | 東京米国株クラブ',
+    description: '東京で開催の少人数制（定員4名）投資勉強会。知識ゼロから安全に始める米国株・新NISAの長期投資をわかりやすく解説。',
     images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },
 };
@@ -176,7 +176,7 @@ export default async function SeminarPage() {
             米国株投資セミナー
           </h1>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1rem, 4vw, 1.4rem)', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', textAlign: 'left', lineHeight: '1.8' }}>
-            投資初心者に向けた内容で、難しい専門用語などは無しでわかりやすくお話しします。
+            東京で開催する初心者向け投資勉強会。難しい専門用語を使わず、わかりやすくお話しします。
           </p>
           <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '600px', marginBottom: '2.5rem', color: 'var(--text-muted)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)', lineHeight: '1.8' }}>
             カフェでお茶を飲むようにリラックスした雰囲気で、<br className="sp-hide" />

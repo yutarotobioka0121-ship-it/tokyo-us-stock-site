@@ -22,8 +22,66 @@ export const metadata: Metadata = {
 };
 
 export default function UsStockScreeningGuidePage() {
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "初心者向け米国株スクリーニングのやり方",
+    "description": "米国株・米国株式のスクリーニング（銘柄スクリーニング）の基本と、具体的な銘柄の絞り込み手順を解説します。",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "ステップ1：スクリーニングツールの選定",
+        "text": "SBI証券、楽天証券、またはFinvizなどの無料スクリーニングツールを用意します。"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "ステップ2：スクリーニング条件の設定",
+        "text": "時価総額やPER、配当利回りなどの数値を入力し、投資スタイルに合った条件で絞り込みます。"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "ステップ3：銘柄の分析と選定",
+        "text": "スクリーニングで抽出された企業の事業内容や過去の業績を確認し、最終的な投資判断を行います。"
+      }
+    ]
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "米国株スクリーニングツールは無料で使えますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい、SBI証券や楽天証券が提供するツール、またはFinvizやTradingViewなどの基本機能は無料で利用できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "スクリーニングで見つけた銘柄はすぐに買っても大丈夫ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "いいえ、スクリーニング結果はあくまで一次審査です。業績が一時的に良く見えているだけや、配当トラップの可能性もあるため、必ず事業内容や財務状況を分析してから購入してください。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "おすすめのスクリーニング条件は何ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "初心者の方には、時価総額100億ドル以上、S&P500構成銘柄、PER15倍以下、配当利回り3%以上などの条件が安定した優良企業を見つけやすくおすすめです。"
+        }
+      }
+    ]
+  };
+
   return (
-    <StaticBlogPost
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <StaticBlogPost
       title="米国株・米国株式のスクリーニングとは？初心者向け銘柄の絞り込み方を徹底解説"
       date="2026-08-04"
       summary="米国株・米国株式のスクリーニング（銘柄スクリーニング）の基本と、初心者でも使えるSBI・楽天証券の無料ツールを使った具体的な絞り込み方をわかりやすく解説します。"
@@ -83,7 +141,7 @@ export default function UsStockScreeningGuidePage() {
         </ul>
 
         <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
-          無料で使える米国株スクリーニングツール3選
+          おすすめ米国株スクリーニングツール比較（無料で使えるツール5選）
         </h2>
         <p>
           米国株のスクリーニングは高額な有料ソフトを買う必要はありません。大手ネット証券の提供する無料ツールやWebサービスで非常に高精度な銘柄スクリーニングが可能です。
@@ -109,6 +167,55 @@ export default function UsStockScreeningGuidePage() {
         <p>
           本格的なリサーチを行いたい投資家に世界中で愛用されているのが、海外の定番サイト「Finviz（Finviz.com）」です。英語サイトではありますが、ブラウザの翻訳機能を使えば簡単に操作できます。PBR、ROE、配当性向、RSI（テクニカル指標）、アナリストの目標株価など数十種類の詳細条件を高度に組み合わせられます。
         </p>
+
+        <h3 style={{ fontSize: "1.2rem", fontWeight: "800", color: "var(--primary)", marginTop: "1.8rem", marginBottom: "0.8rem" }}>
+          ④ TradingView（トレーディングビュー）
+        </h3>
+        <p>
+          世界中のトレーダーが愛用するチャートツールですが、株式スクリーナー機能も非常に優秀です。テクニカル指標だけでなく、財務指標を用いたスクリーニングも可能。カスタマイズ性が高く、視覚的にチャートを見ながらスクリーニングしたい中〜上級者に最適です。
+        </p>
+
+        <h3 style={{ fontSize: "1.2rem", fontWeight: "800", color: "var(--primary)", marginTop: "1.8rem", marginBottom: "0.8rem" }}>
+          ⑤ Yahoo Finance（ヤフーファイナンス 米国版）
+        </h3>
+        <p>
+          日本版ではなく米国版の「Yahoo Finance」も強力なスクリーニングツールを備えています。最新のニュースやアナリストの評価と連動しており、ESGスコアなど独自の指標でも絞り込みが可能です。
+        </p>
+
+        <h3 style={{ fontSize: "1.2rem", fontWeight: "800", color: "var(--primary)", marginTop: "1.8rem", marginBottom: "0.8rem" }}>
+          おすすめスクリーニングツール比較表
+        </h3>
+        <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "1rem", marginBottom: "1rem", fontSize: "0.95rem" }}>
+          <thead>
+            <tr style={{ background: "var(--bg-warm)", borderBottom: "2px solid var(--primary-light)" }}>
+              <th style={{ padding: "0.8rem", textAlign: "left" }}>ツール名</th>
+              <th style={{ padding: "0.8rem", textAlign: "left" }}>特徴</th>
+              <th style={{ padding: "0.8rem", textAlign: "left" }}>おすすめ対象</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style={{ borderBottom: "1px solid rgba(0,0,0,0.1)" }}>
+              <td style={{ padding: "0.8rem", fontWeight: "bold" }}>SBI・楽天証券</td>
+              <td style={{ padding: "0.8rem" }}>日本語対応でそのまま取引可能</td>
+              <td style={{ padding: "0.8rem" }}>米国株初心者</td>
+            </tr>
+            <tr style={{ borderBottom: "1px solid rgba(0,0,0,0.1)" }}>
+              <td style={{ padding: "0.8rem", fontWeight: "bold" }}>Finviz</td>
+              <td style={{ padding: "0.8rem" }}>豊富な条件設定と一覧性の高さ</td>
+              <td style={{ padding: "0.8rem" }}>中級者〜上級者</td>
+            </tr>
+            <tr style={{ borderBottom: "1px solid rgba(0,0,0,0.1)" }}>
+              <td style={{ padding: "0.8rem", fontWeight: "bold" }}>TradingView</td>
+              <td style={{ padding: "0.8rem" }}>チャート分析と連動した高いカスタマイズ性</td>
+              <td style={{ padding: "0.8rem" }}>テクニカル分析重視</td>
+            </tr>
+            <tr>
+              <td style={{ padding: "0.8rem", fontWeight: "bold" }}>Yahoo Finance</td>
+              <td style={{ padding: "0.8rem" }}>最新ニュースや独自指標との連携</td>
+              <td style={{ padding: "0.8rem" }}>ファンダメンタルズ重視</td>
+            </tr>
+          </tbody>
+        </table>
 
         <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
           初心者が設定すべきスクリーニング条件5つ
@@ -143,6 +250,37 @@ export default function UsStockScreeningGuidePage() {
         </div>
 
         <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
+          具体的な米国株スクリーニング条件の設定例
+        </h2>
+        <p>
+          自分が目指す投資スタイルに合わせて、より具体的な数値を設定してみましょう。ここでは、代表的な投資スタイル別のスクリーニング条件の具体例を紹介します。
+        </p>
+
+        <h3 style={{ fontSize: "1.2rem", fontWeight: "800", color: "var(--primary)", marginTop: "1.8rem", marginBottom: "0.8rem" }}>
+          1. 高配当・バリュー株狙いの設定例
+        </h3>
+        <p>
+          割安で放置されており、かつ高い配当金を受け取れる銘柄を探す場合のオーソドックスな設定です。
+        </p>
+        <ul>
+          <li style={{ marginBottom: "0.5rem" }}><strong>PER（株価収益率）</strong>：15倍以下（市場平均より割安か）</li>
+          <li style={{ marginBottom: "0.5rem" }}><strong>配当利回り</strong>：3%以上（高配当の目安）</li>
+          <li style={{ marginBottom: "0.5rem" }}><strong>配当性向</strong>：70%以下（無理して配当を出していないか）</li>
+        </ul>
+
+        <h3 style={{ fontSize: "1.2rem", fontWeight: "800", color: "var(--primary)", marginTop: "1.8rem", marginBottom: "0.8rem" }}>
+          2. 安定成長・連続増配株狙いの設定例
+        </h3>
+        <p>
+          毎年着実に配当を増やし、株価の安定した成長も見込める優良企業を探す場合の設定です。
+        </p>
+        <ul>
+          <li style={{ marginBottom: "0.5rem" }}><strong>連続増配年数</strong>：10年以上（不況時でも増配できる強さがあるか）</li>
+          <li style={{ marginBottom: "0.5rem" }}><strong>時価総額</strong>：500億ドル以上（超大型の安定企業か）</li>
+          <li style={{ marginBottom: "0.5rem" }}><strong>ROE（自己資本利益率）</strong>：15%以上（効率よく稼げているか）</li>
+        </ul>
+
+        <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
           スクリーニング結果を見てどう判断するか
         </h2>
         <p>
@@ -160,8 +298,21 @@ export default function UsStockScreeningGuidePage() {
           <li style={{ marginBottom: "0.5rem" }}><strong>過去の営業利益率とフリーキャッシュフローを確認する</strong>：一時的な不動産売却益などで決算が良く見えているだけではないか、本業の稼ぐ力を確認します。</li>
           <li style={{ marginBottom: "0.5rem" }}><strong>配当性向が高すぎないか確認する</strong>：配当性向が80%や100%を超えている場合、減配（配当のカット）のリスクが極めて高くなります。</li>
         </ul>
+
+        <h3 style={{ fontSize: "1.2rem", fontWeight: "800", color: "var(--primary)", marginTop: "1.8rem", marginBottom: "0.8rem" }}>
+          スクリーニングで見つけた銘柄の具体的な分析方法
+        </h3>
         <p>
-          米国株投資の全体的な基礎知識やリスク管理については、当サイトの<Link href="/knowledge/stock-investment" style={{ color: "var(--primary)", fontWeight: "bold" }}>株式投資の基礎解説ページ</Link>や<Link href="/knowledge/nisa" style={{ color: "var(--primary)", fontWeight: "bold" }}>NISA活用ガイド</Link>でも詳しく解説しています。
+          候補となる米国株の銘柄を見つけたら、以下の手順で深掘り分析を行いましょう。
+        </p>
+        <ol style={{ paddingLeft: "1.2rem", margin: "1rem 0", lineHeight: "1.8" }}>
+          <li style={{ marginBottom: "0.5rem" }}><strong>企業のIR情報（Investor Relations）を読む</strong>：企業の公式ウェブサイトにある投資家向けページを確認し、四半期決算のプレゼン資料やアニュアルレポートに目を通します。</li>
+          <li style={{ marginBottom: "0.5rem" }}><strong>競合他社と比較する</strong>：同じ業界のライバル企業と「売上成長率」や「利益率」を比較し、その企業が優位性（モート）を持っているか確認します。</li>
+          <li style={{ marginBottom: "0.5rem" }}><strong>マクロ経済の影響を考慮する</strong>：金利の動向やインフレ率など、米国経済全体の状況がその銘柄のビジネスにどう影響するかを考えます。</li>
+        </ol>
+
+        <p>
+          米国株投資の全体的な基礎知識やリスク管理については、当サイトの<Link href="/knowledge/stock-investment" style={{ color: "var(--primary)", fontWeight: "bold" }}>株式投資の基礎解説ページ</Link>や<Link href="/knowledge" style={{ color: "var(--primary)", fontWeight: "bold" }}>投資知識の総合ページ</Link>、<Link href="/knowledge/nisa" style={{ color: "var(--primary)", fontWeight: "bold" }}>NISA活用ガイド</Link>でも詳しく解説しています。
         </p>
 
         <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
@@ -196,6 +347,31 @@ export default function UsStockScreeningGuidePage() {
         </div>
 
         <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
+          米国株スクリーニングでよくある質問（FAQ）
+        </h2>
+        
+        <div style={{ marginBottom: "1.5rem" }}>
+          <h3 style={{ fontSize: "1.1rem", fontWeight: "bold", marginBottom: "0.5rem" }}>Q. スクリーニングツールは英語がわからないと使えませんか？</h3>
+          <p style={{ margin: "0", paddingLeft: "1rem", borderLeft: "3px solid var(--primary-light)" }}>
+            A. いいえ、SBI証券や楽天証券のスクリーナーは完全日本語対応です。Finvizなどの海外ツールを使う場合でも、ブラウザの自動翻訳機能を使えば問題なく利用できます。
+          </p>
+        </div>
+        
+        <div style={{ marginBottom: "1.5rem" }}>
+          <h3 style={{ fontSize: "1.1rem", fontWeight: "bold", marginBottom: "0.5rem" }}>Q. 最初はどのような条件で絞り込むのが一番良いですか？</h3>
+          <p style={{ margin: "0", paddingLeft: "1rem", borderLeft: "3px solid var(--primary-light)" }}>
+            A. 初心者の方には、「時価総額100億ドル以上」「PER15〜25倍」「S&P500構成銘柄」の組み合わせをおすすめします。これにより、極端なリスクを避けつつ安定した大企業を見つけやすくなります。
+          </p>
+        </div>
+        
+        <div style={{ marginBottom: "1.5rem" }}>
+          <h3 style={{ fontSize: "1.1rem", fontWeight: "bold", marginBottom: "0.5rem" }}>Q. スクリーニングで見つけた銘柄に投資すれば必ず儲かりますか？</h3>
+          <p style={{ margin: "0", paddingLeft: "1rem", borderLeft: "3px solid var(--primary-light)" }}>
+            A. 必ず儲かるわけではありません。スクリーニングはあくまで「条件に合った銘柄を探す」手段です。購入前には必ず事業内容や最新の決算を確認し、<Link href="/knowledge/tax" style={{ color: "var(--primary)", textDecoration: "underline" }}>税金面（米国株の税金）</Link>も考慮した上で、最終的な投資判断を行ってください。
+          </p>
+        </div>
+
+        <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
           まとめ
         </h2>
         <p>
@@ -206,5 +382,6 @@ export default function UsStockScreeningGuidePage() {
         </p>
       </div>
     </StaticBlogPost>
+    </>
   );
 }
