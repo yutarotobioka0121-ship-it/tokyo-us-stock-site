@@ -9,13 +9,13 @@ import HomeFAQ from "@/components/HomeFAQ";
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: '米国株の始め方・おすすめを学ぶ東京のセミナー｜東京米国株クラブ',
+  title: '東京米国株クラブ｜米国株の始め方・おすすめを学ぶ東京のセミナー',
   description: '「米国株の始め方がわからない」初心者向けの東京の投資セミナー。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。参加費無料。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com',
   },
   openGraph: {
-    title: '米国株の始め方・おすすめを学ぶ東京のセミナー｜東京米国株クラブ',
+    title: '東京米国株クラブ｜米国株の始め方・おすすめを学ぶ東京のセミナー',
     description: '「米国株の始め方がわからない」初心者向けの東京の投資セミナー。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。',
     url: 'https://www.tokyo-us-stock.com',
     siteName: '東京米国株クラブ',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: 'https://www.tokyo-us-stock.com/ogp.png',
         width: 1200,
         height: 630,
-        alt: '東京米国株クラブ｜初心者向け米国株投資セミナー',
+        alt: '東京米国株クラブ',
       },
     ],
     locale: 'ja_JP',
