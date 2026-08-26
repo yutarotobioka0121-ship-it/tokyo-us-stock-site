@@ -80,12 +80,35 @@ export default function TaxKnowledgePage() {
     ],
   };
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': 'https://www.tokyo-us-stock.com/knowledge/tax',
+    },
+    headline: '米国株・米国株式の税金とは？確定申告の必要性・二重課税・NISA節税を徹底解説',
+    description: '初心者向けに米国株・米国株式にかかる税金の仕組み（20.315%＋米国10%）を徹底解説。特定口座（源泉徴収あり）の確定申告不要ルール、米国株式の確定申告手順、外国税額控除や新NISA非課税まで網羅。',
+    author: {
+      '@type': 'Organization',
+      name: '東京米国株クラブ',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: '東京米国株クラブ',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.tokyo-us-stock.com/logo.png',
+      },
+    },
+  };
+
   return (
     <div className="knowledge-page" style={{ overflowWrap: 'break-word' }}>
-      {/* JSON-LD FAQPage Schema */}
+      {/* JSON-LD FAQPage & Article Schema */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([faqSchema, articleSchema]) }}
       />
 
       {/* Header Section */}
@@ -112,8 +135,11 @@ export default function TaxKnowledgePage() {
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
               結論から言えば、<strong>米国株・米国株式投資で得られた利益には、日本国内で一律約20.315%の税金</strong>がかかり、配当金には米国現地での10%課税も発生します。しかし、口座開設時に**「特定口座（源泉徴収あり）」を選択しておけば、米国株式の確定申告の手間は原則不要**となり、会社に知られることもありません。
             </p>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+              さらに「新NISA制度」を活用すれば国内の税金を完全にゼロ（非課税）に抑えることが可能です。本ページでは、初心者の方が押さえるべき**米国株・米国株式の税金ルール**、米国株式の確定申告で得するケース、外国税額控除のやり方を分かりやすく網羅的に解説します。
+            </p>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: 0 }}>
-              さらに「新NISA制度」を活用すれば国内の税金を完全にゼロ（非課税）に抑えることが可能です。本ページでは、初心者の方が押さえるべき**米国株・米国株式の税金ルール**、米国株式の確定申告で得するケース、外国税額控除のやり方を分かりやすく解説します。
+              より実践的な税金対策のテクニックや裏ワザを知りたい方は、当サイトの<Link href="/blog/us-stock-tax-guide" style={{ color: 'var(--primary)', fontWeight: 'bold' }}>米国株ブログの税金ガイド</Link>も併せてご参照ください。本記事が米国株式の税務に関するナレッジの「中心（ハブ）」として、あなたの資産形成を強力にサポートします。
             </p>
           </div>
 
@@ -122,7 +148,7 @@ export default function TaxKnowledgePage() {
             1. 米国株・米国株式にかかる税金の基本原理（国内20.315%＋米国10%）
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            課税口座（特定口座や一般口座）で株式投資を行って得た利益には、給料などの所得とは切り離して計算される**「申告分離課税」**が適用されます。税率はいくら儲かっても一律**20.315%**です。
+            課税口座（特定口座や一般口座）で米国株式投資を行って得た利益には、給料などの所得とは切り離して計算される**「申告分離課税」**が適用されます。税率はいくら儲かっても日本国内で一律**20.315%**です。
           </p>
 
           {/* 税金の内訳表 */}
@@ -166,58 +192,114 @@ export default function TaxKnowledgePage() {
                 ・譲渡益（キャピタルゲイン）への課税
               </h3>
               <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7' }}>
-                購入した株を売却し、値上がりによって得られた利益（譲渡益）に対して20.315%がかかります。売却して確定した利益のみが対象であり、保有中の含み益には税金は一切かかりません。
+                購入した米国株式を売却し、値上がりによって得られた利益（譲渡益）に対して20.315%がかかります。売却して確定した利益のみが対象であり、保有中の含み益には税金は一切かかりません。
               </p>
             </div>
             <div>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.4rem' }}>
-                ・配当金・分配金（インカムゲイン）への課税
+                ・配当金・分配金（インカムゲイン）への二重課税
               </h3>
               <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7' }}>
-                企業から支払われる配当金や投資信託の分配金が口座に入金される際、最初から20.315%が源泉徴収（引かれた状態）で振り込まれます。
+                米国企業から支払われる配当金や米国ETFの分配金については、まず米国現地で10%が源泉徴収されます。その後、残りの90%に対して日本国内で20.315%が源泉徴収（引かれた状態）で振り込まれます。この仕組みを「二重課税」と呼びます。
               </p>
             </div>
           </div>
 
-          {/* 2章: 口座区分の比較と確定申告不要の仕組み */}
+          {/* 新規セクション：具体的な税額シミュレーション */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            2. 口座区分の比較と「確定申告不要」の仕組み
+            2. 具体的な税額シミュレーション（米国株の売却益と配当金）
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            証券会社で口座を開設する際、税金の納め方によって3種類の口座区分から選択します。
+            実際に米国株で利益が出た場合、手元にいくら残るのか計算してみましょう。
           </p>
 
-          <div style={{ overflowX: 'auto', marginBottom: '2.5rem', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.08)' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '500px', fontSize: '0.95rem', fontFamily: 'var(--font-body)' }}>
-              <thead>
-                <tr style={{ backgroundColor: 'var(--bg-warm)', borderBottom: '2px solid rgba(0,0,0,0.08)' }}>
-                  <th style={{ padding: '0.8rem 1rem', fontWeight: '800' }}>口座区分</th>
-                  <th style={{ padding: '0.8rem 1rem', fontWeight: '800' }}>税金の計算・徴収</th>
-                  <th style={{ padding: '0.8rem 1rem', fontWeight: '800' }}>確定申告</th>
-                  <th style={{ padding: '0.8rem 1rem', fontWeight: '800' }}>おすすめ対象</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style={{ borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
-                  <td style={{ padding: '0.8rem 1rem', fontWeight: '700', color: 'var(--primary)' }}>特定口座（源泉徴収あり）</td>
-                  <td style={{ padding: '0.8rem 1rem' }}>証券会社が自動計算・差引</td>
-                  <td style={{ padding: '0.8rem 1rem', fontWeight: '700', color: 'var(--primary)' }}>【一切不要】</td>
-                  <td style={{ padding: '0.8rem 1rem', fontWeight: '800', color: 'var(--primary)' }}>初心者・会社員全員に最適！</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
-                  <td style={{ padding: '0.8rem 1rem', fontWeight: '700' }}>特定口座（源泉徴収なし）</td>
-                  <td style={{ padding: '0.8rem 1rem' }}>証券会社が年間取引報告書を作成</td>
-                  <td style={{ padding: '0.8rem 1rem', fontWeight: '700', color: '#e53e3e' }}>必要（自分で申告）</td>
-                  <td style={{ padding: '0.8rem 1rem' }}>年収2,000万以下で利益20万以下の会社員など</td>
-                </tr>
-                <tr>
-                  <td style={{ padding: '0.8rem 1rem', fontWeight: '700' }}>一般口座</td>
-                  <td style={{ padding: '0.8rem 1rem' }}>自分で損益計算</td>
-                  <td style={{ padding: '0.8rem 1rem', fontWeight: '700', color: '#e53e3e' }}>必要（損益計算書も作成）</td>
-                  <td style={{ padding: '0.8rem 1rem', color: 'var(--text-muted)' }}>【非推奨】（未公開株等以外使う意味なし）</td>
-                </tr>
-              </tbody>
-            </table>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', marginBottom: '2.5rem' }}>
+            <div style={{ padding: '1.5rem', background: '#f8f9fa', borderRadius: '12px', borderLeft: '4px solid var(--primary)' }}>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem' }}>
+                シミュレーション①：米国株式の売却で「50万円」の利益が出た場合
+              </h3>
+              <ul style={{ fontSize: '0.95rem', color: 'var(--text-main)', lineHeight: '1.7', margin: 0, paddingLeft: '1.5rem' }}>
+                <li style={{ marginBottom: '0.5rem' }}>売却益：<strong>500,000円</strong></li>
+                <li style={{ marginBottom: '0.5rem' }}>日本の税金（20.315%）：500,000円 × 20.315% = <strong>101,575円</strong></li>
+                <li>手元に残る金額：500,000円 - 101,575円 = <strong style={{ color: 'var(--primary)' }}>398,425円</strong></li>
+              </ul>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: '0.8rem 0 0 0', lineHeight: '1.7' }}>
+                ※売却益には米国での10%課税はかかりません。日本国内の税金のみが適用されます。
+              </p>
+            </div>
+
+            <div style={{ padding: '1.5rem', background: '#f8f9fa', borderRadius: '12px', borderLeft: '4px solid var(--primary)' }}>
+              <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem' }}>
+                シミュレーション②：米国株式の配当金「10万円」を受け取った場合
+              </h3>
+              <ul style={{ fontSize: '0.95rem', color: 'var(--text-main)', lineHeight: '1.7', margin: 0, paddingLeft: '1.5rem' }}>
+                <li style={{ marginBottom: '0.5rem' }}>配当金額（額面）：<strong>100,000円</strong></li>
+                <li style={{ marginBottom: '0.5rem' }}>米国での税金（10%）：100,000円 × 10% = <strong>10,000円</strong></li>
+                <li style={{ marginBottom: '0.5rem' }}>日本の税金（残り9万円の20.315%）：90,000円 × 20.315% = <strong>18,283円</strong></li>
+                <li>手元に残る金額：100,000円 - 10,000円 - 18,283円 = <strong style={{ color: 'var(--primary)' }}>71,717円</strong></li>
+              </ul>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: '0.8rem 0 0 0', lineHeight: '1.7' }}>
+                ※配当金には日米で合計約28.3%の税金がかかります。後述する「外国税額控除」を活用することで、米国で引かれた10,000円の一部を取り戻すことが可能です。
+              </p>
+            </div>
+          </div>
+
+          {/* 3章: 口座区分の比較と確定申告不要の仕組み（図解テキスト追加） */}
+          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
+            3. 図解でわかる！米国株式の口座タイプ別・税金フローと「確定申告不要」の仕組み
+          </h2>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
+            証券会社で口座を開設する際、税金の納め方によって3種類の口座区分（＋NISA）から選択します。口座タイプによって税金の流れや確定申告の必要性が大きく異なります。詳細は<Link href="/knowledge/tokutei-koza" style={{ color: 'var(--primary)', fontWeight: 'bold' }}>特定口座の解説ページ</Link>も併せてご確認ください。
+          </p>
+
+          <div style={{ padding: '1.5rem', background: '#fff', border: '1px solid var(--glass-border)', borderRadius: '12px', marginBottom: '2.5rem' }}>
+            <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1rem', textAlign: 'center' }}>
+              【口座タイプ別】税金と確定申告のフロー
+            </h3>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+              {/* フロー1 */}
+              <div style={{ background: '#f8f9fa', padding: '1.2rem', borderRadius: '8px' }}>
+                <h4 style={{ fontWeight: '700', color: 'var(--primary)', marginBottom: '0.8rem', fontSize: '1.05rem' }}>① 特定口座（源泉徴収あり）</h4>
+                <div style={{ fontSize: '0.9rem', color: 'var(--text-main)', lineHeight: '1.6' }}>
+                  <p style={{ margin: '0 0 0.5rem 0' }}>証券会社が利益と税金を自動計算</p>
+                  <div style={{ textAlign: 'center', color: '#ccc', margin: '0.2rem 0' }}>↓</div>
+                  <p style={{ margin: '0 0 0.5rem 0' }}>利益から20.315%を天引き</p>
+                  <div style={{ textAlign: 'center', color: '#ccc', margin: '0.2rem 0' }}>↓</div>
+                  <p style={{ margin: '0 0 0.5rem 0' }}>証券会社が代わりに納税</p>
+                  <div style={{ textAlign: 'center', color: 'var(--primary)', margin: '0.2rem 0', fontWeight: 'bold' }}>↓</div>
+                  <p style={{ margin: '0', fontWeight: 'bold', color: 'var(--primary)' }}>【原則 確定申告 不要】<br/>※会社にもバレません</p>
+                </div>
+              </div>
+
+              {/* フロー2 */}
+              <div style={{ background: '#f8f9fa', padding: '1.2rem', borderRadius: '8px' }}>
+                <h4 style={{ fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.8rem', fontSize: '1.05rem' }}>② 特定口座（源泉徴収なし）</h4>
+                <div style={{ fontSize: '0.9rem', color: 'var(--text-main)', lineHeight: '1.6' }}>
+                  <p style={{ margin: '0 0 0.5rem 0' }}>証券会社が年間損益を自動計算</p>
+                  <div style={{ textAlign: 'center', color: '#ccc', margin: '0.2rem 0' }}>↓</div>
+                  <p style={{ margin: '0 0 0.5rem 0' }}>「年間取引報告書」が送られてくる</p>
+                  <div style={{ textAlign: 'center', color: '#ccc', margin: '0.2rem 0' }}>↓</div>
+                  <p style={{ margin: '0 0 0.5rem 0' }}>報告書を見て自分で税金計算</p>
+                  <div style={{ textAlign: 'center', color: '#e53e3e', margin: '0.2rem 0', fontWeight: 'bold' }}>↓</div>
+                  <p style={{ margin: '0', fontWeight: 'bold', color: '#e53e3e' }}>【自分で 確定申告 必要】<br/>※利益20万円超の場合</p>
+                </div>
+              </div>
+              
+              {/* フロー3 */}
+              <div style={{ background: '#f8f9fa', padding: '1.2rem', borderRadius: '8px' }}>
+                <h4 style={{ fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.8rem', fontSize: '1.05rem' }}>③ 一般口座</h4>
+                <div style={{ fontSize: '0.9rem', color: 'var(--text-main)', lineHeight: '1.6' }}>
+                  <p style={{ margin: '0 0 0.5rem 0' }}>自分で1年分の売買履歴を集計</p>
+                  <div style={{ textAlign: 'center', color: '#ccc', margin: '0.2rem 0' }}>↓</div>
+                  <p style={{ margin: '0 0 0.5rem 0' }}>自分で損益をすべて計算</p>
+                  <div style={{ textAlign: 'center', color: '#ccc', margin: '0.2rem 0' }}>↓</div>
+                  <p style={{ margin: '0 0 0.5rem 0' }}>税額を自分で計算して申告書類作成</p>
+                  <div style={{ textAlign: 'center', color: '#e53e3e', margin: '0.2rem 0', fontWeight: 'bold' }}>↓</div>
+                  <p style={{ margin: '0', fontWeight: 'bold', color: '#e53e3e' }}>【非常に手間がかかり非推奨】</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div style={{ padding: '1.2rem 1.5rem', background: 'var(--bg-warm)', borderRadius: '12px', borderLeft: '4px solid var(--primary)', marginBottom: '2.5rem' }}>
@@ -225,13 +307,13 @@ export default function TaxKnowledgePage() {
               💡 「特定口座（源泉徴収あり）」を選べば会社にもバレない！
             </h3>
             <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7' }}>
-              源泉徴収あり口座の場合、利益が発生するたびに証券会社が20.315%分を事前に天引きして直接国に納めてくれます。確定申告が不要となるため、勤務先に「住民税の決定通知書」を通じて株式投資の所得が通知されることもありません。副業規制が気になる方でも安心です。
+              源泉徴収あり口座の場合、米国株の売却益が発生するたびに証券会社が20.315%分を事前に天引きして直接国に納めてくれます。確定申告が不要となるため、勤務先に「住民税の決定通知書」を通じて株式投資の所得が通知されることもありません。副業規制が気になる方でも安心です。
             </p>
           </div>
 
-          {/* 3章: 確定申告すると得する3つのケース */}
+          {/* 4章: 確定申告すると得する3つのケース */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            3. あえて確定申告を行うと「得をする」3つのケース
+            4. 米国株式であえて確定申告を行うと「得をする」3つのケース
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
             「特定口座（源泉あり）」で確定申告が不要な場合でも、あえて確定申告を行うことで手元にお金が戻ってくる（節税できる）ケースが3つあります。
@@ -252,7 +334,7 @@ export default function TaxKnowledgePage() {
                 ケース②：年間で投資の「損（赤字）」が出た（損益通算・繰越控除）
               </h3>
               <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7' }}>
-                株の売却で赤字が出た場合、確定申告をすれば「配当金の利益」と相殺（損益通算）して、払いすぎた税金の還付を受けられます。また、相殺しきれなかった赤字は**最長3年間繰り越し**て、将来の利益から控除できます。
+                米国株の売却で赤字が出た場合、確定申告をすれば「配当金の利益」と相殺（損益通算）して、払いすぎた税金の還付を受けられます。また、相殺しきれなかった赤字は**最長3年間繰り越し**て、将来の利益から控除できます。
               </p>
             </div>
 
@@ -266,31 +348,39 @@ export default function TaxKnowledgePage() {
             </div>
           </div>
 
-          {/* 4章: NISAを活用した最強の非課税節税術 */}
+          {/* 新規セクション：2024年〜2025年の最新動向 */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            4. NISA（少額投資非課税制度）を活用した最大の節税対策
+            5. 米国株の税金に関する最新動向（2024年〜2025年の税制と新NISA）
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            株式投資の税金を合法的にゼロにする最も強力な方法が**NISA口座の活用**です。
+            2024年からスタートした「新NISA制度」は、米国株式の税金にも非常に大きな影響を与えています。最新の税制動向として以下のポイントを押さえておきましょう。
           </p>
 
           <div style={{ padding: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '2.5rem' }}>
             <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem' }}>
-              ✨ NISA非課税メリットの絶大な効果
+              ✨ 新NISAによる国内課税（20.315%）の恒久非課税化
             </h3>
             <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', lineHeight: '1.7', margin: 0 }}>
-              特定口座で投資して1,000万円の利益が出た場合、約203万円が税金として引かれて手元には797万円しか残りません。<br />
-              しかし、<strong>NISA口座内で運用していれば1,000万円の利益がまるまる手元に残ります（税金ゼロ）。</strong><br />
-              生涯で元本1,800万円まで無期限で非課税運用ができるため、枠がある限りはNISAを最優先で使い倒すことが究極の節税対策となります。
+              新NISAの「成長投資枠」を使えば、米国株式（個別株やETF）の売却益および配当金にかかる日本国内の税金20.315%が<strong>無期限で非課税</strong>になります。<br />
+              特定口座で投資して1,000万円の利益が出た場合、約203万円が税金として引かれますが、NISA口座内であれば税金ゼロです。生涯投資枠1,800万円まで活用可能であり、まずは新NISA枠を優先的に埋めることが最大の米国株節税対策となります。
             </p>
+            <div style={{ marginTop: '1rem', padding: '1rem', background: '#fff5f5', borderLeft: '4px solid #e53e3e', borderRadius: '4px' }}>
+              <p style={{ fontSize: '0.9rem', color: '#c53030', margin: 0, fontWeight: 'bold' }}>
+                ※注意：米国での10%課税はNISAでも引かれます。また、NISA口座は「外国税額控除」の対象外となるため、米国で引かれた10%を取り戻すことはできません。
+              </p>
+            </div>
           </div>
+          
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
+            さらに今後の税制改正の議論においては、金融所得課税の強化（現行の20.315%から税率を引き上げる案）などが度々政治的テーマに上がっています。将来的な増税リスクに備える意味でも、NISA制度の積極的な活用がますます重要になっています。
+          </p>
 
-          {/* 5章: NISAで配当金を非課税にする必須設定「株式数比例配分方式」 */}
+          {/* 6章: NISAで配当金を非課税にする必須設定「株式数比例配分方式」 */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            5. 【超重要】NISAで配当金を非課税にするための必須設定
+            6. 【超重要】NISAで配当金を非課税にするための必須設定
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            NISA口座で株を買っていても、証券会社の配当金受取設定を間違えていると、**配当金に20.315%の税金が引かれてしまう落とし穴**が存在します。
+            NISA口座で株を買っていても、証券会社の配当金受取設定を間違えていると、**国内の配当金に20.315%の税金が引かれてしまう落とし穴**が存在します。（※主に国内株式や国内ETFに関する注意点ですが、証券口座全体の設定として非常に重要です）
           </p>
           <div style={{ padding: '1.2rem 1.5rem', background: '#fff5f5', borderLeft: '4px solid #e53e3e', borderRadius: '8px', marginBottom: '2.5rem' }}>
             <h3 style={{ fontSize: '1.05rem', fontWeight: '800', color: '#c53030', marginBottom: '0.4rem' }}>
@@ -302,20 +392,9 @@ export default function TaxKnowledgePage() {
             </p>
           </div>
 
-          {/* 6章: 配当控除の活用と注意点 */}
-          <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            6. 年収によって得する「配当控除（総合課税）」とは？
-          </h2>
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
-            特定口座（課税口座）で日本株の配当金を受け取っている場合、確定申告で「総合課税」を選択して「配当控除」を申請すると、税金が安くなるケースがあります。
-          </p>
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
-            課税所得金額（給与所得から各種控除を引いた額）が**900万円以下（実質的な税率が低い方）**の場合、分離課税（20.315%）よりも総合課税を選択した方が所得税の税率が下がり、配当控除（10%分の控除）が受けられるため、源泉徴収された税金の還付を受けられます。ただし、国民健康保険料の上昇や扶養控除への影響が出る場合があるため、シミュレーションを行ってからの申請が推奨されます。
-          </p>
-
           {/* 7章: 株の税金で絶対に注意すべき3つのポイント */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
-            7. 株の税金で初心者が陥りがちな「3つの落とし穴」
+            7. 米国株の税金で初心者が陥りがちな「3つの落とし穴」
           </h2>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
             税金面で損をしたり予期せぬペナルティを受けないよう、以下の3点に十分注意しましょう。
@@ -327,7 +406,7 @@ export default function TaxKnowledgePage() {
                 落とし穴①：NISA口座での損失は「損益通算」ができない
               </h3>
               <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', margin: 0, lineHeight: '1.7' }}>
-                NISA口座内で発生した損失（売却損）は、特定口座などの他の課税口座の利益と相殺（損益通算）することができません。また、繰越控除の対象にもならないため、NISA枠ではあまりにハイリスクな銘柄への集中投資は避けるのが安全です。
+                NISA口座内で発生した米国株の損失（売却損）は、特定口座などの他の課税口座の利益と相殺（損益通算）することができません。また、繰越控除の対象にもならないため、NISA枠ではあまりにハイリスクな銘柄への集中投資は避けるのが安全です。
               </p>
             </div>
 
@@ -349,26 +428,56 @@ export default function TaxKnowledgePage() {
               </p>
             </div>
           </div>
+          
+          <div style={{ margin: '3rem 0', padding: '2rem', background: 'white', borderRadius: '12px', border: '1px solid var(--glass-border)', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
+            <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1rem' }}>
+              もっと詳しく知りたい方へ：米国株式の税金ガイド＆関連ブログ記事
+            </h3>
+            <p style={{ fontSize: '1rem', color: 'var(--text-main)', marginBottom: '1.5rem', lineHeight: '1.7' }}>
+              米国株投資におけるさらなる節税テクニックや、ケース別の詳細な確定申告のやり方については、当サイトのブログ記事でも詳しく解説しています。合わせてお読みいただき、知識を深めてください。
+            </p>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <li>
+                <Link href="/blog/us-stock-tax-guide" style={{ display: 'flex', alignItems: 'center', color: 'var(--primary)', fontWeight: 'bold', textDecoration: 'none', fontSize: '1.05rem' }}>
+                  <ArrowRight size={18} style={{ marginRight: '0.5rem' }} /> 【ブログ】米国株の税金ガイド完全版：二重課税から外国税額控除まで
+                </Link>
+              </li>
+              <li>
+                <Link href="/knowledge/tokutei-koza" style={{ display: 'flex', alignItems: 'center', color: 'var(--primary)', fontWeight: 'bold', textDecoration: 'none', fontSize: '1.05rem' }}>
+                  <ArrowRight size={18} style={{ marginRight: '0.5rem' }} /> 【ナレッジ】特定口座とは？源泉徴収あり・なしの選び方
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" style={{ display: 'flex', alignItems: 'center', color: 'var(--primary)', fontWeight: 'bold', textDecoration: 'none', fontSize: '1.05rem' }}>
+                  <ArrowRight size={18} style={{ marginRight: '0.5rem' }} /> 【ブログ】米国株投資に役立つ最新記事一覧を見る
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '3rem' }}>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginBottom: '1.5rem' }}>
+              よくある質問（FAQ）
+            </h2>
             <div>
               <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>
-                Q. 株で得た利益にかかる税金は何パーセントですか？
+                Q. 米国株・米国株式で得た利益にかかる税金は何パーセントですか？
               </h4>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.7', color: 'var(--text-muted)', margin: 0 }}>
-                A. 株の売却益（譲渡益）や配当金にかかる税率は一律「20.315%」です。内訳は所得税15%、復興特別所得税0.315%、住民税5%となります。利益の約2割が税金として引かれる計算になります。
+                A. 米国株・米国株式の売却益（譲渡益）にかかる税率は日本国内で一律「20.315%」です。配当金に関しては、米国現地で10%が引かれた後、残りに対して日本で20.315%が課税されます。
               </p>
             </div>
             <div>
               <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>
-                Q. 「特定口座（源泉徴収あり）」を選べば確定申告は不要ですか？会社にバレますか？
+                Q. 「特定口座（源泉徴収あり）」を選べば米国株式の確定申告は不要ですか？会社にバレますか？
               </h4>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.7', color: 'var(--text-muted)', margin: 0 }}>
-                A. はい、「特定口座（源泉徴収あり）」を選択しておけば、証券会社が利益から税金を自動的に差し引いて代わりに納税してくれるため、確定申告は一切不要です。また、会社に株式投資の収入が通知されることもないため、副業禁止やプライバシーが気になる方でも安心です。
+                A. はい、「特定口座（源泉徴収あり）」を選択しておけば、証券会社が利益から税金を自動的に差し引いて代わりに納税してくれるため、米国株式の確定申告は原則として一切不要です。また、会社に株式投資の収入が通知されることもないため安心です。
               </p>
             </div>
             <div>
               <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>
-                Q. 米国株の配当金にかかる「外国税額控除」とは何ですか？
+                Q. 米国株・米国株式の配当金にかかる「外国税額控除」とは何ですか？
               </h4>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.7', color: 'var(--text-muted)', margin: 0 }}>
                 A. 米国株の配当金は、アメリカ現地で10%が課税され、残りに対して日本で20.315%が課税される「二重課税」の状態になります。確定申告で「外国税額控除」を申請することで、米国内で支払った10%分の税金の一定額を日本の所得税から取り戻すことができます。
@@ -384,7 +493,7 @@ export default function TaxKnowledgePage() {
             </div>
             <div>
               <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>
-                Q. NISA口座で取引すれば税金は完全にかかりませんか？
+                Q. NISA口座で取引すれば米国株の税金は完全にかかりませんか？
               </h4>
               <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.7', color: 'var(--text-muted)', margin: 0 }}>
                 A. はい、NISA口座内で得られた株式の売却益や配当金（国内分）に対する約20.315%の税金は完全非課税になります。ただし、米国株の配当金に対する現地での10%課税は引かれます（NISA口座では外国税額控除の対象外となります）。
@@ -408,7 +517,7 @@ export default function TaxKnowledgePage() {
             </h2>
 
             <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)', lineHeight: '1.8', color: 'var(--text-muted)', marginBottom: '1rem' }}>
-              外国税額控除の手続き方法、NISA枠の最大活用、<br className="sp-hide" />
+              外国税額控除の手続き方法、新NISA枠の最大活用、<br className="sp-hide" />
               会社に知られずに安全に運用する設定。
             </p>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2.5vw, 1.1rem)', lineHeight: '1.8', color: 'var(--text-muted)', marginBottom: '2.5rem' }}>
