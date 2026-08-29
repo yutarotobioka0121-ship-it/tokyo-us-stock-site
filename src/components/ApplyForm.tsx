@@ -80,7 +80,7 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
                 key={session.id}
                 style={{
                   display: 'flex',
-                  alignItems: 'center',
+                  alignItems: 'flex-start',
                   gap: '0.75rem',
                   padding: '0.9rem 1rem',
                   borderRadius: '12px',
@@ -102,6 +102,7 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
                   style={{
                     width: '18px',
                     height: '18px',
+                    marginTop: '2px',
                     accentColor: 'var(--primary)',
                     flexShrink: 0,
                   }}
@@ -113,7 +114,7 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
           <label
             style={{
               display: 'flex',
-              alignItems: 'center',
+              alignItems: 'flex-start',
               gap: '0.75rem',
               padding: '0.9rem 1rem',
               borderRadius: '12px',
@@ -134,6 +135,7 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
               style={{
                 width: '18px',
                 height: '18px',
+                marginTop: '2px',
                 accentColor: 'var(--primary)',
                 flexShrink: 0,
               }}

@@ -92,7 +92,7 @@ export default function CfgApplyForm({ events, selectedEventId }: CfgApplyFormPr
                   key={ev.id}
                   style={{
                     display: 'flex',
-                    alignItems: 'center',
+                    alignItems: 'flex-start',
                     gap: '0.75rem',
                     padding: '0.9rem 1rem',
                     borderRadius: '12px',
@@ -115,6 +115,7 @@ export default function CfgApplyForm({ events, selectedEventId }: CfgApplyFormPr
                     style={{
                       width: '18px',
                       height: '18px',
+                      marginTop: '2px',
                       accentColor: 'var(--primary)',
                       flexShrink: 0,
                     }}
@@ -132,7 +133,7 @@ export default function CfgApplyForm({ events, selectedEventId }: CfgApplyFormPr
           <label
             style={{
               display: 'flex',
-              alignItems: 'center',
+              alignItems: 'flex-start',
               gap: '0.75rem',
               padding: '0.9rem 1rem',
               borderRadius: '12px',
@@ -154,6 +155,7 @@ export default function CfgApplyForm({ events, selectedEventId }: CfgApplyFormPr
               style={{
                 width: '18px',
                 height: '18px',
+                      marginTop: '2px',
                 accentColor: 'var(--primary)',
                 flexShrink: 0,
               }}
@@ -179,7 +181,7 @@ export default function CfgApplyForm({ events, selectedEventId }: CfgApplyFormPr
       </div>
 
       {status === 'error' && (
-        <div className="error-alert" style={{ color: '#ef4444', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1.5rem', fontSize: '0.9rem' }}>
+        <div className="error-alert" style={{ color: '#ef4444', display: 'flex', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '1.5rem', fontSize: '0.9rem' }}>
           <AlertCircle size={18} />
           通信エラーが発生しました。時間をおいて再度お試しください。
         </div>
