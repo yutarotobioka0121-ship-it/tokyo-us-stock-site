@@ -74,10 +74,25 @@ export async function getCFGSchedule(): Promise<CFGEvent[]> {
     const calculateDeadline = (displayDateStr: string) => {
       const match = displayDateStr.match(/(\d+)年(\d+)月(\d+)日/);
       if (!match) return null;
-      const year = parseInt(match[1], 10);
-      const month = parseInt(match[2], 10) - 1;
-      const day = parseInt(match[3], 10);
-      return new Date(year, month, day - 1, 21, 0, 0);
+      
+      const year = match[1];
+      const month = match[2].padStart(2, '0');
+      const day = match[3].padStart(2, '0');
+      
+      // JSTでのイベント当日0時
+      const eventDate = new Date(`${year}-${month}-${day}T00:00:00+09:00`);
+      
+      // 24時間前（前日）を計算し、JSTでフォーマット
+      const prevDay = new Date(eventDate.getTime() - 24 * 60 * 60 * 1000);
+      const prevDayFormatted = new Intl.DateTimeFormat('ja-JP', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        timeZone: 'Asia/Tokyo'
+      }).format(prevDay).replace(/\//g, '-');
+      
+      // 前日の21:00:00 JSTを期限とする
+      return new Date(`${prevDayFormatted}T21:00:00+09:00`);
     };
 
     const formattedData = data.contents.map((item: any) => {
