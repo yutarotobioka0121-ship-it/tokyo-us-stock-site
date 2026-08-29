@@ -75,19 +75,19 @@ export default function Header() {
           <Link href="/about" className="nav-link" onClick={() => setIsOpen(false)}>自己紹介</Link>
           <Link href="/mission" className="nav-link" onClick={() => setIsOpen(false)}>理念</Link>
           
-          <div style={{ padding: '0.5rem 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
-            <span style={{ fontSize: '0.85rem', fontWeight: '800', color: 'var(--primary)', display: 'block', marginBottom: '0.4rem' }}>米国株を知る</span>
-            <Link href="/knowledge" className="nav-link" onClick={() => setIsOpen(false)} style={{ paddingLeft: '0.75rem', fontSize: '0.95rem' }}>米国株とは</Link>
-            <Link href="/knowledge/stock-investment" className="nav-link" onClick={() => setIsOpen(false)} style={{ paddingLeft: '0.75rem', fontSize: '0.95rem' }}>株式投資とは</Link>
-            <Link href="/knowledge/nisa" className="nav-link" onClick={() => setIsOpen(false)} style={{ paddingLeft: '0.75rem', fontSize: '0.95rem' }}>NISAとは</Link>
+          <div style={{ padding: '0.5rem 0', borderBottom: '1px solid rgba(0,0,0,0.05)', width: '100%' }}>
+            <span style={{ fontSize: '0.85rem', fontWeight: '800', color: 'var(--primary)', display: 'block', marginBottom: '0.8rem', paddingLeft: '0.75rem' }}>米国株を知る</span>
+            <Link href="/knowledge" className="nav-link" onClick={() => setIsOpen(false)} style={{ display: 'block', padding: '0.5rem 0.75rem', fontSize: '1rem' }}>米国株とは</Link>
+            <Link href="/knowledge/stock-investment" className="nav-link" onClick={() => setIsOpen(false)} style={{ display: 'block', padding: '0.5rem 0.75rem', fontSize: '1rem' }}>株式投資とは</Link>
+            <Link href="/knowledge/nisa" className="nav-link" onClick={() => setIsOpen(false)} style={{ display: 'block', padding: '0.5rem 0.75rem', fontSize: '1rem' }}>NISAとは</Link>
           </div>
 
-          <div style={{ padding: '0.5rem 0', borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
-            <span style={{ fontSize: '0.85rem', fontWeight: '800', color: 'var(--primary)', display: 'block', marginBottom: '0.4rem' }}>セミナー・個別相談</span>
-            <Link href="/seminar" className="nav-link" onClick={() => setIsOpen(false)} style={{ paddingLeft: '0.75rem', fontSize: '0.95rem' }}>米国株式セミナー</Link>
-            <Link href="/seminar/nisa" className="nav-link" onClick={() => setIsOpen(false)} style={{ paddingLeft: '0.75rem', fontSize: '0.95rem' }}>NISA初心者セミナー</Link>
-            <Link href="/seminar/consultation" className="nav-link" onClick={() => setIsOpen(false)} style={{ paddingLeft: '0.75rem', fontSize: '0.95rem' }}>マンツーマン個別相談</Link>
-            <Link href="/seminar/cashflow-game" className="nav-link" onClick={() => setIsOpen(false)} style={{ paddingLeft: '0.75rem', fontSize: '0.95rem' }}>キャッシュフローゲーム会</Link>
+          <div style={{ padding: '0.5rem 0', borderBottom: '1px solid rgba(0,0,0,0.05)', width: '100%' }}>
+            <span style={{ fontSize: '0.85rem', fontWeight: '800', color: 'var(--primary)', display: 'block', marginBottom: '0.8rem', paddingLeft: '0.75rem' }}>セミナー・個別相談</span>
+            <Link href="/seminar" className="nav-link" onClick={() => setIsOpen(false)} style={{ display: 'block', padding: '0.5rem 0.75rem', fontSize: '1rem' }}>米国株式セミナー</Link>
+            <Link href="/seminar/nisa" className="nav-link" onClick={() => setIsOpen(false)} style={{ display: 'block', padding: '0.5rem 0.75rem', fontSize: '1rem' }}>NISA初心者セミナー</Link>
+            <Link href="/seminar/consultation" className="nav-link" onClick={() => setIsOpen(false)} style={{ display: 'block', padding: '0.5rem 0.75rem', fontSize: '1rem' }}>マンツーマン個別相談</Link>
+            <Link href="/seminar/cashflow-game" className="nav-link" onClick={() => setIsOpen(false)} style={{ display: 'block', padding: '0.5rem 0.75rem', fontSize: '1rem' }}>キャッシュフローゲーム会</Link>
           </div>
 
           <Link href="/blog" className="nav-link" onClick={() => setIsOpen(false)}>ブログ</Link>
