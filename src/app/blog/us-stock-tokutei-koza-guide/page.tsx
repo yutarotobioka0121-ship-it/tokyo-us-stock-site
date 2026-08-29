@@ -88,7 +88,7 @@ export default function UsStockTokuteiKozaGuidePage() {
         </p>
 
         <div style={{ overflowX: "auto", margin: "1.5rem 0" }}>
-          <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", fontSize: "0.95rem" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "600px", textAlign: "left", fontSize: "0.95rem" }}>
             <thead>
               <tr style={{ background: "var(--primary)", color: "white" }}>
                 <th style={{ padding: "0.8rem 1rem" }}>口座の種類</th>

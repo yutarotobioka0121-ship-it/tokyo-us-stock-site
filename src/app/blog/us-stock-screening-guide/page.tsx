@@ -185,37 +185,39 @@ export default function UsStockScreeningGuidePage() {
         <h3 style={{ fontSize: "1.2rem", fontWeight: "800", color: "var(--primary)", marginTop: "1.8rem", marginBottom: "0.8rem" }}>
           おすすめスクリーニングツール比較表
         </h3>
-        <table style={{ width: "100%", borderCollapse: "collapse", marginTop: "1rem", marginBottom: "1rem", fontSize: "0.95rem" }}>
-          <thead>
-            <tr style={{ background: "var(--bg-warm)", borderBottom: "2px solid var(--primary-light)" }}>
-              <th style={{ padding: "0.8rem", textAlign: "left" }}>ツール名</th>
-              <th style={{ padding: "0.8rem", textAlign: "left" }}>特徴</th>
-              <th style={{ padding: "0.8rem", textAlign: "left" }}>おすすめ対象</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style={{ borderBottom: "1px solid rgba(0,0,0,0.1)" }}>
-              <td style={{ padding: "0.8rem", fontWeight: "bold" }}>SBI・楽天証券</td>
-              <td style={{ padding: "0.8rem" }}>日本語対応でそのまま取引可能</td>
-              <td style={{ padding: "0.8rem" }}>米国株初心者</td>
-            </tr>
-            <tr style={{ borderBottom: "1px solid rgba(0,0,0,0.1)" }}>
-              <td style={{ padding: "0.8rem", fontWeight: "bold" }}>Finviz</td>
-              <td style={{ padding: "0.8rem" }}>豊富な条件設定と一覧性の高さ</td>
-              <td style={{ padding: "0.8rem" }}>中級者〜上級者</td>
-            </tr>
-            <tr style={{ borderBottom: "1px solid rgba(0,0,0,0.1)" }}>
-              <td style={{ padding: "0.8rem", fontWeight: "bold" }}>TradingView</td>
-              <td style={{ padding: "0.8rem" }}>チャート分析と連動した高いカスタマイズ性</td>
-              <td style={{ padding: "0.8rem" }}>テクニカル分析重視</td>
-            </tr>
-            <tr>
-              <td style={{ padding: "0.8rem", fontWeight: "bold" }}>Yahoo Finance</td>
-              <td style={{ padding: "0.8rem" }}>最新ニュースや独自指標との連携</td>
-              <td style={{ padding: "0.8rem" }}>ファンダメンタルズ重視</td>
-            </tr>
-          </tbody>
-        </table>
+        <div style={{ overflowX: "auto", marginBottom: "1.5rem" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "500px", marginTop: "1rem", marginBottom: "1rem", fontSize: "0.95rem" }}>
+            <thead>
+              <tr style={{ background: "var(--bg-warm)", borderBottom: "2px solid var(--primary-light)" }}>
+                <th style={{ padding: "0.8rem", textAlign: "left" }}>ツール名</th>
+                <th style={{ padding: "0.8rem", textAlign: "left" }}>特徴</th>
+                <th style={{ padding: "0.8rem", textAlign: "left" }}>おすすめ対象</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style={{ borderBottom: "1px solid rgba(0,0,0,0.1)" }}>
+                <td style={{ padding: "0.8rem", fontWeight: "bold" }}>SBI・楽天証券</td>
+                <td style={{ padding: "0.8rem" }}>日本語対応でそのまま取引可能</td>
+                <td style={{ padding: "0.8rem" }}>米国株初心者</td>
+              </tr>
+              <tr style={{ borderBottom: "1px solid rgba(0,0,0,0.1)" }}>
+                <td style={{ padding: "0.8rem", fontWeight: "bold" }}>Finviz</td>
+                <td style={{ padding: "0.8rem" }}>豊富な条件設定と一覧性の高さ</td>
+                <td style={{ padding: "0.8rem" }}>中級者〜上級者</td>
+              </tr>
+              <tr style={{ borderBottom: "1px solid rgba(0,0,0,0.1)" }}>
+                <td style={{ padding: "0.8rem", fontWeight: "bold" }}>TradingView</td>
+                <td style={{ padding: "0.8rem" }}>チャート分析と連動した高いカスタマイズ性</td>
+                <td style={{ padding: "0.8rem" }}>テクニカル分析重視</td>
+              </tr>
+              <tr>
+                <td style={{ padding: "0.8rem", fontWeight: "bold" }}>Yahoo Finance</td>
+                <td style={{ padding: "0.8rem" }}>最新ニュースや独自指標との連携</td>
+                <td style={{ padding: "0.8rem" }}>ファンダメンタルズ重視</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
           初心者が設定すべきスクリーニング条件5つ

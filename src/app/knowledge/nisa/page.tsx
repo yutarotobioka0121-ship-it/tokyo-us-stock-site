@@ -192,7 +192,8 @@ export default function NisaKnowledgePage() {
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
             ここで初心者の大きな壁となるのが、<strong>「S&P500（米国株全体に投資）」</strong>と<strong>「全世界株式（通称オルカン・世界全体に分散）」</strong>のどちらにするかという問題です。どちらも非常に優れた投資信託で、正解はありませんが、それぞれの特徴を理解して納得して選ぶことが重要です。
           </p>
-          <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '2.5rem', fontSize: '0.95rem', textAlign: 'left' }}>
+          <div style={{ overflowX: 'auto', marginBottom: '2.5rem' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '500px', fontSize: '0.95rem', textAlign: 'left' }}>
             <thead>
               <tr style={{ borderBottom: '2px solid rgba(0,0,0,0.1)' }}>
                 <th style={{ padding: '0.75rem 0.5rem', fontWeight: '800' }}>比較項目</th>
@@ -223,6 +224,7 @@ export default function NisaKnowledgePage() {
               </tr>
             </tbody>
           </table>
+          </div>
           <div className="knowledge-banner glass-card" style={{ padding: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
             <span className="featured-tag" style={{ margin: 0 }}>もっと知りたい</span>
             <p style={{ fontSize: '0.95rem', fontWeight: '800', margin: '0.5rem 0' }}>
