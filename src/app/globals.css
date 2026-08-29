@@ -314,6 +314,8 @@ button {
   right: -100%;
   width: 100%;
   max-width: 300px;
+  height: 100vh; /* fallback */
+  height: 100dvh;
   background: var(--bg-warm);
   z-index: 999;
   transition: var(--transition);
