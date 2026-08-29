@@ -117,7 +117,17 @@ export async function getCFGSchedule(): Promise<CFGEvent[]> {
       };
     });
 
-    return formattedData;
+    const sortedData = formattedData.sort((a: any, b: any) => {
+      const getMs = (dateStr: string) => {
+        if (!dateStr) return 0;
+        const match = dateStr.match(/(\d+)年(\d+)月(\d+)日/);
+        if (!match) return 0;
+        return new Date(parseInt(match[1]), parseInt(match[2])-1, parseInt(match[3])).getTime();
+      };
+      return getMs(a.date) - getMs(b.date);
+    });
+
+    return sortedData;
   } catch (error) {
     console.error('Failed to fetch CFG schedule from MicroCMS:', error);
     return [];
