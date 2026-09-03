@@ -309,7 +309,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   <span style={{ fontSize: '0.75rem', fontWeight: '700', padding: '0.2rem 0.6rem', borderRadius: '10px', background: 'rgba(176, 58, 46, 0.08)', color: 'var(--primary)' }}>米国株長期投資家</span>
                 </div>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6', margin: '0 0 1rem 0' }}>
-                  投資歴5年以上の米国株長期投資家。「東京米国株クラブ」の主宰。投資＝ギャンブルだと思い大損する失敗を経験するも、企業分析（財務諸表の徹底的な読み解き）に基づいた長期投資へシフトし、5年間で+1300%超（約13倍）の実績を達成。現在はサラリーマン・事業主として多忙な日々を送りつつ、初心者向けの投資セミナーを東京・オンラインで開催中。
+                  投資歴5年以上の米国株長期投資家。「東京米国株クラブ」の主宰。投資＝ギャンブルだと思い大損する失敗を経験するも、企業分析（財務諸表の徹底的な読み解き）に基づいた長期投資へシフトし、5年間で+1300%超（約13倍）の実績を達成。2026年7月にはサイドFIRE（経済的自立）を達成。現在はサラリーマン・事業主として多忙な日々を送りつつ、初心者向けの投資セミナーを東京・オンラインで開催中。
                 </p>
                 <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
                   <Link href="/about" style={{ fontSize: '0.85rem', fontWeight: '800', color: 'var(--primary)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>

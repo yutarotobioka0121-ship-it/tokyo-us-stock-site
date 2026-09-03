@@ -84,6 +84,7 @@ export default function AboutPage() {
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>財務諸表の読み方から徹底的に学習し、米国個別株（NVIDIA等）への長期投資を開始</span></div>
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>ノイズに惑わされない投資マインドセットを確立し、5年で+1300%超（約13倍）を達成</span></div>
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>現在はサラリーマン・事業主として多忙な毎日を送りながら、投資時間は1日1時間未満</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8', fontWeight: 'bold', color: 'var(--primary-dark)' }}>2026年7月、経済的自立とセミリタイアを両立する「サイドFIRE」を達成</span></div>
               </div>
 
               <div className="skills-list" style={{ marginBottom: '2rem' }}>
@@ -180,10 +181,19 @@ export default function AboutPage() {
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', position: 'relative' }}>
                       <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--primary)', position: 'absolute', left: '-31px', top: '50%', transform: 'translateY(-50%)' }} />
-                      <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2025年〜現在（コミュニティ活動の本格化）</span>
+                      <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2025年（コミュニティ活動の本格化）</span>
                     </div>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
                       「かつての自分のように無知なまま大損する人を減らしたい」という思いから、初心者向けに米国株・新NISAを基本から学べる投資コミュニティ「東京米国株クラブ」を設立。
+                    </p>
+                  </div>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem', position: 'relative' }}>
+                      <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--primary)', position: 'absolute', left: '-31px', top: '50%', transform: 'translateY(-50%)' }} />
+                      <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2026年7月（サイドFIRE達成）</span>
+                    </div>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
+                      資産運用による収益が生活費の基盤を上回る状態となり、経済的自立とやりたい仕事を両立する「サイドFIRE」をついに達成。
                     </p>
                   </div>
                 </div>
