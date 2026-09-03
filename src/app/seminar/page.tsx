@@ -172,16 +172,30 @@ export default async function SeminarPage() {
       {/* Hero Section */}
       <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '100px 0 0', textAlign: 'left' }}>
         <div className="container">
-          <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3', marginLeft: '0', marginRight: 'auto', maxWidth: 'none' }}>
-            米国株投資セミナー
+          <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.5rem)', textAlign: 'left', lineHeight: '1.4', marginLeft: '0', marginRight: 'auto', maxWidth: 'none', color: 'var(--primary-dark)' }}>
+            東京開催・初心者向けの<br className="sp-hide" />
+            <span style={{ color: 'var(--primary)' }}>米国株セミナー（投資勉強会）</span>
           </h1>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1rem, 4vw, 1.4rem)', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', textAlign: 'left', lineHeight: '1.8' }}>
-            東京で開催する初心者向け投資勉強会。難しい専門用語を使わず、わかりやすくお話しします。
+            専門用語は一切なし。完全初心者でも安心して学べる少人数のカフェ形式。
           </p>
-          <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '600px', marginBottom: '2.5rem', color: 'var(--text-muted)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)', lineHeight: '1.8' }}>
+          <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '600px', marginBottom: '1.5rem', color: 'var(--text-muted)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)', lineHeight: '1.8' }}>
             カフェでお茶を飲むようにリラックスした雰囲気で、<br className="sp-hide" />
             投資の「わからない」を「わかった」に変えませんか？
           </p>
+
+          <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--text-main)' }}>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={20} color="var(--primary)" /> 投資歴5年・資産13倍の現役投資家が直接解説</li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={20} color="var(--primary)" /> 周りを気にせず質問できる少人数制（定員4名）</li>
+          </ul>
+
+          <div style={{ marginBottom: '2.5rem' }}>
+            <a href="#apply" className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.1rem', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', borderRadius: '30px', boxShadow: '0 4px 14px rgba(176,58,46,0.3)' }}>
+              日程を確認して申し込む <ArrowRight size={20} />
+            </a>
+            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.8rem', marginLeft: '1rem' }}>※ 各回定員に達し次第、受付終了となります</p>
+          </div>
+
           <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem auto 0 auto', aspectRatio: '16/9', position: 'relative' }}>
             <Image
               src="/workshop.jpg"
@@ -198,10 +212,8 @@ export default async function SeminarPage() {
       <section id="schedule" className="schedule-section" style={{ background: 'white', padding: '2rem 0 1.5rem 0' }}>
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">開催スケジュール</h2>
-            <p className="section-subtitle">
-              次回の開催日程はこちらです。<br className="sp-hide" />少人数制のため、お早めにお申し込みください。
-            </p>
+            <h2 className="section-title">東京開催：米国株セミナー（投資勉強会）スケジュール</h2>
+            <p className="section-subtitle">少人数制のため、満席になり次第受付終了となります。</p>
           </div>
 
           {/* Desktop schedule table */}
@@ -501,7 +513,7 @@ export default async function SeminarPage() {
       <section id="apply-form-section" style={{ background: 'var(--bg-warm)', padding: '2.5rem 0' }}>
         <div className="container" style={{ maxWidth: '600px', margin: '0 auto' }}>
           <div className="glass-card" style={{ padding: '2rem 1.5rem', borderRadius: '24px', border: '1px solid rgba(176, 58, 46, 0.15)', boxShadow: 'var(--shadow-soft)', background: 'white', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
-            <h2 className="section-title" style={{ textAlign: 'left', fontSize: '1.8rem', fontWeight: '900', marginBottom: '2rem', color: 'var(--primary-dark)', width: '100%' }}>講座の予約</h2>
+            <h2 className="section-title" style={{ textAlign: 'left', fontSize: '1.8rem', fontWeight: '900', marginBottom: '2rem', color: 'var(--primary-dark)', width: '100%' }}>米国株セミナー（投資勉強会）のお申し込み</h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', textAlign: 'left', marginBottom: '2rem', lineHeight: '1.8', width: '100%' }}>
               現在募集中のセミナーの日程を選択し、必要事項をご入力の上お申し込みください。<br />
               （※少人数制のため、満席になり次第受付終了となります）
