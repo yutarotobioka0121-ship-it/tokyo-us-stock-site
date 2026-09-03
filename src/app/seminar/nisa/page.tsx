@@ -184,10 +184,23 @@ export default async function NisaSeminarPage() {
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1rem, 4vw, 1.4rem)', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', textAlign: 'left', lineHeight: '1.8' }}>
             「つみたて投資枠」と「成長投資枠」の活用法から、証券口座の選び方・非課税設定まで。初心者目線でわかりやすく解説します。
           </p>
-          <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '600px', marginBottom: '2.5rem', color: 'var(--text-muted)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)', lineHeight: '1.8' }}>
+          <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '600px', marginBottom: '1.5rem', color: 'var(--text-muted)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)', lineHeight: '1.8' }}>
             カフェでお茶を飲むようにリラックスした雰囲気で、<br className="sp-hide" />
             NISAの基礎から失敗しない資産運用の始め方を学びませんか？
           </p>
+          
+          <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--text-main)' }}>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={20} color="var(--primary)" /> 知識ゼロからでも安心の「完全初心者向け」</li>
+            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={20} color="var(--primary)" /> 質問しやすい少人数制（定員4名）のカフェスタイル</li>
+          </ul>
+
+          <div style={{ marginBottom: '2.5rem' }}>
+            <a href="#apply" className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.1rem', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', borderRadius: '30px', boxShadow: '0 4px 14px rgba(176,58,46,0.3)' }}>
+              日程を確認して申し込む <ArrowRight size={20} />
+            </a>
+            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.8rem', marginLeft: '1rem' }}>※ 各回定員に達し次第、受付終了となります</p>
+          </div>
+
           <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem auto 0 auto', aspectRatio: '16/9', position: 'relative' }}>
             <Image
               src="/hero.jpg"

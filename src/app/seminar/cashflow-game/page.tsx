@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Image from "next/image";
 import { getCFGSchedule, CFGEvent } from "@/lib/microcms";
 import CfgApplyForm from "@/components/CfgApplyForm";
-import { MapPin, Target, BookOpen } from "lucide-react";
+import { MapPin, Target, BookOpen, ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: 'キャッシュフローゲーム会 | 東京米国株クラブ',
@@ -29,10 +29,23 @@ export default async function CashflowGamePage() {
             お金の知識を、<br className="sp-hide" />
             <span style={{ color: 'var(--primary)' }}>遊びながら身につける。</span>
           </h1>
-          <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '700px', margin: '0 auto 2.5rem', color: 'var(--text-muted)', textAlign: 'center', fontSize: 'clamp(1rem, 3.5vw, 1.15rem)', lineHeight: '1.8' }}>
+          <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '700px', margin: '0 auto 1.5rem', color: 'var(--text-muted)', textAlign: 'center', fontSize: 'clamp(1rem, 3.5vw, 1.15rem)', lineHeight: '1.8' }}>
             世界中で愛される「キャッシュフローゲーム」で、<br />
             ラットレースから抜け出すための第一歩を踏み出しましょう。
           </p>
+
+          <ul style={{ listStyle: 'none', padding: 0, margin: '0 auto 2rem auto', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--text-main)', maxWidth: '500px', justifyContent: 'center' }}>
+            <li style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}><CheckCircle2 size={20} color="var(--primary)" /> 投資未経験からでも「お金のルール」が学べる</li>
+            <li style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}><CheckCircle2 size={20} color="var(--primary)" /> 参加者同士でワイワイ楽しく学べる（少人数制）</li>
+          </ul>
+
+          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+            <a href="#apply" className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.1rem', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', borderRadius: '30px', boxShadow: '0 4px 14px rgba(176,58,46,0.3)' }}>
+              日程を確認して申し込む <ArrowRight size={20} />
+            </a>
+            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.8rem' }}>※ 各回3〜5名の少人数開催・定員になり次第締切</p>
+          </div>
+
           <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '900px', margin: '0 auto', aspectRatio: '21/9', position: 'relative' }}>
             <Image
               src="/images/cfg/cfg-hero.jpg"
