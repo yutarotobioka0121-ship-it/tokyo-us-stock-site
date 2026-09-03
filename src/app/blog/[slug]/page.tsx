@@ -1,6 +1,6 @@
 import { getPostBySlug, getPosts } from '@/lib/notion';
 import RelatedPosts from '@/components/RelatedPosts';
-import { Calendar, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Calendar, ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
@@ -168,6 +168,31 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <section className="post-content slide-up delay-3">
         <div className="container">
           <div className="post-content-inner glass-card">
+            {/* AIO対策用：自動生成される「この記事の要点」 */}
+            {(() => {
+              const headings = post.content
+                .filter((b: any) => b.type === 'heading_1' || b.type === 'heading_2' || b.type === 'heading_3')
+                .map((b: any) => b[b.type]?.rich_text?.map((t: any) => t.plain_text).join('') || '')
+                .filter((text: string) => text && text.trim() !== post.title.trim())
+                .slice(0, 5); // 最大5行の箇条書きを抽出
+
+              if (headings.length > 0) {
+                return (
+                  <div className="aio-summary-box" style={{ background: 'var(--bg-light)', border: '1px solid var(--glass-border)', borderRadius: '12px', padding: '1.5rem', marginBottom: '2.5rem' }}>
+                    <h2 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: 'none', paddingBottom: 0, marginTop: 0 }}>
+                      <CheckCircle2 size={20} color="var(--primary)" /> この記事の要点
+                    </h2>
+                    <ul style={{ margin: 0, paddingLeft: '1.5rem', color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8', fontWeight: '600' }}>
+                      {headings.map((heading: string, i: number) => (
+                        <li key={i} style={{ marginBottom: '0.4rem' }}>{heading}</li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              }
+              return null;
+            })()}
+
             {post.content
               .filter((block: any, index: number) => {
                 // 先頭のheading_1/heading_2がページタイトルと同じテキストの場合はスキップ
