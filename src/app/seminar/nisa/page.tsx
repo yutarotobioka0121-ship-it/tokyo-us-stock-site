@@ -415,8 +415,9 @@ export default async function NisaSeminarPage() {
       <section id="apply-form-section" style={{ background: 'var(--bg-warm)', padding: '4rem 0' }}>
         <div className="container" style={{ maxWidth: '700px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: '900', color: 'var(--primary-dark)', margin: '0.5rem 0' }}>
-              NISA初心者セミナー お申し込みフォーム
+            <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: '900', color: 'var(--primary-dark)', margin: '0.5rem 0', wordBreak: 'keep-all' }}>
+              <span style={{ display: 'inline-block' }}>NISA初心者セミナー</span>{' '}
+              <span style={{ display: 'inline-block' }}>お申し込みフォーム</span>
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
               ご希望の日程を選択し、必要事項をご入力の上ご送信ください。
