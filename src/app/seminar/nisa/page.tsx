@@ -205,7 +205,7 @@ export default async function NisaSeminarPage() {
           <div style={{ textAlign: 'left', marginBottom: '2.5rem', width: '100%' }}>
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: '900', color: 'var(--primary-dark)', margin: 0, lineHeight: '1.5' }}>
               「知っている人」ではなく、<br className="sp-hide" />
-              「実際に稼いでいる人」から学ぶ。
+              「実際に成果を出している人」から学ぶ。
             </h2>
           </div>
 
