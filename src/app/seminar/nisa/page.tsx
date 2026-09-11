@@ -407,7 +407,6 @@ export default async function NisaSeminarPage() {
       <section id="apply-form-section" style={{ background: 'var(--bg-warm)', padding: '4rem 0' }}>
         <div className="container" style={{ maxWidth: '700px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <span className="featured-tag">お申し込み</span>
             <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: '900', color: 'var(--primary-dark)', margin: '0.5rem 0' }}>
               NISA初心者セミナー お申し込みフォーム
             </h2>
