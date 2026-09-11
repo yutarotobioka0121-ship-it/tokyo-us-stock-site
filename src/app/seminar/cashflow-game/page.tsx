@@ -51,9 +51,9 @@ export default async function CashflowGamePage() {
       {/* About CFG Section */}
       <section className="about-cfg" style={{ padding: '5rem 0', background: 'white' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
-          <div className="section-header text-center" style={{ marginBottom: '4rem' }}>
-            <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '1rem', color: 'var(--primary-dark)' }}>キャッシュフローゲームとは？</h2>
-            <p className="section-subtitle" style={{ color: 'var(--text-muted)' }}>ラットレースを抜けるための考え方を、ボード上で体験できるゲームです。</p>
+          <div style={{ marginBottom: '3rem', textAlign: 'left', width: '100%' }}>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2rem)', fontWeight: '900', marginBottom: '1rem', color: 'var(--primary-dark)' }}>キャッシュフローゲームとは？</h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: '1.8' }}>ラットレースを抜けるための考え方を、ボード上で体験できるゲームです。</p>
           </div>
 
           <div className="features-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
