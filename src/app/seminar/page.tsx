@@ -172,29 +172,16 @@ export default async function SeminarPage() {
       {/* Hero Section */}
       <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '100px 0 0', textAlign: 'left' }}>
         <div className="container">
-          <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.5rem)', textAlign: 'left', lineHeight: '1.4', marginLeft: '0', marginRight: 'auto', maxWidth: 'none', color: 'var(--primary-dark)' }}>
-            東京開催・初心者向けの<br className="sp-hide" />
-            <span style={{ color: 'var(--primary)' }}>米国株セミナー（投資勉強会）</span>
+          <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3', marginLeft: '0', marginRight: 'auto', maxWidth: 'none' }}>
+            米国株セミナー
           </h1>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1rem, 4vw, 1.4rem)', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', textAlign: 'left', lineHeight: '1.8' }}>
-            専門用語は一切なし。完全初心者でも安心して学べる少人数のカフェ形式。
+            東京で開催する初心者向け投資勉強会。難しい専門用語を使わず、わかりやすくお話しします。
           </p>
-          <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '600px', marginBottom: '1.5rem', color: 'var(--text-muted)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)', lineHeight: '1.8' }}>
+          <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '600px', marginBottom: '2.5rem', color: 'var(--text-muted)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)', lineHeight: '1.8' }}>
             カフェでお茶を飲むようにリラックスした雰囲気で、<br className="sp-hide" />
             投資の「わからない」を「わかった」に変えませんか？
           </p>
-
-          <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem 0', display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.95rem', fontWeight: 'bold', color: 'var(--text-main)' }}>
-            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={20} color="var(--primary)" /> 投資歴5年・資産13倍の現役投資家が直接解説</li>
-            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={20} color="var(--primary)" /> 周りを気にせず質問できる少人数制（定員4名）</li>
-          </ul>
-
-          <div style={{ marginBottom: '2.5rem' }}>
-            <a href="#apply" className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.1rem', fontWeight: 'bold', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', borderRadius: '30px', boxShadow: '0 4px 14px rgba(176,58,46,0.3)' }}>
-              日程を確認して申し込む <ArrowRight size={20} />
-            </a>
-            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.8rem', marginLeft: '1rem' }}>※ 各回定員に達し次第、受付終了となります</p>
-          </div>
 
           <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem auto 0 auto', aspectRatio: '16/9', position: 'relative' }}>
             <Image
@@ -211,12 +198,10 @@ export default async function SeminarPage() {
       {/* Schedule Section */}
       <section id="schedule" className="schedule-section" style={{ background: 'white', padding: '2rem 0 1.5rem 0' }}>
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">東京開催：米国株セミナー（投資勉強会）スケジュール</h2>
-            <p className="section-subtitle">少人数制のため、満席になり次第受付終了となります。</p>
-          </div>
-
           {/* Desktop schedule table */}
+          <div style={{ textAlign: 'left', marginBottom: '1rem', width: '100%', maxWidth: '900px', margin: '0 auto 1rem auto' }}>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--primary-dark)', margin: 0, paddingLeft: '0.5rem', borderLeft: '4px solid var(--primary)' }}>開催スケジュール</h2>
+          </div>
           <div className="schedule-table-container schedule-desktop-only" style={{ width: '100%', overflowX: 'auto', WebkitOverflowScrolling: 'touch', paddingBottom: '1rem' }}>
             <table className="schedule-table" style={{ width: '100%', minWidth: '700px', borderCollapse: 'collapse', textAlign: 'center', background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', margin: '0 auto' }}>
               <thead style={{ background: 'var(--primary)', color: 'white' }}>
