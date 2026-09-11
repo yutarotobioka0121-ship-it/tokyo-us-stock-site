@@ -93,11 +93,8 @@ export default async function CashflowGamePage() {
       {/* Schedule Section */}
       <section id="schedule" className="schedule-section" style={{ background: 'white', padding: '2rem 0 1.5rem 0' }}>
         <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">開催スケジュール</h2>
-            <p className="section-subtitle">
-              次回の開催日程はこちらです。<br className="sp-hide" />少人数制のため、お早めにお申し込みください。
-            </p>
+          <div style={{ textAlign: 'left', marginBottom: '1rem', width: '100%', maxWidth: '900px', margin: '0 auto 1rem auto' }}>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--primary-dark)', margin: 0, paddingLeft: '0.5rem', borderLeft: '4px solid var(--primary)' }}>開催スケジュール</h2>
           </div>
 
           {/* Desktop schedule table */}
