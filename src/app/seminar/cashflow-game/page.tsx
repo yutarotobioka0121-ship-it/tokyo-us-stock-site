@@ -25,10 +25,12 @@ export default async function CashflowGamePage() {
       {/* Hero Section */}
       <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '100px 0 3rem', textAlign: 'left' }}>
         <div className="container">
-          <h1 className="post-title" style={{ marginBottom: '1.5rem', fontSize: 'clamp(1.8rem, 5vw, 3rem)', textAlign: 'center', lineHeight: '1.3', maxWidth: 'none', color: 'var(--primary-dark)' }}>
-            お金の知識を、<br className="sp-hide" />
-            <span style={{ color: 'var(--primary)' }}>遊びながら身につける。</span>
+          <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(2rem, 6vw, 3.5rem)', textAlign: 'center', lineHeight: '1.3', maxWidth: 'none', color: 'var(--primary-dark)' }}>
+            キャッシュフローゲーム会
           </h1>
+          <p style={{ fontSize: 'clamp(1.2rem, 4vw, 1.6rem)', fontWeight: '800', textAlign: 'center', color: 'var(--primary)', marginBottom: '1.5rem', lineHeight: '1.4' }}>
+            お金の知識を、<br className="sp-hide" />遊びながら身につける。
+          </p>
           <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '700px', margin: '0 auto 1.5rem', color: 'var(--text-muted)', textAlign: 'center', fontSize: 'clamp(1rem, 3.5vw, 1.15rem)', lineHeight: '1.8' }}>
             世界中で愛される「キャッシュフローゲーム」で、<br />
             ラットレースから抜け出すための第一歩を踏み出しましょう。
