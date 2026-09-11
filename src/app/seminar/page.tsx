@@ -461,10 +461,10 @@ export default async function SeminarPage() {
           <div className="glass-card" style={{ padding: '1.5rem' }}>
             <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【内容・流れ】</h3>
             <ol style={{ paddingLeft: '1.2rem', margin: '0 0 2rem 0', color: 'var(--text-muted)', fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', lineHeight: '1.8' }}>
-              <li><strong>講師自己紹介：</strong> 投資を始めたきっかけと失敗・成功体験の共有</li>
-              <li><strong>投資の基本マインド：</strong> 資産形成における最重要マインドセット</li>
-              <li><strong>初心者向け米国株投資セミナー：</strong> 米国株の強みと具体的な長期投資の手法</li>
-              <li><strong>質疑応答・相談タイム：</strong> 個別の疑問や不安に丁寧にお答えします</li>
+              <li>自己紹介</li>
+              <li>投資の基本マインド</li>
+              <li>米国株のメリット・デメリット</li>
+              <li>質疑応答・シェアリング</li>
             </ol>
 
             <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【米国株投資セミナーの内容】</h3>
