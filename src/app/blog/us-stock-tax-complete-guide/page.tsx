@@ -62,13 +62,13 @@ export default function UsStockTaxCompleteGuide() {
   };
 
   return (
-    <div className="container" style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem 1rem' }}>
+    <div className="container" style={{ maxWidth: '800px', margin: '0 auto', padding: '100px 1rem 2rem 1rem' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       
-      <h1 className="post-title" style={{ fontSize: '2.5rem', marginBottom: '1.5rem', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.5rem' }}>
+      <h1 className="post-title" style={{ fontSize: 'clamp(1.6rem, 5vw, 2.4rem)', marginBottom: '1.5rem', borderBottom: '2px solid #e2e8f0', paddingBottom: '0.5rem', lineHeight: '1.4' }}>
         米国株の税金・確定申告 完全ガイド｜特定口座・NISA・外国税額控除を初心者向けに解説
       </h1>
 
