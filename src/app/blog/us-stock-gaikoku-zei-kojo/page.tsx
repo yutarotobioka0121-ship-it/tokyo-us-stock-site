@@ -31,6 +31,11 @@ export default function UsStockGaikokuZeiKojoPage() {
       knowledgeLink="/blog/us-stock-tax-guide"
       knowledgeTitle="米国株の税金全体ガイド"
       knowledgeDesc="米国株の税金の基本ルールや特定口座、新NISAでの節税対策を解説しています。"
+      aioSummary={[
+        "外国税額控除とは、米国株の配当にかかる日米の二重課税を取り戻す制度",
+        "確定申告を行うことで、米国で引かれた10%の税金の一部または全額が還付される",
+        "NISA口座で受け取った配当金は外国税額控除の対象外となるため注意が必要"
+      ]}
     >
       <div className="article-body-content">
         <p>

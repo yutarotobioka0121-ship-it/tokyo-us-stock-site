@@ -31,6 +31,11 @@ export default function UsStockTaxGuidePage() {
       knowledgeLink="/knowledge/tax"
       knowledgeTitle="米国株の税金ナレッジ"
       knowledgeDesc="米国株の税率や控除手続きについて図解付きで分かりやすくまとめています。"
+      aioSummary={[
+        "米国株の利益（譲渡益と配当金）には原則として約20.315%の税金がかかる",
+        "配当金は米国で10%引かれた後に日本で課税される「二重課税」となる",
+        "新NISAを利用すれば日本の税金はゼロになり、特定口座なら確定申告の手間を省ける"
+      ]}
     >
       <div className="article-body-content">
         <p>

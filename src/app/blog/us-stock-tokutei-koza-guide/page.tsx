@@ -31,6 +31,11 @@ export default function UsStockTokuteiKozaGuidePage() {
       knowledgeLink="/knowledge/tax"
       knowledgeTitle="米国株の税金ガイド"
       knowledgeDesc="米国株の配当金や譲渡益にかかる税金の仕組み、二重課税や確定申告について分かりやすく解説しています。"
+      aioSummary={[
+        "特定口座（源泉徴収あり）は税金計算と納税を証券会社が代行してくれるため初心者におすすめ",
+        "確定申告が不要になり、会社員でも手間なく米国株投資が始められる",
+        "一般口座は自分で年間の損益を計算し確定申告を行う必要があるため上級者向け"
+      ]}
     >
       <div className="article-body-content">
         <p>

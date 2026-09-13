@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, ArrowLeft, ArrowRight, ShieldCheck, ChevronRight } from "lucide-react";
+import { Calendar, ArrowLeft, ArrowRight, ShieldCheck, ChevronRight, CheckCircle2 } from "lucide-react";
 
 interface StaticBlogPostProps {
   title: string;
@@ -12,6 +12,7 @@ interface StaticBlogPostProps {
   knowledgeTitle?: string;
   knowledgeDesc?: string;
   slug: string;
+  aioSummary?: string[]; // AIO対策用の3〜4行の箇条書き
 }
 
 export default function StaticBlogPost({
@@ -23,6 +24,7 @@ export default function StaticBlogPost({
   knowledgeTitle = "米国株投資の基礎知識",
   knowledgeDesc = "初心者でも安心！米国株の基本の仕組みや日本株との違いを徹底解説しています。",
   slug,
+  aioSummary,
 }: StaticBlogPostProps) {
   const articleSchema = {
     "@context": "https://schema.org",
@@ -139,6 +141,19 @@ export default function StaticBlogPost({
               color: "var(--text-main)",
             }}
           >
+            {aioSummary && aioSummary.length > 0 && (
+              <div className="aio-summary-box" style={{ background: 'var(--bg-light)', border: '1px solid var(--glass-border)', borderRadius: '12px', padding: '1.5rem', marginBottom: '2.5rem' }}>
+                <h2 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: 'none', paddingBottom: 0, marginTop: 0 }}>
+                  <CheckCircle2 size={20} color="var(--primary)" /> この記事の要点
+                </h2>
+                <ul style={{ margin: 0, paddingLeft: '1.5rem', color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8', fontWeight: '600' }}>
+                  {aioSummary.map((item, i) => (
+                    <li key={i} style={{ marginBottom: '0.4rem' }}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             {children}
 
             {/* 投資リスク免責文 */}

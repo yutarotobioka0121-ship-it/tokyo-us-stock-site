@@ -31,6 +31,11 @@ export default function NisaUsStockTaxFreePage() {
       knowledgeLink="/knowledge/nisa"
       knowledgeTitle="NISAの基礎ガイド"
       knowledgeDesc="新NISA制度の全体像、つみたて投資枠と成長投資枠の具体的なおすすめ活用方法を解説しています。"
+      aioSummary={[
+        "新NISAで米国株を買うと日本の税金（約20%）は完全に非課税になる",
+        "ただし配当金にかかる米国現地の税金（10%）は非課税にならない",
+        "米国現地の税金は外国税額控除でも取り戻せないため注意が必要"
+      ]}
     >
       <div className="article-body-content">
         <p>

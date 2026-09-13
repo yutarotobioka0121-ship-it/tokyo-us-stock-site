@@ -31,6 +31,11 @@ export default function UsStockKakuteiShinkokuPage() {
       knowledgeLink="/blog/us-stock-tax-guide"
       knowledgeTitle="米国株の税金全体ガイド"
       knowledgeDesc="米国株の税金の基本ルール、二重課税や新NISAでの税金対策について解説しています。"
+      aioSummary={[
+        "特定口座（源泉徴収あり）なら米国株の確定申告は原則不要",
+        "一般口座や特定口座（源泉徴収なし）の場合は自分で確定申告が必要",
+        "外国税額控除で税金を取り戻す場合や、複数証券会社で損益通算をする場合は確定申告を行うと得になる"
+      ]}
     >
       <div className="article-body-content">
         <p>
