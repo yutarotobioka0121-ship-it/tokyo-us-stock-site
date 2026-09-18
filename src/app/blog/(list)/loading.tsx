@@ -3,8 +3,8 @@ import React from 'react';
 export default function Loading() {
   return (
     <div className="blog-page">
-      <section className="blog-hero">
-        <div className="container">
+      <section style={{ background: 'var(--bg-warm)', padding: '100px 0 40px' }}>
+        <div className="container" style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
           <div className="skeleton skeleton-tag" style={{ margin: '0 auto 1rem' }}></div>
           <div className="skeleton skeleton-title" style={{ margin: '0 auto 1.5rem' }}></div>
           <div className="skeleton skeleton-text" style={{ margin: '0 auto' }}></div>

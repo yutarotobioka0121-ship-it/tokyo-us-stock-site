@@ -48,10 +48,10 @@ export default async function BlogPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
       />
 
-      <section className="blog-hero" style={{ background: 'var(--bg-warm)', padding: '100px 0 40px' }}>
+      <section style={{ background: 'var(--bg-warm)', padding: '100px 0 40px' }}>
         <div className="container" style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-          <span className="section-tag">OUR KNOWLEDGE BLOG</span>
-          <h1 className="section-title" style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', fontWeight: '900', color: 'var(--primary-dark)', marginTop: '0.5rem', marginBottom: '1.2rem' }}>
+          <span className="section-tag" style={{ margin: '0 auto', display: 'inline-block' }}>OUR KNOWLEDGE BLOG</span>
+          <h1 className="section-title" style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', fontWeight: '900', color: 'var(--primary-dark)', marginTop: '0.5rem', marginBottom: '1.2rem', textAlign: 'center' }}>
             米国株ブログ
           </h1>
           <p className="blog-intro" style={{ fontSize: 'clamp(0.95rem, 2.2vw, 1.15rem)', lineHeight: '1.9', color: 'var(--text-main)', maxWidth: '780px', margin: '0 auto' }}>
