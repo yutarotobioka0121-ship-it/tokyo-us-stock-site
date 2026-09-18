@@ -17,6 +17,10 @@ export async function POST(request: Request) {
     let isZoom = false;
     let sessionDetails = '';
 
+    const isConsultation = (typeof sessionId === 'string' && sessionId.includes('個別相談')) || data.seminarType === 'マンツーマン個別相談';
+    const isNisa = (typeof sessionId === 'string' && sessionId.includes('NISA初心者セミナー')) || data.seminarType === 'NISA初心者セミナー';
+    const isCfg = data.seminarType === 'キャッシュフローゲーム会';
+
     if (session) {
       const typeArr = Array.isArray(session.type) ? session.type : [session.type];
       const typeStr = typeArr.join(' ').toLowerCase();
@@ -36,14 +40,13 @@ URL: https://us06web.zoom.us/j/9612252694?pwd=SWp5MGxTUm1SVmhTcjVWVnlqY3BQdz09&o
         sessionDetails = `
 ■開催場所
 ${session.location || '都内近郊'}
-※詳細は追ってご連絡、または当日のご案内をお待ちください。
 `;
       }
+    } else if (sessionId === 'other') {
+      eventString = '日程選択: その他・個別調整希望';
+    } else if (isNisa) {
+      eventString = '日程選択: その他・個別調整希望'; // Fallback for old clients
     }
-
-    const isConsultation = (typeof sessionId === 'string' && sessionId.includes('個別相談')) || data.seminarType === 'マンツーマン個別相談';
-    const isNisa = (typeof sessionId === 'string' && sessionId.includes('NISA初心者セミナー')) || data.seminarType === 'NISA初心者セミナー';
-    const isCfg = data.seminarType === 'キャッシュフローゲーム会';
 
     let notionType = '米国株セミナー';
     if (isConsultation) {
@@ -78,7 +81,7 @@ ${session.location || '都内近郊'}
       subject: isConsultation 
         ? `【受付完了】個別相談のお申し込み・日程調整のご案内 | 東京米国株クラブ`
         : isNisa
-        ? `【受付完了】NISA初心者セミナーのお申し込み・日程調整のご案内 | 東京米国株クラブ`
+        ? `【受付完了】NISA初心者セミナーのお申し込みのご案内 | 東京米国株クラブ`
         : isCfg
         ? `【受付完了】キャッシュフローゲーム会お申し込みのご案内 | 東京米国株クラブ`
         : `【受付完了】米国株投資セミナーお申し込みのご案内 | 東京米国株クラブ`,
@@ -113,22 +116,24 @@ ${name} 様
 
 東京米国株クラブの「NISA初心者セミナー」にお申し込みいただき、誠にありがとうございます。
 ご入力いただいた内容を受け付けいたしました。
-
+${session ? '' : `
 ※重要：この時点ではまだ日時・開催は確定しておりません。
-ご入力いただいたご希望日時を元に、運営より改めて日程確定・詳細のご案内メールをお送りいたします。
-
+ご入力いただいたご希望日時を元に、運営より改めて日程調整・確定のご案内メールをお送りいたします。
+`}
 ■ご送信いただいたお申し込み内容
 種別：NISA初心者セミナー
 詳細：${eventString}
-
+${sessionDetails}
 ■事前にいただいたご質問・メッセージ
 ${message || '（なし）'}
 
 ■今後の流れ
-1. ご希望日時を確認し、運営より日程確定および詳細（会場またはZoomリンク）の案内メールを送信いたします。
-2. 当日のセミナー実施となります。
+${session ? `1. 当日は開始5分前を目安に${isZoom ? '上記のZoomリンクよりご入室' : '会場へお越し'}ください。
+2. キャンセルや変更のご連絡は、このメールへの返信にてお知らせください。` : `1. ご希望内容を確認し、運営より日程確定および詳細（会場またはZoomリンク）の案内メールを送信いたします。
+2. 日程調整完了後、当日のセミナー実施となります。`}
 
-しばらくお待ちくださいますようお願い申し上げます。
+皆様にお会いできるのを楽しみにしております。
+どうぞよろしくお願いいたします。
 
 --------------------------------------------------
 東京米国株クラブ 運営
