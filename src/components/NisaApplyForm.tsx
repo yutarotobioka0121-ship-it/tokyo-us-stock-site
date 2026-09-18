@@ -29,8 +29,10 @@ export default function NisaApplyForm({ sessions, selectedSessionId }: NisaApply
     } else {
       const foundSession = sessions.find(s => s.id === eventVal);
       if (foundSession) {
-        const type = Array.isArray(foundSession.type) ? foundSession.type[0] : foundSession.type;
-        const isOffline = type !== 'online' && type !== 'オンライン';
+        const typeArr = Array.isArray(foundSession.type) ? foundSession.type : [foundSession.type];
+        const typeStr = typeArr.join(' ').toLowerCase();
+        const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
+        const isOffline = !isOnline;
         eventName = `NISA初心者セミナー [${formatSessionDate(foundSession.date)} ${formatSessionTime(foundSession.date)}〜 ${isOffline ? '[対面]' : '[オンライン]'}]`;
       }
     }

@@ -18,8 +18,9 @@ export async function POST(request: Request) {
     let sessionDetails = '';
 
     if (session) {
-      const type = Array.isArray(session.type) ? session.type[0] : session.type;
-      isZoom = type === 'online' || type === 'オンライン';
+      const typeArr = Array.isArray(session.type) ? session.type : [session.type];
+      const typeStr = typeArr.join(' ').toLowerCase();
+      isZoom = typeStr.includes('online') || typeStr.includes('オンライン');
       const dateStr = formatSessionDate(session.date);
       const timeStr = formatSessionTime(session.date);
       eventString = `${dateStr} ${timeStr}〜${isZoom ? ' [オンライン]' : ' [対面]'}`;
