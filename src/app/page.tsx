@@ -211,7 +211,7 @@ export default async function Home() {
               東京開催のセミナー ＆ 個別相談コース
             </h2>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 2vw, 1.1rem)', color: 'var(--text-muted)', lineHeight: '1.8', maxWidth: '750px', margin: '0 auto' }}>
-              ご自身の目的やご都合に合わせて、3つのスタイルからお選びいただけます。<br className="sp-hide" />
+              ご自身の目的やご都合に合わせて、4つのスタイルからお選びいただけます。<br className="sp-hide" />
               知識ゼロの方でも、カフェでお茶を飲むようなリラックスした雰囲気でご参加いただけます。
             </p>
           </div>
@@ -271,7 +271,34 @@ export default async function Home() {
               </div>
             </div>
 
-            {/* カラム3: 個別相談受付 */}
+            {/* カラム3: キャッシュフローゲーム会 */}
+            <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '24px', background: 'white', border: '1px solid rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflow: 'hidden' }}>
+              <div>
+                <div style={{ position: 'relative', width: '100%', height: '180px', borderRadius: '16px', overflow: 'hidden', marginBottom: '1.2rem' }}>
+                  <Image
+                    src="/images/cfg/cfg-hero.jpg"
+                    alt="キャッシュフローゲーム会の様子"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: 'cover' }}
+                  />
+                </div>
+                <span className="featured-tag" style={{ margin: '0 0 0.8rem 0' }}>マネーリテラシー向上</span>
+                <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.8rem', lineHeight: '1.4' }}>
+                  キャッシュフローゲーム会
+                </h3>
+                <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text-main)', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                  世界的ベストセラー『金持ち父さん 貧乏父さん』で推奨されているボードゲームを通じて、お金のルールと「ラットレースから抜け出す」ための財務スキルを楽しく身につけます。
+                </p>
+              </div>
+              <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
+                <Link href="/seminar/cashflow-game" className="btn btn-primary" style={{ width: '100%', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '0.85rem 1.5rem', borderRadius: '30px', fontWeight: '800', textDecoration: 'none', fontSize: '0.95rem' }}>
+                  ゲーム会の詳細 <ArrowRight size={18} />
+                </Link>
+              </div>
+            </div>
+
+            {/* カラム4: 個別相談受付 */}
             <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '24px', background: 'white', border: '1px solid rgba(0,0,0,0.08)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflow: 'hidden' }}>
               <div>
                 <div style={{ position: 'relative', width: '100%', height: '180px', borderRadius: '16px', overflow: 'hidden', marginBottom: '1.2rem' }}>
