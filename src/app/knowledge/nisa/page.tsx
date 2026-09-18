@@ -83,7 +83,7 @@ export default function NisaKnowledgePage() {
         <div className="container" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'left' }}>
 
           {/* 📌 NISAの始め方（結論サマリー・RAG/AIO最適化） */}
-          <div style={{ background: '#f8fafc', borderLeft: '5px solid var(--primary)', padding: '1.5rem', marginBottom: '2.5rem', borderRadius: '0 8px 8px 0' }}>
+          <div style={{ background: '#f8fafc', borderLeft: '5px solid var(--primary)', padding: 'clamp(1.2rem, 4vw, 1.5rem)', marginBottom: '2.5rem', borderRadius: '0 8px 8px 0' }}>
             <h2 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginTop: 0, marginBottom: '1rem' }}>📌 NISAの始め方（結論）</h2>
             <p style={{ lineHeight: '1.8', marginBottom: '1rem', color: 'var(--text-main)' }}>NISAの始め方は、次の3ステップです。</p>
             <ul style={{ listStyleType: 'none', paddingLeft: '0', marginBottom: '1rem', lineHeight: '1.8', color: 'var(--text-main)' }}>
@@ -92,7 +92,7 @@ export default function NisaKnowledgePage() {
               <li>・<strong>ステップ③：</strong>S&P500などのインデックスファンドを毎月積立設定する</li>
             </ul>
             <p style={{ lineHeight: '1.8', margin: 0, color: 'var(--text-main)' }}>
-              最短で申し込みから約1週間で始められ、月100円から投資可能です。<br/>
+              最短で申し込みから約1週間で始められ、月100円から投資可能です。<br className="sp-hide" />
               新NISAなら年間360万円・生涯1,800万円まで運用益が非課税になります。
             </p>
           </div>
@@ -114,7 +114,7 @@ export default function NisaKnowledgePage() {
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
             1. 新NISA制度の5つの重要ポイント
           </h2>
-          <p style={{ fontWeight: 'bold', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', background: '#f1f5f9', padding: '1.2rem', borderRadius: '8px', marginBottom: '1.5rem', borderLeft: '4px solid var(--primary)' }}>
+          <p style={{ fontWeight: '500', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', background: '#f1f5f9', padding: 'clamp(1rem, 3vw, 1.2rem)', borderRadius: '8px', marginBottom: '1.5rem', borderLeft: '4px solid var(--primary)' }}>
             新NISA（少額投資非課税制度）とは、投資で得た利益（売却益・配当）にかかる約20.315%の税金が非課税になる、日本の個人向け投資優遇制度です。2024年に制度が刷新され、2026年時点の新NISAでは、年間360万円・生涯1,800万円まで非課税で運用できるようになりました（出典：金融庁「NISA特設ウェブサイト」）。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
@@ -162,7 +162,7 @@ export default function NisaKnowledgePage() {
               </p>
             </div>
           </div>
-          <div className="knowledge-banner glass-card" style={{ padding: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
+          <div className="knowledge-banner glass-card" style={{ padding: 'clamp(1.2rem, 4vw, 1.5rem)', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
             <span className="featured-tag" style={{ margin: 0 }}>もっと知りたい</span>
             <p style={{ fontSize: '0.95rem', fontWeight: '800', margin: '0.5rem 0' }}>
               新NISAの基本ルールや、旧NISAとの詳しい対比表などはコラム記事でも徹底解説しています。
@@ -176,7 +176,7 @@ export default function NisaKnowledgePage() {
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
             2. NISAの始め方とおすすめの証券会社
           </h2>
-          <p style={{ fontWeight: 'bold', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', background: '#f1f5f9', padding: '1.2rem', borderRadius: '8px', marginBottom: '1.5rem', borderLeft: '4px solid var(--primary)' }}>
+          <p style={{ fontWeight: '500', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', background: '#f1f5f9', padding: 'clamp(1rem, 3vw, 1.2rem)', borderRadius: '8px', marginBottom: '1.5rem', borderLeft: '4px solid var(--primary)' }}>
             NISAの始め方は「①証券口座の開設 → ②NISA口座の申し込み → ③インデックスファンドの積立設定」の3ステップで、最短約1週間で始められます。NISA口座を開設する金融機関は、2026年時点で手数料が安く商品ラインナップが豊富な「SBI証券」または「楽天証券」のどちらかを選択するのがおすすめです。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
@@ -201,7 +201,7 @@ export default function NisaKnowledgePage() {
               </li>
             </ol>
           </div>
-          <div className="knowledge-banner glass-card" style={{ padding: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
+          <div className="knowledge-banner glass-card" style={{ padding: 'clamp(1.2rem, 4vw, 1.5rem)', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
             <span className="featured-tag" style={{ margin: 0 }}>もっと知りたい</span>
             <p style={{ fontSize: '0.95rem', fontWeight: '800', margin: '0.5rem 0' }}>
               SBI証券と楽天証券の詳しい違い、どちらが開設しやすいかなどをステップ順に図解したコラムはこちらです。
@@ -215,7 +215,7 @@ export default function NisaKnowledgePage() {
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
             3. つみたて投資枠で何を買うべきか？
           </h2>
-          <p style={{ fontWeight: 'bold', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', background: '#f1f5f9', padding: '1.2rem', borderRadius: '8px', marginBottom: '1.5rem', borderLeft: '4px solid var(--primary)' }}>
+          <p style={{ fontWeight: '500', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', background: '#f1f5f9', padding: 'clamp(1rem, 3vw, 1.2rem)', borderRadius: '8px', marginBottom: '1.5rem', borderLeft: '4px solid var(--primary)' }}>
             NISA初心者に最もおすすめの投資先は、米国の優良企業500社に分散投資できる「S&P500連動インデックスファンド」です。代表的な商品はeMAXIS Slim 米国株式（S&P500）で、信託報酬は年率0.09372%以内（2026年時点）と非常に低コストで運用できます。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
@@ -257,7 +257,7 @@ export default function NisaKnowledgePage() {
             </tbody>
           </table>
           </div>
-          <div className="knowledge-banner glass-card" style={{ padding: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
+          <div className="knowledge-banner glass-card" style={{ padding: 'clamp(1.2rem, 4vw, 1.5rem)', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
             <span className="featured-tag" style={{ margin: 0 }}>もっと知りたい</span>
             <p style={{ fontSize: '0.95rem', fontWeight: '800', margin: '0.5rem 0' }}>
               つみたて枠のシミュレーションと、S&P500・全世界株式の細かな投資比率などを徹底的に比較・解説したコラムはこちらです。
@@ -271,7 +271,7 @@ export default function NisaKnowledgePage() {
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
             4. 成長投資枠で投資効率を最大化する
           </h2>
-          <p style={{ fontWeight: 'bold', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', background: '#f1f5f9', padding: '1.2rem', borderRadius: '8px', marginBottom: '1.5rem', borderLeft: '4px solid var(--primary)' }}>
+          <p style={{ fontWeight: '500', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', background: '#f1f5f9', padding: 'clamp(1rem, 3vw, 1.2rem)', borderRadius: '8px', marginBottom: '1.5rem', borderLeft: '4px solid var(--primary)' }}>
             新NISAには年間120万円の「つみたて投資枠」と年間240万円の「成長投資枠」の2種類があり、併用すると年間最大360万円まで非課税投資ができます。成長投資枠では個別株やETFにも投資できるため、配当金狙いの米国高配当ETFなどを組み合わせることで投資効率を最大化できます（2026年時点）。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
@@ -283,7 +283,7 @@ export default function NisaKnowledgePage() {
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
             成長投資枠を有効に使うためには、<strong>「VYM・HDV などの米国高配当株ETF」</strong>を使って安定的な分配金（不労所得）を非課税で受け取るシステムを作るか、圧倒的な強みを持つ米国の超大企業（ビッグテック）に財務諸表分析をベースに長期保有で投資する戦略をとるのが堅実です。
           </p>
-          <div className="knowledge-banner glass-card" style={{ padding: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
+          <div className="knowledge-banner glass-card" style={{ padding: 'clamp(1.2rem, 4vw, 1.5rem)', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
             <span className="featured-tag" style={{ margin: 0 }}>もっと知りたい</span>
             <p style={{ fontSize: '0.95rem', fontWeight: '800', margin: '0.5rem 0' }}>
               成長投資枠を使って何にどう投資するのが最も効率が良いのか、罠を回避するルールをまとめたコラムはこちら。
@@ -297,7 +297,7 @@ export default function NisaKnowledgePage() {
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
             5. 新NISAの「出口戦略」と資産取り崩しの考え方
           </h2>
-          <p style={{ fontWeight: 'bold', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', background: '#f1f5f9', padding: '1.2rem', borderRadius: '8px', marginBottom: '1.5rem', borderLeft: '4px solid var(--primary)' }}>
+          <p style={{ fontWeight: '500', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', background: '#f1f5f9', padding: 'clamp(1rem, 3vw, 1.2rem)', borderRadius: '8px', marginBottom: '1.5rem', borderLeft: '4px solid var(--primary)' }}>
             新NISAで長期運用した資産の出口戦略としては、元本を維持しながら運用益のみを少しずつ引き出す「4%ルール」などの定率取り崩しが推奨されます。新NISAの非課税期間は無期限（2026年時点）であるため、必要なタイミングで必要な分だけ柔軟に非課税で引き出すことが可能です。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
@@ -314,7 +314,7 @@ export default function NisaKnowledgePage() {
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
             6. 年代別・ライフステージ別の新NISAおすすめ活用シナリオ
           </h2>
-          <p style={{ fontWeight: 'bold', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', background: '#f1f5f9', padding: '1.2rem', borderRadius: '8px', marginBottom: '1.5rem', borderLeft: '4px solid var(--primary)' }}>
+          <p style={{ fontWeight: '500', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', background: '#f1f5f9', padding: 'clamp(1rem, 3vw, 1.2rem)', borderRadius: '8px', marginBottom: '1.5rem', borderLeft: '4px solid var(--primary)' }}>
             NISAはSBI証券・楽天証券なら月100円から始められ、20代〜30代の初心者は月3,000円〜30,000円の積立から始めるのが一般的です。40代〜50代以降は、余剰資金を活かして成長投資枠での米国高配当株投資を組み合わせるなど、ライフステージに合わせた資産形成が可能です（2026年時点）。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
@@ -351,7 +351,7 @@ export default function NisaKnowledgePage() {
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
             7. NISAとiDeCo（イデコ）の違い＆口座変更のポイント
           </h2>
-          <p style={{ fontWeight: 'bold', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', background: '#f1f5f9', padding: '1.2rem', borderRadius: '8px', marginBottom: '1.5rem', borderLeft: '4px solid var(--primary)' }}>
+          <p style={{ fontWeight: '500', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', background: '#f1f5f9', padding: 'clamp(1rem, 3vw, 1.2rem)', borderRadius: '8px', marginBottom: '1.5rem', borderLeft: '4px solid var(--primary)' }}>
             NISAとiDeCo（個人型確定拠出年金）の最大の違いは、NISAがいつでも資金を引き出せるのに対し、iDeCoは原則60歳まで引き出しができない点です。2026年時点の制度において、まずは資金拘束のない新NISAを優先して上限（年間360万円）まで活用し、さらに節税効果を高めたい場合にiDeCoを併用するのが基本的な戦略となります。
           </p>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '1.5rem' }}>
@@ -388,7 +388,7 @@ export default function NisaKnowledgePage() {
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
             また、すでに銀行などでNISA口座を開設してしまった場合でも、1年単位で「SBI証券」や「楽天証券」などのネット証券へ金融機関を変更することができます。変更手続きは毎年10月1日〜翌年9月30日の間に行うことができ、過去に買い付けた商品を売却する必要はありません。手数料と商品数の観点から、早めにネット証券へ集約することをお勧めします。
           </p>
-          <div className="knowledge-banner glass-card" style={{ padding: '1.5rem', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
+          <div className="knowledge-banner glass-card" style={{ padding: 'clamp(1.2rem, 4vw, 1.5rem)', background: 'var(--bg-warm)', borderRadius: '16px', border: '1px solid var(--glass-border)', marginBottom: '3rem' }}>
             <span className="featured-tag" style={{ margin: 0 }}>もっと知りたい</span>
             <p style={{ fontSize: '0.95rem', fontWeight: '800', margin: '0.5rem 0' }}>
               4%ルールの具体的なシミュレーションと、新NISA枠から資産を賢く部分売却していく実戦方法についてのコラムはこちら。
@@ -402,7 +402,7 @@ export default function NisaKnowledgePage() {
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
             8. NISAに関するよくある質問 (FAQ)
           </h2>
-          <p style={{ fontWeight: 'bold', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', background: '#f1f5f9', padding: '1.2rem', borderRadius: '8px', marginBottom: '1.5rem', borderLeft: '4px solid var(--primary)' }}>
+          <p style={{ fontWeight: '500', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', background: '#f1f5f9', padding: 'clamp(1rem, 3vw, 1.2rem)', borderRadius: '8px', marginBottom: '1.5rem', borderLeft: '4px solid var(--primary)' }}>
             ここでは、NISAの始め方や銘柄選び、新NISAの制度に関する初心者の方からよく寄せられる質問について回答します。
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '3rem' }}>
