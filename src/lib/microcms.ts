@@ -33,7 +33,7 @@ export async function getSessions() {
   try {
     const data = await client.get({
       endpoint: 'usstock',
-      queries: { orders: '-publishedAt' },
+      queries: { orders: '-publishedAt', limit: 100 },
       customRequestInit: {
         cache: 'no-store',
       },
@@ -65,7 +65,7 @@ export async function getCFGSchedule(): Promise<CFGEvent[]> {
   try {
     const data = await client.get({
       endpoint: 'eventschedule',
-      queries: { orders: 'date', limit: 20 },
+      queries: { orders: 'date', limit: 100 },
       customRequestInit: { cache: 'no-store' },
     });
 
