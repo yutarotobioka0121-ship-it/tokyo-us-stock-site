@@ -7,7 +7,7 @@ import { addCustomerToNotion } from '@/lib/notion';
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    const { name, email, event: sessionId, message } = data;
+    const { name, email, phone, event: sessionId, message } = data;
 
     // 1. Fetch session details from MicroCMS
     const allSessions = await getSessions();
@@ -65,7 +65,7 @@ ${session.location || '都内近郊'}
       email,
       type: notionType,
       subject: eventString,
-      message: message || '',
+      message: phone ? `【電話番号】${phone}\n\n${message || ''}` : (message || ''),
     });
 
     // 3. Send automatic reply email
@@ -207,6 +207,7 @@ ${sessionDetails}
 ■お客様情報
 お名前：${name} 様
 メールアドレス：${email}
+電話番号：${phone || '未入力'}
 
 ■お申し込み内容・希望詳細
 ${eventString}
@@ -222,6 +223,7 @@ ${message || '（記入なし）'}
 ■お客様情報
 お名前：${name} 様
 メールアドレス：${email}
+電話番号：${phone || '未入力'}
 
 ■お申し込み内容・希望詳細
 ${eventString}
@@ -237,6 +239,7 @@ ${message || '（記入なし）'}
 ■お客様情報
 お名前：${name} 様
 メールアドレス：${email}
+電話番号：${phone || '未入力'}
 
 ■お申し込み内容・希望詳細
 ${eventString}
@@ -255,6 +258,7 @@ ${message || '（記入なし）'}
 ■お客様情報
 お名前：${name} 様
 メールアドレス：${email}
+電話番号：${phone || '未入力'}
 
 ■参加動機・メッセージ
 ${message || '（記入なし）'}

@@ -5,7 +5,7 @@ import { addCustomerToNotion } from '@/lib/notion';
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    const { name, email, subject, message } = data;
+    const { name, email, phone, subject, message } = data;
 
     // 件名のマッピング
     const subjectMap: Record<string, string> = {
@@ -22,7 +22,7 @@ export async function POST(request: Request) {
       email,
       type: 'お問い合わせ',
       subject: displaySubject,
-      message: message || '',
+      message: phone ? `【電話番号】${phone}\n\n${message || ''}` : (message || ''),
     });
 
     const transporter = nodemailer.createTransport({
@@ -70,6 +70,7 @@ ${message}
 ■お客様情報
 お名前：${name} 様
 メールアドレス：${email}
+電話番号：${phone || '未入力'}
 
 ■お問い合わせ内容
 件名：${displaySubject}

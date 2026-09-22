@@ -130,6 +130,22 @@ export default function ConsultationApplyForm() {
         />
       </div>
 
+      {/* 新規追加: 電話番号 */}
+      <div className="form-group" style={{ marginBottom: '1.5rem' }}>
+        <label className="form-label" htmlFor="phone" style={{ fontWeight: '800', marginBottom: '0.4rem', display: 'block' }}>
+          電話番号 <span style={{ color: 'var(--primary)', fontSize: '0.85rem', marginLeft: '0.2rem' }}>*必須</span>
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          required
+          className="form-input"
+          placeholder="090-1234-5678"
+          style={{ width: '100%', padding: '0.85rem 1rem', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.15)', fontSize: '0.95rem' }}
+        />
+      </div>
+
       {/* 5. 事前に相談したい内容・メッセージ */}
       <div className="form-group" style={{ marginBottom: '2rem' }}>
         <label className="form-label" htmlFor="message" style={{ fontWeight: '800', marginBottom: '0.4rem', display: 'block' }}>

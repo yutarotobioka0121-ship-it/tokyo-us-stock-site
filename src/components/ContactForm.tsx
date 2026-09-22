@@ -62,8 +62,13 @@ export default function ContactForm() {
             </div>
 
             <div className="form-group">
-              <label htmlFor="email" className="form-label">メールアドレス</label>
+              <label htmlFor="email" className="form-label">メールアドレス <span style={{ color: '#ef4444', fontSize: '0.8rem', marginLeft: '4px' }}>必須</span></label>
               <input type="email" id="email" name="email" required className="form-input" placeholder="example@mail.com" />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="phone" className="form-label">電話番号 <span style={{ color: '#ef4444', fontSize: '0.8rem', marginLeft: '4px' }}>必須</span></label>
+              <input type="tel" id="phone" name="phone" required className="form-input" placeholder="090-1234-5678" />
             </div>
 
             <div className="form-group">

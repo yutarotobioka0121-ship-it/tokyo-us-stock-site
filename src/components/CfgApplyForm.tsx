@@ -176,6 +176,11 @@ export default function CfgApplyForm({ events, selectedEventId }: CfgApplyFormPr
       </div>
 
       <div className="form-group">
+        <label htmlFor="phone" className="form-label">電話番号 <span style={{ color: '#ef4444', fontSize: '0.8rem', marginLeft: '4px' }}>必須</span></label>
+        <input type="tel" id="phone" name="phone" required className="form-input" placeholder="例: 090-1234-5678" />
+      </div>
+
+      <div className="form-group">
         <label htmlFor="message" className="form-label">ご質問・備考 <span style={{ color: '#9ca3af', fontSize: '0.8rem', marginLeft: '4px' }}>任意</span></label>
         <textarea id="message" name="message" className="form-textarea" placeholder="ご不明な点や、ボードゲームの経験（初心者など）があればご記入ください。" rows={4}></textarea>
       </div>
