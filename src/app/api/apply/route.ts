@@ -35,6 +35,8 @@ export async function POST(request: Request) {
 URL: https://us06web.zoom.us/j/9612252694?pwd=SWp5MGxTUm1SVmhTcjVWVnlqY3BQdz09&omn=84511369538
 ミーティングID: 961 225 2694
 パスコード: 1234
+
+※参加はカメラOn、ミュート解除できる環境でご参加ください。
 `;
       } else {
         sessionDetails = `
