@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, TrendingUp, DollarSign, PieChart, CheckCircle2, ShieldCheck, HelpCircle, Repeat, Scale } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '株式投資の収益とは？キャピタルゲインとインカムゲインの違い・選び方を徹底解説 | 東京米国株クラブ',
+  title: '株式投資の収益とは？キャピタルゲインとインカムゲインの違い・選び方を徹底解説',
   description: '株式投資で得られる2つの収益「キャピタルゲイン（値上がり益）」と「インカムゲイン（配当金）」の仕組み、違い、メリット・リスクを徹底解説。トータルリターンの考え方、米国株の連続増配企業、年代別の収益戦略まで網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge/returns',

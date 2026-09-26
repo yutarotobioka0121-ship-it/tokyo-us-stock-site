@@ -3,7 +3,7 @@ import Link from "next/link";
 import StaticBlogPost from "@/components/StaticBlogPost";
 
 export const metadata: Metadata = {
-  title: "米国株・米国株式のスクリーニングとは？初心者向け銘柄スクリーニングのやり方を徹底解説 | 東京米国株クラブ",
+  title: '米国株・米国株式のスクリーニングとは？初心者向け銘柄スクリーニングのやり方を徹底解説',
   description:
     "米国株・米国株式のスクリーニング（銘柄スクリーニング）の基本と、初心者でも使えるSBI・楽天証券の無料スクリーナーツールを使った銘柄の絞り込み方をわかりやすく徹底解説します。",
   alternates: {

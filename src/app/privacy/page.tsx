@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: 'プライバシーポリシー | 東京米国株クラブ',
+  title: 'プライバシーポリシー',
   description: '東京米国株クラブのプライバシーポリシー（個人情報保護方針）に関するご案内。当クラブがお預かりするお名前やメールアドレス等の個人情報の取り扱いについて定めています。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/privacy',

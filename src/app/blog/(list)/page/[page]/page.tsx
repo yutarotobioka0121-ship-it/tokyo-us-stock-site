@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (isNaN(pageNum) || pageNum < 1) {
     return {
-      title: 'ページが見つかりません | 東京米国株クラブ',
+      title: 'ページが見つかりません',
     };
   }
 

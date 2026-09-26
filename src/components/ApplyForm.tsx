@@ -39,6 +39,28 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
       }
       
       setStatus('success');
+        
+        // GA4 tracking
+        let eventDate = 'unknown';
+        if (data.event === 'other') {
+          eventDate = 'other';
+        } else {
+          // Depending on the form, we might have sessions, schedule, or nothing
+          const arr = sessions;
+          const selected = arr.find(s => s.id === data.event);
+          if (selected && selected.date) {
+            eventDate = selected.date.substring(0, 10);
+          } else if (data.date) {
+            eventDate = typeof data.date === 'string' ? data.date.substring(0, 10) : 'unknown';
+          }
+        }
+
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+          (window as any).gtag('event', 'generate_lead', {
+            seminar_type: 'us_stock',
+            event_date: eventDate,
+          });
+        }
       (e.target as HTMLFormElement).reset();
     } catch (error) {
       console.error('Submission error:', error);

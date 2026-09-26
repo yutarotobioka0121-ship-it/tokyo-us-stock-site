@@ -7,13 +7,13 @@ import { formatSessionDate, formatSessionTime, getSessionStartDateTime, isSessio
 import NisaApplyForm from "@/components/NisaApplyForm";
 
 export const metadata: Metadata = {
-  title: 'NISA初心者セミナー・申し込み日程 | 東京米国株クラブ',
+  title: 'NISA初心者セミナー・申し込み日程',
   description: '東京で開催中の初心者向け新NISA活用セミナー。「つみたて投資枠」と「成長投資枠」の違いや、非課税メリットを活かす設定方法まで、定員4名の少人数カフェスタイルで丁寧に解説します。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/seminar/nisa',
   },
   openGraph: {
-    title: 'NISA初心者セミナー・申し込み日程 | 東京米国株クラブ',
+    title: 'NISA初心者セミナー・申し込み日程',
     description: '少人数制（定員4名）のカフェスタイルセミナー。知識ゼロから安全に始める新NISAの活用法をわかりやすく解説します。',
     url: 'https://www.tokyo-us-stock.com/seminar/nisa',
     siteName: '東京米国株クラブ',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NISA初心者セミナー・申し込み日程 | 東京米国株クラブ',
+    title: 'NISA初心者セミナー・申し込み日程',
     description: '少人数制（定員4名）のカフェスタイルセミナー。知識ゼロから安全に始める新NISAの活用法をわかりやすく解説。',
     images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },
@@ -103,54 +103,9 @@ export default async function NisaSeminarPage() {
       if (!base) return '2026-08-15T22:00:00+09:00';
       const d = new Date(base);
       d.setHours(d.getHours() + offsetHours);
-      return d.toISOString().replace('Z', '+09:00').replace(/\.\d{3}/, '');
+      const pad = (n: number) => n.toString().padStart(2, '0');
+      return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}:00+09:00`;
     } catch { return '2026-08-15T22:00:00+09:00'; }
-  };
-
-  const eventSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'EducationEvent',
-    name: 'NISA初心者セミナー',
-    description: '定員4名の少人数制カフェスタイルセミナー。新NISAの活用法と始め方をやさしく解説。',
-    eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
-    eventStatus: 'https://schema.org/EventScheduled',
-    startDate: buildEventDate(nextSession, 0),
-    endDate: buildEventDate(nextSession, 2),
-    image: 'https://www.tokyo-us-stock.com/ogp.png',
-    performer: {
-      '@type': 'Person',
-      name: 'とびー',
-      url: 'https://www.tokyo-us-stock.com/about',
-    },
-    location: [
-      {
-        '@type': 'Place',
-        name: '東京都内のカフェ（詳細は申込み後にメールにてご案内）',
-        address: {
-          '@type': 'PostalAddress',
-          addressLocality: '東京都',
-          addressCountry: 'JP',
-        },
-      },
-      {
-        '@type': 'VirtualLocation',
-        url: 'https://zoom.us',
-        name: 'Zoom（オンライン開催）',
-      },
-    ],
-    organizer: {
-      '@type': 'Organization',
-      name: '東京米国株クラブ',
-      url: 'https://www.tokyo-us-stock.com/',
-    },
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'JPY',
-      availability: 'https://schema.org/InStock',
-      url: 'https://www.tokyo-us-stock.com/seminar/nisa',
-      validFrom: '2026-01-01',
-    },
   };
 
   const availableSessions = sortedSessions.filter(s => {
@@ -160,11 +115,127 @@ export default async function NisaSeminarPage() {
     return !isSessionDeadlinePassed(s, now);
   });
 
+  const eventSchema = availableSessions.map(session => {
+    const typeArr = Array.isArray(session.type) ? session.type : [session.type];
+    const typeStr = typeArr.join(' ').toLowerCase();
+    const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
+    const locStr = session.location || '';
+    const isKawasaki = locStr.includes('川崎');
+
+    const location = isOnline
+      ? {
+          '@type': 'VirtualLocation',
+          url: 'https://zoom.us',
+          name: 'Zoom（オンライン開催）',
+        }
+      : {
+          '@type': 'Place',
+          name: isKawasaki ? '神奈川県川崎市周辺のカフェ' : '東京都新宿区周辺のカフェ',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: isKawasaki ? '神奈川県川崎市' : '東京都新宿区',
+            addressCountry: 'JP',
+          },
+        };
+
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'EducationEvent',
+      name: 'NISA初心者セミナー',
+      description: '定員4名の少人数制カフェスタイルセミナー。新NISAの活用法と始め方をやさしく解説。',
+      eventAttendanceMode: isOnline
+        ? 'https://schema.org/OnlineEventAttendanceMode'
+        : 'https://schema.org/OfflineEventAttendanceMode',
+      eventStatus: 'https://schema.org/EventScheduled',
+      startDate: buildEventDate(session, 0),
+      endDate: buildEventDate(session, 2),
+      image: 'https://www.tokyo-us-stock.com/ogp.png',
+      performer: {
+        '@type': 'Person',
+        name: 'とびー',
+        url: 'https://www.tokyo-us-stock.com/about',
+      },
+      location,
+      organizer: {
+        '@type': 'Organization',
+        name: '東京米国株クラブ',
+        url: 'https://www.tokyo-us-stock.com/',
+      },
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'JPY',
+        availability: 'https://schema.org/InStock',
+        url: 'https://www.tokyo-us-stock.com/seminar/nisa',
+        validFrom: '2026-01-01',
+      },
+    };
+  });
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '投資の知識が全くなくても参加できますか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'はい、参加可能です。完全な初心者向けに専門用語を使わず解説するため、事前知識は一切不要です。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '当日必要な持ち物はありますか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '特にありません。メモを取りたい方は筆記用具をご持参ください。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '参加費は本当に無料ですか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'はい、完全無料で開催しております。対面開催の場合、カフェでのご自身の飲食代のみご負担をお願いしております。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '無理に金融商品を勧誘されませんか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '一切ありません。当クラブは中立な立場から情報提供を行うコミュニティであり、特定商品の販売や勧誘は行いません。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'オンライン参加の場合、顔出しは必要ですか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: '少人数でのコミュニケーションを大切にしているため、可能な限りカメラオン（顔出し）でのご参加をお願いしております。',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: '友達と一緒に参加することは可能ですか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'はい、お友達やご家族との参加も大歓迎です。お申し込み時に同伴者様の人数をお知らせください。',
+        },
+      },
+    ],
+  };
+
   return (
     <div className="seminar-page" style={{ overflowWrap: 'break-word' }}>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(eventSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Hero Section */}
@@ -184,6 +255,19 @@ export default async function NisaSeminarPage() {
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1rem, 4vw, 1.4rem)', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', textAlign: 'left', lineHeight: '1.8' }}>
             「つみたて投資枠」「成長投資枠」の活用法、証券口座の選び方まで。初めての方でもわかりやすく解説します。
           </p>
+
+          {/* サマリーセクション */}
+          <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.1)', marginBottom: '2rem' }}>
+            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              📌 このセミナーについて
+            </h2>
+            <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', color: 'var(--text-main)', fontSize: '1rem', lineHeight: '1.8', margin: 0 }}>
+              <li>東京米国株クラブのNISA初心者セミナーは、新NISAをこれから始める方向けの無料の勉強会です。</li>
+              <li>会場は東京（新宿駅周辺）・神奈川（川崎駅周辺）のカフェと、オンライン（Zoom）です。</li>
+              <li>定員は1回4名、所要時間は約1時間です。</li>
+              <li>つみたて投資枠と成長投資枠の違い、証券口座の選び方、積立設定の手順を学べます。</li>
+            </ul>
+          </div>
 
           <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem auto 0 auto', aspectRatio: '16/9', position: 'relative' }}>
             <Image
@@ -459,6 +543,27 @@ export default async function NisaSeminarPage() {
             <p style={{ lineHeight: '1.8', color: 'var(--text-main)' }}>
               特定の商品や金融サービスの強引な勧誘、高額セミナーの販売などは一切行いません。投資初心者の方が知識を付け、安全に第一歩を踏み出せるよう、中立な立場から分かりやすく解説いたします。
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section style={{ background: 'var(--bg-warm)', padding: '4rem 0' }}>
+        <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '2rem', textAlign: 'center', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.5rem', display: 'inline-block', left: '50%', transform: 'translateX(-50%)', position: 'relative' }}>
+            よくあるご質問
+          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            {faqSchema.mainEntity.map((faq, index) => (
+              <div key={index} className="glass-card" style={{ padding: '1.5rem', background: 'white', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)' }}>
+                <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
+                  <span style={{ color: 'var(--primary)' }}>Q.</span> {faq.name}
+                </h3>
+                <p style={{ margin: 0, fontSize: '1rem', color: 'var(--text-main)', lineHeight: '1.6', display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
+                  <span style={{ color: 'var(--accent)', fontWeight: '800' }}>A.</span> {faq.acceptedAnswer.text}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Gift, ShoppingBag, CreditCard, Sparkles, CheckCircle2, ShieldCheck, HelpCircle, Heart, DollarSign } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '株主優待とは？仕組み・もらい方・人気の優待・米国株との違いを徹底解説 | 東京米国株クラブ',
+  title: '株主優待とは？仕組み・もらい方・人気の優待・米国株との違いを徹底解説',
   description: '株主優待の基礎知識を初心者向けに徹底解説。人気の優待ジャンル（食事券・QUOカード・自社製品）、権利確定日等の貰い方の条件、総合利回りの計算、優待廃止リスク、米国株に優待がない理由まで網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge/yutai',

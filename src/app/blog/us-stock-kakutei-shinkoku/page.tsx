@@ -3,7 +3,7 @@ import Link from "next/link";
 import StaticBlogPost from "@/components/StaticBlogPost";
 
 export const metadata: Metadata = {
-  title: "米国株・米国株式の確定申告は必要？不要？条件と手順を初心者向けに解説 | 東京米国株クラブ",
+  title: '米国株・米国株式の確定申告は必要？不要？条件と手順を初心者向けに解説',
   description:
     "米国株・米国株式投資で確定申告が必要なケースと不要なケースを分かりやすく判定。特定口座（源泉あり/なし）、一般口座、年間20万円ルール、米国株式の確定申告手順まで丁寧に徹底解説します。",
   alternates: {

@@ -3,7 +3,7 @@ import Link from "next/link";
 import StaticBlogPost from "@/components/StaticBlogPost";
 
 export const metadata: Metadata = {
-  title: "新NISAで米国株を買えば税金はかからない？非課税の仕組みを解説 | 東京米国株クラブ",
+  title: '新NISAで米国株を買えば税金はかからない？非課税の仕組みを解説',
   description:
     "新NISA（つみたて投資枠・成長投資枠）で米国株やS&P500を買うと税金はどうなる？日本の税金約20%が非課税になる仕組み、米国現地10%の注意点、特定口座との使い分けまで分かりやすく徹底解説。",
   alternates: {

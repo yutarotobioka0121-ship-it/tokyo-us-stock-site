@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, LineChart, TrendingUp, Layers, CheckCircle2, ShieldCheck, DollarSign, HelpCircle, BarChart3 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '株式投資の指数（インデックス）とは？S&P500・ダウ平均・NASDAQ・日経平均の違いを徹底解説 | 東京米国株クラブ',
+  title: '株式投資の指数（インデックス）とは？S&P500・ダウ平均・NASDAQ・日経平均の違いを徹底解説',
   description: '株価指数（インデックス）の基礎知識を初心者向けに徹底解説。米国の3大指数（S&P500、NYダウ、NASDAQ100）や日本の代表的指数（日経平均、TOPIX）の違い、算出方法（時価総額加重型 vs 株価平均型）、インデックス投資の選び方まで網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge/indices',

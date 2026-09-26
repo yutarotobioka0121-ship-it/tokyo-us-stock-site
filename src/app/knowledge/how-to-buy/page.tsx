@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, CheckCircle2, DollarSign, ShieldCheck, ShoppingCart, HelpCircle, Layers, Award, Clock } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '米国株（アメリカ株）の買い方・始め方完全ガイド！初心者向けの4ステップと注文方法を解説 | 東京米国株クラブ',
+  title: '米国株（アメリカ株）の買い方・始め方完全ガイド！初心者向けの4ステップと注文方法を解説',
   description: '米国株（アメリカ株）の買い方・始め方を初心者向けに分かりやすく解説。証券口座の開設手順、指値・成行注文の違い、円貨決済と外貨決済の選び方、NISA口座での購入方法、最初に買うべきおすすめ銘柄・ETFまで網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge/how-to-buy',

@@ -4,13 +4,13 @@ import { ArrowLeft, ArrowRight, CheckCircle2, Compass, BookOpen, Sun, Star } fro
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: '運営代表者 プロフィール | 東京米国株クラブ',
+  title: '運営代表者 プロフィール',
   description: '東京米国株クラブの運営代表者「とびー」のプロフィール。投資を「ギャンブル」だと思っていた完全な初心者から、失敗を乗り越えて5年で資産13倍を達成したストーリーと当クラブへの想いを紹介。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/about',
   },
   openGraph: {
-    title: '運営代表者 プロフィール | 東京米国株クラブ',
+    title: '運営代表者 プロフィール',
     description: '投資初心者から5年で資産13倍を達成した運営者「とびー」のプロフィールと当クラブへの想い。',
     url: 'https://www.tokyo-us-stock.com/about',
     siteName: '東京米国株クラブ',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '運営代表者 プロフィール | 東京米国株クラブ',
+    title: '運営代表者 プロフィール',
     description: '投資初心者から5年で資産13倍を達成した運営者「とびー」のプロフィールと当クラブへの想い。',
     images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },

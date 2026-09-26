@@ -309,6 +309,36 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               }
             })}
 
+            
+            {/* CTA セミナー案内 (C2対応) */}
+            {(() => {
+              const s = slug.toLowerCase();
+              let bannerHref = '';
+              let bannerText = '';
+              
+              if (s === 'us-stock-beginners-guide' || s === 'sp500-beginners-guide') {
+                bannerHref = '/seminar';
+                bannerText = '東京・川崎の初心者向け米国株セミナー（無料）';
+              } else {
+                bannerHref = '/seminar/cashflow-game';
+                bannerText = '遊びながらお金の考え方を学ぶキャッシュフローゲーム会';
+              }
+              
+              if (bannerHref) {
+                return (
+                  <div className="glass-card" style={{ marginTop: '2rem', padding: '1.5rem', background: 'var(--bg-white)', borderRadius: '12px', border: '2px solid var(--primary)' }}>
+                    <h4 style={{ fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '1rem', marginTop: 0 }}>
+                      おすすめの勉強会・体験会
+                    </h4>
+                    <Link href={bannerHref} style={{ display: 'inline-flex', alignItems: 'center', color: 'var(--primary)', fontWeight: 'bold', textDecoration: 'underline' }}>
+                      {bannerText} <ArrowRight size={16} style={{ marginLeft: '4px' }} />
+                    </Link>
+                  </div>
+                );
+              }
+              return null;
+            })()}
+
             {/* 知識ページ案内バナー */}
             <div className="knowledge-banner glass-card" style={{ marginTop: '3rem', padding: '2rem', background: 'var(--bg-warm)', borderRadius: '16px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '1rem', border: '1px solid var(--glass-border)' }}>
               <span className="featured-tag" style={{ margin: 0 }}>あわせて読みたい</span>

@@ -56,6 +56,11 @@ const organizationSchema = {
     addressLocality: '東京都',
     addressCountry: 'JP',
   },
+  areaServed: [
+    { '@type': 'AdministrativeArea', name: '東京都' },
+    { '@type': 'AdministrativeArea', name: '神奈川県' },
+  ],
+  knowsAbout: ['米国株', '新NISA', 'S&P500', 'インデックス投資', 'キャッシュフローゲーム'],
 };
 
 export default function RootLayout({

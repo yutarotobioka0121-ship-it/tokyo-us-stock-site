@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, CheckCircle2, ShieldCheck, DollarSign, BookOpen, Layers, Award, HelpCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '株式投資の始め方完全ガイド！初心者向けの4ステップと失敗しないやり方を解説 | 東京米国株クラブ',
+  title: '株式投資の始め方完全ガイド！初心者向けの4ステップと失敗しないやり方を解説',
   description: '初心者が失敗せずに株式投資を始めるための手順を徹底解説。目標設定、ネット証券の選び方（SBI証券・楽天証券）、少額投資（100円積立・1株購入）の活用法、長期・分散・積立の3原則まで網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge/how-to-start',

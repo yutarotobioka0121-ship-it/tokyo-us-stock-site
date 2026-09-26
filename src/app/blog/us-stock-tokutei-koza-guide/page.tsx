@@ -3,7 +3,7 @@ import Link from "next/link";
 import StaticBlogPost from "@/components/StaticBlogPost";
 
 export const metadata: Metadata = {
-  title: "米国株の特定口座とは？一般口座との違いと初心者におすすめの選び方 | 東京米国株クラブ",
+  title: '米国株の特定口座とは？一般口座との違いと初心者におすすめの選び方',
   description:
     "米国株投資の特定口座と一般口座の違いをわかりやすく比較。確定申告の手間・税金の自動徴収・新NISAとの組み合わせ方まで初心者向けに丁寧に徹底解説します。",
   alternates: {

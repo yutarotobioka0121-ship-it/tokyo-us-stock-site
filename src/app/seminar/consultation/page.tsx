@@ -5,13 +5,13 @@ import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Use
 import ConsultationApplyForm from "@/components/ConsultationApplyForm";
 
 export const metadata: Metadata = {
-  title: 'マンツーマン個別相談受付・申し込み日程 | 東京米国株クラブ',
+  title: 'マンツーマン個別相談受付・申し込み日程',
   description: '東京で開催中の初心者向け1対1個別投資相談のご案内。周りを気にせず自分のペースで質問したい方へ、投資の始め方や学習計画をマンツーマンで丁寧にサポートします。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/seminar/consultation',
   },
   openGraph: {
-    title: 'マンツーマン個別相談受付・申し込み日程 | 東京米国株クラブ',
+    title: 'マンツーマン個別相談受付・申し込み日程',
     description: '1対1で自分のペースで学べる個別相談枠。初心者目線での進め方相談や不安解消をマンツーマンで丁寧にサポートします。',
     url: 'https://www.tokyo-us-stock.com/seminar/consultation',
     siteName: '東京米国株クラブ',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'マンツーマン個別相談受付・申し込み日程 | 東京米国株クラブ',
+    title: 'マンツーマン個別相談受付・申し込み日程',
     description: '1対1で自分のペースで学べる個別相談枠。初心者目線での進め方相談や不安解消をマンツーマンで丁寧にサポートします。',
     images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },

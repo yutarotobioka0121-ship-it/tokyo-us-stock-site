@@ -3,7 +3,7 @@ import Link from "next/link";
 import StaticBlogPost from "@/components/StaticBlogPost";
 
 export const metadata: Metadata = {
-  title: "米国株の税金の仕組みを初心者向けに徹底解説｜いくらかかる？ | 東京米国株クラブ",
+  title: '米国株の税金の仕組みを初心者向けに徹底解説｜いくらかかる？',
   description:
     "米国株投資でかかる税金の全体像を初心者向けに分かりやすく解説。配当金と値上がり益（譲渡益）の税率、国内約20%と米国10%の二重課税、確定申告や新NISAでの税金対策まで網羅。",
   alternates: {

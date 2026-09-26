@@ -3,13 +3,13 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, ShieldCheck, DollarSign, FileText, CheckCircle2, AlertCircle, HelpCircle, Scale } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '米国株・米国株式の税金とは？確定申告の必要性・二重課税・NISA節税を徹底解説 | 東京米国株クラブ',
+  title: '米国株・米国株式の税金とは？確定申告の必要性・二重課税・NISA節税を徹底解説',
   description: '初心者向けに米国株・米国株式にかかる税金の仕組み（20.315%＋米国10%）を徹底解説。特定口座（源泉徴収あり）の確定申告不要ルール、米国株式の確定申告手順、外国税額控除や新NISA非課税まで網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge/tax',
   },
   openGraph: {
-    title: '米国株・米国株式の税金とは？確定申告の必要性・二重課税・NISA節税を徹底解説 | 東京米国株クラブ',
+    title: '米国株・米国株式の税金とは？確定申告の必要性・二重課税・NISA節税を徹底解説',
     description: '初心者向けに米国株・米国株式にかかる税金の仕組み（20.315%＋米国10%）を徹底解説。特定口座（源泉徴収あり）の確定申告不要ルール、米国株式の確定申告手順、外国税額控除や新NISA非課税まで網羅。',
     url: 'https://www.tokyo-us-stock.com/knowledge/tax',
     siteName: '東京米国株クラブ',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '米国株・米国株式の税金とは？確定申告の必要性・二重課税・NISA節税を徹底解説 | 東京米国株クラブ',
+    title: '米国株・米国株式の税金とは？確定申告の必要性・二重課税・NISA節税を徹底解説',
     description: '初心者向けに米国株・米国株式にかかる税金の仕組み（20.315%＋米国10%）を徹底解説。特定口座（源泉徴収あり）の確定申告不要ルール、米国株式の確定申告手順、外国税額控除や新NISA非課税まで網羅。',
     images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },

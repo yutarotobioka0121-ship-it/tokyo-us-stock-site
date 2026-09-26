@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '米国株の始め方・おすすめを学ぶ東京のセミナー｜東京米国株クラブ',
+    title: '米国株の始め方・おすすめを学ぶ東京のセミナー',
     description: '「米国株の始め方がわからない」初心者向けの東京の投資セミナー。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。',
     images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },

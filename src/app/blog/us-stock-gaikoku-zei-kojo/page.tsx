@@ -3,7 +3,7 @@ import Link from "next/link";
 import StaticBlogPost from "@/components/StaticBlogPost";
 
 export const metadata: Metadata = {
-  title: "米国株の外国税額控除とは？確定申告で取り戻せる税金を解説 | 東京米国株クラブ",
+  title: '米国株の外国税額控除とは？確定申告で取り戻せる税金を解説',
   description:
     "米国株の配当金にかかる二重課税（米国10%+日本20%）を解消する「外国税額控除」の仕組み、控除額の計算方法、確定申告での具体的な申請手順までわかりやすく徹底解説します。",
   alternates: {

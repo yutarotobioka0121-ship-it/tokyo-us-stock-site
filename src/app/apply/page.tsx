@@ -4,7 +4,7 @@ import ApplyForm from "@/components/ApplyForm";
 import { isSessionDeadlinePassed } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: 'セミナーお申し込み | 東京米国株クラブ',
+  title: 'セミナーお申し込み',
   description: '東京米国株クラブが開催する初心者向け米国株投資セミナーへの参加お申し込みページ。少人数制（定員4名）のため、日程を選んでお早めにお申し込みください。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/apply',

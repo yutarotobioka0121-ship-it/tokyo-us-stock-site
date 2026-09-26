@@ -3,13 +3,13 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, BookOpen, Award, TrendingUp, Layers, Activity, Compass, LineChart, Clock, DollarSign, ShieldCheck, Calculator, BarChart2, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '米国株の重要用語キーワード15選！初心者向け完全用語解説集 | 東京米国株クラブ',
+  title: '米国株の重要用語キーワード15選！初心者向け完全用語解説集',
   description: '米国株投資を始める前に知っておくべき「S&P500」「PER・PBR」「高配当・配当貴族」「特定口座」「時間外取引」「ドル・コスト平均法」「FOMC」など重要キーワード15選を初心者向けに分かりやすく徹底解説。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge/keywords',
   },
   openGraph: {
-    title: '米国株の重要用語キーワード15選！初心者向け完全用語解説集 | 東京米国株クラブ',
+    title: '米国株の重要用語キーワード15選！初心者向け完全用語解説集',
     description: '米国株投資を始める前に知っておくべき「S&P500」「PER・PBR」「高配当・配当貴族」「特定口座」「時間外取引」「ドル・コスト平均法」「FOMC」など重要キーワード15選を初心者向けに分かりやすく徹底解説。',
     url: 'https://www.tokyo-us-stock.com/knowledge/keywords',
     siteName: '東京米国株クラブ',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '米国株の重要用語キーワード15選！初心者向け完全用語解説集 | 東京米国株クラブ',
+    title: '米国株の重要用語キーワード15選！初心者向け完全用語解説集',
     description: '米国株投資を始める前に知っておくべき重要キーワード15選を初心者向けに分かりやすく徹底解説。',
     images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },

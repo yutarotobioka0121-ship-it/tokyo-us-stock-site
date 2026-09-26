@@ -3,13 +3,13 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, ShieldCheck, CheckCircle2, FileText, HelpCircle, AlertCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '米国株・米国株式の特定口座とは？源泉徴収あり・なしの違いと選び方 | 東京米国株クラブ',
+  title: '米国株・米国株式の特定口座とは？源泉徴収あり・なしの違いと選び方',
   description: '初心者向けに米国株・米国株式の特定口座の仕組みを徹底解説。「源泉徴収あり」と「源泉徴収なし」の違い、一般口座や新NISAとの比較、SBI・楽天・マネックス各証券の比較、年間取引報告書の見方、外国税額控除の手順まで完全網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge/tokutei-koza',
   },
   openGraph: {
-    title: '米国株・米国株式の特定口座とは？源泉徴収あり・なしの違いと選び方 | 東京米国株クラブ',
+    title: '米国株・米国株式の特定口座とは？源泉徴収あり・なしの違いと選び方',
     description: '初心者向けに米国株・米国株式の特定口座の仕組みを徹底解説。「源泉徴収あり」と「源泉徴収なし」の違い、一般口座や新NISAとの比較、SBI・楽天・マネックス各証券の比較、年間取引報告書の見方、外国税額控除の手順まで完全網羅。',
     url: 'https://www.tokyo-us-stock.com/knowledge/tokutei-koza',
     siteName: '東京米国株クラブ',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '米国株・米国株式の特定口座とは？源泉徴収あり・なしの違いと選び方 | 東京米国株クラブ',
+    title: '米国株・米国株式の特定口座とは？源泉徴収あり・なしの違いと選び方',
     description: '初心者向けに米国株・米国株式の特定口座の仕組みを徹底解説。「源泉徴収あり」と「源泉徴収なし」の違い、一般口座や新NISAとの比較、SBI・楽天・マネックス各証券の比較、年間取引報告書の見方、外国税額控除の手順まで完全網羅。',
     images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },

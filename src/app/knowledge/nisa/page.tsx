@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'NISA（ニーサ）とは？基本から新制度の活用法まで解説 | 東京 米国株 セミナー - 東京米国株クラブ',
+  title: 'NISA（ニーサ）とは？基本から新制度の活用法まで解説 | 東京 米国株 セミナー -',
   description: '東京の初心者向け米国株セミナー「東京米国株クラブ」が、NISA（少額投資非課税制度）の基本仕組みやメリットを3,000字以上で徹底解説。口座開設手順やつみたて枠・成長投資枠の賢い選び方、出口戦略まで網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge/nisa',
@@ -475,11 +475,11 @@ export default function NisaKnowledgePage() {
 
             <div className="glass-card" style={{ background: 'var(--bg-white)', borderRadius: '24px', padding: '2rem 1.5rem', border: '1px solid var(--glass-border)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <p style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1rem, 3vw, 1.2rem)', fontWeight: '800', lineHeight: '1.7', marginBottom: '1.5rem', color: 'var(--primary-dark)' }}>
-                セミナーの詳細・開催スケジュールはこちら
+                東京・川崎で新NISAを学べる初心者セミナー
               </p>
 
-              <Link href="/seminar" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', transition: 'all 0.3s ease', textDecoration: 'none' }}>
-                セミナーの詳細を見る <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
+              <Link href="/seminar/nisa" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', transition: 'all 0.3s ease', textDecoration: 'none' }}>
+                東京・川崎で新NISAを学べる初心者セミナー <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
               </Link>
             </div>
           </div>

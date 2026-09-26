@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, ShieldCheck, Smartphone, FileCheck, CheckCircle2, DollarSign, HelpCircle, UserCheck, AlertTriangle, Key } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '証券口座の作り方・開設手順を完全解説！必要書類・スマホ撮影（eKYC）・初期設定まで | 東京米国株クラブ',
+  title: '証券口座の作り方・開設手順を完全解説！必要書類・スマホ撮影（eKYC）・初期設定まで',
   description: '初心者向けにネット証券口座の作り方を徹底解説。事前に用意する書類（マイナンバーカード）、スマホでの申し込み4ステップ、特定口座（源泉あり）や配当受取方式の正しい選び方、SBI・楽天証券比較まで網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge/account-setup',

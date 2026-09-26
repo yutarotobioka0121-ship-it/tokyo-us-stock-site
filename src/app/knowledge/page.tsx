@@ -414,6 +414,17 @@ export default function KnowledgePage() {
             </div>
           </div>
 
+          
+          {/* CTA セミナー案内 (C2対応) */}
+          <div className="glass-card" style={{ marginTop: '2rem', marginBottom: '2rem', padding: '1.5rem', background: 'var(--bg-white)', borderRadius: '12px', border: '2px solid var(--primary)' }}>
+            <h4 style={{ fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '1rem', marginTop: 0 }}>
+              まずは基礎から学びたい方へ
+            </h4>
+            <Link href="/seminar" style={{ display: 'inline-flex', alignItems: 'center', color: 'var(--primary)', fontWeight: 'bold', textDecoration: 'underline' }}>
+              東京・川崎の初心者向け米国株セミナー（無料） <ArrowRight size={16} style={{ marginLeft: '4px' }} />
+            </Link>
+          </div>
+
           {/* 免責事項 */}
           <div style={{ background: 'var(--bg-light)', padding: '1.5rem', borderRadius: '8px', fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: '1.7', border: '1px solid #e5e7e9' }}>
             ※ 本ページの内容は一般的な情報提供および学習を目的としており、特定の金融商品への投資を勧誘・推奨するものではありません。金融商品は市場動向により価格が変動し、元本割れのリスクが伴います。最終的な投資判断は、必ずご自身の自己責任のもとで行ってください。

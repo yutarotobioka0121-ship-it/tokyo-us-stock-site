@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Clock, Sun, Moon, Calendar, AlertTriangle, ShieldCheck, CheckCircle2, HelpCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '米国株（アメリカ株）の取引時間は日本時間の何時？夏時間・冬時間・時間外取引・祝日を徹底解説 | 東京米国株クラブ',
+  title: '米国株（アメリカ株）の取引時間は日本時間の何時？夏時間・冬時間・時間外取引・祝日を徹底解説',
   description: '米国株（アメリカ株）の取引時間を日本時間で分かりやすく徹底解説。夏時間（サマータイム 22:30〜）と冬時間（23:30〜）の違い、プレ・マーケットやアフター・マーケットなどの時間外取引、年間祝日（休場日）、日本のサラリーマンに最適な取引ルーティンまで網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge/trading-hours',

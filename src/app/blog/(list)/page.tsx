@@ -6,14 +6,14 @@ import { ArrowRight, Search, FileText, Calculator, Landmark, BookOpen, TrendingU
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: '米国株ブログ｜初心者向け米国株・NISA投資コラム｜東京米国株クラブ',
+  title: '米国株ブログ｜初心者向け米国株・NISA投資コラム',
   description:
     '東京米国株クラブの公式米国株ブログ。新NISA・S&P500・ETF・米国株の税金・確定申告・スクリーニング・特定口座など、初心者が知りたいテーマを分かりやすく解説。資産13倍の実績を持つ投資家とびーによる投資コラム。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/blog',
   },
   openGraph: {
-    title: '米国株ブログ｜初心者向け米国株・NISA投資コラム｜東京米国株クラブ',
+    title: '米国株ブログ｜初心者向け米国株・NISA投資コラム',
     description:
       '新NISA・S&P500・ETF・米国株の税金・確定申告・スクリーニング・特定口座など、初心者向けテーマを分かりやすく解説。',
     url: 'https://www.tokyo-us-stock.com/blog',

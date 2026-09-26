@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '株式投資とは？初心者のための基礎知識と始め方 | 東京 米国株 セミナー - 東京米国株クラブ',
+  title: '株式投資とは？初心者のための基礎知識と始め方 | 東京 米国株 セミナー -',
   description: '東京の初心者向け米国株セミナー「東京米国株クラブ」が、株式投資の基本仕組みやメリットを3,000字以上で徹底解説。インデックス投資の強み、日本株・外国株との比較、リスク管理、FAQまで完全網羅。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/knowledge/stock-investment',
