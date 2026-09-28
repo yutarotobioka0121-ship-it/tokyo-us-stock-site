@@ -610,7 +610,7 @@ export default async function SeminarPage() {
           <div>
             <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>開催エリア</h2>
             <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>
-              東京・神奈川のアクセスしやすいカフェ、またはオンラインでご参加いただけます。これまで【要確認：とびー】名以上の方にご参加いただきました。
+              東京・神奈川のアクセスしやすいカフェ、またはオンラインでご参加いただけます。これまで300名以上の方にご参加いただきました。
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
               <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px' }}>
@@ -634,32 +634,7 @@ export default async function SeminarPage() {
             </div>
           </div>
 
-          {/* 外部サイト掲載 */}
-          <div>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>こくちーず・connpass・Peatix に掲載中の日程</h2>
-            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>
-              各イベントプラットフォームでも最新の日程を公開・募集しております。普段お使いのサービスからもお申し込みいただけます。
-            </p>
-            <div className="glass-card" style={{ padding: '1.5rem' }}>
-              <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <li>
-                  <Link href="【要確認：とびー】" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', color: 'var(--primary)', fontWeight: '700', textDecoration: 'none', fontSize: '1.05rem', gap: '0.5rem' }}>
-                    <ArrowRight size={16} /> こくちーずプロのイベントページはこちら
-                  </Link>
-                </li>
-                <li>
-                  <Link href="【要確認：とびー】" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', color: 'var(--primary)', fontWeight: '700', textDecoration: 'none', fontSize: '1.05rem', gap: '0.5rem' }}>
-                    <ArrowRight size={16} /> connpassのイベントページはこちら
-                  </Link>
-                </li>
-                <li>
-                  <Link href="【要確認：とびー】" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', color: 'var(--primary)', fontWeight: '700', textDecoration: 'none', fontSize: '1.05rem', gap: '0.5rem' }}>
-                    <ArrowRight size={16} /> Peatixのイベントページはこちら
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
+          
 
           {/* よくある質問 */}
           <div>

@@ -1,0 +1,401 @@
+
+> business-site-red@0.1.0 lint
+> eslint
+
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/add-aio.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_banner_declare.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_banners.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_blog_titles.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_blog_titles2.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_c2_blog.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_c2_blog2.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_c2_knowledge.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_c2_knowledge_top.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_cfg_errors.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_complete_guide.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_date.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_filter.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_filter_seminar.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_forms.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_forms2.js
+   1:12  error    A `require()` style import is forbidden           @typescript-eslint/no-require-imports
+  19:9   warning  'hasSessions' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  20:9   warning  'hasSchedule' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_generateStaticParams.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_knowledge.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_links.js
+  24:27  error  Parsing error: Invalid character
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_links2.js
+   1:22  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  29:12  warning  'e' is defined but never used            @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_links_node.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_microcms.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_seminar_past.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_sitemap.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_sorted.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_titles.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_top_banner.js
+   1:12  error    A `require()` style import is forbidden       @typescript-eslint/no-require-imports
+  29:1   warning  'content' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_top_banner2.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/fix_ts_errors.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/insert_cta.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/scripts/check_char_count.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/scripts/check_knowledge_char_count.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/scripts/get_db_info.js
+  1:1  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/scripts/send_test_email.js
+  1:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:20  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/scripts/test_apply_forms.js
+  1:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:33  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/scripts/test_notion_api.js
+  1:1  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/scripts/test_notion_types.ts
+  50:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/setup_indexnow.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/about/page.tsx
+  3:21  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+  3:47  warning  'Compass' is defined but never used     @typescript-eslint/no-unused-vars
+  3:56  warning  'BookOpen' is defined but never used    @typescript-eslint/no-unused-vars
+  3:66  warning  'Sun' is defined but never used         @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/api/apply/route.ts
+  279:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/api/contact/route.ts
+  93:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/api/debug/route.ts
+  19:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  34:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/api/indexnow/route.ts
+  24:12  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/blog/(list)/page.tsx
+  4:10  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/blog/[slug]/page.tsx
+   32:21  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+   33:18  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+   33:60  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  169:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  182:29  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  183:26  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  183:64  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  205:31  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  209:77  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  216:28  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  221:49  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  222:41  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  223:40  warning  'text' is assigned a value but never used                                                                                                                                                                                                                                                @typescript-eslint/no-unused-vars
+  250:56  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  316:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  328:50  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  402:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/knowledge/account-setup/page.tsx
+  3:33   warning  'ShieldCheck' is defined but never used    @typescript-eslint/no-unused-vars
+  3:46   warning  'Smartphone' is defined but never used     @typescript-eslint/no-unused-vars
+  3:58   warning  'FileCheck' is defined but never used      @typescript-eslint/no-unused-vars
+  3:69   warning  'CheckCircle2' is defined but never used   @typescript-eslint/no-unused-vars
+  3:83   warning  'DollarSign' is defined but never used     @typescript-eslint/no-unused-vars
+  3:95   warning  'HelpCircle' is defined but never used     @typescript-eslint/no-unused-vars
+  3:107  warning  'UserCheck' is defined but never used      @typescript-eslint/no-unused-vars
+  3:118  warning  'AlertTriangle' is defined but never used  @typescript-eslint/no-unused-vars
+  3:133  warning  'Key' is defined but never used            @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/knowledge/how-to-buy/page.tsx
+    3:33   warning  'CheckCircle2' is defined but never used                         @typescript-eslint/no-unused-vars
+    3:47   warning  'DollarSign' is defined but never used                           @typescript-eslint/no-unused-vars
+    3:59   warning  'ShieldCheck' is defined but never used                          @typescript-eslint/no-unused-vars
+    3:72   warning  'ShoppingCart' is defined but never used                         @typescript-eslint/no-unused-vars
+    3:86   warning  'HelpCircle' is defined but never used                           @typescript-eslint/no-unused-vars
+    3:98   warning  'Layers' is defined but never used                               @typescript-eslint/no-unused-vars
+    3:106  warning  'Award' is defined but never used                                @typescript-eslint/no-unused-vars
+    3:113  warning  'Clock' is defined but never used                                @typescript-eslint/no-unused-vars
+  220:35   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/knowledge/how-to-start/page.tsx
+  3:33  warning  'CheckCircle2' is defined but never used  @typescript-eslint/no-unused-vars
+  3:47  warning  'ShieldCheck' is defined but never used   @typescript-eslint/no-unused-vars
+  3:60  warning  'DollarSign' is defined but never used    @typescript-eslint/no-unused-vars
+  3:72  warning  'BookOpen' is defined but never used      @typescript-eslint/no-unused-vars
+  3:82  warning  'Layers' is defined but never used        @typescript-eslint/no-unused-vars
+  3:90  warning  'Award' is defined but never used         @typescript-eslint/no-unused-vars
+  3:97  warning  'HelpCircle' is defined but never used    @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/knowledge/indices/page.tsx
+  3:33   warning  'LineChart' is defined but never used     @typescript-eslint/no-unused-vars
+  3:44   warning  'TrendingUp' is defined but never used    @typescript-eslint/no-unused-vars
+  3:56   warning  'Layers' is defined but never used        @typescript-eslint/no-unused-vars
+  3:64   warning  'CheckCircle2' is defined but never used  @typescript-eslint/no-unused-vars
+  3:78   warning  'ShieldCheck' is defined but never used   @typescript-eslint/no-unused-vars
+  3:91   warning  'DollarSign' is defined but never used    @typescript-eslint/no-unused-vars
+  3:103  warning  'HelpCircle' is defined but never used    @typescript-eslint/no-unused-vars
+  3:115  warning  'BarChart3' is defined but never used     @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/knowledge/page.tsx
+  3:10   warning  'ArrowLeft' is defined but never used  @typescript-eslint/no-unused-vars
+  3:104  warning  'Award' is defined but never used      @typescript-eslint/no-unused-vars
+  3:118  warning  'Building' is defined but never used   @typescript-eslint/no-unused-vars
+  3:128  warning  'Clock' is defined but never used      @typescript-eslint/no-unused-vars
+  3:135  warning  'Coins' is defined but never used      @typescript-eslint/no-unused-vars
+  3:142  warning  'BookOpen' is defined but never used   @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/knowledge/returns/page.tsx
+  3:33   warning  'TrendingUp' is defined but never used    @typescript-eslint/no-unused-vars
+  3:45   warning  'DollarSign' is defined but never used    @typescript-eslint/no-unused-vars
+  3:57   warning  'PieChart' is defined but never used      @typescript-eslint/no-unused-vars
+  3:67   warning  'CheckCircle2' is defined but never used  @typescript-eslint/no-unused-vars
+  3:81   warning  'ShieldCheck' is defined but never used   @typescript-eslint/no-unused-vars
+  3:94   warning  'HelpCircle' is defined but never used    @typescript-eslint/no-unused-vars
+  3:106  warning  'Repeat' is defined but never used        @typescript-eslint/no-unused-vars
+  3:114  warning  'Scale' is defined but never used         @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/knowledge/tokutei-koza/page.tsx
+  3:33  warning  'ShieldCheck' is defined but never used   @typescript-eslint/no-unused-vars
+  3:46  warning  'CheckCircle2' is defined but never used  @typescript-eslint/no-unused-vars
+  3:60  warning  'FileText' is defined but never used      @typescript-eslint/no-unused-vars
+  3:70  warning  'HelpCircle' is defined but never used    @typescript-eslint/no-unused-vars
+  3:82  warning  'AlertCircle' is defined but never used   @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/knowledge/trading-hours/page.tsx
+  3:33   warning  'Clock' is defined but never used          @typescript-eslint/no-unused-vars
+  3:40   warning  'Sun' is defined but never used            @typescript-eslint/no-unused-vars
+  3:45   warning  'Moon' is defined but never used           @typescript-eslint/no-unused-vars
+  3:51   warning  'Calendar' is defined but never used       @typescript-eslint/no-unused-vars
+  3:61   warning  'AlertTriangle' is defined but never used  @typescript-eslint/no-unused-vars
+  3:76   warning  'ShieldCheck' is defined but never used    @typescript-eslint/no-unused-vars
+  3:89   warning  'CheckCircle2' is defined but never used   @typescript-eslint/no-unused-vars
+  3:103  warning  'HelpCircle' is defined but never used     @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/knowledge/yutai/page.tsx
+  3:33   warning  'Gift' is defined but never used          @typescript-eslint/no-unused-vars
+  3:39   warning  'ShoppingBag' is defined but never used   @typescript-eslint/no-unused-vars
+  3:52   warning  'CreditCard' is defined but never used    @typescript-eslint/no-unused-vars
+  3:64   warning  'Sparkles' is defined but never used      @typescript-eslint/no-unused-vars
+  3:74   warning  'CheckCircle2' is defined but never used  @typescript-eslint/no-unused-vars
+  3:88   warning  'ShieldCheck' is defined but never used   @typescript-eslint/no-unused-vars
+  3:101  warning  'HelpCircle' is defined but never used    @typescript-eslint/no-unused-vars
+  3:113  warning  'Heart' is defined but never used         @typescript-eslint/no-unused-vars
+  3:120  warning  'DollarSign' is defined but never used    @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/page.tsx
+   3:22  warning  'CheckCircle2' is defined but never used  @typescript-eslint/no-unused-vars
+   3:68  warning  'Heart' is defined but never used         @typescript-eslint/no-unused-vars
+   3:75  warning  'BookOpen' is defined but never used      @typescript-eslint/no-unused-vars
+   3:85  warning  'PieChart' is defined but never used      @typescript-eslint/no-unused-vars
+   3:95  warning  'UserCheck' is defined but never used     @typescript-eslint/no-unused-vars
+  47:12  warning  'e' is defined but never used             @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/seminar/cashflow-game/page.tsx
+    5:10   warning  'MapPin' is defined but never used        @typescript-eslint/no-unused-vars
+    5:18   warning  'Target' is defined but never used        @typescript-eslint/no-unused-vars
+    5:26   warning  'BookOpen' is defined but never used      @typescript-eslint/no-unused-vars
+    5:36   warning  'ArrowRight' is defined but never used    @typescript-eslint/no-unused-vars
+  595:154  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/seminar/consultation/page.tsx
+   4:10   warning  'ArrowRight' is defined but never used              @typescript-eslint/no-unused-vars
+   4:36   warning  'Clock' is defined but never used                   @typescript-eslint/no-unused-vars
+   4:43   warning  'MapPin' is defined but never used                  @typescript-eslint/no-unused-vars
+   4:51   warning  'MessageCircle' is defined but never used           @typescript-eslint/no-unused-vars
+   4:66   warning  'HelpCircle' is defined but never used              @typescript-eslint/no-unused-vars
+   4:78   warning  'Users' is defined but never used                   @typescript-eslint/no-unused-vars
+   4:85   warning  'Target' is defined but never used                  @typescript-eslint/no-unused-vars
+   4:93   warning  'BookOpen' is defined but never used                @typescript-eslint/no-unused-vars
+   4:103  warning  'Coffee' is defined but never used                  @typescript-eslint/no-unused-vars
+   4:111  warning  'Zap' is defined but never used                     @typescript-eslint/no-unused-vars
+   4:116  warning  'UserCheck' is defined but never used               @typescript-eslint/no-unused-vars
+   4:127  warning  'ShieldCheck' is defined but never used             @typescript-eslint/no-unused-vars
+  39:10   warning  'formatSessionTimeRange' is defined but never used  @typescript-eslint/no-unused-vars
+  63:14   warning  'e' is defined but never used                       @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/seminar/nisa/page.tsx
+    4:36   warning  'Clock' is defined but never used                                @typescript-eslint/no-unused-vars
+    4:51   warning  'MessageCircle' is defined but never used                        @typescript-eslint/no-unused-vars
+    4:66   warning  'HelpCircle' is defined but never used                           @typescript-eslint/no-unused-vars
+    4:103  warning  'Coffee' is defined but never used                               @typescript-eslint/no-unused-vars
+    4:111  warning  'Zap' is defined but never used                                  @typescript-eslint/no-unused-vars
+    4:116  warning  'PieChart' is defined but never used                             @typescript-eslint/no-unused-vars
+    4:126  warning  'ShieldCheck' is defined but never used                          @typescript-eslint/no-unused-vars
+    6:29   warning  'formatSessionTime' is defined but never used                    @typescript-eslint/no-unused-vars
+   65:14   warning  'e' is defined but never used                                    @typescript-eslint/no-unused-vars
+   82:38   error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+   82:61   error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+   98:9    warning  'nextSession' is assigned a value but only used as a type        @typescript-eslint/no-unused-vars
+  408:31   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  408:35   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/app/seminar/page.tsx
+    4:22   warning  'CheckCircle2' is defined but never used       @typescript-eslint/no-unused-vars
+    4:36   warning  'Clock' is defined but never used              @typescript-eslint/no-unused-vars
+    4:51   warning  'MessageCircle' is defined but never used      @typescript-eslint/no-unused-vars
+    4:66   warning  'HelpCircle' is defined but never used         @typescript-eslint/no-unused-vars
+    4:78   warning  'Users' is defined but never used              @typescript-eslint/no-unused-vars
+    4:85   warning  'Target' is defined but never used             @typescript-eslint/no-unused-vars
+    4:93   warning  'BookOpen' is defined but never used           @typescript-eslint/no-unused-vars
+    4:103  warning  'Coffee' is defined but never used             @typescript-eslint/no-unused-vars
+    4:111  warning  'Zap' is defined but never used                @typescript-eslint/no-unused-vars
+    4:116  warning  'PieChart' is defined but never used           @typescript-eslint/no-unused-vars
+    4:126  warning  'ShieldCheck' is defined but never used        @typescript-eslint/no-unused-vars
+    6:29   warning  'formatSessionTime' is defined but never used  @typescript-eslint/no-unused-vars
+   65:14   warning  'e' is defined but never used                  @typescript-eslint/no-unused-vars
+   96:14   warning  'e' is defined but never used                  @typescript-eslint/no-unused-vars
+  110:38   error    Unexpected any. Specify a different type       @typescript-eslint/no-explicit-any
+  110:61   error    Unexpected any. Specify a different type       @typescript-eslint/no-explicit-any
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/components/ApplyForm.tsx
+  58:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  59:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/components/BlogList.tsx
+  37:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/components/CfgApplyForm.tsx
+  72:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  73:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/components/ConsultationApplyForm.tsx
+  46:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  55:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  56:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/components/NisaApplyForm.tsx
+  63:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  64:22  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/components/RelatedPosts.tsx
+  50:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/components/StaticBlogPost.tsx
+  3:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/lib/debug-notion.js
+  1:20  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/lib/microcms.ts
+   96:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  118:47  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  118:55  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/lib/notion.ts
+   78:40  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  115:14  warning  'e' is defined but never used             @typescript-eslint/no-unused-vars
+  127:38  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  147:16  warning  'e' is defined but never used             @typescript-eslint/no-unused-vars
+  176:26  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  183:21  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  183:59  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/lib/test-404.js
+  2:20  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/lib/test-blocks.js
+  1:20  error    A `require()` style import is forbidden          @typescript-eslint/no-require-imports
+  2:12  error    A `require()` style import is forbidden          @typescript-eslint/no-require-imports
+  6:7   warning  'databaseId' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/lib/test-microcms.js
+  1:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/lib/test-slug.js
+  1:20  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/src/lib/utils.ts
+  31:12  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+  62:16  warning  'e' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/test-microcms.js
+  1:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/test_notion.js
+  1:9   warning  'getPosts' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  1:22  error    A `require()` style import is forbidden        @typescript-eslint/no-require-imports
+
+/Users/tobiokayuutaakira/.gemini/antigravity/scratch/business-site-red/update_redirects.js
+  1:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+✖ 240 problems (101 errors, 139 warnings)
+

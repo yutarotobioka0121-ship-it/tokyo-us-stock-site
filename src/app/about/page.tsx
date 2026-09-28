@@ -105,8 +105,7 @@ export default function AboutPage() {
                 <h3 style={{ fontFamily: 'var(--font-heading)', marginBottom: '1rem', color: 'var(--primary)', fontSize: '1rem', fontWeight: '800', lineHeight: '1.8' }}>🏆 実績・成果</h3>
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>投資歴：7年</span></div>
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>運用資産：1300%増加</span></div>
-                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>年間配当：【要確認：とびー】円</span></div>
-                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>セミナー受講者延べ：【要確認：とびー】名</span></div>
+                                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>セミナー受講者延べ：300名以上</span></div>
               </div>
 
               <div className="skills-list" style={{ marginBottom: '2rem' }}>
