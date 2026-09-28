@@ -287,7 +287,7 @@ export default async function SeminarPage() {
             東京で開催する初心者向け投資勉強会。難しい専門用語を使わず、わかりやすくお話しします。
           </p>
           <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '600px', marginBottom: '2.5rem', color: 'var(--text-muted)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)', lineHeight: '1.8' }}>
-            カフェでお茶を飲むようにリラックスした雰囲気で、<br className="sp-hide" />
+            カフェでリラックスした雰囲気で、<br className="sp-hide" />
             投資の「わからない」を「わかった」に変えませんか？
           </p>
 
