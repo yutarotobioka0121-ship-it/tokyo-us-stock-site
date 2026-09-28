@@ -238,15 +238,11 @@ export default async function CashflowGamePage() {
           <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3', marginLeft: '0', marginRight: 'auto', maxWidth: 'none' }}>
             キャッシュフローゲーム会（川崎・新宿）
           </h1>
-          <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '600px', marginBottom: '1.5rem', color: 'var(--text-main)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)', lineHeight: '1.8', fontWeight: 'bold' }}>
+          <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', wordBreak: 'keep-all', marginBottom: '1.5rem', color: 'var(--text-main)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)', lineHeight: '1.8', fontWeight: 'bold' }}>
             ボードゲームで遊びながら、お金の流れと投資の基本が身につく2時間の体験会です。
           </p>
 
-          <ul style={{ listStyleType: 'none', padding: 0, margin: '0 0 2rem 0', display: 'flex', flexDirection: 'column', gap: '0.8rem', fontSize: '1.05rem', fontWeight: '600', color: 'var(--primary-dark)' }}>
-            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><span>🗓</span> 平日夜・土日開催</li>
-            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><span>📍</span> 川崎駅前／新宿駅前の貸し会議室</li>
-            <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><span>💴</span> 参加費 1,000円（当日現金）</li>
-          </ul>
+          
 
           <div style={{ marginBottom: '2rem' }}>
             <a href="#schedule" className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.1rem', fontWeight: 'bold', textDecoration: 'none', display: 'inline-block', borderRadius: '30px' }}>
