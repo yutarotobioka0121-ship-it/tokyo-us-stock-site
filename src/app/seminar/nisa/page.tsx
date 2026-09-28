@@ -566,19 +566,19 @@ export default async function NisaSeminarPage() {
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
               <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px' }}>
-                <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <MapPin size={20} color="var(--primary)" /> 新宿駅周辺（東京）
+                <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', wordBreak: 'keep-all', whiteSpace: 'nowrap' }}>
+                  <MapPin size={20} color="var(--primary)" /> 東京エリア（新宿など）
                 </h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>新宿駅近くの落ち着いたカフェで開催します。お仕事帰りや休日のお買い物ついでにも便利です。</p>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>都内のアクセスしやすいカフェ（主に新宿駅周辺など）で開催します。お仕事帰りや休日のお出かけついでにも便利です。</p>
               </div>
               <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px' }}>
-                <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <MapPin size={20} color="var(--primary)" /> 川崎駅周辺（神奈川）
+                <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', wordBreak: 'keep-all', whiteSpace: 'nowrap' }}>
+                  <MapPin size={20} color="var(--primary)" /> 神奈川エリア（川崎など）
                 </h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>川崎駅周辺のカフェで開催します。神奈川方面の方におすすめです。</p>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>神奈川県内のカフェ（主に川崎駅周辺など）で開催します。横浜・川崎方面の方におすすめです。</p>
               </div>
               <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px' }}>
-                <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', wordBreak: 'keep-all', whiteSpace: 'nowrap' }}>
                   <Monitor size={20} color="var(--primary)" /> オンライン（Zoom）
                 </h3>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>全国どこからでもご参加いただけるZoom開催も随時行っております。顔出しでリラックスしてご参加ください。</p>
