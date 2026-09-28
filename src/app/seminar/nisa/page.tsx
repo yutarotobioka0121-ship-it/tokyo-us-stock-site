@@ -261,24 +261,7 @@ export default async function NisaSeminarPage() {
             「つみたて投資枠」「成長投資枠」の活用法、証券口座の選び方まで。初めての方でもわかりやすく解説します。
           </p>
 
-          {/* Definition Paragraph */}
-          <div style={{
-            background: 'white',
-            padding: '1.5rem',
-            borderRadius: '12px',
-            border: '1px solid rgba(0,0,0,0.1)',
-            marginBottom: '2rem'
-          }}>
-            <p style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: '1rem',
-              color: 'var(--text-main)',
-              lineHeight: '1.8',
-              margin: 0
-            }}>
-              <strong>東京米国株クラブとは</strong>、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ多数の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。
-            </p>
-          </div>
+          
 
           {/* サマリーセクション */}
           <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.1)', marginBottom: '2rem' }}>
@@ -648,6 +631,29 @@ export default async function NisaSeminarPage() {
         </div>
       </section>
 
+
+      <section style={{ padding: '4rem 0', background: 'white' }}>
+        <div className="container" style={{ maxWidth: '800px' }}>
+          {/* Definition Paragraph */}
+          <div style={{
+            background: 'white',
+            padding: '1.5rem',
+            borderRadius: '12px',
+            border: '1px solid rgba(0,0,0,0.1)',
+            marginBottom: '2rem'
+          }}>
+            <p style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: '1rem',
+              color: 'var(--text-main)',
+              lineHeight: '1.8',
+              margin: 0
+            }}>
+              <strong>東京米国株クラブとは</strong>、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ多数の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
