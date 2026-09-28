@@ -28,6 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/seminar/nisa',
     '/seminar/consultation',
     '/seminar/cashflow-game',
+    '/seminar/cashflow-game/guide',
     '/blog',
     '/blog/us-stock-screening-guide',
     '/blog/us-stock-tokutei-koza-guide',
