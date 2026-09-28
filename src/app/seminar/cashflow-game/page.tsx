@@ -464,7 +464,7 @@ export default async function CashflowGamePage() {
               font-weight: 800;
               color: var(--primary-dark);
               text-align: center;
-              font-size: 1.1rem;
+              font-size: 1.05rem; white-space: nowrap; word-break: keep-all;
               background: white;
               border: 2px solid var(--primary-light);
               border-radius: 12px;
@@ -482,8 +482,8 @@ export default async function CashflowGamePage() {
                 flex-shrink: 0;
               }
               .flow-step {
-                flex: 1 1 0; display: flex; flex-direction: column; justify-content: center;
-                padding: 1.5rem 1rem;
+                flex: 1 1 0; display: flex; flex-direction: column; justify-content: center; align-items: center;
+                padding: 1.2rem 0.5rem;
               }
             }
           `}</style>
