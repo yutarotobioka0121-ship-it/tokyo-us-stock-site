@@ -447,27 +447,43 @@ export default async function CashflowGamePage() {
             .flow-container {
               display: flex;
               flex-direction: column;
-              gap: 1rem;
-              align-items: center;
+              gap: 1.5rem;
+              align-items: stretch;
               margin-bottom: 4rem;
+              width: 100%;
             }
             .flow-arrow {
-              color: var(--primary-light);
-              font-weight: bold;
-              font-size: 1.5rem;
+              color: var(--primary);
+              font-weight: 900;
+              font-size: 1.8rem;
+              text-align: center;
               transform: rotate(90deg);
             }
             .flow-step {
-              width: 100%;
-              max-width: 300px;
+              padding: 1.5rem;
+              font-weight: 800;
+              color: var(--primary-dark);
+              text-align: center;
+              font-size: 1.1rem;
+              background: white;
+              border: 2px solid var(--primary-light);
+              border-radius: 12px;
+              box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             }
             @media (min-width: 768px) {
               .flow-container {
                 flex-direction: row;
-                justify-content: center;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1rem;
               }
               .flow-arrow {
                 transform: rotate(0deg);
+                flex-shrink: 0;
+              }
+              .flow-step {
+                flex: 1;
+                padding: 1.5rem 1rem;
               }
             }
           `}</style>
