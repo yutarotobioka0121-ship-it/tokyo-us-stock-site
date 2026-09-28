@@ -244,7 +244,7 @@ export default async function CashflowGamePage() {
 
           
 
-          <div style={{ marginBottom: '2rem' }}>
+          <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
             <a href="#schedule" className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.1rem', fontWeight: 'bold', textDecoration: 'none', display: 'inline-block', borderRadius: '30px' }}>
               日程を見て申し込む
             </a>
