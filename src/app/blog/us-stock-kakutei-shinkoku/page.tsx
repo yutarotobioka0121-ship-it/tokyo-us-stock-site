@@ -28,7 +28,7 @@ export default function UsStockKakuteiShinkokuPage() {
       date="2026-08-04"
       summary="米国株・米国株式投資で確定申告が必要なケースと不要なケースを分かりやすく判定。特定口座（源泉あり/なし）、一般口座、年間20万円ルール、申告手順まで丁寧に解説。"
       slug="us-stock-kakutei-shinkoku"
-      knowledgeLink="/blog/us-stock-tax-guide"
+      knowledgeLink="/blog/us-stock-tax-complete-guide"
       knowledgeTitle="米国株の税金全体ガイド"
       knowledgeDesc="米国株の税金の基本ルール、二重課税や新NISAでの税金対策について解説しています。"
       aioSummary={[
@@ -38,6 +38,12 @@ export default function UsStockKakuteiShinkokuPage() {
       ]}
     >
       <div className="article-body-content">
+        <div style={{ background: '#f8f9fa', border: '1px solid #dee2e6', borderRadius: '8px', padding: '1rem', marginBottom: '2rem', textAlign: 'center' }}>
+          <p style={{ margin: 0, fontWeight: 'bold' }}>
+            💡 全体像はこちら → <Link href="/blog/us-stock-tax-complete-guide" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>米国株の税金・確定申告 完全ガイド</Link>
+          </p>
+        </div>
+
         <p>
           米国株（米国株式）投資を始めた方が真っ先に抱く疑問の一つが「<strong>米国株・米国株式で利益が出たら確定申告をしなければいけないのか？</strong>」という点です。
         </p>
@@ -128,7 +134,7 @@ export default function UsStockKakuteiShinkokuPage() {
           税金シリーズ・関連記事一覧
         </h2>
         <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", margin: "1rem 0" }}>
-          <Link href="/blog/us-stock-tax-guide" style={{ color: "var(--primary)", fontWeight: "bold", textDecoration: "underline" }}>
+          <Link href="/blog/us-stock-tax-complete-guide" style={{ color: "var(--primary)", fontWeight: "bold", textDecoration: "underline" }}>
             ▶ 米国株の税金の仕組みを初心者向けに徹底解説（親記事）
           </Link>
           <Link href="/blog/us-stock-gaikoku-zei-kojo" style={{ color: "var(--primary)", fontWeight: "bold", textDecoration: "underline" }}>

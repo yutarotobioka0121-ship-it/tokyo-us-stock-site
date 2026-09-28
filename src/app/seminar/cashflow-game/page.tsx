@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Image from "next/image";
 import { getCFGSchedule, CFGEvent } from "@/lib/microcms";
 import CfgApplyForm from "@/components/CfgApplyForm";
-import { MapPin, Target, BookOpen, ArrowRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: 'キャッシュフローゲーム会｜遊びながらお金の知識を学ぶ体験会（川崎・新宿）',
@@ -33,30 +33,75 @@ export const metadata: Metadata = {
   },
 };
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 function getJapaneseDayOfWeek(dateString: string): string {
   if (!dateString) return '';
+  const dateMatch = dateString.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
+  if (dateMatch) {
+    const y = parseInt(dateMatch[1], 10);
+    const m = parseInt(dateMatch[2], 10) - 1;
+    const d = parseInt(dateMatch[3], 10);
+    const date = new Date(y, m, d);
+    if (!isNaN(date.getTime())) {
+      const weekday = new Intl.DateTimeFormat('ja-JP', { weekday: 'short', timeZone: 'Asia/Tokyo' }).format(date);
+      return `${dateMatch[1]}年${dateMatch[2]}月${dateMatch[3]}日(${weekday})`;
+    }
+  }
+  
   const cleanDateStr = dateString.replace(/\([^)]+\)/g, '').trim();
   const normalizedStr = cleanDateStr.replace(/\./g, '/').replace(/-/g, '/');
   const date = new Date(normalizedStr);
   if (isNaN(date.getTime())) return dateString;
-  const days = ['日', '月', '火', '水', '木', '金', '土'];
-  return `${cleanDateStr} (${days[date.getDay()]})`;
+  const weekday = new Intl.DateTimeFormat('ja-JP', { weekday: 'short', timeZone: 'Asia/Tokyo' }).format(date);
+  return `${cleanDateStr} (${weekday})`;
 }
 
 function generateEventSchema(events: CFGEvent[]) {
   if (!events || events.length === 0) return [];
   
   return events.map(ev => {
-    let startDateStr = '';
-    const cleanDateStr = ev.date.replace(/\([^)]+\)/g, '').trim().replace(/\./g, '-');
-    const startTimeStr = ev.time ? ev.time.split('〜')[0].trim().replace(':', '') : '1000';
-    const formattedStartTime = startTimeStr.length === 4 ? `${startTimeStr.slice(0,2)}:${startTimeStr.slice(2,4)}` : (ev.time ? ev.time.split('〜')[0].trim() : '10:00');
     
-    if (cleanDateStr && formattedStartTime) {
-      startDateStr = `${cleanDateStr}T${formattedStartTime}:00+09:00`;
+    let startDateStr = '';
+    let endDateStr = '';
+    
+    // Convert 2026年10月1日 -> 2026-10-01
+    let ymd = '2026-01-01';
+    const dateMatch = ev.date.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
+    if (dateMatch) {
+      const y = dateMatch[1];
+      const m = dateMatch[2].padStart(2, '0');
+      const d = dateMatch[3].padStart(2, '0');
+      ymd = `${y}-${m}-${d}`;
+    } else {
+      ymd = ev.date.replace(/\([^)]+\)/g, '').trim().replace(/\./g, '-');
     }
+
+    const timeStr = ev.time || '10:00〜12:00';
+    let startHour = 10, startMin = 0, endHour = 12, endMin = 0;
+    
+    const timeParts = timeStr.split('〜');
+    if (timeParts[0]) {
+      const cleanStart = timeParts[0].trim().replace(':', '');
+      if (cleanStart.length >= 3) {
+        startHour = parseInt(cleanStart.slice(0, cleanStart.length - 2), 10) || 10;
+        startMin = parseInt(cleanStart.slice(-2), 10) || 0;
+      }
+    }
+    if (timeParts[1]) {
+      const cleanEnd = timeParts[1].trim().replace(':', '');
+      if (cleanEnd.length >= 3) {
+        endHour = parseInt(cleanEnd.slice(0, cleanEnd.length - 2), 10) || 12;
+        endMin = parseInt(cleanEnd.slice(-2), 10) || 0;
+      }
+    } else {
+      endHour = startHour + 2; // CFG is about 2 hours
+      endMin = startMin;
+    }
+
+    const pad = (num: number) => num.toString().padStart(2, '0');
+    startDateStr = `${ymd}T${pad(startHour)}:${pad(startMin)}:00+09:00`;
+    endDateStr = `${ymd}T${pad(endHour)}:${pad(endMin)}:00+09:00`;
 
     const locName = (ev.location || '').includes('川崎') ? '神奈川県川崎駅前 貸し会議室' : '新宿駅前 貸し会議室';
     const locCity = (ev.location || '').includes('川崎') ? '川崎市' : '新宿区';
@@ -67,6 +112,15 @@ function generateEventSchema(events: CFGEvent[]) {
       "@type": "EducationEvent",
       "name": "キャッシュフローゲーム会",
       "startDate": startDateStr,
+      "endDate": endDateStr,
+      "organizer": { 
+        "@type": "Organization", 
+        "@id": "https://www.tokyo-us-stock.com/#organization",
+        "name": "東京米国株クラブ",
+        "url": "https://www.tokyo-us-stock.com/",
+        "description": "東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ多数の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。"
+      },
+      
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "eventStatus": "https://schema.org/EventScheduled",
       "location": {
@@ -156,10 +210,64 @@ function generateFaqSchema() {
 }
 
 export default async function CashflowGamePage() {
-  const schedule = await getCFGSchedule();
-  const availableEvents = schedule.filter(ev => ev.status === 'open' || ev.status === 'full');
+  const now = new Date();
+  const jstOffset = 9 * 60 * 60 * 1000;
+  const nowJst = new Date(now.getTime() + now.getTimezoneOffset() * 60000 + jstOffset);
+  const scheduleAll = await getCFGSchedule();
+  // JST現在時刻
   
-  const eventSchemas = generateEventSchema(schedule.filter(ev => ev.status === 'open'));
+  // 終了時刻を過ぎた日程は除外
+  const schedule = scheduleAll.filter(ev => {
+    let endHour = 12, endMin = 0;
+    const timeParts = (ev.time || '').split('〜');
+    if (timeParts[1]) {
+      const cleanEnd = timeParts[1].trim().replace(':', '');
+      if (cleanEnd.length >= 3) {
+        endHour = parseInt(cleanEnd.slice(0, cleanEnd.length - 2), 10) || 12;
+        endMin = parseInt(cleanEnd.slice(-2), 10) || 0;
+      }
+    }
+    const dateMatch = ev.date.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
+    if (dateMatch) {
+      const y = parseInt(dateMatch[1], 10);
+      const m = parseInt(dateMatch[2], 10) - 1;
+      const d = parseInt(dateMatch[3], 10);
+      const eventEndJst = new Date(y, m, d, endHour, endMin);
+      if (nowJst > eventEndJst) return false;
+    }
+    return true;
+  });
+
+  
+  // JST現在時刻
+  
+  const availableEvents = schedule.filter(ev => {
+    if (ev.status !== 'open' && ev.status !== 'full') return false;
+    // 終了時刻をパース
+    let endHour = 12, endMin = 0;
+    const timeParts = (ev.time || '').split('〜');
+    if (timeParts[1]) {
+      const cleanEnd = timeParts[1].trim().replace(':', '');
+      if (cleanEnd.length >= 3) {
+        endHour = parseInt(cleanEnd.slice(0, cleanEnd.length - 2), 10) || 12;
+        endMin = parseInt(cleanEnd.slice(-2), 10) || 0;
+      }
+    }
+    const dateMatch = ev.date.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
+    if (dateMatch) {
+      const y = parseInt(dateMatch[1], 10);
+      const m = parseInt(dateMatch[2], 10) - 1;
+      const d = parseInt(dateMatch[3], 10);
+      const eventEndJst = new Date(y, m, d, endHour, endMin);
+      if (nowJst > eventEndJst) return false;
+    }
+    return true;
+  });
+
+  
+  
+  const eventSchemas = generateEventSchema(availableEvents.filter(ev => ev.status === 'open'));
+
   const faqSchema = generateFaqSchema();
 
   return (
@@ -184,6 +292,25 @@ export default async function CashflowGamePage() {
             ラットレースから抜け出すための第一歩を踏み出しましょう。
           </p>
 
+          {/* Definition Paragraph */}
+          <div style={{
+            background: 'white',
+            padding: '1.5rem',
+            borderRadius: '12px',
+            border: '1px solid rgba(0,0,0,0.1)',
+            marginBottom: '2rem'
+          }}>
+            <p style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: '1rem',
+              color: 'var(--text-main)',
+              lineHeight: '1.8',
+              margin: 0
+            }}>
+              <strong>東京米国株クラブとは</strong>、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ多数の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。
+            </p>
+          </div>
+
           <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem auto 0 auto', aspectRatio: '21/9', position: 'relative' }}>
             <Image
               src="/images/cfg/cfg-hero.jpg"
@@ -204,23 +331,70 @@ export default async function CashflowGamePage() {
               📌 キャッシュフローゲーム会について
             </h2>
             <p style={{ fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8', marginBottom: '1rem' }}>
-              キャッシュフローゲーム会は、ベストセラー書籍『金持ち父さん 貧乏父さん』の著者ロバート・キヨサキ氏が考案したボードゲームを通じて、お金の知識（ファイナンシャル・リテラシー）を実践的に学ぶことができる体験型の勉強会です。
+              キャッシュフローゲーム会は、世界的ベストセラー書籍『金持ち父さん 貧乏父さん』（ロバート・キヨサキ著）の中で提唱されている「お金の哲学」を、実際のボードゲームを通じて体感し、実践的に学ぶことができる体験型の勉強会です。学校教育では決して教わらないお金の知識、すなわち「ファイナンシャル・リテラシー」を、安全な環境で楽しく身につけることができます。
+            </p>
+            <p style={{ fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8', marginBottom: '1rem' }}>
+              多くの人が日常的に抱える「いくら働いてもお金が貯まらない」「将来の老後資金が不安だ」という悩みの根本には、資産と負債の違いを正しく理解していないこと、そして自分のお金の流れ（キャッシュフロー）を管理できていないことがあります。本勉強会では、ゲームを通じて仮想の人生を歩みながら、収入・支出・資産・負債という4つの要素を自ら計算し、お金がどのように動くのかを可視化します。
             </p>
             <p style={{ fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8' }}>
-              座学だけでは身につきにくい「資産と負債の違い」や「投資の考え方」を、ゲームの仮想世界で失敗を経験しながら安全に楽しく学べます。投資初心者の方から、投資を始めているけれどうまくいっていない方まで、多くの方におすすめのイベントです。
+              座学だけではなかなか腹落ちしにくい「投資の考え方」や「不労所得の作り方」を、ゲーム上の失敗や成功体験を通じてリアルに学べるのが最大の魅力です。投資初心者の方はもちろんのこと、「すでに投資を始めているけれどうまくいっていない」「改めて基礎から学び直したい」という方まで、幅広い方々に新しい気づきを提供できるイベントとなっています。
             </p>
+          </div>
+
+          <div style={{ marginTop: '2rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem' }}>
+            <div className="glass-card" style={{ padding: '1.5rem', textAlign: 'center', background: 'var(--bg-warm)' }}>
+              <div style={{ color: 'var(--primary)', fontWeight: '900', fontSize: '1.1rem', marginBottom: '0.5rem' }}>少人数制</div>
+              <div style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>定員4名</div>
+            </div>
+            <div className="glass-card" style={{ padding: '1.5rem', textAlign: 'center', background: 'var(--bg-warm)' }}>
+              <div style={{ color: 'var(--primary)', fontWeight: '900', fontSize: '1.1rem', marginBottom: '0.5rem' }}>開催時間</div>
+              <div style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>所要時間2時間</div>
+            </div>
+            <div className="glass-card" style={{ padding: '1.5rem', textAlign: 'center', background: 'var(--bg-warm)' }}>
+              <div style={{ color: 'var(--primary)', fontWeight: '900', fontSize: '1.1rem', marginBottom: '0.5rem' }}>アクセス</div>
+              <div style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>川崎駅から徒歩5分</div>
+            </div>
+            <div className="glass-card" style={{ padding: '1.5rem', textAlign: 'center', background: 'var(--bg-warm)' }}>
+              <div style={{ color: 'var(--primary)', fontWeight: '900', fontSize: '1.1rem', marginBottom: '0.5rem' }}>参加者層</div>
+              <div style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>参加者の9割が初心者</div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* About CFG Section */}
-      <section className="about-cfg" style={{ padding: '3rem 0', background: 'var(--bg-light)' }}>
+      <section className="about-cfg" style={{ padding: '4rem 0', background: 'var(--bg-light)' }}>
         <div className="container" style={{ maxWidth: '1000px' }}>
           <div style={{ marginBottom: '3rem', textAlign: 'center', width: '100%' }}>
             <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2rem)', fontWeight: '900', marginBottom: '1rem', color: 'var(--primary-dark)' }}>キャッシュフローゲームとは</h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: '1.8', maxWidth: '800px', margin: '0 auto' }}>
               給料のために働き続ける「ラットレース」から抜け出し、お金がお金を生み出す「ファーストトラック」へ移行するための考え方を、ボード上でリアルに体験できるシミュレーションゲームです。
             </p>
+          </div>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem', maxWidth: '800px', margin: '0 auto' }}>
+            <div className="glass-card" style={{ padding: '2rem', background: 'white' }}>
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 'bold', color: 'var(--primary)', marginBottom: '1rem' }}>
+                ラットレースとファーストトラック
+              </h3>
+              <p style={{ color: 'var(--text-main)', lineHeight: '1.8', fontSize: '1rem', marginBottom: '1rem' }}>
+                ゲーム盤には、円状の内側のコース「ラットレース」と、外側のコース「ファーストトラック」の2つが描かれています。ラットレースとは、「給料をもらっては請求書の支払いに追われ、また給料のために働く」という、多くの人が現実世界で送っている生活を表現したものです。
+              </p>
+              <p style={{ color: 'var(--text-main)', lineHeight: '1.8', fontSize: '1rem' }}>
+                このラットレースから抜け出すための条件はただ一つ、「不労所得（自分が働かなくても入ってくる収入）が総支出（生活費）を上回ること」です。ゲームの中では、株や不動産、ビジネスなどに投資を行い、不労所得を増やしていきます。見事この条件を満たすと、ファーストトラックと呼ばれるお金持ちの世界に移動します。
+              </p>
+            </div>
+            <div className="glass-card" style={{ padding: '2rem', background: 'white' }}>
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 'bold', color: 'var(--primary)', marginBottom: '1rem' }}>
+                疑似体験による「失敗」から学ぶ
+              </h3>
+              <p style={{ color: 'var(--text-main)', lineHeight: '1.8', fontSize: '1rem', marginBottom: '1rem' }}>
+                現実世界で投資の失敗をすれば、大切なお金を失うリスクがあります。しかし、ゲームの世界であれば、いくら失敗しても実際のお金が減ることはありません。株価の暴落、不動産の空室、突然のリストラなど、人生で起こり得る様々な経済的イベントを疑似体験することができます。
+              </p>
+              <p style={{ color: 'var(--text-main)', lineHeight: '1.8', fontSize: '1rem' }}>
+                ゲームの中で試行錯誤を繰り返すことで、現実の投資に直面した時の判断力やリスク管理能力が自然と養われていきます。何度失敗してもやり直せる安全な環境だからこそ、思い切った投資戦略を試すことができるのです。
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -230,6 +404,9 @@ export default async function CashflowGamePage() {
         <div className="container" style={{ maxWidth: '1000px' }}>
           <div style={{ marginBottom: '3rem', textAlign: 'center', width: '100%' }}>
             <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2rem)', fontWeight: '900', marginBottom: '1rem', color: 'var(--primary-dark)' }}>学べること</h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: '1.8', maxWidth: '800px', margin: '0 auto' }}>
+              このゲーム会を通じて、参加者の皆さまは以下の3つの重要なスキルと知識を身につけることができます。
+            </p>
           </div>
 
           <div className="features-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
@@ -237,9 +414,9 @@ export default async function CashflowGamePage() {
               <div className="feature-icon" style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <Image src="/images/cfg/rat-race.png" alt="ラットレース" width={120} height={120} style={{ objectFit: 'contain' }} />
               </div>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 'bold', marginBottom: '1rem', color: 'var(--primary-dark)' }}>ラットレースからの脱出</h3>
-              <p style={{ color: 'var(--text-main)', lineHeight: '1.8', fontSize: '0.95rem', wordBreak: 'keep-all' }}>
-                給料をもらって支払いをする「ラットレース」。そこから抜け出して「ファーストトラック」に乗るための具体的なプロセスとマインドを学びます。
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 'bold', marginBottom: '1rem', color: 'var(--primary-dark)' }}>ラットレースからの脱出法</h3>
+              <p style={{ color: 'var(--text-main)', lineHeight: '1.8', fontSize: '0.95rem', wordBreak: 'keep-all', textAlign: 'left' }}>
+                ただ闇雲に貯金をするだけでは、ラットレースから抜け出すことはできません。給料などの「勤労所得」を、株や不動産といった「資産」に変え、そこから生まれる「不労所得」を最大化していくという、具体的なプロセスとマインドセットを学びます。
               </p>
             </div>
             
@@ -247,9 +424,9 @@ export default async function CashflowGamePage() {
               <div className="feature-icon" style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
                 <Image src="/images/cfg/financial-statement.png" alt="財務諸表" width={120} height={120} style={{ objectFit: 'contain' }} />
               </div>
-              <h3 style={{ fontSize: '1.3rem', fontWeight: 'bold', marginBottom: '1rem', color: 'var(--primary-dark)' }}>財務諸表の書き方</h3>
-              <p style={{ color: 'var(--text-main)', lineHeight: '1.8', fontSize: '0.95rem', wordBreak: 'keep-all' }}>
-                ゲームを通じて、自分自身の「損益計算書」と「貸借対照表」のつけ方を実践的に身につけ、お金の流れを客観的に把握する力を養います。
+              <h3 style={{ fontSize: '1.3rem', fontWeight: 'bold', marginBottom: '1rem', color: 'var(--primary-dark)' }}>財務諸表の生きた知識</h3>
+              <p style={{ color: 'var(--text-main)', lineHeight: '1.8', fontSize: '0.95rem', wordBreak: 'keep-all', textAlign: 'left' }}>
+                ゲーム中は、常に自分自身の「損益計算書（P/L）」と「貸借対照表（B/S）」を更新し続けます。収入が入れば書き込み、支出があれば減らし、資産を買えば計算する。この作業を繰り返すことで、お金の流れを数字で客観的に把握する力が自然と身につきます。
               </p>
             </div>
 
@@ -258,8 +435,8 @@ export default async function CashflowGamePage() {
                 <Image src="/images/cfg/investment.png" alt="投資" width={120} height={120} style={{ objectFit: 'contain' }} />
               </div>
               <h3 style={{ fontSize: '1.3rem', fontWeight: 'bold', marginBottom: '1rem', color: 'var(--primary-dark)' }}>投資のチャンスとリスク</h3>
-              <p style={{ color: 'var(--text-main)', lineHeight: '1.8', fontSize: '0.95rem', wordBreak: 'keep-all' }}>
-                不動産、株、ビジネスなど、様々な投資機会に直面し、安全な環境でリスクとリターンを体験。良い借金と悪い借金の違いも理解できます。
+              <p style={{ color: 'var(--text-main)', lineHeight: '1.8', fontSize: '0.95rem', wordBreak: 'keep-all', textAlign: 'left' }}>
+                ゲーム内では、株、不動産、ビジネスなど、現実世界に即した様々な投資の機会（ディール）が舞い込んできます。手元の資金や市場の状況を見極め、時には銀行から借金をしてレバレッジをかけるなど、「良い借金」と「悪い借金」の違いも理解できます。
               </p>
             </div>
           </div>
@@ -271,7 +448,7 @@ export default async function CashflowGamePage() {
         <div className="container" style={{ maxWidth: '800px' }}>
           <div style={{ marginBottom: '2rem', textAlign: 'center', width: '100%' }}>
             <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2rem)', fontWeight: '900', marginBottom: '1rem', color: 'var(--primary-dark)' }}>当日の流れ（約2時間）</h2>
-            <p style={{ color: 'var(--text-muted)' }}>初心者の方でも安心して楽しめるよう、丁寧にサポートいたします。</p>
+            <p style={{ color: 'var(--text-muted)' }}>初心者の方でも迷わず安心して楽しめるよう、主催者が丁寧にサポート・ファシリテートいたします。</p>
           </div>
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -279,21 +456,27 @@ export default async function CashflowGamePage() {
               <div style={{ background: 'var(--primary)', color: 'white', padding: '0.5rem 1rem', borderRadius: '8px', fontWeight: 'bold' }}>1</div>
               <div>
                 <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>自己紹介・ゲームルールの説明（約20分）</h3>
-                <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8' }}>初めての方にもわかりやすく、ゲームの目的と基本的な進め方、財務諸表の書き方を解説します。</p>
+                <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8' }}>
+                  まずは参加者同士で簡単な自己紹介を行います。その後、初めての方にもわかりやすく、ゲームの最終目的、盤面の進み方、職業カードの見方、そして最も重要な「財務諸表（損益計算書と貸借対照表）」の書き方を解説します。専門用語はできるだけ使わず、平易な言葉で説明しますのでご安心ください。
+                </p>
               </div>
             </div>
             <div className="glass-card" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
               <div style={{ background: 'var(--primary)', color: 'white', padding: '0.5rem 1rem', borderRadius: '8px', fontWeight: 'bold' }}>2</div>
               <div>
                 <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>ゲーム開始（約1時間20分）</h3>
-                <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8' }}>実際にサイコロを振り、給料をもらい、投資をして不労所得を増やしていきます。途中、リストラや無駄遣いなどのアクシデントも発生します。</p>
+                <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8' }}>
+                  実際にサイコロを振り、ラットレースからの脱出を目指してゲームを進行します。給料日を通過してキャッシュフローを得たり、投資案件（スモールディールやビッグディール）に挑戦したりして不労所得を増やしていきます。途中、リストラに遭ったり、子供が生まれて支出が増えたりといったアクシデントも発生し、大いに盛り上がります。ゲーム中は随時、計算の仕方や投資判断についてのアドバイスを行います。
+                </p>
               </div>
             </div>
             <div className="glass-card" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
               <div style={{ background: 'var(--primary)', color: 'white', padding: '0.5rem 1rem', borderRadius: '8px', fontWeight: 'bold' }}>3</div>
               <div>
                 <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>振り返り・感想のシェア（約20分）</h3>
-                <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8' }}>ゲーム終了後、各自の気づきや学びを共有します。現実の投資にどう活かせるかを考える重要な時間です。</p>
+                <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8' }}>
+                  ゲーム終了後、各自の成績や気づき、学びをシェアする時間を設けます。「あの時の投資がうまくいった」「無駄遣いが響いて脱出できなかった」など、他の参加者の視点を聞くことでさらに学びが深まります。そして最後に、ゲームの世界で学んだことを、現実世界の資産形成（実際の株や不動産投資など）にどう活かしていくかを考える、非常に重要なフィードバックの時間となります。
+                </p>
               </div>
             </div>
           </div>
@@ -305,24 +488,37 @@ export default async function CashflowGamePage() {
         <div className="container" style={{ maxWidth: '800px' }}>
           <div style={{ marginBottom: '2rem', textAlign: 'center', width: '100%' }}>
             <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2rem)', fontWeight: '900', marginBottom: '1rem', color: 'var(--primary-dark)' }}>こんな方におすすめ</h2>
+            <p style={{ color: 'var(--text-muted)' }}>以下のような悩みや目標を持つ方に、特に効果的です。</p>
           </div>
           
           <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <li className="glass-card" style={{ padding: '1rem 1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <CheckCircle2 color="var(--primary)" />
-              <span style={{ fontSize: '1.05rem', fontWeight: '600' }}>投資に興味はあるが、何から始めればいいかわからない方</span>
+            <li className="glass-card" style={{ padding: '1.2rem 1.5rem', display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+              <CheckCircle2 color="var(--primary)" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
+              <div>
+                <span style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--primary-dark)', display: 'block', marginBottom: '0.3rem' }}>投資に興味はあるが、何から始めればいいかわからない方</span>
+                <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', lineHeight: '1.6', margin: 0 }}>いきなり証券口座を開設して自己流で始める前に、まずは投資のルールと基礎的なマインドセットを学ぶことで、大きな失敗を防ぐことができます。</p>
+              </div>
             </li>
-            <li className="glass-card" style={{ padding: '1rem 1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <CheckCircle2 color="var(--primary)" />
-              <span style={{ fontSize: '1.05rem', fontWeight: '600' }}>『金持ち父さん 貧乏父さん』を読んで感銘を受けた方</span>
+            <li className="glass-card" style={{ padding: '1.2rem 1.5rem', display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+              <CheckCircle2 color="var(--primary)" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
+              <div>
+                <span style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--primary-dark)', display: 'block', marginBottom: '0.3rem' }}>『金持ち父さん 貧乏父さん』を読んで感銘を受けた方</span>
+                <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', lineHeight: '1.6', margin: 0 }}>本を読んで理解したつもりでも、実際に行動に移すのは難しいものです。ゲームを通じて著者の教えを実践し、腑に落とすことができます。</p>
+              </div>
             </li>
-            <li className=" আর্থিক状況を改善し、将来の不安をなくしたい方" style={{ padding: '1rem 1.5rem', display: 'flex', alignItems: 'center', gap: '1rem', background: 'white', borderRadius: '16px', border: '1px solid var(--border)' }}>
-              <CheckCircle2 color="var(--primary)" />
-              <span style={{ fontSize: '1.05rem', fontWeight: '600' }}>財務諸表（B/S・P/L）の基礎的な読み方を実践的に学びたい方</span>
+            <li className="glass-card" style={{ padding: '1.2rem 1.5rem', display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+              <CheckCircle2 color="var(--primary)" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
+              <div>
+                <span style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--primary-dark)', display: 'block', marginBottom: '0.3rem' }}>財務諸表（B/S・P/L）の基礎的な読み方を実践的に学びたい方</span>
+                <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', lineHeight: '1.6', margin: 0 }}>難しい会計用語を使わずに、お金の出入りと資産・負債の関係を、手を動かしながら視覚的に理解できるようになります。</p>
+              </div>
             </li>
-            <li className="glass-card" style={{ padding: '1rem 1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <CheckCircle2 color="var(--primary)" />
-              <span style={{ fontSize: '1.05rem', fontWeight: '600' }}>同じようにお金の勉強をしている前向きな仲間と交流したい方</span>
+            <li className="glass-card" style={{ padding: '1.2rem 1.5rem', display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+              <CheckCircle2 color="var(--primary)" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
+              <div>
+                <span style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--primary-dark)', display: 'block', marginBottom: '0.3rem' }}>同じようにお金の勉強をしている前向きな仲間と交流したい方</span>
+                <p style={{ fontSize: '0.95rem', color: 'var(--text-main)', lineHeight: '1.6', margin: 0 }}>職場や学校ではお金の話はしづらいものです。ここでは、投資や資産形成に前向きな参加者同士で情報交換ができ、モチベーションも高まります。</p>
+              </div>
             </li>
           </ul>
         </div>
@@ -334,12 +530,15 @@ export default async function CashflowGamePage() {
           <div style={{ marginBottom: '2rem', textAlign: 'center', width: '100%' }}>
             <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2rem)', fontWeight: '900', marginBottom: '1rem', color: 'var(--primary-dark)' }}>米国株セミナーとの違い</h2>
           </div>
-          <div className="glass-card" style={{ padding: '2rem', background: 'white' }}>
+          <div className="glass-card" style={{ padding: '2.5rem', background: 'white' }}>
             <p style={{ fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8', marginBottom: '1.5rem' }}>
-              当会が別途開催している「米国株セミナー」は、より実践的で具体的な銘柄分析やポートフォリオ構築、投資戦略を学ぶための座学中心の講座です。
+              当会が別途開催している「米国株セミナー」は、実際の株式市場を対象とした、より実践的で具体的な銘柄分析やポートフォリオ構築、投資戦略（テクニカル分析やファンダメンタルズ分析など）を学ぶための座学中心の講座です。すでに証券口座を持っており、具体的な投資手法を知りたい方に適しています。
             </p>
-            <p style={{ fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8' }}>
-              一方で、こちらの「キャッシュフローゲーム会」は、ボードゲームを通して<strong>投資の基礎的な考え方やマインドセット</strong>を身につけることを目的としています。これから投資を始める方は、まずキャッシュフローゲーム会でお金の基本を学び、その後に米国株セミナーで具体的な手法を学ぶ、というステップアップをおすすめしています。
+            <p style={{ fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8', marginBottom: '1.5rem' }}>
+              一方で、こちらの「キャッシュフローゲーム会」は、ボードゲームを通して<strong>投資の基礎的な考え方やマインドセット、お金の全体像</strong>を身につけることを目的としています。個別銘柄の選び方などのテクニックではなく、「なぜ投資が必要なのか」「資産とは何か」という根源的な問いに対する答えを見つけるための場所です。
+            </p>
+            <p style={{ fontSize: '1.05rem', lineHeight: '1.8', fontWeight: 'bold', color: 'var(--primary-dark)', background: 'var(--bg-warm)', padding: '1rem', borderRadius: '8px', margin: 0 }}>
+              これから投資を始める方は、まずキャッシュフローゲーム会でお金の基本とルールを学び、その後に米国株セミナーで具体的な手法を学ぶ、というステップアップを強くおすすめしています。
             </p>
           </div>
         </div>
@@ -393,7 +592,7 @@ export default async function CashflowGamePage() {
           </div>
 
           {/* Desktop schedule table */}
-          <div className="schedule-table-container schedule-desktop-only" style={{ width: '100%', overflowX: 'auto', WebkitOverflowScrolling: 'touch' as any, paddingBottom: '1rem' }}>
+          <div className="schedule-table-container schedule-desktop-only" style={{ width: '100%', overflowX: 'auto', WebkitOverflowScrolling: 'touch', paddingBottom: '1rem' }}>
             <table className="schedule-table" style={{ width: '100%', minWidth: '700px', borderCollapse: 'collapse', textAlign: 'center', background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', margin: '0 auto' }}>
               <thead style={{ background: 'var(--primary)', color: 'white' }}>
                 <tr>
@@ -573,8 +772,12 @@ export default async function CashflowGamePage() {
         </div>
       </section>
       
-      <div style={{ textAlign: 'center', padding: '2rem 1rem', background: 'var(--bg-light)', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-        ※当会は東京米国株クラブが主催する個人の勉強会で、キャッシュフローゲームの開発元・販売元とは関係ありません。
+      <div className="container" style={{ maxWidth: '800px', paddingBottom: '3rem' }}>
+        <div className="glass-card" style={{ padding: '1.5rem', background: '#fff3f3', border: '2px solid #ffa5a5', borderRadius: '12px', textAlign: 'center' }}>
+          <p style={{ color: '#d32f2f', fontWeight: 'bold', fontSize: '0.95rem', margin: 0 }}>
+            ※当会は東京米国株クラブが主催する個人の勉強会で、キャッシュフローゲームの開発元・販売元とは関係ありません。
+          </p>
+        </div>
       </div>
 
     </div>

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import BlogList from '@/components/BlogList';
 import { getPosts } from '@/lib/notion';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 type Props = {
   params: Promise<{ page: string }>;

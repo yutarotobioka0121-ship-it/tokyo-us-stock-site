@@ -138,10 +138,10 @@ export default function StockInvestmentPage() {
               インデックスの基本定義や、世の中に蔓延する投資詐欺の手口、ぼったくり商品を完全回避するための考え方はこちらで解説しています。
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <Link href="/blog/what-is-index-investing" style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--primary)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+              <Link href="/blog/sp500-beginners-guide" style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--primary)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
                 インデックス投資とは何か？基本的な解説 <ArrowRight size={14} />
               </Link>
-              <Link href="/blog/index-investing-and-investment-scams" style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--primary)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+              <Link href="/blog/us-stock-beginners-guide" style={{ fontSize: '0.9rem', fontWeight: '800', color: 'var(--primary)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
                 インデックス投資と投資詐欺・ぼったくり商品を避ける方法 <ArrowRight size={14} />
               </Link>
             </div>

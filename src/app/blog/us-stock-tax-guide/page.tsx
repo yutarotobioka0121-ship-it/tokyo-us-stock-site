@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   description:
     "米国株投資でかかる税金の全体像を初心者向けに分かりやすく解説。配当金と値上がり益（譲渡益）の税率、国内約20%と米国10%の二重課税、確定申告や新NISAでの税金対策まで網羅。",
   alternates: {
-    canonical: "https://www.tokyo-us-stock.com/blog/us-stock-tax-guide",
+    canonical: "https://www.tokyo-us-stock.com/blog/us-stock-tax-complete-guide",
   },
   openGraph: {
     title: "米国株の税金の仕組みを初心者向けに徹底解説｜いくらかかる？",
     description:
       "米国株投資でかかる税金の全体像を初心者向けに分かりやすく解説。配当金と値上がり益の税率、二重課税、確定申告や新NISAでの税金対策まで網羅。",
-    url: "https://www.tokyo-us-stock.com/blog/us-stock-tax-guide",
+    url: "https://www.tokyo-us-stock.com/blog/us-stock-tax-complete-guide",
     type: "article",
     publishedTime: "2026-08-04",
     authors: ["とびー"],
@@ -27,7 +27,7 @@ export default function UsStockTaxGuidePage() {
       title="米国株の税金の仕組みを初心者向けに徹底解説｜いくらかかる？"
       date="2026-08-04"
       summary="米国株投資でかかる税金の全体像を初心者向けに分かりやすく解説。配当金と値上がり益（譲渡益）の税率、国内約20%と米国10%の二重課税、確定申告や新NISAでの税金対策まで網羅。"
-      slug="us-stock-tax-guide"
+      slug="us-stock-tax-complete-guide"
       knowledgeLink="/knowledge/tax"
       knowledgeTitle="米国株の税金ナレッジ"
       knowledgeDesc="米国株の税率や控除手続きについて図解付きで分かりやすくまとめています。"

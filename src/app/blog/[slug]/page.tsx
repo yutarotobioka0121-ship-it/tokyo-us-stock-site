@@ -1,11 +1,19 @@
 import { getPostBySlug, getPosts } from '@/lib/notion';
 import RelatedPosts from '@/components/RelatedPosts';
+import BeginnerCta from '@/components/BeginnerCta';
 import { Calendar, ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  // Notion APIの429エラーを回避するため、ビルド時の静的生成は行わず
+  // アクセス時にオンデマンドで生成（ISR）させる
+  return [];
+}
 
 export async function generateMetadata({
   params,
@@ -31,7 +39,7 @@ export async function generateMetadata({
     .slice(0, 120) + '…';
 
   return {
-    title: `${post.title} | 東京米国株クラブ`,
+    title: slug === 'us-stock-beginners-guide' && !post.title.includes('米国株の始め方') ? '米国株の始め方 完全ガイド（初心者向け）｜' + post.title : post.title,
     description,
     openGraph: {
       title: post.title,
@@ -83,7 +91,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: post.title,
+    headline: slug === 'us-stock-beginners-guide' && !post.title.includes('米国株の始め方') ? '米国株の始め方 完全ガイド（初心者向け）｜' + post.title : post.title,
     description: (post.summary || '').slice(0, 120),
     datePublished: post.date,
     dateModified: post.date,
@@ -151,7 +159,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <Calendar size={18} />
             <span>{post.date}</span>
           </div>
-          <h1 className="post-title slide-up delay-1">{post.title}</h1>
+          <h1 className="post-title slide-up delay-1">{slug === 'us-stock-beginners-guide' && !post.title.includes('米国株の始め方') ? '米国株の始め方 完全ガイド（初心者向け）｜' + post.title : post.title}</h1>
         </div>
         
         {post.cover && (
@@ -235,7 +243,24 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 });
               };
 
-              switch (type) {
+              
+
+              let banner = null;
+              if (post.title.includes('企業分析') && (type === 'quote' || type === 'callout' || type === 'paragraph')) {
+                const text = value?.rich_text?.map((t: any) => t.plain_text).join('') || '';
+                if (text.includes('この記事の要点') || text.includes('要点')) {
+                  banner = (
+                    <div key={`banner-${block.id}`} style={{ marginTop: '1rem', marginBottom: '2rem', padding: '1rem', background: '#eef2ff', borderLeft: '4px solid var(--primary)', borderRadius: '4px' }}>
+                      <Link href="/seminar" style={{ fontWeight: 'bold', color: 'var(--primary-dark)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <span style={{ fontSize: '1.2rem' }}>💡</span>
+                        米国株を基礎から学ぶ少人数セミナーを東京で開催中 → 日程を見る
+                      </Link>
+                    </div>
+                  );
+                }
+              }
+              const renderBlockContent = () => {
+                switch (type) {
                 case 'paragraph':
                   return (
                     <p key={block.id} className="notion-p notion-block">
@@ -307,6 +332,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 default:
                   return null;
               }
+            };
+            
+            return (
+              <div key={block.id} className="notion-block-wrapper">
+                {renderBlockContent()}
+                {banner}
+              </div>
+            );
             })}
 
             
@@ -335,6 +368,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     </Link>
                   </div>
                 );
+              }
+              return null;
+            })()}
+
+            
+            {/* Beginner CTA for series posts (2-2) */}
+            {(() => {
+              const isSeries = post.title.includes('企業分析') || post.title.includes('セクター') || post.title.includes('ETF') || post.title.includes('指標');
+              if (isSeries) {
+                return <BeginnerCta />;
               }
               return null;
             })()}

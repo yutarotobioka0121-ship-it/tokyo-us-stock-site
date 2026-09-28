@@ -6,7 +6,7 @@ import { getPosts } from "@/lib/notion";
 import BlogPreviewSection from "@/components/BlogPreviewSection";
 import HomeFAQ from "@/components/HomeFAQ";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: '東京米国株クラブ｜米国株の始め方・おすすめを学ぶ東京のセミナー',

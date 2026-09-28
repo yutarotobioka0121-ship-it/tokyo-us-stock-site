@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { getPosts } from '@/lib/notion';
 
+export const revalidate = 3600;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.tokyo-us-stock.com';
 
@@ -29,7 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/blog',
     '/blog/us-stock-screening-guide',
     '/blog/us-stock-tokutei-koza-guide',
-    '/blog/us-stock-tax-guide',
+    '/blog/us-stock-tax-complete-guide',
     '/blog/us-stock-kakutei-shinkoku',
     '/blog/us-stock-gaikoku-zei-kojo',
     '/blog/nisa-us-stock-tax-free',

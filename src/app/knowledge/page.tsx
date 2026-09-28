@@ -391,7 +391,7 @@ export default function KnowledgePage() {
                 Q. 米国株の税金はどうなりますか？
               </h3>
               <p style={{ fontSize: '1.05rem', lineHeight: '1.8', margin: 0, color: 'var(--text-main)' }}>
-                A: 特定口座（源泉徴収あり）で購入した場合、譲渡益・配当に対して約20.315%の税金が自動的に差し引かれます。新NISA口座で購入した場合は税金がゼロになります。米国株の配当には米国側で10%の現地課税がかかりますが、確定申告で「外国税額控除」を申請することで取り戻せる場合があります。詳しくは<Link href="/blog/us-stock-tax-guide" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>米国株の税金を詳しく解説</Link>をご覧ください。
+                A: 特定口座（源泉徴収あり）で購入した場合、譲渡益・配当に対して約20.315%の税金が自動的に差し引かれます。新NISA口座で購入した場合は税金がゼロになります。米国株の配当には米国側で10%の現地課税がかかりますが、確定申告で「外国税額控除」を申請することで取り戻せる場合があります。詳しくは<Link href="/blog/us-stock-tax-complete-guide" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>米国株の税金を詳しく解説</Link>をご覧ください。
               </p>
             </div>
             

@@ -34,8 +34,33 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.tokyo-us-stock.com/about#founder",
+        "name": "とびー",
+        "jobTitle": "米国株長期投資家",
+        "description": "投資を「ギャンブル」だと思っていた完全な初心者から、失敗を乗り越えて資産13倍を達成。東京米国株クラブを主宰。",
+        "image": "https://www.tokyo-us-stock.com/profile.png",
+        "url": "https://www.tokyo-us-stock.com/about"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.tokyo-us-stock.com/#organization",
+        "name": "東京米国株クラブ",
+        "url": "https://www.tokyo-us-stock.com/",
+        "founder": {
+          "@id": "https://www.tokyo-us-stock.com/about#founder"
+        }
+      }
+    ]
+  };
+
   return (
     <div className="about-page profile-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '120px 0 40px', textAlign: 'left' }}>
         <div className="container">
           <Link href="/" className="btn-link" style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'flex-start', fontFamily: 'var(--font-body)', fontSize: '0.95rem' }}>
@@ -77,13 +102,21 @@ export default function AboutPage() {
             <div className="about-content-text">
 
               <div className="skills-list" style={{ marginBottom: '2rem' }}>
+                <h3 style={{ fontFamily: 'var(--font-heading)', marginBottom: '1rem', color: 'var(--primary)', fontSize: '1rem', fontWeight: '800', lineHeight: '1.8' }}>🏆 実績・成果</h3>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>投資歴：7年</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>運用資産：1300%増加</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>年間配当：【要確認：とびー】円</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>セミナー受講者延べ：【要確認：とびー】名</span></div>
+              </div>
+
+              <div className="skills-list" style={{ marginBottom: '2rem' }}>
                 <h3 style={{ fontFamily: 'var(--font-heading)', marginBottom: '1rem', color: 'var(--primary)', fontSize: '1rem', fontWeight: '800', lineHeight: '1.8' }}>📌 経歴・ストーリー</h3>
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>もともと「投資＝ギャンブル」と思っていた完全な素人からスタート</span></div>
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>バイナリーオプションで合計100万円近くを失う痛烈な失敗を経験</span></div>
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>「金持ち父さん貧乏父さん」との出会いをきっかけに投資の本質を学び直す</span></div>
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>財務諸表の読み方から徹底的に学習し、米国個別株（NVIDIA等）への長期投資を開始</span></div>
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>ノイズに惑わされない投資マインドセットを確立し、5年で+1300%超（約13倍）を達成</span></div>
-                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>現在はサラリーマン・事業主として多忙な毎日を送りながら、投資時間は1日1時間未満</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>会社員・事業主として多忙な日々を送っていた頃から現在まで、投資にかける時間は1日1時間未満</span></div>
                 <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8', fontWeight: 'bold', color: 'var(--primary-dark)' }}>2026年7月、経済的自立とセミリタイアを両立する「サイドFIRE」を達成</span></div>
               </div>
 

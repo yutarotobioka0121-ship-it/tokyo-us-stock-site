@@ -113,7 +113,7 @@ export default function NisaUsStockTaxFreePage() {
           当サイトの<Link href="/knowledge/nisa" style={{ color: "var(--primary)", fontWeight: "bold" }}>NISA活用ナレッジページ</Link>および下記関連記事もぜひご覧ください。
         </p>
         <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", margin: "1rem 0" }}>
-          <Link href="/blog/us-stock-tax-guide" style={{ color: "var(--primary)", fontWeight: "bold", textDecoration: "underline" }}>
+          <Link href="/blog/us-stock-tax-complete-guide" style={{ color: "var(--primary)", fontWeight: "bold", textDecoration: "underline" }}>
             ▶ 米国株の税金の仕組みを初心者向けに徹底解説（親記事）
           </Link>
           <Link href="/blog/us-stock-kakutei-shinkoku" style={{ color: "var(--primary)", fontWeight: "bold", textDecoration: "underline" }}>

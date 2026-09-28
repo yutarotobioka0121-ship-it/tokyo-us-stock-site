@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Users, Target, BookOpen, Coffee, Zap, PieChart, ShieldCheck } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Users, Target, BookOpen, Coffee, Zap, PieChart, ShieldCheck, Monitor } from "lucide-react";
 import { getSessions } from "@/lib/microcms";
 import { formatSessionDate, formatSessionTime, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
 import ApplyForm from "@/components/ApplyForm";
@@ -114,6 +114,10 @@ export default async function SeminarPage() {
 
   const sortedSessions = [...usStockSessions].sort((a, b) => {
     return new Date(a.date).getTime() - new Date(b.date).getTime();
+  }).filter(s => {
+    const startDateTime = getSessionStartDateTime(s.date, s.time || s.date);
+    const endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 1000);
+    return endDateTime > new Date();
   });
 
   const now = new Date();
@@ -159,7 +163,12 @@ export default async function SeminarPage() {
       },
       image: 'https://www.tokyo-us-stock.com/ogp.png',
       performer: { '@type': 'Person', name: 'とびー', url: 'https://www.tokyo-us-stock.com/about' },
-      organizer: { '@type': 'Organization', name: '東京米国株クラブ', url: 'https://www.tokyo-us-stock.com/' },
+      organizer: { 
+        '@type': 'Organization', 
+        name: '東京米国株クラブ', 
+        url: 'https://www.tokyo-us-stock.com/',
+        description: '東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ多数の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。'
+      },
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'JPY', availability: 'https://schema.org/InStock', url: 'https://www.tokyo-us-stock.com/seminar', validFrom: '2026-09-01T00:00:00+09:00' },
     };
   });
@@ -226,8 +235,28 @@ export default async function SeminarPage() {
       <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '100px 0 2rem 0', textAlign: 'left' }}>
         <div className="container">
           <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3', marginLeft: '0', marginRight: 'auto', maxWidth: 'none' }}>
-            米国株セミナー
+            <span style={{ fontSize: 'clamp(1rem, 3.5vw, 1.6rem)', color: 'var(--primary)', display: 'block', marginBottom: '0.5rem', fontWeight: '800' }}>東京の初心者向け</span>
+            米国株セミナー・投資勉強会
           </h1>
+
+          {/* Definition Paragraph */}
+          <div style={{
+            background: 'white',
+            padding: '1.5rem',
+            borderRadius: '12px',
+            border: '1px solid rgba(0,0,0,0.1)',
+            marginBottom: '2rem'
+          }}>
+            <p style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: '1rem',
+              color: 'var(--text-main)',
+              lineHeight: '1.8',
+              margin: 0
+            }}>
+              <strong>東京米国株クラブとは</strong>、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ多数の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。
+            </p>
+          </div>
           
           {/* Summary */}
           <div style={{ marginTop: '2rem', padding: '1.5rem', background: 'rgba(255, 255, 255, 0.8)', borderRadius: '16px', border: '1px solid var(--primary-light)', boxShadow: 'var(--shadow-soft)', maxWidth: '800px' }}>
@@ -574,6 +603,61 @@ export default async function SeminarPage() {
                   </div>
                 )}
               </div>
+            </div>
+          </div>
+
+          {/* 開催エリア */}
+          <div>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>開催エリア</h2>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>
+              東京・神奈川のアクセスしやすいカフェ、またはオンラインでご参加いただけます。これまで【要確認：とびー】名以上の方にご参加いただきました。
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
+              <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px' }}>
+                <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <MapPin size={20} color="var(--primary)" /> 新宿駅周辺（東京）
+                </h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>新宿駅近くの落ち着いたカフェで開催します。お仕事帰りや休日のお買い物ついでにも便利です。</p>
+              </div>
+              <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px' }}>
+                <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <MapPin size={20} color="var(--primary)" /> 川崎駅周辺（神奈川）
+                </h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>川崎駅周辺のカフェで開催します。神奈川方面の方におすすめです。</p>
+              </div>
+              <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px' }}>
+                <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <Monitor size={20} color="var(--primary)" /> オンライン（Zoom）
+                </h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>全国どこからでもご参加いただけるZoom開催も随時行っております。顔出しでリラックスしてご参加ください。</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 外部サイト掲載 */}
+          <div>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>こくちーず・connpass・Peatix に掲載中の日程</h2>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>
+              各イベントプラットフォームでも最新の日程を公開・募集しております。普段お使いのサービスからもお申し込みいただけます。
+            </p>
+            <div className="glass-card" style={{ padding: '1.5rem' }}>
+              <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <li>
+                  <Link href="【要確認：とびー】" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', color: 'var(--primary)', fontWeight: '700', textDecoration: 'none', fontSize: '1.05rem', gap: '0.5rem' }}>
+                    <ArrowRight size={16} /> こくちーずプロのイベントページはこちら
+                  </Link>
+                </li>
+                <li>
+                  <Link href="【要確認：とびー】" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', color: 'var(--primary)', fontWeight: '700', textDecoration: 'none', fontSize: '1.05rem', gap: '0.5rem' }}>
+                    <ArrowRight size={16} /> connpassのイベントページはこちら
+                  </Link>
+                </li>
+                <li>
+                  <Link href="【要確認：とびー】" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', color: 'var(--primary)', fontWeight: '700', textDecoration: 'none', fontSize: '1.05rem', gap: '0.5rem' }}>
+                    <ArrowRight size={16} /> Peatixのイベントページはこちら
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
 

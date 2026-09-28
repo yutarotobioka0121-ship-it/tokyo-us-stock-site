@@ -1,4 +1,4 @@
-import { Client } from '@notionhq/client';
+import { Client, isNotionClientError } from '@notionhq/client';
 import { cache } from 'react';
 
 const notion = new Client({
@@ -6,6 +6,34 @@ const notion = new Client({
 });
 
 const DATABASE_ID = process.env.NOTION_DATABASE_ID;
+
+/**
+ * 429 Rate Limit Error などの際に再試行するヘルパー関数
+ */
+async function fetchWithRetry<T>(operation: () => Promise<T>, maxRetries = 3): Promise<T> {
+  let attempt = 0;
+  let waitTime = 350; // 初期待機時間 (ms)
+
+  while (attempt < maxRetries) {
+    try {
+      return await operation();
+    } catch (error) {
+      if (
+        isNotionClientError(error) &&
+        error.code === 'rate_limited' // Notion SDK uses 'rate_limited' for 429
+      ) {
+        attempt++;
+        console.warn(`Notion API rate limited. Retrying ${attempt}/${maxRetries} after ${waitTime}ms...`);
+        await new Promise((resolve) => setTimeout(resolve, waitTime));
+        waitTime *= 2; // 指数バックオフ
+      } else {
+        throw error;
+      }
+    }
+  }
+  // maxRetries回失敗したら最後の試行としてもう1度実行し、ダメならエラーを投げる
+  return await operation();
+}
 
 // 特定のNotion Page IDに対して、指定したSEOフレンドリーなスラッグを強制するマッピング
 // Notion側でSlugが一括変更されたため現在は空。今後新たなマッピングが必要になった場合に使用。
@@ -29,21 +57,23 @@ export async function getPosts() {
   }
 
   try {
-    const response = await notion.databases.query({
-      database_id: DATABASE_ID,
-      filter: {
-        property: 'Published',
-        checkbox: {
-          equals: true,
+    const response = await fetchWithRetry(() =>
+      notion.databases.query({
+        database_id: DATABASE_ID,
+        filter: {
+          property: 'Published',
+          checkbox: {
+            equals: true,
+          },
         },
-      },
-      sorts: [
-        {
-          property: 'Date',
-          direction: 'descending',
-        },
-      ],
-    });
+        sorts: [
+          {
+            property: 'Date',
+            direction: 'descending',
+          },
+        ],
+      })
+    );
 
     return response.results.map((page: any) => {
       const props = page.properties;
@@ -87,11 +117,12 @@ export const getPostBySlug = cache(async (slug: string) => {
     }
   }
 
-  // 2. マップで見つからない場合は通常通り全件からSlugで検索
   if (!page) {
-    const response = await notion.databases.query({
-      database_id: DATABASE_ID,
-    });
+    const response = await fetchWithRetry(() =>
+      notion.databases.query({
+        database_id: DATABASE_ID,
+      })
+    );
 
     page = response.results.find((p: any) => {
       const s = p.properties.Slug?.rich_text?.[0]?.plain_text;
@@ -131,10 +162,12 @@ export const getPostBySlug = cache(async (slug: string) => {
   let cursor: string | undefined = undefined;
 
   while (hasMore) {
-    const response = await notion.blocks.children.list({
-      block_id: page.id,
-      start_cursor: cursor,
-    });
+    const response = await fetchWithRetry(() =>
+      notion.blocks.children.list({
+        block_id: page.id,
+        start_cursor: cursor,
+      })
+    );
     blocks.push(...response.results);
     hasMore = response.has_more;
     cursor = response.next_cursor ?? undefined;

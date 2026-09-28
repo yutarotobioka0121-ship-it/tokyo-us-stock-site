@@ -6,6 +6,7 @@ import { Calendar, ArrowLeft, ArrowRight, ShieldCheck, ChevronRight, CheckCircle
 interface StaticBlogPostProps {
   title: string;
   date: string;
+  modifiedDate?: string;
   summary?: string;
   children: React.ReactNode;
   knowledgeLink?: string;
@@ -18,6 +19,7 @@ interface StaticBlogPostProps {
 export default function StaticBlogPost({
   title,
   date,
+  modifiedDate,
   summary,
   children,
   knowledgeLink = "/knowledge/stock-investment",
@@ -32,7 +34,7 @@ export default function StaticBlogPost({
     headline: title,
     description: summary,
     datePublished: date,
-    dateModified: date,
+    dateModified: modifiedDate || date,
     author: {
       "@type": "Person",
       name: "とびー",

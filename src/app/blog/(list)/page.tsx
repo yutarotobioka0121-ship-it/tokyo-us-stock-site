@@ -3,7 +3,7 @@ import Link from 'next/link';
 import BlogList from '@/components/BlogList';
 import { ArrowRight, Search, FileText, Calculator, Landmark, BookOpen, TrendingUp, Shield, Lightbulb } from 'lucide-react';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: '米国株ブログ｜初心者向け米国株・NISA投資コラム',
@@ -142,7 +142,7 @@ export default async function BlogPage() {
               </p>
             </Link>
 
-            <Link href="/blog/us-stock-tax-guide" style={{ background: 'var(--bg-warm)', padding: '1.2rem', borderRadius: '14px', textDecoration: 'none', border: '1px solid rgba(0,0,0,0.06)', transition: 'all 0.2s ease' }}>
+            <Link href="/blog/us-stock-tax-complete-guide" style={{ background: 'var(--bg-warm)', padding: '1.2rem', borderRadius: '14px', textDecoration: 'none', border: '1px solid rgba(0,0,0,0.06)', transition: 'all 0.2s ease' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)', fontWeight: 'bold', fontSize: '0.9rem', marginBottom: '0.4rem' }}>
                 <Calculator size={16} /> 米国株 税金
               </div>

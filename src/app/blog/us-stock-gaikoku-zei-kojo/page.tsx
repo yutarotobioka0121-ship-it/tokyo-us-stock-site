@@ -28,7 +28,7 @@ export default function UsStockGaikokuZeiKojoPage() {
       date="2026-08-04"
       summary="米国株の配当金にかかる二重課税（米国10%+日本20%）を解消する「外国税額控除」の仕組み、控除額の計算方法、確定申告での具体的な申請手順までわかりやすく徹底解説します。"
       slug="us-stock-gaikoku-zei-kojo"
-      knowledgeLink="/blog/us-stock-tax-guide"
+      knowledgeLink="/blog/us-stock-tax-complete-guide"
       knowledgeTitle="米国株の税金全体ガイド"
       knowledgeDesc="米国株の税金の基本ルールや特定口座、新NISAでの節税対策を解説しています。"
       aioSummary={[
@@ -38,6 +38,12 @@ export default function UsStockGaikokuZeiKojoPage() {
       ]}
     >
       <div className="article-body-content">
+        <div style={{ background: '#f8f9fa', border: '1px solid #dee2e6', borderRadius: '8px', padding: '1rem', marginBottom: '2rem', textAlign: 'center' }}>
+          <p style={{ margin: 0, fontWeight: 'bold' }}>
+            💡 全体像はこちら → <Link href="/blog/us-stock-tax-complete-guide" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>米国株の税金・確定申告 完全ガイド</Link>
+          </p>
+        </div>
+
         <p>
           米国株（アメリカ株）の配当金投資（インカムゲイン投資）を楽しんでいる個人投資家の中で、「配当金の受取明細を見たら予想以上に税金が引かれている…」と感じたことはありませんか？
         </p>
@@ -115,7 +121,7 @@ export default function UsStockGaikokuZeiKojoPage() {
           当サイトの<Link href="/knowledge/tax" style={{ color: "var(--primary)", fontWeight: "bold" }}>米国株の税金ナレッジページ</Link>および下記関連記事もぜひご活用ください。
         </p>
         <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", margin: "1rem 0" }}>
-          <Link href="/blog/us-stock-tax-guide" style={{ color: "var(--primary)", fontWeight: "bold", textDecoration: "underline" }}>
+          <Link href="/blog/us-stock-tax-complete-guide" style={{ color: "var(--primary)", fontWeight: "bold", textDecoration: "underline" }}>
             ▶ 米国株の税金の仕組みを初心者向けに徹底解説（親記事）
           </Link>
           <Link href="/blog/us-stock-kakutei-shinkoku" style={{ color: "var(--primary)", fontWeight: "bold", textDecoration: "underline" }}>

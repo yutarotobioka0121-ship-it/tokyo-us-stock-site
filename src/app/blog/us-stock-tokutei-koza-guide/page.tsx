@@ -38,6 +38,12 @@ export default function UsStockTokuteiKozaGuidePage() {
       ]}
     >
       <div className="article-body-content">
+        <div style={{ background: '#f8f9fa', border: '1px solid #dee2e6', borderRadius: '8px', padding: '1rem', marginBottom: '2rem', textAlign: 'center' }}>
+          <p style={{ margin: 0, fontWeight: 'bold' }}>
+            💡 全体像はこちら → <Link href="/blog/us-stock-tax-complete-guide" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>米国株の税金・確定申告 完全ガイド</Link>
+          </p>
+        </div>
+
         <p>
           ネット証券（SBI証券や楽天証券など）で米国株口座を開設しようとするとき、必ず「<strong>特定口座（源泉徴収あり）</strong>」「<strong>特定口座（源泉徴収なし）</strong>」「<strong>一般口座</strong>」のどれを選びますか？という選択画面が表示されます。
         </p>
@@ -155,7 +161,7 @@ export default function UsStockTokuteiKozaGuidePage() {
           税金シリーズ・関連記事一覧
         </h2>
         <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", margin: "1rem 0" }}>
-          <Link href="/blog/us-stock-tax-guide" style={{ color: "var(--primary)", fontWeight: "bold", textDecoration: "underline" }}>
+          <Link href="/blog/us-stock-tax-complete-guide" style={{ color: "var(--primary)", fontWeight: "bold", textDecoration: "underline" }}>
             ▶ 米国株の税金の仕組みを初心者向けに徹底解説（親記事）
           </Link>
           <Link href="/blog/us-stock-kakutei-shinkoku" style={{ color: "var(--primary)", fontWeight: "bold", textDecoration: "underline" }}>
