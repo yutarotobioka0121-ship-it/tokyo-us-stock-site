@@ -225,7 +225,7 @@ export default function AboutPage() {
                       <span style={{ fontSize: '0.9rem', fontWeight: '900', color: 'var(--primary)' }}>2026年7月（サイドFIRE達成）</span>
                     </div>
                     <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>
-                      資産運用による収益が生活費の基盤を上回る状態となり、経済的自立とやりたい仕事を両立する「サイドFIRE」をついに達成。
+                      資産運用による収益が生活費の基盤を上回る状態となり、サラリーマン時代から育てていた副業をメインの事業とする「サイドFIRE」をついに達成。
                     </p>
                   </div>
                 </div>
