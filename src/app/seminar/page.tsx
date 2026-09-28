@@ -291,7 +291,7 @@ export default async function SeminarPage() {
             投資の「わからない」を「わかった」に変えませんか？
           </p>
 
-          <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem 0 0 0', aspectRatio: '16/9', position: 'relative' }}>
+          <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem auto 0 auto', aspectRatio: '16/9', position: 'relative' }}>
             <Image
               src="/workshop.jpg"
               alt="セミナーの様子"
