@@ -443,16 +443,44 @@ export default async function CashflowGamePage() {
             <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2rem)', fontWeight: '900', marginBottom: '1rem', color: 'var(--primary-dark)' }}>当日の流れ</h2>
           </div>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center', alignItems: 'center', marginBottom: '4rem' }}>
-            <div className="glass-card" style={{ padding: '1rem 1.5rem', fontWeight: 'bold', color: 'var(--primary-dark)', textAlign: 'center', flex: '1 1 auto', minWidth: '200px' }}>
+          <style>{`
+            .flow-container {
+              display: flex;
+              flex-direction: column;
+              gap: 1rem;
+              align-items: center;
+              margin-bottom: 4rem;
+            }
+            .flow-arrow {
+              color: var(--primary-light);
+              font-weight: bold;
+              font-size: 1.5rem;
+              transform: rotate(90deg);
+            }
+            .flow-step {
+              width: 100%;
+              max-width: 300px;
+            }
+            @media (min-width: 768px) {
+              .flow-container {
+                flex-direction: row;
+                justify-content: center;
+              }
+              .flow-arrow {
+                transform: rotate(0deg);
+              }
+            }
+          `}</style>
+          <div className="flow-container">
+            <div className="glass-card flow-step" style={{ padding: '1.2rem 1.5rem', fontWeight: 'bold', color: 'var(--primary-dark)', textAlign: 'center' }}>
               1. ルール説明（約20分）
             </div>
-            <div style={{ color: 'var(--primary-light)', fontWeight: 'bold' }}>→</div>
-            <div className="glass-card" style={{ padding: '1rem 1.5rem', fontWeight: 'bold', color: 'var(--primary-dark)', textAlign: 'center', flex: '1 1 auto', minWidth: '200px' }}>
+            <div className="flow-arrow">→</div>
+            <div className="glass-card flow-step" style={{ padding: '1.2rem 1.5rem', fontWeight: 'bold', color: 'var(--primary-dark)', textAlign: 'center' }}>
               2. ゲーム（約1時間20分）
             </div>
-            <div style={{ color: 'var(--primary-light)', fontWeight: 'bold' }}>→</div>
-            <div className="glass-card" style={{ padding: '1rem 1.5rem', fontWeight: 'bold', color: 'var(--primary-dark)', textAlign: 'center', flex: '1 1 auto', minWidth: '200px' }}>
+            <div className="flow-arrow">→</div>
+            <div className="glass-card flow-step" style={{ padding: '1.2rem 1.5rem', fontWeight: 'bold', color: 'var(--primary-dark)', textAlign: 'center' }}>
               3. 振り返り（約20分）
             </div>
           </div>
