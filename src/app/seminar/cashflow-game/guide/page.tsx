@@ -259,7 +259,7 @@ export default function GuidePage() {
             <div className="glass-card" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
               <div style={{ background: 'var(--primary)', color: 'white', padding: '0.5rem 1rem', borderRadius: '8px', fontWeight: 'bold' }}>1</div>
               <div>
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>自己紹介・ゲームルールの説明（約20分）</h3>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>自己紹介・ゲームルールの説明（約10分）</h3>
                 <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8' }}>
                   まずは参加者同士で簡単な自己紹介を行います。その後、初めての方にもわかりやすく、ゲームの最終目的、盤面の進み方、職業カードの見方、そして最も重要な「財務諸表（損益計算書と貸借対照表）」の書き方を解説します。専門用語はできるだけ使わず、平易な言葉で説明しますのでご安心ください。
                 </p>
@@ -268,7 +268,7 @@ export default function GuidePage() {
             <div className="glass-card" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
               <div style={{ background: 'var(--primary)', color: 'white', padding: '0.5rem 1rem', borderRadius: '8px', fontWeight: 'bold' }}>2</div>
               <div>
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>ゲーム開始（約1時間20分）</h3>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>ゲーム開始（約1時間40分）</h3>
                 <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8' }}>
                   実際にサイコロを振り、ラットレースからの脱出を目指してゲームを進行します。給料日を通過してキャッシュフローを得たり、投資案件（スモールディールやビッグディール）に挑戦したりして不労所得を増やしていきます。途中、リストラに遭ったり、子供が生まれて支出が増えたりといったアクシデントも発生し、大いに盛り上がります。ゲーム中は随時、計算の仕方や投資判断についてのアドバイスを行います。
                 </p>
@@ -277,7 +277,7 @@ export default function GuidePage() {
             <div className="glass-card" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
               <div style={{ background: 'var(--primary)', color: 'white', padding: '0.5rem 1rem', borderRadius: '8px', fontWeight: 'bold' }}>3</div>
               <div>
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>振り返り・感想のシェア（約20分）</h3>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>振り返り・感想のシェア（約10分）</h3>
                 <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8' }}>
                   ゲーム終了後、各自の成績や気づき、学びをシェアする時間を設けます。「あの時の投資がうまくいった」「無駄遣いが響いて脱出できなかった」など、他の参加者の視点を聞くことでさらに学びが深まります。そして最後に、ゲームの世界で学んだことを、現実世界の資産形成（実際の株や不動産投資など）にどう活かしていくかを考える、非常に重要なフィードバックの時間となります。
                 </p>

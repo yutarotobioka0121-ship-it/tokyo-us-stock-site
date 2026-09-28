@@ -482,22 +482,22 @@ export default async function CashflowGamePage() {
                 flex-shrink: 0;
               }
               .flow-step {
-                flex: 1;
+                flex: 1 1 0; display: flex; flex-direction: column; justify-content: center;
                 padding: 1.5rem 1rem;
               }
             }
           `}</style>
           <div className="flow-container">
-            <div className="glass-card flow-step" style={{ padding: '1.2rem 1.5rem', fontWeight: 'bold', color: 'var(--primary-dark)', textAlign: 'center' }}>
-              1. ルール説明（約20分）
+            <div className="flow-step">
+              1. ルール説明（約10分）
             </div>
             <div className="flow-arrow">→</div>
-            <div className="glass-card flow-step" style={{ padding: '1.2rem 1.5rem', fontWeight: 'bold', color: 'var(--primary-dark)', textAlign: 'center' }}>
-              2. ゲーム（約1時間20分）
+            <div className="flow-step">
+              2. ゲーム（約1時間40分）
             </div>
             <div className="flow-arrow">→</div>
-            <div className="glass-card flow-step" style={{ padding: '1.2rem 1.5rem', fontWeight: 'bold', color: 'var(--primary-dark)', textAlign: 'center' }}>
-              3. 振り返り（約20分）
+            <div className="flow-step">
+              3. 振り返り（約10分）
             </div>
           </div>
 
