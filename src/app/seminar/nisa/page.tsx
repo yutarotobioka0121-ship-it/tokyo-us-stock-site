@@ -288,122 +288,6 @@ export default async function NisaSeminarPage() {
         </div>
       </section>
 
-      {/* イベント詳細 Section */}
-      <section style={{ background: 'white', padding: 'clamp(3.5rem, 5vw, 5rem) 0' }}>
-        <div className="container" style={{ maxWidth: '860px', margin: '0 auto' }}>
-          
-          <div style={{ marginBottom: '3rem' }}>
-            <h2 style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--primary-dark)', margin: '0 0 1.5rem 0', paddingLeft: '0.5rem', borderLeft: '4px solid var(--primary)' }}>イベント詳細</h2>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8', marginBottom: '1.5rem' }}>
-              投資に興味があるけど何からしたらいいかわからない方や、そもそも今始めるべきなのかわからない方。投資よりも貯金の方が安全なのでは？と思う方。<br />
-              投資に興味を持ち、一歩踏み出したい方々に向けて、初心者向けのNISA勉強会を開催しています。
-            </p>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8', marginBottom: '1.5rem' }}>
-              SNS等で詐欺まがいやぼったくり投資商品を勧められないためにもここで学んでみてはどうでしょうか。
-            </p>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8', margin: 0 }}>
-              この勉強会では、NISAの基礎についてお話しします。経済や投資に関する知識がない方でも安心して参加できる内容となっております。安心してご参加ください。<br />
-              参加者も20代や30代の方が多く、お一人様や初参加の方のご応募がほとんどです。
-            </p>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-            {/* 講座内容 */}
-            <div className="glass-card" style={{ padding: '2rem', borderRadius: '16px', background: 'var(--bg-warm)', border: '1px solid rgba(0,0,0,0.06)' }}>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <BookOpen size={20} color="var(--primary)" /> 講座内容
-              </h3>
-              <ol style={{ paddingLeft: '1.2rem', color: 'var(--text-main)', fontSize: '1rem', lineHeight: '2', margin: 0, fontWeight: '600' }}>
-                <li>自己紹介</li>
-                <li>NISAとは？</li>
-                <li>貯金よりも安全？</li>
-                <li>何にどのように投資したら良い？</li>
-                <li>投資と回収のシミュレーション</li>
-                <li>感想の共有</li>
-              </ol>
-            </div>
-
-            {/* こんな方におすすめ */}
-            <div className="glass-card" style={{ padding: '2rem', borderRadius: '16px', background: 'var(--bg-warm)', border: '1px solid rgba(0,0,0,0.06)' }}>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Target size={20} color="var(--primary)" /> こんな方におすすめ
-              </h3>
-              <ul style={{ listStyleType: 'none', paddingLeft: 0, color: 'var(--text-main)', fontSize: '1rem', lineHeight: '2', margin: 0, fontWeight: '600' }}>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={18} color="var(--primary)" /> 投資で失敗したことがある方</li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={18} color="var(--primary)" /> NISAについて知りたい方</li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={18} color="var(--primary)" /> 資産運用を考えている方</li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={18} color="var(--primary)" /> これから投資を始める方</li>
-              </ul>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* PR Section: 現役投資家から直接学べる */}
-      <section style={{ background: 'white', padding: 'clamp(2.5rem, 5vw, 4rem) 0', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
-        <div className="container" style={{ maxWidth: '860px', margin: '0 auto' }}>
-
-          {/* キャッチコピー */}
-          <div style={{ textAlign: 'left', marginBottom: '2.5rem', width: '100%' }}>
-            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: '900', color: 'var(--primary-dark)', margin: 0, lineHeight: '1.5' }}>
-              「知っている人」ではなく、<br className="sp-hide" />
-              「実際に成果を出している人」から学ぶ。
-            </h2>
-          </div>
-
-          {/* 縦積み・横長カード */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-
-            {/* カード1 */}
-            <div style={{ background: 'var(--bg-warm)', borderRadius: '20px', padding: '2rem', border: '1px solid rgba(176,58,46,0.12)', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(176,58,46,0.06)' }} />
-              <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', position: 'relative', zIndex: 1, flexWrap: 'wrap' }}>
-                <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <Users size={28} style={{ color: 'white' }} />
-                </div>
-                <div style={{ flex: '1 1 300px' }}>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.75rem', lineHeight: '1.5' }}>
-                    現役の個人投資家から直接学べる、唯一の場所
-                  </h3>
-                  <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', color: 'var(--text-main)', lineHeight: '1.85', margin: 0 }}>
-                    講師は今この瞬間も、自分のお金を実際に運用している現役の個人投資家です。
-                    教科書に書かれた「理論」だけでなく、<strong>リアルな運用経験に基づいた生きた知識</strong>をそのまま届けます。
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* カード2 */}
-            <div style={{ background: 'linear-gradient(135deg, var(--primary-dark) 0%, #c0392b 100%)', borderRadius: '20px', padding: '2rem', position: 'relative', overflow: 'hidden' }}>
-              <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)' }} />
-              <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', position: 'relative', zIndex: 1, flexWrap: 'wrap' }}>
-                <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'rgba(255,255,255,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <TrendingUp size={28} style={{ color: 'white' }} />
-                </div>
-                <div style={{ flex: '1 1 300px' }}>
-                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: '900', color: 'white', marginBottom: '0.75rem', lineHeight: '1.5' }}>
-                    FP・証券会社では聞けない「本音」がある
-                  </h3>
-                  <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', color: 'rgba(255,255,255,0.88)', lineHeight: '1.85', margin: 0 }}>
-                    FPや証券会社の担当者は「知識のプロ」ですが、自分でNISA口座を育てているわけではありません。
-                    当クラブでは、<strong style={{ color: 'white' }}>実際に成果を出している投資家が本音で語る</strong>、
-                    どこにも売っていない"実践知"をお伝えしています。
-                  </p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* 補足メッセージ */}
-          <p style={{ textAlign: 'center', fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text-muted)', marginTop: '2rem', lineHeight: '1.8' }}>
-            ※ 投資に関する最終的な判断はご自身でお願いいたします。当セミナーは金融商品の勧誘を目的としておりません。
-          </p>
-
-        </div>
-      </section>
-
       {/* Schedule Section */}
       <section id="schedule" className="schedule-section" style={{ background: 'white', padding: '2rem 0 1.5rem 0' }}>
         <div className="container">
@@ -520,6 +404,122 @@ export default async function NisaSeminarPage() {
               )}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* イベント詳細 Section */}
+      <section style={{ background: 'white', padding: 'clamp(3.5rem, 5vw, 5rem) 0' }}>
+        <div className="container" style={{ maxWidth: '860px', margin: '0 auto' }}>
+          
+          <div style={{ marginBottom: '3rem' }}>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--primary-dark)', margin: '0 0 1.5rem 0', paddingLeft: '0.5rem', borderLeft: '4px solid var(--primary)' }}>イベント詳細</h2>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8', marginBottom: '1.5rem' }}>
+              投資に興味があるけど何からしたらいいかわからない方や、そもそも今始めるべきなのかわからない方。投資よりも貯金の方が安全なのでは？と思う方。<br />
+              投資に興味を持ち、一歩踏み出したい方々に向けて、初心者向けのNISA勉強会を開催しています。
+            </p>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8', marginBottom: '1.5rem' }}>
+              SNS等で詐欺まがいやぼったくり投資商品を勧められないためにもここで学んでみてはどうでしょうか。
+            </p>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8', margin: 0 }}>
+              この勉強会では、NISAの基礎についてお話しします。経済や投資に関する知識がない方でも安心して参加できる内容となっております。安心してご参加ください。<br />
+              参加者も20代や30代の方が多く、お一人様や初参加の方のご応募がほとんどです。
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            {/* 講座内容 */}
+            <div className="glass-card" style={{ padding: '2rem', borderRadius: '16px', background: 'var(--bg-warm)', border: '1px solid rgba(0,0,0,0.06)' }}>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <BookOpen size={20} color="var(--primary)" /> 講座内容
+              </h3>
+              <ol style={{ paddingLeft: '1.2rem', color: 'var(--text-main)', fontSize: '1rem', lineHeight: '2', margin: 0, fontWeight: '600' }}>
+                <li>自己紹介</li>
+                <li>NISAとは？</li>
+                <li>貯金よりも安全？</li>
+                <li>何にどのように投資したら良い？</li>
+                <li>投資と回収のシミュレーション</li>
+                <li>感想の共有</li>
+              </ol>
+            </div>
+
+            {/* こんな方におすすめ */}
+            <div className="glass-card" style={{ padding: '2rem', borderRadius: '16px', background: 'var(--bg-warm)', border: '1px solid rgba(0,0,0,0.06)' }}>
+              <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Target size={20} color="var(--primary)" /> こんな方におすすめ
+              </h3>
+              <ul style={{ listStyleType: 'none', paddingLeft: 0, color: 'var(--text-main)', fontSize: '1rem', lineHeight: '2', margin: 0, fontWeight: '600' }}>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={18} color="var(--primary)" /> 投資で失敗したことがある方</li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={18} color="var(--primary)" /> NISAについて知りたい方</li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={18} color="var(--primary)" /> 資産運用を考えている方</li>
+                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={18} color="var(--primary)" /> これから投資を始める方</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* PR Section: 現役投資家から直接学べる */}
+      <section style={{ background: 'white', padding: 'clamp(2.5rem, 5vw, 4rem) 0', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
+        <div className="container" style={{ maxWidth: '860px', margin: '0 auto' }}>
+
+          {/* キャッチコピー */}
+          <div style={{ textAlign: 'left', marginBottom: '2.5rem', width: '100%' }}>
+            <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: '900', color: 'var(--primary-dark)', margin: 0, lineHeight: '1.5' }}>
+              「知っている人」ではなく、<br className="sp-hide" />
+              「実際に成果を出している人」から学ぶ。
+            </h2>
+          </div>
+
+          {/* 縦積み・横長カード */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+
+            {/* カード1 */}
+            <div style={{ background: 'var(--bg-warm)', borderRadius: '20px', padding: '2rem', border: '1px solid rgba(176,58,46,0.12)', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(176,58,46,0.06)' }} />
+              <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', position: 'relative', zIndex: 1, flexWrap: 'wrap' }}>
+                <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Users size={28} style={{ color: 'white' }} />
+                </div>
+                <div style={{ flex: '1 1 300px' }}>
+                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: '900', color: 'var(--primary-dark)', marginBottom: '0.75rem', lineHeight: '1.5' }}>
+                    現役の個人投資家から直接学べる、唯一の場所
+                  </h3>
+                  <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', color: 'var(--text-main)', lineHeight: '1.85', margin: 0 }}>
+                    講師は今この瞬間も、自分のお金を実際に運用している現役の個人投資家です。
+                    教科書に書かれた「理論」だけでなく、<strong>リアルな運用経験に基づいた生きた知識</strong>をそのまま届けます。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* カード2 */}
+            <div style={{ background: 'linear-gradient(135deg, var(--primary-dark) 0%, #c0392b 100%)', borderRadius: '20px', padding: '2rem', position: 'relative', overflow: 'hidden' }}>
+              <div style={{ position: 'absolute', top: '-20px', right: '-20px', width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(255,255,255,0.08)' }} />
+              <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', position: 'relative', zIndex: 1, flexWrap: 'wrap' }}>
+                <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'rgba(255,255,255,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <TrendingUp size={28} style={{ color: 'white' }} />
+                </div>
+                <div style={{ flex: '1 1 300px' }}>
+                  <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: '900', color: 'white', marginBottom: '0.75rem', lineHeight: '1.5' }}>
+                    FP・証券会社では聞けない「本音」がある
+                  </h3>
+                  <p style={{ fontFamily: 'var(--font-body)', fontSize: '1rem', color: 'rgba(255,255,255,0.88)', lineHeight: '1.85', margin: 0 }}>
+                    FPや証券会社の担当者は「知識のプロ」ですが、自分でNISA口座を育てているわけではありません。
+                    当クラブでは、<strong style={{ color: 'white' }}>実際に成果を出している投資家が本音で語る</strong>、
+                    どこにも売っていない"実践知"をお伝えしています。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* 補足メッセージ */}
+          <p style={{ textAlign: 'center', fontFamily: 'var(--font-body)', fontSize: '0.95rem', color: 'var(--text-muted)', marginTop: '2rem', lineHeight: '1.8' }}>
+            ※ 投資に関する最終的な判断はご自身でお願いいたします。当セミナーは金融商品の勧誘を目的としておりません。
+          </p>
+
         </div>
       </section>
 
