@@ -348,13 +348,13 @@ export default async function SeminarPage() {
             </div>
           </div>
 
-          {/* 当日の流れ（約1時間） */}
+          {/* 当日の流れ */}
           <div>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>当日の流れ（約1時間）</h2>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>当日の流れ</h2>
             <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>自己紹介から始まり、投資の基本マインドから実践までステップバイステップで学びます。</p>
             <div className="glass-card" style={{ padding: '1.5rem' }}>
               <ol style={{ paddingLeft: '1.2rem', margin: 0, color: 'var(--text-muted)', fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', lineHeight: '1.8' }}>
-                <li>自己紹介（アイスブレイク）</li>
+                <li>自己紹介</li>
                 <li>投資の基本マインドセット</li>
                 <li>米国株のメリット・デメリット</li>
                 <li>質疑応答・シェアリング</li>
