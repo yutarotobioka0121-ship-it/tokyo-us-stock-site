@@ -242,7 +242,7 @@ export default async function SeminarPage() {
           
           
           {/* Summary */}
-          <div style={{ marginTop: '2rem', padding: '1.5rem', background: 'rgba(255, 255, 255, 0.8)', borderRadius: '16px', border: '1px solid var(--primary-light)', boxShadow: 'var(--shadow-soft)', maxWidth: '800px' }}>
+          <div style={{ margin: '2rem auto 0 auto', padding: '1.5rem', background: 'rgba(255, 255, 255, 0.8)', borderRadius: '16px', border: '1px solid var(--primary-light)', boxShadow: 'var(--shadow-soft)', maxWidth: '800px' }}>
             <h2 style={{ fontSize: '1.3rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: 'none' }}>
               📌 このセミナーについて
             </h2>

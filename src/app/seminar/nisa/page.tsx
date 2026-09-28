@@ -264,7 +264,7 @@ export default async function NisaSeminarPage() {
           
 
           {/* サマリーセクション */}
-          <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.1)', marginBottom: '2rem' }}>
+          <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.1)', margin: '0 auto 2rem auto', maxWidth: '800px' }}>
             <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               📌 このセミナーについて
             </h2>
