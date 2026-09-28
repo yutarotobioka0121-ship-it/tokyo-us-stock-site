@@ -236,7 +236,7 @@ export default async function CashflowGamePage() {
       <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '100px 0 0', textAlign: 'left' }}>
         <div className="container">
           <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3', marginLeft: '0', marginRight: 'auto', maxWidth: 'none' }}>
-            キャッシュフローゲーム会（川崎・新宿）
+            キャッシュフローゲーム会
           </h1>
           <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', wordBreak: 'keep-all', marginBottom: '1.5rem', color: 'var(--text-main)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)', lineHeight: '1.8', fontWeight: 'bold' }}>
             ボードゲームで遊びながら、お金の流れと投資の基本が身につく2時間の体験会です。
