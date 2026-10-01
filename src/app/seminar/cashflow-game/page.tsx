@@ -4,6 +4,8 @@ import { getCFGSchedule, CFGEvent } from "@/lib/microcms";
 import CfgApplyForm from "@/components/CfgApplyForm";
 import { CheckCircle2 } from "lucide-react";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: 'キャッシュフローゲーム会｜川崎・新宿で開催・参加費1,000円',
   description: 'ボードゲームで遊びながらお金の流れと投資の基本を学ぶ2時間の体験会。川崎駅前・新宿駅前で開催、参加費1,000円。日程とお申し込みはこちら。',

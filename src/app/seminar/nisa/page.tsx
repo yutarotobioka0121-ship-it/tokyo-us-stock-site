@@ -6,6 +6,8 @@ import { getSessions } from "@/lib/microcms";
 import { formatSessionDate, formatSessionTime, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
 import NisaApplyForm from "@/components/NisaApplyForm";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: '東京の新NISA初心者セミナー（つみたて投資枠）｜申し込み日程',
   description: '東京で開催中の初心者向け新NISA活用セミナー。「つみたて投資枠」と「成長投資枠」の違いや、非課税メリットを活かす設定方法まで、定員4名の少人数カフェスタイルで丁寧に解説します。',

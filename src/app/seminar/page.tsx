@@ -6,6 +6,8 @@ import { getSessions } from "@/lib/microcms";
 import { formatSessionDate, formatSessionTime, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
 import ApplyForm from "@/components/ApplyForm";
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   title: '東京の初心者向け投資勉強会・米国株セミナー｜申し込み日程',
   description: '東京で開催中の初心者向け投資勉強会・米国株セミナーのご案内。5年で1300%以上の実績を持つ現役投資家が講師を務め、少人数制（定員4名）のカフェのような雰囲気で、米国株・新NISAの長期投資の基礎をわかりやすく解説する勉強会です。',
@@ -307,112 +309,6 @@ export default async function SeminarPage() {
       <section style={{ background: 'white', padding: '3rem 0' }}>
         <div className="container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '3rem' }}>
           
-          {/* 米国株セミナーとは */}
-          <div>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>米国株セミナーとは</h2>
-            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>東京米国株クラブが開催する、初心者向けの無料の勉強会です。</p>
-            <div className="glass-card" style={{ padding: '1.5rem' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-                <div>
-                  <h4 style={{ fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.4rem' }}>● リアル会場（対面）</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: 0, paddingLeft: '0.5rem', lineHeight: '1.8' }}>
-                    駅近郊の落ち着いたカフェにて開催いたします。<br />
-                    ※お申込み完了後、詳細な開催場所をメールにてご連絡いたします。
-                  </p>
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.4rem' }}>● オンライン会場（Zoom）</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: 0, paddingLeft: '0.5rem' }}>
-                    ご自宅などからご参加いただけるZoomウェビナー形式です。<br />
-                    お申込み後、専用の入室用URLをお送りいたします。
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* このセミナーで学べること */}
-          <div>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>このセミナーで学べること</h2>
-            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>知識ゼロから安全に始められる米国株・新NISAの長期投資の基礎をわかりやすく解説します。</p>
-            <div className="glass-card" style={{ padding: '1.5rem' }}>
-              <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem', color: 'var(--text-muted)', fontSize: '1rem', lineHeight: '1.8' }}>
-                <li><strong style={{ color: 'var(--text-main)' }}>第1章：</strong> なぜ今「米国株」なのか？他の投資との決定的な違い</li>
-                <li><strong style={{ color: 'var(--text-main)' }}>第2章：</strong> 買ってはいけない「罠銘柄」の特徴と見分け方</li>
-                <li><strong style={{ color: 'var(--text-main)' }}>第3章：</strong> 初心者に最適なインデックスファンドの選び方</li>
-                <li><strong style={{ color: 'var(--text-main)' }}>第4章：</strong> 複利の魔法 — 時間を味方につけて資産を育てるシミュレーション</li>
-                <li><strong style={{ color: 'var(--text-main)' }}>第5章：</strong> ドルコスト平均法の実践と賢い活用方法</li>
-                <li><strong style={{ color: 'var(--text-main)' }}>第6章：</strong> おすすめ証券口座の比較と新NISA制度の満額活用ロードマップ</li>
-                <li><strong style={{ color: 'var(--text-main)' }}>第7章：</strong> 相場の暴落にも一喜一憂しない、一生モノの投資マインドセット</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* 当日の流れ */}
-          <div>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>当日の流れ</h2>
-            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>自己紹介から始まり、投資の基本マインドから実践までステップバイステップで学びます。</p>
-            <div className="glass-card" style={{ padding: '1.5rem' }}>
-              <ol style={{ paddingLeft: '1.2rem', margin: 0, color: 'var(--text-muted)', fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', lineHeight: '1.8' }}>
-                <li>自己紹介</li>
-                <li>投資の基本マインドセット</li>
-                <li>米国株のメリット・デメリット</li>
-                <li>質疑応答・シェアリング</li>
-              </ol>
-            </div>
-          </div>
-
-          {/* こんな方におすすめ */}
-          <div>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>こんな方におすすめ</h2>
-            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>投資を基礎から学びたい方や、将来のお金の不安を解消したい方に最適なセミナーです。</p>
-            <div className="glass-card" style={{ padding: '1.5rem' }}>
-              <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.8' }}>
-                <li>・株投資や新NISAについて一から分かりやすく学びたい方</li>
-                <li>・将来に備え、働かなくても困らない堅実な資産・収入源をつくりたい方</li>
-                <li>・最近の物価高・インフレに対して不安を感じている方</li>
-                <li>・投資の基礎をしっかり身につけて、ギャンブルではない堅実な資産形成をしたい方</li>
-                <li>・自分のやりたい夢やライフプランを実現するための不労所得を育てたい方</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* 講師について */}
-          <div>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>講師について</h2>
-            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>5年で1300%以上の実績を持つ現役投資家が、実体験をもとにわかりやすくお伝えします。</p>
-            <div className="glass-card" style={{ padding: '1.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
-                <div style={{ width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden', border: '3px solid var(--primary)', boxShadow: 'var(--shadow-soft)' }}>
-                  <Image
-                    src="/profile.png"
-                    alt="講師 トビー"
-                    width={100}
-                    height={100}
-                    style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-                  />
-                </div>
-                <div>
-                  <p style={{ fontSize: '1.1rem', color: 'var(--text-main)', margin: 0, fontWeight: '700' }}>
-                    とびー（トビー）
-                  </p>
-                  <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', margin: 0, fontWeight: '600', marginTop: '0.2rem' }}>
-                    サラリーマン ／ 事業主 ／ 個人投資家
-                  </p>
-                </div>
-              </div>
-              <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.8', fontWeight: '500' }}>
-                <li>・2020年に投資をスタート、当初は数十万円の損失を出す失敗を経験</li>
-                <li>・その後、投資を基礎から真剣に学び直し、長期投資の本質を習得</li>
-                <li>・現在の投資成績は1300%以上（投資歴5年）</li>
-                <li>・サラリーマンと事業を並行しながら、1日の投資時間は平均1時間未満</li>
-                <li>・2026年7月、経済的自立とセミリタイアを両立する「サイドFIRE」を達成</li>
-                <li>・時間的・経済的なゆとりを生み出す堅実な資産形成スタイルを確立</li>
-                <li>・「投資で痛い思いをする人を一人でも減らしたい」との想いから初心者向けに発信中</li>
-              </ul>
-            </div>
-          </div>
-
           {/* 開催スケジュール */}
           <div id="schedule">
             <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>開催スケジュール</h2>
@@ -586,6 +482,112 @@ export default async function SeminarPage() {
                   </div>
                 )}
               </div>
+            </div>
+          </div>
+
+          {/* 米国株セミナーとは */}
+          <div>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>米国株セミナーとは</h2>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>東京米国株クラブが開催する、初心者向けの無料の勉強会です。</p>
+            <div className="glass-card" style={{ padding: '1.5rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+                <div>
+                  <h4 style={{ fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.4rem' }}>● リアル会場（対面）</h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: 0, paddingLeft: '0.5rem', lineHeight: '1.8' }}>
+                    駅近郊の落ち着いたカフェにて開催いたします。<br />
+                    ※お申込み完了後、詳細な開催場所をメールにてご連絡いたします。
+                  </p>
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.4rem' }}>● オンライン会場（Zoom）</h4>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: 0, paddingLeft: '0.5rem' }}>
+                    ご自宅などからご参加いただけるZoomウェビナー形式です。<br />
+                    お申込み後、専用の入室用URLをお送りいたします。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* このセミナーで学べること */}
+          <div>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>このセミナーで学べること</h2>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>知識ゼロから安全に始められる米国株・新NISAの長期投資の基礎をわかりやすく解説します。</p>
+            <div className="glass-card" style={{ padding: '1.5rem' }}>
+              <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem', color: 'var(--text-muted)', fontSize: '1rem', lineHeight: '1.8' }}>
+                <li><strong style={{ color: 'var(--text-main)' }}>第1章：</strong> なぜ今「米国株」なのか？他の投資との決定的な違い</li>
+                <li><strong style={{ color: 'var(--text-main)' }}>第2章：</strong> 買ってはいけない「罠銘柄」の特徴と見分け方</li>
+                <li><strong style={{ color: 'var(--text-main)' }}>第3章：</strong> 初心者に最適なインデックスファンドの選び方</li>
+                <li><strong style={{ color: 'var(--text-main)' }}>第4章：</strong> 複利の魔法 — 時間を味方につけて資産を育てるシミュレーション</li>
+                <li><strong style={{ color: 'var(--text-main)' }}>第5章：</strong> ドルコスト平均法の実践と賢い活用方法</li>
+                <li><strong style={{ color: 'var(--text-main)' }}>第6章：</strong> おすすめ証券口座の比較と新NISA制度の満額活用ロードマップ</li>
+                <li><strong style={{ color: 'var(--text-main)' }}>第7章：</strong> 相場の暴落にも一喜一憂しない、一生モノの投資マインドセット</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* 当日の流れ */}
+          <div>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>当日の流れ</h2>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>自己紹介から始まり、投資の基本マインドから実践までステップバイステップで学びます。</p>
+            <div className="glass-card" style={{ padding: '1.5rem' }}>
+              <ol style={{ paddingLeft: '1.2rem', margin: 0, color: 'var(--text-muted)', fontSize: '0.95rem', display: 'flex', flexDirection: 'column', gap: '0.6rem', lineHeight: '1.8' }}>
+                <li>自己紹介</li>
+                <li>投資の基本マインドセット</li>
+                <li>米国株のメリット・デメリット</li>
+                <li>質疑応答・シェアリング</li>
+              </ol>
+            </div>
+          </div>
+
+          {/* こんな方におすすめ */}
+          <div>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>こんな方におすすめ</h2>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>投資を基礎から学びたい方や、将来のお金の不安を解消したい方に最適なセミナーです。</p>
+            <div className="glass-card" style={{ padding: '1.5rem' }}>
+              <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.8' }}>
+                <li>・株投資や新NISAについて一から分かりやすく学びたい方</li>
+                <li>・将来に備え、働かなくても困らない堅実な資産・収入源をつくりたい方</li>
+                <li>・最近の物価高・インフレに対して不安を感じている方</li>
+                <li>・投資の基礎をしっかり身につけて、ギャンブルではない堅実な資産形成をしたい方</li>
+                <li>・自分のやりたい夢やライフプランを実現するための不労所得を育てたい方</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* 講師について */}
+          <div>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>講師について</h2>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>5年で1300%以上の実績を持つ現役投資家が、実体験をもとにわかりやすくお伝えします。</p>
+            <div className="glass-card" style={{ padding: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+                <div style={{ width: '100px', height: '100px', borderRadius: '50%', overflow: 'hidden', border: '3px solid var(--primary)', boxShadow: 'var(--shadow-soft)' }}>
+                  <Image
+                    src="/profile.png"
+                    alt="講師 トビー"
+                    width={100}
+                    height={100}
+                    style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+                  />
+                </div>
+                <div>
+                  <p style={{ fontSize: '1.1rem', color: 'var(--text-main)', margin: 0, fontWeight: '700' }}>
+                    とびー（トビー）
+                  </p>
+                  <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', margin: 0, fontWeight: '600', marginTop: '0.2rem' }}>
+                    サラリーマン ／ 事業主 ／ 個人投資家
+                  </p>
+                </div>
+              </div>
+              <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.8', fontWeight: '500' }}>
+                <li>・2020年に投資をスタート、当初は数十万円の損失を出す失敗を経験</li>
+                <li>・その後、投資を基礎から真剣に学び直し、長期投資の本質を習得</li>
+                <li>・現在の投資成績は1300%以上（投資歴5年）</li>
+                <li>・サラリーマンと事業を並行しながら、1日の投資時間は平均1時間未満</li>
+                <li>・2026年7月、経済的自立とセミリタイアを両立する「サイドFIRE」を達成</li>
+                <li>・時間的・経済的なゆとりを生み出す堅実な資産形成スタイルを確立</li>
+                <li>・「投資で痛い思いをする人を一人でも減らしたい」との想いから初心者向けに発信中</li>
+              </ul>
             </div>
           </div>
 
