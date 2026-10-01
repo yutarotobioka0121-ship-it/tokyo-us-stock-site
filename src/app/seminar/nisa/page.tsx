@@ -9,13 +9,13 @@ import NisaApplyForm from "@/components/NisaApplyForm";
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: '東京の新NISA初心者セミナー（つみたて投資枠）｜申し込み日程',
+  title: 'NISA初心者セミナー（つみたて投資枠）｜申し込み日程',
   description: '東京で開催中の初心者向け新NISA活用セミナー。「つみたて投資枠」と「成長投資枠」の違いや、非課税メリットを活かす設定方法まで、定員4名の少人数カフェスタイルで丁寧に解説します。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/seminar/nisa',
   },
   openGraph: {
-    title: '東京の新NISA初心者セミナー（つみたて投資枠）｜申し込み日程',
+    title: 'NISA初心者セミナー（つみたて投資枠）｜申し込み日程',
     description: '少人数制（定員4名）のカフェスタイルセミナー。知識ゼロから安全に始める新NISAの活用法をわかりやすく解説します。',
     url: 'https://www.tokyo-us-stock.com/seminar/nisa',
     siteName: '東京米国株クラブ',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '東京の新NISA初心者セミナー（つみたて投資枠）｜申し込み日程',
+    title: 'NISA初心者セミナー（つみたて投資枠）｜申し込み日程',
     description: '少人数制（定員4名）のカフェスタイルセミナー。知識ゼロから安全に始める新NISAの活用法をわかりやすく解説。',
     images: ['https://www.tokyo-us-stock.com/ogp.png'],
   },
@@ -256,7 +256,7 @@ export default async function NisaSeminarPage() {
           </div>
 
           <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3', marginLeft: '0', marginRight: 'auto', maxWidth: 'none' }}>
-            東京の新NISA初心者セミナー
+            NISA初心者セミナー
           </h1>
           <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1rem, 4vw, 1.4rem)', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', textAlign: 'left', lineHeight: '1.8' }}>
             「つみたて投資枠」「成長投資枠」の活用法、証券口座の選び方まで。初めての方でもわかりやすく解説します。
