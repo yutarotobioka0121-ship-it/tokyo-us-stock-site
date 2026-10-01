@@ -238,7 +238,7 @@ export default async function SeminarPage() {
         <div className="container">
           <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3', marginLeft: '0', marginRight: 'auto', maxWidth: 'none' }}>
             <span style={{ fontSize: 'clamp(1rem, 3.5vw, 1.6rem)', color: 'var(--primary)', display: 'block', marginBottom: '0.5rem', fontWeight: '800' }}>東京の初心者向け</span>
-            米国株セミナー・投資勉強会
+            米国株セミナー
           </h1>
 
           
