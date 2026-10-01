@@ -38,7 +38,6 @@ export const metadata: Metadata = {
   },
 };
 
-export const dynamic = 'force-dynamic';
 
 function formatSessionTimeRange(timeStr: string) {
   if (!timeStr) return '';

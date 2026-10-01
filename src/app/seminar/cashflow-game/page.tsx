@@ -35,7 +35,6 @@ export const metadata: Metadata = {
   },
 };
 
-export const revalidate = 3600;
 
 function toJstIso(dateStr: string, timeStr: string, offsetHours = 0) {
   const dateMatch = dateStr?.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
