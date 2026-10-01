@@ -4,7 +4,7 @@ import { getCFGSchedule, CFGEvent } from "@/lib/microcms";
 import CfgApplyForm from "@/components/CfgApplyForm";
 import { CheckCircle2 } from "lucide-react";
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'キャッシュフローゲーム会｜川崎・新宿で開催・参加費1,000円',

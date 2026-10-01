@@ -34,7 +34,7 @@ export async function getSessions() {
     const data = await client.get({
       endpoint: 'usstock',
       queries: { orders: '-publishedAt', limit: 100 },
-      customRequestInit: { next: { revalidate: 3600 } },
+      customRequestInit: { cache: 'no-store' },
     });
     return data.contents as StudySession[];
   } catch (error) {
@@ -64,7 +64,7 @@ export async function getCFGSchedule(): Promise<CFGEvent[]> {
     const data = await client.get({
       endpoint: 'eventschedule',
       queries: { orders: 'date', limit: 100 },
-      customRequestInit: { next: { revalidate: 3600 } },
+      customRequestInit: { cache: 'no-store' },
     });
 
     const now = new Date();

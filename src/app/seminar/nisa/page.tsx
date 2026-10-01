@@ -6,7 +6,7 @@ import { getSessions } from "@/lib/microcms";
 import { formatSessionDate, formatSessionTime, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
 import NisaApplyForm from "@/components/NisaApplyForm";
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: '東京の新NISA初心者セミナー（つみたて投資枠）｜申し込み日程',

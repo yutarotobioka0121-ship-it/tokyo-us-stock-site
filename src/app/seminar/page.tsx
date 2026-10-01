@@ -6,7 +6,7 @@ import { getSessions } from "@/lib/microcms";
 import { formatSessionDate, formatSessionTime, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
 import ApplyForm from "@/components/ApplyForm";
 
-export const revalidate = 3600;
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: '東京の初心者向け投資勉強会・米国株セミナー｜申し込み日程',
