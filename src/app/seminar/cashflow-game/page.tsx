@@ -245,11 +245,6 @@ export default async function CashflowGamePage() {
 
           
 
-          <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
-            <a href="#schedule" className="btn btn-primary" style={{ padding: '1rem 2rem', fontSize: '1.1rem', fontWeight: 'bold', textDecoration: 'none', display: 'inline-block', borderRadius: '30px' }}>
-              日程を見て申し込む
-            </a>
-          </div>
 
           <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem auto 0 auto', aspectRatio: '21/9', position: 'relative' }}>
             <Image
