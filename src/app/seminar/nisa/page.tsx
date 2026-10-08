@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Users, Target, BookOpen, Coffee, Zap, PieChart, ShieldCheck, ArrowLeft, TrendingUp, Monitor } from "lucide-react";
 import { getSessions } from "@/lib/microcms";
-import { formatSessionDate, formatSessionTime, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
+import { formatSessionDate, buildEventSchedule, formatSessionTime, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
 import NisaApplyForm from "@/components/NisaApplyForm";
 
 export const dynamic = 'force-dynamic';
@@ -74,6 +74,10 @@ function formatSessionTimeRange(timeStr: string) {
   return `${pad(startHour)}:${pad(startMinute)}〜${pad(endHour)}:${pad(startMinute)}`;
 }
 
+const INVESTING_SINCE = 2020;
+  const currentYear = Number(new Intl.DateTimeFormat('en', { year: 'numeric', timeZone: 'Asia/Tokyo' }).format(new Date()));
+  const yearsCount = currentYear - INVESTING_SINCE + 1;
+
 export default async function NisaSeminarPage() {
   const sessions = await getSessions();
   
@@ -124,6 +128,8 @@ export default async function NisaSeminarPage() {
     const typeArr = Array.isArray(session.type) ? session.type : [session.type];
     const typeStr = typeArr.join(' ').toLowerCase();
     const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
+    const schedule = buildEventSchedule(session.date, session.time || session.date, 1);
+    if (!schedule) return null;
     const locStr = session.location || '';
     const isKawasaki = locStr.includes('川崎');
 
@@ -165,7 +171,7 @@ export default async function NisaSeminarPage() {
         '@type': 'Organization',
         name: '東京米国株クラブ',
         url: 'https://www.tokyo-us-stock.com/',
-        description: '東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ多数の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。'
+        description: '東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。'
       },
       offers: {
         '@type': 'Offer',
@@ -315,6 +321,8 @@ export default async function NisaSeminarPage() {
                     const typeArr = Array.isArray(session.type) ? session.type : [session.type];
                     const typeStr = typeArr.join(' ').toLowerCase();
                     const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
+    const schedule = buildEventSchedule(session.date, session.time || session.date, 1);
+    if (!schedule) return null;
                     
                     const formattedDate = formatSessionDate(session.date);
                     const formattedTime = formatSessionTimeRange(session.time || session.date);
@@ -370,6 +378,8 @@ export default async function NisaSeminarPage() {
                   const typeArr = Array.isArray(session.type) ? session.type : [session.type];
                   const typeStr = typeArr.join(' ').toLowerCase();
                   const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
+    const schedule = buildEventSchedule(session.date, session.time || session.date, 1);
+    if (!schedule) return null;
                   
                   const formattedDate = formatSessionDate(session.date);
                   const formattedTime = formatSessionTimeRange(session.time || session.date);
@@ -649,7 +659,7 @@ export default async function NisaSeminarPage() {
               lineHeight: '1.8',
               margin: 0
             }}>
-              <strong>東京米国株クラブとは</strong>、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ多数の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。
+              <strong>東京米国株クラブとは</strong>、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。
             </p>
           </div>
         </div>

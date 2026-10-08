@@ -33,6 +33,10 @@ export const metadata: Metadata = {
   },
 };
 
+const INVESTING_SINCE = 2020;
+const currentYear = Number(new Intl.DateTimeFormat('en', { year: 'numeric', timeZone: 'Asia/Tokyo' }).format(new Date()));
+const yearsCount = currentYear - INVESTING_SINCE + 1;
+
 export default function AboutPage() {
   const schema = {
     "@context": "https://schema.org",
@@ -103,9 +107,9 @@ export default function AboutPage() {
 
               <div className="skills-list" style={{ marginBottom: '2rem' }}>
                 <h3 style={{ fontFamily: 'var(--font-heading)', marginBottom: '1rem', color: 'var(--primary)', fontSize: '1rem', fontWeight: '800', lineHeight: '1.8' }}>🏆 実績・成果</h3>
-                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>投資歴：7年</span></div>
-                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>運用資産：1300%以上増加</span></div>
-                                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>セミナー受講者延べ：300名以上</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>2020年から投資を始め、今年で{yearsCount}年目</span></div>
+                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>運用実績：5年で1300%以上</span></div>
+                                <div className="skill-item"><CheckCircle2 color="var(--primary)" size={20} /><span style={{ fontFamily: 'var(--font-body)', fontSize: '0.95rem', lineHeight: '1.8' }}>セミナー受講者の延べ人数：延べ300名以上</span></div>
               </div>
 
               <div className="skills-list" style={{ marginBottom: '2rem' }}>

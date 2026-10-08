@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Image from "next/image";
+import { buildEventSchedule } from "@/lib/utils";
 import { getCFGSchedule, CFGEvent } from "@/lib/microcms";
 import CfgApplyForm from "@/components/CfgApplyForm";
 import { CheckCircle2 } from "lucide-react";
@@ -36,34 +37,6 @@ export const metadata: Metadata = {
 };
 
 
-function toJstIso(dateStr: string, timeStr: string, offsetHours = 0) {
-  const dateMatch = dateStr?.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
-  let ymd = '2026-01-01';
-  if (dateMatch) {
-    ymd = `${dateMatch[1]}-${dateMatch[2].padStart(2, '0')}-${dateMatch[3].padStart(2, '0')}`;
-  } else {
-    const match = dateStr?.match(/^\d{4}-\d{2}-\d{2}/);
-    if (match) ymd = match[0];
-  }
-
-  let startHour = 19;
-  let startMinute = 0;
-  if (timeStr) {
-    const timeParts = timeStr.split('〜');
-    if (timeParts[0]) {
-      const cleanStart = timeParts[0].trim().replace(':', '');
-      if (cleanStart.length >= 3) {
-        startHour = parseInt(cleanStart.slice(0, cleanStart.length - 2), 10) || 10;
-        startMinute = parseInt(cleanStart.slice(-2), 10) || 0;
-      }
-    }
-  }
-
-  const h = startHour + offsetHours;
-  const mm = startMinute.toString().padStart(2, '0');
-  const hh = h.toString().padStart(2, '0');
-  return `${ymd}T${hh}:${mm}:00+09:00`;
-}
 
 
 function getJapaneseDayOfWeek(dateString: string): string {
@@ -93,8 +66,9 @@ function generateEventSchema(events: CFGEvent[]) {
   
   return events.map(ev => {
     
-    const startDateStr = toJstIso(ev.date, ev.time, 0);
-    const endDateStr = toJstIso(ev.date, ev.time, 2);
+    const schedule = buildEventSchedule(ev.date, ev.time, 2);
+    if (!schedule) return null;
+    const { startDateStr, endDateStr } = schedule;
 
     const locName = (ev.location || '').includes('川崎') ? '神奈川県川崎駅前 貸し会議室' : '新宿駅前 貸し会議室';
     const locCity = (ev.location || '').includes('川崎') ? '川崎市' : '新宿区';
@@ -112,7 +86,7 @@ function generateEventSchema(events: CFGEvent[]) {
         "@id": "https://www.tokyo-us-stock.com/#organization",
         "name": "東京米国株クラブ",
         "url": "https://www.tokyo-us-stock.com/",
-        "description": "東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ多数の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。"
+        "description": "東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。"
       },
       
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
@@ -137,6 +111,21 @@ function generateEventSchema(events: CFGEvent[]) {
     };
   });
 }
+
+const faqData = [
+  {
+    question: "投資の知識が全くなくても参加できますか？",
+    answer: "はい、全く問題ありません。ゲームを通じて投資の基本から学べるように設計されているため、初心者の方でも安心してご参加いただけます。"
+  },
+  {
+    question: "持ち物は何か必要ですか？",
+    answer: "筆記用具、電卓（スマホのアプリで可）、消しゴムをお持ちください。"
+  },
+  {
+    question: "ゲームのルールを知らなくても参加できますか？",
+    answer: "はい、初めての方でも大丈夫です。最初の約10分で基本のルールを説明し、細かいルールはゲームを進めながらその都度説明します。事前の準備はいりません。"
+  }
+];
 
 function generateFaqSchema() {
   return {
@@ -221,7 +210,7 @@ export default async function CashflowGamePage() {
 
   
   
-  const eventSchemas = generateEventSchema(availableEvents.filter(ev => ev.status === 'open'));
+  const eventSchemas = generateEventSchema(availableEvents.filter(ev => ev.status === 'open')).filter(Boolean);
 
   const faqSchema = generateFaqSchema();
 
@@ -489,11 +478,11 @@ export default async function CashflowGamePage() {
             </div>
             <div className="flow-arrow">→</div>
             <div className="flow-step">
-              2. ゲーム（約1時間40分）
+              2. ゲーム（約1時間30分・ルールは進めながら説明）
             </div>
             <div className="flow-arrow">→</div>
             <div className="flow-step">
-              3. 振り返り（約10分）
+              3. 振り返り（約20分）
             </div>
           </div>
 

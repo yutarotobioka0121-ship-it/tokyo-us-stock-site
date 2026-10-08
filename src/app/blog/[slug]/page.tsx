@@ -1,8 +1,15 @@
 import { getPostBySlug, getPosts } from '@/lib/notion';
 import RelatedPosts from '@/components/RelatedPosts';
-import BeginnerCta from '@/components/BeginnerCta';
+import BeginnerCta from "@/components/BeginnerCta";
+import MetricsSeriesFooter from "@/components/MetricsSeriesFooter";
+// from '@/components/BeginnerCta';
 import { Calendar, ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
+
+const INVESTING_SINCE = 2020;
+const currentYear = Number(new Intl.DateTimeFormat('en', { year: 'numeric', timeZone: 'Asia/Tokyo' }).format(new Date()));
+const yearsCount = currentYear - INVESTING_SINCE + 1;
+
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 
@@ -88,7 +95,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   }
 
   // Article Schema
-  const articleSchema = {
+  const articleSchema: any = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: slug === 'us-stock-beginners-guide' && !post.title.includes('米国株の始め方') ? '米国株の始め方 完全ガイド（初心者向け）｜' + post.title : post.title,
@@ -112,6 +119,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     },
     image: post.cover ? [post.cover] : ['https://www.tokyo-us-stock.com/og-image.png'],
   };
+
+  if (slug.startsWith('valuation-metrics-series-')) {
+    articleSchema.isPartOf = {
+      "@type": "Series",
+      "name": "投資指標シリーズ",
+      "url": "https://www.tokyo-us-stock.com/blog"
+    };
+    articleSchema.about = {
+      "@type": "Thing",
+      "name": post.title.split(' ')[0] || post.title
+    };
+  }
 
   // Breadcrumb Schema
   const breadcrumbSchema = {
@@ -375,7 +394,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             
             {/* Beginner CTA for series posts (2-2) */}
             {(() => {
-              const isSeries = post.title.includes('企業分析') || post.title.includes('セクター') || post.title.includes('ETF') || post.title.includes('指標');
+              if (slug.startsWith('valuation-metrics-series-')) {
+                return <MetricsSeriesFooter currentSlug={slug} />;
+              }
+              const isSeries = post.title.includes('企業分析') || post.title.includes('セクター') || post.title.includes('ETF');
               if (isSeries) {
                 return <BeginnerCta />;
               }
@@ -407,7 +429,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   <span style={{ fontSize: '0.75rem', fontWeight: '700', padding: '0.2rem 0.6rem', borderRadius: '10px', background: 'rgba(176, 58, 46, 0.08)', color: 'var(--primary)' }}>米国株長期投資家</span>
                 </div>
                 <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', lineHeight: '1.6', margin: '0 0 1rem 0' }}>
-                  投資歴5年以上の米国株長期投資家。「東京米国株クラブ」の主宰。投資＝ギャンブルだと思い大損する失敗を経験するも、企業分析（財務諸表の徹底的な読み解き）に基づいた長期投資へシフトし、5年間で+1300%超（約13倍）の実績を達成。2026年7月にはサイドFIRE（経済的自立）を達成。現在はサラリーマン・事業主として多忙な日々を送りつつ、初心者向けの投資セミナーを東京・オンラインで開催中。
+                  2020年から投資を始め、今年で{yearsCount}年目となる米国株長期投資家。「東京米国株クラブ」の主宰。投資＝ギャンブルだと思い大損する失敗を経験するも、企業分析（財務諸表の徹底的な読み解き）に基づいた長期投資へシフトし、5年で1300%以上の運用実績を達成。2026年7月にはサイドFIRE（経済的自立）を達成。現在はサラリーマン・事業主として多忙な日々を送りつつ、初心者向けの投資セミナーを東京・オンラインで開催中。
                 </p>
                 <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
                   <Link href="/about" style={{ fontSize: '0.85rem', fontWeight: '800', color: 'var(--primary)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>

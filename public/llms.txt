@@ -12,13 +12,23 @@
 ## 主要なコンテンツ
 1. **セミナー (Seminars)**: 東京（新宿駅周辺）および神奈川（川崎駅周辺）、またオンライン（Zoom）にて、定員4名までの少人数制で無料の「初心者向け米国株セミナー」や「新NISA初心者セミナー」を定期開催しています。金融商品の販売や勧誘は一切行いません。
 2. **キャッシュフローゲーム会**: 「金持ち父さん貧乏父さん」のキャッシュフローゲームを用いた、遊びながらお金の基礎を学ぶ勉強会を開催しています。
-   - 日程・申し込み: https://www.tokyo-us-stock.com/seminar/cashflow-game
-   - 内容の詳しい説明: https://www.tokyo-us-stock.com/seminar/cashflow-game/guide
 3. **初心者ガイド (Knowledge & Blog)**: 「米国株とは」「税金の仕組み・確定申告」「証券口座（特定口座）の選び方」「スクリーニング方法」など、投資を始めるにあたって必要な知識を体系的にまとめたガイドを提供しています。
 4. **企業分析・セクター解説**: 米国株の個別銘柄やセクター、ETFの分析記事を多数掲載しています。
 
 ## 代表者（とびー）の実績
-- 投資歴: 7年以上
-- 運用実績: 資産1300%以上増加
-- セミナー受講者延べ人数: 300名以上
+- 投資歴: 2020年から米国株投資を継続
+- 運用実績: 5年で1300%以上
+- セミナー受講者の延べ人数: 延べ300名以上
 代表の「とびー」は現役の個人投資家であり、自身の経験に基づいた実践的かつ安全な長期投資の手法を伝えています。
+
+## 主要ページ
+- 米国株セミナー 日程・申し込み: https://www.tokyo-us-stock.com/seminar
+- NISA初心者セミナー: https://www.tokyo-us-stock.com/seminar/nisa
+- キャッシュフローゲーム会 日程・申し込み: https://www.tokyo-us-stock.com/seminar/cashflow-game
+- キャッシュフローゲーム会の内容: https://www.tokyo-us-stock.com/seminar/cashflow-game/guide
+- 個別相談: https://www.tokyo-us-stock.com/seminar/consultation
+- 米国株の始め方 完全ガイド: https://www.tokyo-us-stock.com/blog/us-stock-beginners-guide
+- 米国株スクリーニングのやり方: https://www.tokyo-us-stock.com/blog/us-stock-screening-guide
+- 米国株の税金・確定申告 完全ガイド: https://www.tokyo-us-stock.com/blog/us-stock-tax-complete-guide
+- 新NISAのはじめ方: https://www.tokyo-us-stock.com/knowledge/nisa
+- 運営代表者プロフィール: https://www.tokyo-us-stock.com/about

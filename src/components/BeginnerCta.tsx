@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, BookOpen, Users } from 'lucide-react';
+import { ArrowRight, BookOpen, Users, Search } from 'lucide-react';
 
 export default function BeginnerCta() {
   return (
@@ -16,6 +16,11 @@ export default function BeginnerCta() {
         <Link href="/seminar" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none', color: 'var(--text-main)', background: '#f8f9fa', padding: '1rem', borderRadius: '12px', transition: 'all 0.2s ease' }} className="hover:bg-gray-100">
           <Users size={20} color="var(--primary)" />
           <span style={{ fontWeight: 'bold' }}>少人数で直接学びたい方は → 米国株セミナーの日程</span>
+          <ArrowRight size={16} style={{ marginLeft: 'auto', color: 'var(--primary)' }} />
+        </Link>
+        <Link href="/blog/us-stock-screening-guide" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none', color: 'var(--text-main)', background: '#f8f9fa', padding: '1rem', borderRadius: '12px', transition: 'all 0.2s ease' }} className="hover:bg-gray-100">
+          <Search size={20} color="var(--primary)" />
+          <span style={{ fontWeight: 'bold' }}>自分で銘柄を探してみる → 米国株スクリーニングのやり方</span>
           <ArrowRight size={16} style={{ marginLeft: 'auto', color: 'var(--primary)' }} />
         </Link>
       </div>

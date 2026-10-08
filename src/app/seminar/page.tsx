@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Users, Target, BookOpen, Coffee, Zap, PieChart, ShieldCheck, Monitor } from "lucide-react";
 import { getSessions } from "@/lib/microcms";
-import { formatSessionDate, formatSessionTime, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
+import { formatSessionDate, buildEventSchedule, formatSessionTime, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
 import ApplyForm from "@/components/ApplyForm";
 
 export const dynamic = 'force-dynamic';
@@ -74,33 +74,10 @@ function formatSessionTimeRange(timeStr: string) {
   return `${pad(startHour)}:${pad(startMinute)}〜${pad(endHour)}:${pad(startMinute)}`;
 }
 
-function toJstIso(dateStr: string, timeStr: string, offsetHours = 0) {
-  const dateMatch = dateStr?.match(/^\d{4}-\d{2}-\d{2}/);
-  const ymd = dateMatch ? dateMatch[0] : '2026-01-01';
 
-  let startHour = 19;
-  let startMinute = 0;
-  if (timeStr && /^\d{2}:\d{2}$/.test(timeStr)) {
-    const parts = timeStr.split(':');
-    startHour = parseInt(parts[0], 10);
-    startMinute = parseInt(parts[1], 10);
-  } else if (timeStr) {
-    try {
-      const dateObj = new Date(timeStr);
-      if (!isNaN(dateObj.getTime())) {
-        const formatted = new Intl.DateTimeFormat('ja-JP', {
-          hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Tokyo'
-        }).format(dateObj);
-        startHour = parseInt(formatted.split(':')[0], 10);
-        startMinute = parseInt(formatted.split(':')[1], 10);
-      }
-    } catch (e) {}
-  }
-
-  const h = (startHour + offsetHours) % 24;
-  const pad = (num: number) => num.toString().padStart(2, '0');
-  return `${ymd}T${pad(h)}:${pad(startMinute)}:00+09:00`;
-}
+const INVESTING_SINCE = 2020;
+  const currentYear = Number(new Intl.DateTimeFormat('en', { year: 'numeric', timeZone: 'Asia/Tokyo' }).format(new Date()));
+  const yearsCount = currentYear - INVESTING_SINCE + 1;
 
 export default async function SeminarPage() {
   const sessions = await getSessions();
@@ -134,6 +111,8 @@ export default async function SeminarPage() {
     const typeArr = Array.isArray(session.type) ? session.type : [session.type];
     const typeStr = typeArr.join(' ').toLowerCase();
     const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
+    const schedule = buildEventSchedule(session.date, session.time || session.date, 1);
+    if (!schedule) return null;
     const locationStr = session.location || '';
     
     let addressLocality = '川崎市';
@@ -153,8 +132,8 @@ export default async function SeminarPage() {
       '@type': 'EducationEvent',
       name: `初心者向け米国株セミナー（${isOnline ? 'オンライン' : areaName}・${isOnline ? 'オンライン' : '対面'}）`,
       description: '米国株・新NISAの長期投資の基礎を、定員4名の少人数制で解説する初心者向けセミナーです。',
-      startDate: toJstIso(session.date, session.time || session.date, 0),
-      endDate: toJstIso(session.date, session.time || session.date, 1),
+      startDate: schedule.startDateStr,
+      endDate: schedule.endDateStr,
       eventStatus: 'https://schema.org/EventScheduled',
       eventAttendanceMode: isOnline ? 'https://schema.org/OnlineEventAttendanceMode' : 'https://schema.org/OfflineEventAttendanceMode',
       location: isOnline ? { '@type': 'VirtualLocation', url: 'https://zoom.us' } : {
@@ -168,7 +147,7 @@ export default async function SeminarPage() {
         '@type': 'Organization', 
         name: '東京米国株クラブ', 
         url: 'https://www.tokyo-us-stock.com/',
-        description: '東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ多数の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。'
+        description: '東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。'
       },
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'JPY', availability: 'https://schema.org/InStock', url: 'https://www.tokyo-us-stock.com/seminar', validFrom: '2026-09-01T00:00:00+09:00' },
     };
@@ -333,6 +312,8 @@ export default async function SeminarPage() {
                       const typeArr = Array.isArray(session.type) ? session.type : [session.type];
                       const typeStr = typeArr.join(' ').toLowerCase();
                       const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
+    const schedule = buildEventSchedule(session.date, session.time || session.date, 1);
+    if (!schedule) return null;
                       
                       const formattedDate = formatSessionDate(session.date);
                       const formattedTime = formatSessionTimeRange(session.time || session.date);
@@ -398,6 +379,8 @@ export default async function SeminarPage() {
                     const typeArr = Array.isArray(session.type) ? session.type : [session.type];
                     const typeStr = typeArr.join(' ').toLowerCase();
                     const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
+    const schedule = buildEventSchedule(session.date, session.time || session.date, 1);
+    if (!schedule) return null;
                     const formattedDate = formatSessionDate(session.date);
                     const formattedTime = formatSessionTimeRange(session.time || session.date);
                     
@@ -581,7 +564,7 @@ export default async function SeminarPage() {
               <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.8', fontWeight: '500' }}>
                 <li>・2020年に投資をスタート、当初は数十万円の損失を出す失敗を経験</li>
                 <li>・その後、投資を基礎から真剣に学び直し、長期投資の本質を習得</li>
-                <li>・現在の投資成績は1300%以上（投資歴5年）</li>
+                <li>・運用実績：5年で1300%以上（2020年から投資を始め、今年で{yearsCount}年目）</li>
                 <li>・サラリーマンと事業を並行しながら、1日の投資時間は平均1時間未満</li>
                 <li>・2026年7月、経済的自立とセミリタイアを両立する「サイドFIRE」を達成</li>
                 <li>・時間的・経済的なゆとりを生み出す堅実な資産形成スタイルを確立</li>
@@ -674,7 +657,7 @@ export default async function SeminarPage() {
               lineHeight: '1.8',
               margin: 0
             }}>
-              <strong>東京米国株クラブとは</strong>、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ多数の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。
+              <strong>東京米国株クラブとは</strong>、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。
             </p>
           </div>
         </div>

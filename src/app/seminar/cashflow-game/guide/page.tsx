@@ -100,7 +100,11 @@ function generateFaqSchema() {
   };
 }
 
-export default function GuidePage() {
+const INVESTING_SINCE = 2020;
+  const currentYear = Number(new Intl.DateTimeFormat('en', { year: 'numeric', timeZone: 'Asia/Tokyo' }).format(new Date()));
+  const yearsCount = currentYear - INVESTING_SINCE + 1;
+
+  export default function GuidePage() {
   const articleSchema = generateArticleSchema();
   const faqSchema = generateFaqSchema();
 
@@ -268,7 +272,7 @@ export default function GuidePage() {
             <div className="glass-card" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
               <div style={{ background: 'var(--primary)', color: 'white', padding: '0.5rem 1rem', borderRadius: '8px', fontWeight: 'bold' }}>2</div>
               <div>
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>ゲーム開始（約1時間40分）</h3>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>ゲーム開始（約1時間30分・ルールは進めながら説明）</h3>
                 <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8' }}>
                   実際にサイコロを振り、ラットレースからの脱出を目指してゲームを進行します。給料日を通過してキャッシュフローを得たり、投資案件（スモールディールやビッグディール）に挑戦したりして不労所得を増やしていきます。途中、リストラに遭ったり、子供が生まれて支出が増えたりといったアクシデントも発生し、大いに盛り上がります。ゲーム中は随時、計算の仕方や投資判断についてのアドバイスを行います。
                 </p>
@@ -336,7 +340,7 @@ export default function GuidePage() {
               <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.8', fontWeight: '500' }}>
                 <li>・2020年に投資をスタート、当初は数十万円の損失を出す失敗を経験</li>
                 <li>・その後、投資を基礎から真剣に学び直し、長期投資の本質を習得</li>
-                <li>・現在の投資成績は1300%以上（投資歴5年）</li>
+                <li>・運用実績：5年で1300%以上（2020年から投資を始め、今年で{yearsCount}年目）</li>
                 <li>・サラリーマンと事業を並行しながら、1日の投資時間は平均1時間未満</li>
                 <li>・2026年7月、経済的自立とセミリタイアを両立する「サイドFIRE」を達成</li>
                 <li>・「投資で痛い思いをする人を一人でも減らしたい」との想いから初心者向けに発信・教育活動中</li>
@@ -387,7 +391,7 @@ export default function GuidePage() {
               lineHeight: '1.8',
               margin: 0
             }}>
-              <strong>東京米国株クラブとは</strong>、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ多数の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。
+              <strong>東京米国株クラブとは</strong>、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。
             </p>
           </div>
         </div>
