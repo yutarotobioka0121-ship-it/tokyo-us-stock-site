@@ -57,25 +57,41 @@ export async function getPosts() {
   }
 
   try {
-    const response = await fetchWithRetry(() =>
-      notion.databases.query({
-        database_id: DATABASE_ID,
-        filter: {
-          property: 'Published',
-          checkbox: {
-            equals: true,
-          },
-        },
-        sorts: [
-          {
-            property: 'Date',
-            direction: 'descending',
-          },
-        ],
-      })
-    );
+    const results = [];
+    let cursor: string | undefined = undefined;
+    let hasMore = true;
 
-    return response.results.map((page: any) => {
+    while (hasMore) {
+      const response = await fetchWithRetry(() =>
+        notion.databases.query({
+          database_id: DATABASE_ID,
+          start_cursor: cursor,
+          page_size: 100,
+          filter: {
+            property: 'Published',
+            checkbox: {
+              equals: true,
+            },
+          },
+          sorts: [
+            {
+              property: 'Date',
+              direction: 'descending',
+            },
+          ],
+        })
+      );
+      results.push(...response.results);
+      hasMore = response.has_more;
+      cursor = response.next_cursor ?? undefined;
+    }
+
+    if (results.length === 100) {
+      console.warn('WARNING: Exactly 100 posts fetched! Pagination might have failed, or it is exactly 100.');
+    }
+    console.log('Fetched ' + results.length + ' posts from Notion');
+
+    return results.map((page: any) => {
       const props = page.properties;
       const rawSlug = props.Slug?.rich_text?.[0]?.plain_text || page.id;
       const mappedSlug = SLUG_MAP[page.id] || rawSlug;
@@ -118,21 +134,25 @@ export const getPostBySlug = cache(async (slug: string) => {
   }
 
   if (!page) {
+    // 2. Query Notion directly filtering by Slug property
     const response = await fetchWithRetry(() =>
       notion.databases.query({
         database_id: DATABASE_ID,
+        filter: {
+          property: 'Slug',
+          rich_text: {
+            equals: decodedSlug
+          }
+        }
       })
     );
-
-    page = response.results.find((p: any) => {
-      const s = p.properties.Slug?.rich_text?.[0]?.plain_text;
-      if (!s) return false;
-      const normalizedS = s.normalize().trim();
-      
-      // Notion側の元々のSlugを、SLUG_MAPで変換された値と比較できるように考慮
-      const mappedS = SLUG_MAP[p.id] || normalizedS;
-      return mappedS === decodedSlug;
-    });
+    
+    if (response.results.length > 0) {
+      page = response.results[0];
+    } else {
+      // For fallback or old slugs mapped via SLUG_MAP, we might need a full search,
+      // but since REVERSE_SLUG_MAP handles overriding, we can just stop here.
+    }
   }
 
   // 3. それでも見つからない場合、かつslugがUUID形式の場合のみID検索を試みる
