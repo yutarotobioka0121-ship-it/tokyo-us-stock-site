@@ -422,8 +422,9 @@ export default async function CashflowGamePage() {
               display: flex;
               flex-direction: column;
               gap: 1.5rem;
-              align-items: stretch;
-              margin-bottom: 4rem;
+              align-items: center;
+              justify-content: center;
+              margin: 0 auto 4rem auto;
               width: 100%;
             }
             .flow-arrow {
@@ -434,30 +435,42 @@ export default async function CashflowGamePage() {
               transform: rotate(90deg);
             }
             .flow-step {
-              padding: 1.5rem;
+              padding: 1.2rem;
               font-weight: 800;
               color: var(--primary-dark);
               text-align: center;
-              font-size: 1.05rem; white-space: nowrap; word-break: keep-all;
+              font-size: 1.05rem; 
+              line-height: 1.5;
+              white-space: normal;
+              word-break: break-word;
               background: white;
               border: 2px solid var(--primary-light);
               border-radius: 12px;
               box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+              width: 100%;
+              max-width: 320px;
             }
             @media (min-width: 768px) {
               .flow-container {
                 flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
+                align-items: stretch;
                 gap: 1rem;
               }
               .flow-arrow {
                 transform: rotate(0deg);
                 flex-shrink: 0;
+                display: flex;
+                align-items: center;
               }
               .flow-step {
-                flex: 1 1 0; display: flex; flex-direction: column; justify-content: center; align-items: center;
-                padding: 1.2rem 0.5rem;
+                flex: 1 1 0;
+                width: 100%;
+                max-width: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 1.2rem 1rem;
               }
             }
           `}</style>
