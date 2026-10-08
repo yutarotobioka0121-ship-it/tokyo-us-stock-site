@@ -424,7 +424,7 @@ export default async function CashflowGamePage() {
               gap: 1.5rem;
               align-items: center;
               justify-content: center;
-              margin: 0 auto 4rem auto;
+              margin: 0 auto;
               width: 100%;
             }
             .flow-arrow {
@@ -492,7 +492,7 @@ export default async function CashflowGamePage() {
       </section>
       
 {/* FAQ Section */}
-      <section style={{ padding: '4rem 0', background: 'white' }}>
+      <section style={{ padding: '0 0 4rem 0', background: 'white' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <div style={{ marginBottom: '3rem', textAlign: 'center', width: '100%' }}>
             <h2 style={{ fontSize: 'clamp(1.5rem, 5vw, 2rem)', fontWeight: '900', marginBottom: '1rem', color: 'var(--primary-dark)' }}>FAQ</h2>
