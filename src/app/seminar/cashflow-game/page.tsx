@@ -441,8 +441,8 @@ export default async function CashflowGamePage() {
               text-align: center;
               font-size: 1.05rem; 
               line-height: 1.5;
-              white-space: normal;
-              word-break: break-word;
+              white-space: nowrap;
+              word-break: keep-all;
               background: white;
               border: 2px solid var(--primary-light);
               border-radius: 12px;
