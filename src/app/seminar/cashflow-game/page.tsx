@@ -131,25 +131,14 @@ function generateFaqSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "投資の知識が全くなくても参加できますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "はい、問題ありません。参加者の多くが投資初心者です。ゲームのルールは当日丁寧に説明しますので、安心してご参加ください。"
-        }
-      },
-
-      {
-        "@type": "Question",
-        "name": "持ち物は何か必要ですか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "鉛筆（シャーペン）と消しゴム、電卓（スマホアプリ可）をお持ちください。ゲーム盤や用紙はこちらで用意いたします。"
-        }
+    "mainEntity": faqData.map(f => ({
+      "@type": "Question",
+      "name": f.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": f.answer
       }
-    ]
+    }))
   };
 }
 
