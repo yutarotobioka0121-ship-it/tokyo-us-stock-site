@@ -480,7 +480,7 @@ export default async function CashflowGamePage() {
             </div>
             <div className="flow-arrow">→</div>
             <div className="flow-step">
-              2. ゲーム（約1時間30分・ルールは進めながら説明）
+              2. ゲーム（約1時間30分）
             </div>
             <div className="flow-arrow">→</div>
             <div className="flow-step">

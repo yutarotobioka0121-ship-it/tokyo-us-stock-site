@@ -272,7 +272,7 @@ const INVESTING_SINCE = 2020;
             <div className="glass-card" style={{ padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
               <div style={{ background: 'var(--primary)', color: 'white', padding: '0.5rem 1rem', borderRadius: '8px', fontWeight: 'bold' }}>2</div>
               <div>
-                <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>ゲーム開始（約1時間30分・ルールは進めながら説明）</h3>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '0.5rem' }}>ゲーム開始（約1時間30分）</h3>
                 <p style={{ color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8' }}>
                   実際にサイコロを振り、ラットレースからの脱出を目指してゲームを進行します。給料日を通過してキャッシュフローを得たり、投資案件（スモールディールやビッグディール）に挑戦したりして不労所得を増やしていきます。途中、リストラに遭ったり、子供が生まれて支出が増えたりといったアクシデントも発生し、大いに盛り上がります。ゲーム中は随時、計算の仕方や投資判断についてのアドバイスを行います。
                 </p>
