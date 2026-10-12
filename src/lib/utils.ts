@@ -74,9 +74,11 @@ export function isSessionDeadlinePassed(
   now: Date = new Date()
 ): boolean {
   const startDateTime = getSessionStartDateTime(session.date, session.time || session.date);
-  const type = Array.isArray(session.type) ? session.type[0] : session.type;
+  const typeArr = Array.isArray(session.type) ? session.type : [session.type || ''];
+  const typeStr = typeArr.join(' ').toLowerCase();
+  const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
   
-  if (type === 'online' || type === 'オンライン') {
+  if (isOnline) {
     // オンライン：開催時間の1時間前まで
     const deadline = new Date(startDateTime.getTime() - 60 * 60 * 1000);
     return now > deadline;
