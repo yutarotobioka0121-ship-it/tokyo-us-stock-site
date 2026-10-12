@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { client, getSessions } from '@/lib/microcms';
+import { isSessionDeadlinePassed, getSessionStartDateTime } from '@/lib/utils';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,8 +20,20 @@ export async function GET() {
     } catch (e: any) {
       fetchError = e.message;
     }
-    
+    const testSession = sessions?.find(s => s.id === 'cf4-6j886');
+    const testDeadlinePassed = testSession ? isSessionDeadlinePassed(testSession) : null;
+    const testStartDt = testSession ? getSessionStartDateTime(testSession.date, testSession.time || testSession.date) : null;
+
     return NextResponse.json({
+      version: "v2-deadline-fix",
+      testSession: {
+        id: testSession?.id,
+        type: testSession?.type,
+        date: testSession?.date,
+        startDt: testStartDt?.toISOString(),
+        deadlinePassed: testDeadlinePassed,
+        now: new Date().toISOString(),
+      },
       env: { 
         hasDomain, 
         hasKey,
