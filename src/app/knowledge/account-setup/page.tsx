@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, ShieldCheck, Smartphone, FileCheck, CheckCircle2, DollarSign, HelpCircle, UserCheck, AlertTriangle, Key } from 'lucide-react';
+import SeminarInlineCta from '@/components/SeminarInlineCta';
+import CtaTrackLink from '@/components/CtaTrackLink';
 
 export const metadata: Metadata = {
   title: '証券口座の作り方・開設手順を完全解説！必要書類・スマホ撮影（eKYC）・初期設定まで',
@@ -132,6 +134,8 @@ export default function AccountSetupKnowledgePage() {
               </p>
             </div>
           </div>
+
+          <SeminarInlineCta pathname="/knowledge/account-setup" />
 
           {/* 2章: 口座開設の4ステップ */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
@@ -435,9 +439,9 @@ export default function AccountSetupKnowledgePage() {
                 セミナーの詳細・開催スケジュールはこちら
               </p>
 
-              <Link href="/seminar" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', transition: 'all 0.3s ease', textDecoration: 'none' }}>
+              <CtaTrackLink href="/seminar#schedule" ctaLocation="footer" seminarType="us_stock" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', transition: 'all 0.3s ease', textDecoration: 'none' }}>
                 セミナーの詳細を見る <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
-              </Link>
+              </CtaTrackLink>
             </div>
           </div>
         </div>

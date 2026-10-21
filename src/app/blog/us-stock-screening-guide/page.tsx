@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import StaticBlogPost from "@/components/StaticBlogPost";
+import SeminarInlineCta from "@/components/SeminarInlineCta";
 
 export const metadata: Metadata = {
   title: '米国株・米国株式のスクリーニングとは？初心者向け銘柄スクリーニングのやり方を徹底解説',
@@ -107,6 +108,12 @@ export default function UsStockScreeningGuidePage() {
         knowledgeLink="/knowledge/stock-investment"
         knowledgeTitle="株式投資の基本"
         knowledgeDesc="株式投資の基礎知識やリスク管理法、長期投資で失敗しない考え方をわかりやすく解説しています。"
+        extraDisclaimer={
+          <div style={{ marginTop: "2.5rem", padding: "1.5rem", background: "#f8f9fa", fontSize: "0.85rem", color: "#666", borderRadius: "8px", border: "1px solid #e9ecef" }}>
+            <strong>【免責事項】</strong><br />
+            本記事における「米国株 スクリーニング」に関する解説および条件設定例は、情報提供ならびに学習ツールとしての利用のみを目的としており、特定の銘柄への投資を勧誘・推奨するものではありません。株式投資には価格変動リスクや為替リスク等の様々なリスクが伴い、元本割れが生じる可能性があります。米国株 スクリーニングツールで抽出された銘柄に投資される際は、ご自身の責任と判断において最終決定を行っていただきますようお願いいたします。当サイトおよび運営者は、本記事の情報に基づいて被ったいかなる損害についても一切の責任を負いかねます。
+          </div>
+        }
       >
         <div className="article-body-content">
           
@@ -175,6 +182,8 @@ export default function UsStockScreeningGuidePage() {
               <li style={{ marginBottom: "0.8rem" }}><strong>売上高成長率（Revenue Growth）</strong>：企業の事業規模が毎年何%拡大しているかを示す成長性のバロメーター。過去3年・5年の平均を見るのが有効です。</li>
             </ul>
           </div>
+
+          <SeminarInlineCta pathname="/blog/us-stock-screening-guide" />
 
           <h2 style={{ fontSize: "1.6rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "3rem", marginBottom: "1.5rem" }}>
             おすすめ米国株 スクリーニングツール比較（無料で使えるツール5選）
@@ -489,11 +498,6 @@ export default function UsStockScreeningGuidePage() {
           <p>
             まずは「時価総額100億ドル以上」「S&P500構成銘柄」「PER20倍以下」といった基本的な米国株 スクリーニングフィルター条件から始めて、抽出された企業の事業内容をじっくり調べる習慣をつけましょう。感情に左右されないデータ分析と徹底したリスク管理こそが、堅実な<strong>長期投資</strong>を成功に導く最大の鍵となります！
           </p>
-
-          <div style={{ marginTop: "4rem", padding: "1.5rem", background: "#f8f9fa", fontSize: "0.85rem", color: "#666", borderRadius: "8px", border: "1px solid #e9ecef" }}>
-            <strong>【免責事項】</strong><br />
-            本記事における「米国株 スクリーニング」に関する解説および条件設定例は、情報提供ならびに学習ツールとしての利用のみを目的としており、特定の銘柄への投資を勧誘・推奨するものではありません。株式投資には価格変動リスクや為替リスク等の様々なリスクが伴い、元本割れが生じる可能性があります。米国株 スクリーニングツールで抽出された銘柄に投資される際は、ご自身の責任と判断において最終決定を行っていただきますようお願いいたします。当サイトおよび運営者は、本記事の情報に基づいて被ったいかなる損害についても一切の責任を負いかねます。
-          </div>
         </div>
       </StaticBlogPost>
     </>

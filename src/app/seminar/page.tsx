@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Use
 import { getSessions } from "@/lib/microcms";
 import { formatSessionDate, buildEventSchedule, formatSessionTime, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
 import ApplyForm from "@/components/ApplyForm";
+import CtaTrackLink from "@/components/CtaTrackLink";
 
 export const dynamic = 'force-dynamic';
 
@@ -79,7 +80,8 @@ const INVESTING_SINCE = 2020;
   const currentYear = Number(new Intl.DateTimeFormat('en', { year: 'numeric', timeZone: 'Asia/Tokyo' }).format(new Date()));
   const yearsCount = currentYear - INVESTING_SINCE + 1;
 
-export default async function SeminarPage() {
+export default async function SeminarPage({ searchParams }: { searchParams?: Promise<{ event?: string }> }) {
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
   const sessions = await getSessions();
 
   // 米国株投資セミナー専用のセッション（MicroCMSでNISA指定されたセッションを除外）
@@ -351,9 +353,9 @@ export default async function SeminarPage() {
                                 満席
                               </button>
                             ) : (
-                              <Link href="#apply-form-section" className="btn btn-primary" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', whiteSpace: 'nowrap', justifyContent: 'center' }}>
+                              <CtaTrackLink href={`?event=${session.id}#apply-form-section`} ctaLocation="schedule" seminarType="us_stock" className="btn btn-primary" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', whiteSpace: 'nowrap', justifyContent: 'center' }}>
                                 申し込み
-                              </Link>
+                              </CtaTrackLink>
                             )}
                           </td>
                         </tr>
@@ -451,9 +453,9 @@ export default async function SeminarPage() {
                             満席
                           </button>
                         ) : (
-                          <Link href="#apply-form-section" className="btn btn-primary" style={{ width: '100%', padding: '0.8rem', fontSize: '0.95rem', justifyContent: 'center', fontWeight: '800' }}>
+                          <CtaTrackLink href={`?event=${session.id}#apply-form-section`} ctaLocation="schedule" seminarType="us_stock" className="btn btn-primary" style={{ width: '100%', padding: '0.8rem', fontSize: '0.95rem', justifyContent: 'center', fontWeight: '800' }}>
                             申し込み
-                          </Link>
+                          </CtaTrackLink>
                         )}
                       </div>
                     );
@@ -633,7 +635,7 @@ export default async function SeminarPage() {
           <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '2rem', lineHeight: '1.8' }}>以下のお申し込みフォームより、ご希望の日程を選択してご予約ください。</p>
           <div className="glass-card" style={{ padding: '2rem 1.5rem', borderRadius: '24px', border: '1px solid rgba(176, 58, 46, 0.15)', boxShadow: 'var(--shadow-soft)', background: 'white', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
             <div style={{ width: '100%' }}>
-              <ApplyForm sessions={availableSessions} />
+              <ApplyForm sessions={availableSessions} selectedSessionId={resolvedSearchParams?.event} />
             </div>
           </div>
         </div>

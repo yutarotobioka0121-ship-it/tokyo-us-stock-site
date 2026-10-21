@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Clock, Sun, Moon, Calendar, AlertTriangle, ShieldCheck, CheckCircle2, HelpCircle } from 'lucide-react';
+import SeminarInlineCta from '@/components/SeminarInlineCta';
+import CtaTrackLink from '@/components/CtaTrackLink';
 
 export const metadata: Metadata = {
   title: '米国株（アメリカ株）の取引時間は日本時間の何時？夏時間・冬時間・時間外取引・祝日を徹底解説',
@@ -146,6 +148,8 @@ export default function TradingHoursPage() {
               </p>
             </div>
           </div>
+
+          <SeminarInlineCta pathname="/knowledge/trading-hours" />
 
           {/* 2章: 時間外取引（プレ・マーケット＆アフター・マーケット） */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
@@ -440,9 +444,9 @@ export default function TradingHoursPage() {
                 セミナーの詳細・開催スケジュールはこちら
               </p>
 
-              <Link href="/seminar" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', transition: 'all 0.3s ease', textDecoration: 'none' }}>
+              <CtaTrackLink href="/seminar#schedule" ctaLocation="footer" seminarType="us_stock" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', transition: 'all 0.3s ease', textDecoration: 'none' }}>
                 セミナーの詳細を見る <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
-              </Link>
+              </CtaTrackLink>
             </div>
           </div>
         </div>

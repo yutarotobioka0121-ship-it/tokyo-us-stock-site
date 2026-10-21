@@ -24,7 +24,8 @@ export interface StudySession {
   revisedAt: string;
 }
 
-export async function getSessions() {
+// requestInit：既定は no-store（セミナーページ・申し込みAPI用）。記事内の案内では ISR 用に revalidate を渡す
+export async function getSessions(requestInit: any = { cache: 'no-store' }) {
   if (!client) {
     console.warn('MicroCMS client is not initialized. Check environment variables.');
     return [];
@@ -34,7 +35,7 @@ export async function getSessions() {
     const data = await client.get({
       endpoint: 'usstock',
       queries: { orders: '-publishedAt', limit: 100 },
-      customRequestInit: { cache: 'no-store' },
+      customRequestInit: requestInit,
     });
     return data.contents as StudySession[];
   } catch (error) {
@@ -54,7 +55,8 @@ export interface CFGEvent {
   status: string;
 }
 
-export async function getCFGSchedule(): Promise<CFGEvent[]> {
+// requestInit：既定は no-store（セミナーページ用）。記事内の案内では ISR 用に revalidate を渡す
+export async function getCFGSchedule(requestInit: any = { cache: 'no-store' }): Promise<CFGEvent[]> {
   if (!client) {
     console.warn('MicroCMS client is not initialized.');
     return [];
@@ -64,7 +66,7 @@ export async function getCFGSchedule(): Promise<CFGEvent[]> {
     const data = await client.get({
       endpoint: 'eventschedule',
       queries: { orders: 'date', limit: 100 },
-      customRequestInit: { cache: 'no-store' },
+      customRequestInit: requestInit,
     });
 
     const now = new Date();

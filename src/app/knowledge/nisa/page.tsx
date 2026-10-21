@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import SeminarInlineCta from '@/components/SeminarInlineCta';
+import CtaTrackLink from '@/components/CtaTrackLink';
 
 export const metadata: Metadata = {
   title: 'NISA（ニーサ）とは？基本から新制度の活用法まで解説 | 東京 米国株 セミナー -',
@@ -171,6 +173,8 @@ export default function NisaKnowledgePage() {
               新NISAとは何か？旧NISAとの違いを徹底解説 <ArrowRight size={14} />
             </Link>
           </div>
+
+          <SeminarInlineCta pathname="/knowledge/nisa" />
 
           {/* 2章: 口座開設手順とネット証券の選び方 */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
@@ -478,9 +482,9 @@ export default function NisaKnowledgePage() {
                 東京・川崎で新NISAを学べる初心者セミナー
               </p>
 
-              <Link href="/seminar/nisa" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', transition: 'all 0.3s ease', textDecoration: 'none' }}>
+              <CtaTrackLink href="/seminar/nisa#schedule" ctaLocation="footer" seminarType="nisa" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', transition: 'all 0.3s ease', textDecoration: 'none' }}>
                 東京・川崎で新NISAを学べる初心者セミナー <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
-              </Link>
+              </CtaTrackLink>
             </div>
           </div>
         </div>

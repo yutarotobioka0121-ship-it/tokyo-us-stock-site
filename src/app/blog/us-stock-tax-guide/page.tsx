@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import StaticBlogPost from "@/components/StaticBlogPost";
+import SeminarInlineCta from "@/components/SeminarInlineCta";
 
 export const metadata: Metadata = {
   title: '米国株の税金の仕組みを初心者向けに徹底解説｜いくらかかる？',
@@ -82,6 +83,8 @@ export default function UsStockTaxGuidePage() {
             ※税金合計で約28.28%が差し引かれ、手元に残る手取り額は約71.7%となります。
           </p>
         </div>
+
+        <SeminarInlineCta pathname="/blog/us-stock-tax-guide" />
 
         <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
           米国株の税金・確定申告を劇的に楽にする3つの対策

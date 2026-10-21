@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import StaticBlogPost from "@/components/StaticBlogPost";
+import SeminarInlineCta from "@/components/SeminarInlineCta";
 
 export const metadata: Metadata = {
   title: '米国株の税金・確定申告 完全ガイド｜特定口座・NISA・外国税額控除を初心者向けに解説',
@@ -143,6 +144,8 @@ export default function UsStockTaxCompleteGuide() {
             ※税金合計で約28.28%が差し引かれ、手元に残る手取り額は約71.7%となります。
           </p>
         </div>
+
+        <SeminarInlineCta pathname="/blog/us-stock-tax-complete-guide" />
 
         <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
           2. 特定口座と一般口座の違い：初心者はどれを選ぶべき？

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { buildEventSchedule } from "@/lib/utils";
 import { getCFGSchedule, CFGEvent } from "@/lib/microcms";
 import CfgApplyForm from "@/components/CfgApplyForm";
+import CtaTrackLink from "@/components/CtaTrackLink";
 import { CheckCircle2 } from "lucide-react";
 
 export const dynamic = 'force-dynamic';
@@ -142,7 +143,8 @@ function generateFaqSchema() {
   };
 }
 
-export default async function CashflowGamePage() {
+export default async function CashflowGamePage({ searchParams }: { searchParams?: Promise<{ event?: string }> }) {
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
   const now = new Date();
   const jstOffset = 9 * 60 * 60 * 1000;
   const nowJst = new Date(now.getTime() + now.getTimezoneOffset() * 60000 + jstOffset);
@@ -278,9 +280,9 @@ export default async function CashflowGamePage() {
                               満席
                             </button>
                           ) : (
-                            <a href="#apply" className="btn btn-primary" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', whiteSpace: 'nowrap', justifyContent: 'center', display: 'inline-flex', textDecoration: 'none' }}>
+                            <CtaTrackLink href={`?event=${event.id}#apply-form-section`} ctaLocation="schedule" seminarType="cashflow_game" className="btn btn-primary" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', whiteSpace: 'nowrap', justifyContent: 'center', display: 'inline-flex', textDecoration: 'none' }}>
                               申し込み
-                            </a>
+                            </CtaTrackLink>
                           )}
                         </td>
                       </tr>
@@ -364,9 +366,9 @@ export default async function CashflowGamePage() {
                           満席
                         </button>
                       ) : (
-                        <a href="#apply" className="btn btn-primary" style={{ width: '100%', padding: '0.8rem', fontSize: '0.95rem', justifyContent: 'center', fontWeight: '800', display: 'inline-flex', textDecoration: 'none' }}>
+                        <CtaTrackLink href={`?event=${event.id}#apply-form-section`} ctaLocation="schedule" seminarType="cashflow_game" className="btn btn-primary" style={{ width: '100%', padding: '0.8rem', fontSize: '0.95rem', justifyContent: 'center', fontWeight: '800', display: 'inline-flex', textDecoration: 'none' }}>
                           申し込み
-                        </a>
+                        </CtaTrackLink>
                       )}
                     </div>
                   );
@@ -531,7 +533,8 @@ export default async function CashflowGamePage() {
       </section>
       
 {/* Application Form Section */}
-      <section id="apply" className="form-section" style={{ padding: '5rem 0', background: 'var(--bg-light)' }}>
+      <section id="apply-form-section" className="form-section" style={{ padding: '5rem 0', background: 'var(--bg-light)' }}>
+        <div id="apply" />
         <div className="container" style={{ maxWidth: '800px' }}>
           <div className="section-header text-center" style={{ marginBottom: '3rem' }}>
             <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '1rem', color: 'var(--primary-dark)' }}>申し込み</h2>
@@ -542,7 +545,7 @@ export default async function CashflowGamePage() {
           </div>
           
           <div style={{ background: 'white', padding: '2.5rem', borderRadius: '24px', boxShadow: 'var(--shadow-lg)' }}>
-            <CfgApplyForm events={availableEvents} />
+            <CfgApplyForm events={availableEvents} selectedEventId={resolvedSearchParams?.event} />
           </div>
         </div>
       </section>

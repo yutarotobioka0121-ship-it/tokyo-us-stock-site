@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import SeminarInlineCta from '@/components/SeminarInlineCta';
+import SeminarFooterCta from '@/components/SeminarFooterCta';
 
 export const metadata: Metadata = {
   title: '米国株の税金の基本（要点まとめ）｜確定申告・NISA・二重課税',
@@ -80,6 +82,8 @@ export default function TaxKnowledgePage() {
             <li><strong>配当金：</strong>米国で 10% 引かれた後、残りに対して日本で 20.315% が引かれます（二重課税）。</li>
           </ul>
 
+          <SeminarInlineCta pathname="/knowledge/tax" />
+
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
             2. 「特定口座（源泉徴収あり）」なら確定申告は原則不要
           </h2>
@@ -116,6 +120,8 @@ export default function TaxKnowledgePage() {
               米国株の税金・確定申告 完全ガイドを読む <ArrowRight size={20} style={{ marginLeft: '0.5rem' }} />
             </Link>
           </div>
+
+          <SeminarFooterCta pathname="/knowledge/tax" variant="static" />
 
         </div>
       </section>

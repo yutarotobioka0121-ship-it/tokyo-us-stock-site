@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, TrendingUp, DollarSign, PieChart, CheckCircle2, ShieldCheck, HelpCircle, Repeat, Scale } from 'lucide-react';
+import SeminarInlineCta from '@/components/SeminarInlineCta';
+import CtaTrackLink from '@/components/CtaTrackLink';
 
 export const metadata: Metadata = {
   title: '株式投資の収益とは？キャピタルゲインとインカムゲインの違い・選び方を徹底解説',
@@ -142,6 +144,8 @@ export default function ReturnsKnowledgePage() {
               </tbody>
             </table>
           </div>
+
+          <SeminarInlineCta pathname="/knowledge/returns" />
 
           {/* 2章: キャピタルゲイン（値上がり益） */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
@@ -395,9 +399,9 @@ export default function ReturnsKnowledgePage() {
                 セミナーの詳細・開催スケジュールはこちら
               </p>
 
-              <Link href="/seminar" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', transition: 'all 0.3s ease', textDecoration: 'none' }}>
+              <CtaTrackLink href="/seminar#schedule" ctaLocation="footer" seminarType="us_stock" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', transition: 'all 0.3s ease', textDecoration: 'none' }}>
                 セミナーの詳細を見る <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
-              </Link>
+              </CtaTrackLink>
             </div>
           </div>
         </div>

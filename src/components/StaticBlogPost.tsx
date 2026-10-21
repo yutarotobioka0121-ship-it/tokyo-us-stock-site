@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Calendar, ArrowLeft, ArrowRight, ShieldCheck, ChevronRight, CheckCircle2 } from "lucide-react";
+import SeminarFooterCta from "@/components/SeminarFooterCta";
 
 interface StaticBlogPostProps {
   title: string;
@@ -14,6 +15,7 @@ interface StaticBlogPostProps {
   knowledgeDesc?: string;
   slug: string;
   aioSummary?: string[]; // AIO対策用の3〜4行の箇条書き
+  extraDisclaimer?: React.ReactNode;
 }
 
 export default function StaticBlogPost({
@@ -27,6 +29,7 @@ export default function StaticBlogPost({
   knowledgeDesc = "初心者でも安心！米国株の基本の仕組みや日本株との違いを徹底解説しています。",
   slug,
   aioSummary,
+  extraDisclaimer,
 }: StaticBlogPostProps) {
   const articleSchema = {
     "@context": "https://schema.org",
@@ -158,10 +161,15 @@ export default function StaticBlogPost({
 
             {children}
 
+            {/* 記事末尾のセミナー案内（免責文より前に配置） */}
+            <SeminarFooterCta pathname={`/blog/${slug}`} variant="static" />
+
+            {extraDisclaimer}
+
             {/* 投資リスク免責文 */}
             <div
               style={{
-                marginTop: "3.5rem",
+                marginTop: "2.5rem",
                 padding: "1.2rem 1.5rem",
                 background: "#fdfefe",
                 border: "1px solid #ebf5fb",
@@ -225,41 +233,6 @@ export default function StaticBlogPost({
               }}
             >
               詳しく学ぶ <ChevronRight size={18} />
-            </Link>
-          </div>
-
-          {/* CTAセクション */}
-          <div
-            style={{
-              marginTop: "2.5rem",
-              background: "var(--bg-warm)",
-              borderRadius: "20px",
-              padding: "2.5rem 2rem",
-              textAlign: "center",
-              border: "1px solid rgba(176,58,46,0.15)",
-            }}
-          >
-            <h3 style={{ fontSize: "1.3rem", fontWeight: "900", color: "var(--primary-dark)", marginBottom: "0.75rem" }}>
-              初心者向け米国株・NISAセミナー開催中！
-            </h3>
-            <p style={{ fontSize: "0.95rem", color: "var(--text-muted)", lineHeight: "1.8", marginBottom: "1.5rem" }}>
-              定員4名の少人数制カフェスタイルで、実践的な資産運用のコツを質問しながら学べます。
-            </p>
-            <Link
-              href="/seminar"
-              className="btn btn-primary"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                padding: "0.9rem 2.2rem",
-                borderRadius: "50px",
-                fontWeight: "800",
-                fontSize: "1rem",
-                textDecoration: "none",
-              }}
-            >
-              セミナーの日程・詳細を見る <ArrowRight size={18} />
             </Link>
           </div>
         </div>

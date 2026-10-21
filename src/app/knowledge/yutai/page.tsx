@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, Gift, ShoppingBag, CreditCard, Sparkles, CheckCircle2, ShieldCheck, HelpCircle, Heart, DollarSign } from 'lucide-react';
+import SeminarInlineCta from '@/components/SeminarInlineCta';
+import CtaTrackLink from '@/components/CtaTrackLink';
 
 export const metadata: Metadata = {
   title: '株主優待とは？仕組み・もらい方・人気の優待・米国株との違いを徹底解説',
@@ -113,6 +115,8 @@ export default function YutaiKnowledgePage() {
               <li><strong>自社商品の宣伝・PR効果がある</strong>: 新商品や自社サービスを直接体験してもらう最高のPR機会になります。</li>
             </ul>
           </div>
+
+          <SeminarInlineCta pathname="/knowledge/yutai" />
 
           {/* 2章: 人気の株主優待ジャンル4選 */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
@@ -386,9 +390,9 @@ export default function YutaiKnowledgePage() {
                 セミナーの詳細・開催スケジュールはこちら
               </p>
 
-              <Link href="/seminar" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', transition: 'all 0.3s ease', textDecoration: 'none' }}>
+              <CtaTrackLink href="/seminar#schedule" ctaLocation="footer" seminarType="us_stock" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', transition: 'all 0.3s ease', textDecoration: 'none' }}>
                 セミナーの詳細を見る <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
-              </Link>
+              </CtaTrackLink>
             </div>
           </div>
         </div>

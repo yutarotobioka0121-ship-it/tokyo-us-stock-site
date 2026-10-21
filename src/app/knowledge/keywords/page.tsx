@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, BookOpen, Award, TrendingUp, Layers, Activity, Compass, LineChart, Clock, DollarSign, ShieldCheck, Calculator, BarChart2, CheckCircle2 } from 'lucide-react';
+import SeminarInlineCta from '@/components/SeminarInlineCta';
+import CtaTrackLink from '@/components/CtaTrackLink';
 
 export const metadata: Metadata = {
   title: '米国株の重要用語キーワード15選！初心者向け完全用語解説集',
@@ -174,39 +176,41 @@ export default function KeywordsPage() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             {keywords.map((item, index) => (
-              <div 
-                key={index}
-                style={{ 
-                  background: 'var(--bg-warm)', 
-                  padding: '1.8rem', 
-                  borderRadius: '20px', 
-                  border: '1px solid rgba(0,0,0,0.06)',
-                  boxShadow: '0 4px 15px rgba(0,0,0,0.02)'
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.6rem' }}>
-                  <div style={{ background: 'white', padding: '0.6rem', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    {item.icon}
+              <div key={index}>
+                {index === 1 && <SeminarInlineCta pathname="/knowledge/keywords" />}
+                <div 
+                  style={{ 
+                    background: 'var(--bg-warm)', 
+                    padding: '1.8rem', 
+                    borderRadius: '20px', 
+                    border: '1px solid rgba(0,0,0,0.06)',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.02)'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.6rem' }}>
+                    <div style={{ background: 'white', padding: '0.6rem', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      {item.icon}
+                    </div>
+                    <div>
+                      <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block', fontWeight: '600' }}>
+                        {item.kana}
+                      </span>
+                      <h2 style={{ fontSize: '1.25rem', fontWeight: '900', color: 'var(--primary-dark)', margin: 0, fontFamily: 'var(--font-heading)' }}>
+                        {item.keyword}
+                      </h2>
+                    </div>
                   </div>
-                  <div>
-                    <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block', fontWeight: '600' }}>
-                      {item.kana}
-                    </span>
-                    <h2 style={{ fontSize: '1.25rem', fontWeight: '900', color: 'var(--primary-dark)', margin: 0, fontFamily: 'var(--font-heading)' }}>
-                      {item.keyword}
-                    </h2>
-                  </div>
-                </div>
 
-                <div style={{ background: 'white', padding: '1rem 1.2rem', borderRadius: '12px', marginBottom: '1rem', borderLeft: '4px solid var(--primary)' }}>
-                  <p style={{ margin: 0, fontWeight: '700', fontSize: '0.95rem', color: 'var(--primary-dark)', lineHeight: '1.6' }}>
-                    💡 概要: {item.summary}
+                  <div style={{ background: 'white', padding: '1rem 1.2rem', borderRadius: '12px', marginBottom: '1rem', borderLeft: '4px solid var(--primary)' }}>
+                    <p style={{ margin: 0, fontWeight: '700', fontSize: '0.95rem', color: 'var(--primary-dark)', lineHeight: '1.6' }}>
+                      💡 概要: {item.summary}
+                    </p>
+                  </div>
+
+                  <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: '1.8', color: 'var(--text-main)', fontFamily: 'var(--font-body)' }}>
+                    {item.description}
                   </p>
                 </div>
-
-                <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: '1.8', color: 'var(--text-main)', fontFamily: 'var(--font-body)' }}>
-                  {item.description}
-                </p>
               </div>
             ))}
           </div>
@@ -250,9 +254,9 @@ export default function KeywordsPage() {
             </p>
 
             <div className="glass-card" style={{ background: 'var(--bg-white)', borderRadius: '24px', padding: '2rem 1.5rem', border: '1px solid var(--glass-border)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <Link href="/seminar" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', textDecoration: 'none' }}>
+              <CtaTrackLink href="/seminar#schedule" ctaLocation="footer" seminarType="us_stock" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', textDecoration: 'none' }}>
                 初心者セミナーの日程を見る <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
-              </Link>
+              </CtaTrackLink>
             </div>
           </div>
         </div>

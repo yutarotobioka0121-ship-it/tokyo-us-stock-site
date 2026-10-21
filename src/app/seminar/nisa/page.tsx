@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Use
 import { getSessions } from "@/lib/microcms";
 import { formatSessionDate, buildEventSchedule, formatSessionTime, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
 import NisaApplyForm from "@/components/NisaApplyForm";
+import CtaTrackLink from "@/components/CtaTrackLink";
 
 export const dynamic = 'force-dynamic';
 
@@ -78,7 +79,8 @@ const INVESTING_SINCE = 2020;
   const currentYear = Number(new Intl.DateTimeFormat('en', { year: 'numeric', timeZone: 'Asia/Tokyo' }).format(new Date()));
   const yearsCount = currentYear - INVESTING_SINCE + 1;
 
-export default async function NisaSeminarPage() {
+export default async function NisaSeminarPage({ searchParams }: { searchParams?: Promise<{ event?: string }> }) {
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
   const sessions = await getSessions();
   
   // MicroCMSの type, category, title, location のいずれかに 'nisa' または 'NISA'、'ニーサ' が入っているセッションを自動判定
@@ -352,7 +354,7 @@ export default async function NisaSeminarPage() {
                           ) : isFull ? (
                             <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', opacity: 0.5 }}>満席</button>
                           ) : (
-                            <Link href="#apply-form-section" className="btn btn-primary" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', justifyContent: 'center' }}>申し込み</Link>
+                            <CtaTrackLink href={`?event=${session.id}#apply-form-section`} ctaLocation="schedule" seminarType="nisa" className="btn btn-primary" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', justifyContent: 'center' }}>申し込み</CtaTrackLink>
                           )}
                         </td>
                       </tr>
@@ -403,7 +405,7 @@ export default async function NisaSeminarPage() {
                         <div><span style={{ color: 'var(--primary)', fontWeight: '800' }}>場所：</span>{isOnline ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`}</div>
                         <div><span style={{ color: 'var(--primary)', fontWeight: '800' }}>参加費：</span><span style={{ fontWeight: '800', color: 'var(--primary)' }}>無料</span></div>
                       </div>
-                      {isEnded ? <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.8rem' }}>受付終了</button> : isFull ? <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.8rem' }}>満席</button> : <Link href="#apply-form-section" className="btn btn-primary" style={{ width: '100%', padding: '0.8rem', justifyContent: 'center', fontWeight: '800' }}>この日程で申し込む</Link>}
+                      {isEnded ? <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.8rem' }}>受付終了</button> : isFull ? <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.8rem' }}>満席</button> : <CtaTrackLink href={`?event=${session.id}#apply-form-section`} ctaLocation="schedule" seminarType="nisa" className="btn btn-primary" style={{ width: '100%', padding: '0.8rem', justifyContent: 'center', fontWeight: '800' }}>この日程で申し込む</CtaTrackLink>}
                     </div>
                   );
                 })
@@ -636,7 +638,7 @@ export default async function NisaSeminarPage() {
           </div>
 
           <div className="glass-card" style={{ padding: '2rem', background: 'white', borderRadius: '24px' }}>
-            <NisaApplyForm sessions={availableSessions} />
+            <NisaApplyForm sessions={availableSessions} selectedSessionId={resolvedSearchParams?.event} />
           </div>
         </div>
       </section>

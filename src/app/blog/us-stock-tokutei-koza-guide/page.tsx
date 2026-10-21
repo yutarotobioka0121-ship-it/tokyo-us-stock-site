@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import StaticBlogPost from "@/components/StaticBlogPost";
+import SeminarInlineCta from "@/components/SeminarInlineCta";
 
 export const metadata: Metadata = {
   title: '米国株の特定口座とは？一般口座との違いと初心者におすすめの選び方',
@@ -63,6 +64,8 @@ export default function UsStockTokuteiKozaGuidePage() {
         <p>
           株式取引で得た利益（譲渡益）や配当金には、日本の税法に基づき一律で約20.315%（所得税15.315%＋住民税5%）の税金がかかります。本来であれば、個人が取引履歴を1つずつ集計して国税庁に「確定申告」を行わなければなりませんが、特定口座を利用すれば証券会社が「年間取引報告書」を自動作成してくれるため、面倒な計算の手間が不要になります。
         </p>
+
+        <SeminarInlineCta pathname="/blog/us-stock-tokutei-koza-guide" />
 
         <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
           特定口座（源泉徴収あり）と（源泉徴収なし）の違い

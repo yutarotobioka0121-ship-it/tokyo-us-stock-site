@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, ShieldCheck, CheckCircle2, FileText, HelpCircle, AlertCircle } from 'lucide-react';
+import SeminarInlineCta from '@/components/SeminarInlineCta';
+import CtaTrackLink from '@/components/CtaTrackLink';
 
 export const metadata: Metadata = {
   title: '米国株・米国株式の特定口座とは？源泉徴収あり・なしの違いと選び方',
@@ -142,6 +144,8 @@ export default function TokuteiKozaKnowledgePage() {
           <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--text-main)', marginBottom: '2.5rem' }}>
             昔は、株取引をするすべての人が1年分の購入価格（為替レートも含む）と売却価格を手計算して国税庁に確定申告をしていました。米国株の場合、購入時と売却時のドル円レートをすべて記録し、日本円ベースでの損益を計算しなければならず、極めて煩雑でした。しかし、特定口座制度の導入により、証券会社がこの面倒な円貨決済・外貨決済の計算を含めたすべての税金計算を代わりに処理してくれるようになりました。
           </p>
+
+          <SeminarInlineCta pathname="/knowledge/tokutei-koza" />
 
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.3rem, 3.5vw, 1.6rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '2px solid var(--bg-warm)', paddingBottom: '0.8rem', marginTop: '3rem', marginBottom: '1.5rem' }}>
             2. 「源泉徴収あり」と「源泉徴収なし」の決定的な違い
@@ -410,9 +414,9 @@ export default function TokuteiKozaKnowledgePage() {
             </p>
 
             <div className="glass-card" style={{ background: 'var(--bg-white)', borderRadius: '24px', padding: '2rem 1.5rem', border: '1px solid var(--glass-border)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <Link href="/seminar" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', textDecoration: 'none', background: 'var(--primary)', color: 'white' }}>
-                初心者セミナーの日程を見る <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
-              </Link>
+              <CtaTrackLink href="/seminar/nisa#schedule" ctaLocation="footer" seminarType="nisa" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', textDecoration: 'none', background: 'var(--primary)', color: 'white' }}>
+                初心者向けNISAセミナーの日程を見る <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
+              </CtaTrackLink>
             </div>
           </div>
         </div>

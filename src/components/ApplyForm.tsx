@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CheckCircle, AlertCircle, Loader2, ArrowRight } from 'lucide-react';
 import { StudySession } from '@/lib/microcms';
 import { formatSessionDate, formatSessionTime } from '@/lib/utils';
@@ -12,6 +12,26 @@ interface ApplyFormProps {
 
 export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProps) {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const resolveValidId = (id?: string | null) =>
+    id && sessions.some((s) => s.id === id) ? id : '';
+  const [selectedEvent, setSelectedEvent] = useState<string>(() => resolveValidId(selectedSessionId));
+
+  useEffect(() => {
+    const fromProp = resolveValidId(selectedSessionId);
+    if (fromProp) {
+      setSelectedEvent(fromProp);
+    } else if (typeof window !== 'undefined') {
+      const param = new URLSearchParams(window.location.search).get('event');
+      setSelectedEvent(resolveValidId(param));
+    }
+
+    const handleSelectEvent = (e: Event) => {
+      const customEvent = e as CustomEvent<string>;
+      setSelectedEvent(resolveValidId(customEvent.detail));
+    };
+    window.addEventListener('seminar-select-event', handleSelectEvent);
+    return () => window.removeEventListener('seminar-select-event', handleSelectEvent);
+  }, [selectedSessionId, sessions]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -120,7 +140,8 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
                   name="event"
                   value={session.id}
                   required
-                  defaultChecked={session.id === selectedSessionId}
+                  checked={selectedEvent === session.id}
+                  onChange={(e) => setSelectedEvent(e.target.value)}
                   style={{
                     width: '18px',
                     height: '18px',
@@ -154,6 +175,8 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
               name="event"
               value="other"
               required
+              checked={selectedEvent === 'other'}
+              onChange={(e) => setSelectedEvent(e.target.value)}
               style={{
                 width: '18px',
                 height: '18px',
@@ -180,6 +203,9 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
       <div className="form-group">
         <label htmlFor="phone" className="form-label">電話番号 <span style={{ color: '#ef4444', fontSize: '0.8rem', marginLeft: '4px' }}>必須</span></label>
         <input type="tel" id="phone" name="phone" required className="form-input" placeholder="090-1234-5678" />
+        <p style={{ margin: '0.4rem 0 0 0', fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+          当日の待ち合わせ・到着時のご連絡にのみ使います。
+        </p>
       </div>
 
       <div className="form-group">

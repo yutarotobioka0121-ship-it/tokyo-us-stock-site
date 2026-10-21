@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import StaticBlogPost from "@/components/StaticBlogPost";
+import SeminarInlineCta from "@/components/SeminarInlineCta";
 
 export const metadata: Metadata = {
   title: '新NISAで米国株を買えば税金はかからない？非課税の仕組みを解説',
@@ -82,6 +83,8 @@ export default function NisaUsStockTaxFreePage() {
             <li style={{ marginBottom: "0.5rem" }}><strong>新NISA口座（非課税）</strong>：米国税10% ＋ 日本税0%（合計10%のみ引かれる）★圧倒的にお得！</li>
           </ul>
         </div>
+
+        <SeminarInlineCta pathname="/blog/nisa-us-stock-tax-free" />
 
         <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
           米国株インデックスファンド（eMAXIS Slim S&P500など）の場合は？

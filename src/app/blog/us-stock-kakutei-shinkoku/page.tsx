@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import StaticBlogPost from "@/components/StaticBlogPost";
+import SeminarInlineCta from "@/components/SeminarInlineCta";
 
 export const metadata: Metadata = {
   title: '米国株・米国株式の確定申告は必要？不要？条件と手順を初心者向けに解説',
@@ -77,6 +78,8 @@ export default function UsStockKakuteiShinkokuPage() {
             <li style={{ marginBottom: "0.5rem" }}><strong>個人事業主、フリーランス、無職の方で株の利益が出た場合（基礎控除等を超える場合）</strong></li>
           </ul>
         </div>
+
+        <SeminarInlineCta pathname="/blog/us-stock-kakutei-shinkoku" />
 
         <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
           会社員の「年間20万円ルール」と注意点

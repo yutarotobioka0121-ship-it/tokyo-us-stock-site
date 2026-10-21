@@ -2,7 +2,8 @@ import { getPostBySlug, getPosts } from '@/lib/notion';
 import RelatedPosts from '@/components/RelatedPosts';
 import BeginnerCta from "@/components/BeginnerCta";
 import MetricsSeriesFooter from "@/components/MetricsSeriesFooter";
-// from '@/components/BeginnerCta';
+import SeminarInlineCta from '@/components/SeminarInlineCta';
+import SeminarFooterCta from '@/components/SeminarFooterCta';
 import { Calendar, ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -220,175 +221,195 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               return null;
             })()}
 
-            {post.content
-              .filter((block: any, index: number) => {
+            {(() => {
+              const pathname = `/blog/${slug}`;
+              const getBlockPlainText = (b: any) =>
+                (b?.[b?.type]?.rich_text || []).map((t: any) => t.plain_text).join('');
+
+              const filteredBlocks = post.content.filter((block: any, index: number) => {
                 // 先頭のheading_1/heading_2がページタイトルと同じテキストの場合はスキップ
                 // （Notion本文の先頭にタイトルと同じ見出しが入っている旧記事への対応）
                 if (index === 0 && (block.type === 'heading_1' || block.type === 'heading_2')) {
-                  const headingText = block[block.type]?.rich_text?.map((t: any) => t.plain_text).join('') || '';
+                  const headingText = getBlockPlainText(block);
                   if (headingText.trim() === post.title.trim()) {
                     return false;
                   }
                 }
                 return true;
-              })
-              .map((block: any) => {
-              const { type } = block;
-              const value = block[type];
+              });
 
-              // Helper to render rich text
-              const renderRichText = (richText: any[]) => {
-                return richText.map((t: any, i: number) => {
-                  const { annotations, text, href } = t;
-                  const style: React.CSSProperties = {
-                    fontWeight: annotations.bold ? 'bold' : 'normal',
-                    fontStyle: annotations.italic ? 'italic' : 'normal',
-                    textDecoration: annotations.strikethrough ? 'line-through' : (annotations.underline ? 'underline' : 'none'),
-                    color: annotations.color !== 'default' ? annotations.color : 'inherit',
-                  };
-
-                  if (href) {
-                    // Notionドメインを含む内部リンクを正規化
-                    const normalizedHref = href.replace(/^https?:\/\/(?:app\.|www\.)?notion\.com/, '');
-                    // 内部リンク判定（/blog/, /knowledge/ などサイト内パス）
-                    const isInternal = /^\/(?:blog|knowledge|about|contact|privacy)\b/.test(normalizedHref);
-
-                    if (isInternal) {
-                      return <a key={i} href={normalizedHref} style={style}>{t.plain_text}</a>;
-                    }
-                    return <a key={i} href={normalizedHref} target="_blank" rel="noopener noreferrer" style={style}>{t.plain_text}</a>;
+              // 記事冒頭に「この記事の要点」ブロックがある場合は、それより後ろから数える
+              let minStartIdx = 0;
+              for (let i = 0; i < Math.min(filteredBlocks.length, 6); i++) {
+                const b = filteredBlocks[i];
+                if (b.type === 'quote' || b.type === 'callout' || b.type === 'code' || b.type === 'paragraph') {
+                  const txt = getBlockPlainText(b);
+                  if (txt.includes('この記事の要点')) {
+                    minStartIdx = i + 1;
                   }
-                  return <span key={i} style={style}>{t.plain_text}</span>;
-                });
-              };
-
-              
-
-              let banner = null;
-              if (post.title.includes('企業分析') && (type === 'quote' || type === 'callout' || type === 'paragraph')) {
-                const text = value?.rich_text?.map((t: any) => t.plain_text).join('') || '';
-                if (text.includes('この記事の要点') || text.includes('要点')) {
-                  banner = (
-                    <div key={`banner-${block.id}`} style={{ marginTop: '1rem', marginBottom: '2rem', padding: '1rem', background: '#eef2ff', borderLeft: '4px solid var(--primary)', borderRadius: '4px' }}>
-                      <Link href="/seminar" style={{ fontWeight: 'bold', color: 'var(--primary-dark)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <span style={{ fontSize: '1.2rem' }}>💡</span>
-                        米国株を基礎から学ぶ少人数セミナーを東京で開催中 → 日程を見る
-                      </Link>
-                    </div>
-                  );
                 }
               }
-              const renderBlockContent = () => {
-                switch (type) {
-                case 'paragraph':
-                  return (
-                    <p key={block.id} className="notion-p notion-block">
-                      {renderRichText(value.rich_text)}
-                    </p>
-                  );
-                case 'heading_1':
-                  return (
-                    <h2 key={block.id} className="notion-h1 notion-block">
-                      {renderRichText(value.rich_text)}
-                    </h2>
-                  );
-                case 'heading_2':
-                  return (
-                    <h3 key={block.id} className="notion-h2 notion-block">
-                      {renderRichText(value.rich_text)}
-                    </h3>
-                  );
-                case 'heading_3':
-                  return (
-                    <h4 key={block.id} className="notion-h3 notion-block">
-                      {renderRichText(value.rich_text)}
-                    </h4>
-                  );
-                case 'bulleted_list_item':
-                  return (
-                    <ul key={block.id} className="notion-list notion-block">
-                      <li className="notion-li">
-                        {renderRichText(value.rich_text)}
-                      </li>
-                    </ul>
-                  );
-                case 'numbered_list_item':
-                  return (
-                    <ol key={block.id} className="notion-list notion-block" style={{ listStyleType: 'decimal' }}>
-                      <li className="notion-li">
-                        {renderRichText(value.rich_text)}
-                      </li>
-                    </ol>
-                  );
-                case 'quote':
-                  return (
-                    <blockquote key={block.id} className="notion-quote notion-block">
-                      {renderRichText(value.rich_text)}
-                    </blockquote>
-                  );
-                case 'divider':
-                  return <hr key={block.id} className="notion-divider" />;
-                case 'image':
-                  const src = value.type === 'external' ? value.external.url : value.file.url;
-                  return (
-                    <figure key={block.id} className="notion-image-block notion-block">
-                      <img src={src} alt="Post content" />
-                      {value.caption?.length > 0 && (
-                        <figcaption className="notion-caption">
-                          {renderRichText(value.caption)}
-                        </figcaption>
-                      )}
-                    </figure>
-                  );
-                case 'code':
-                  return (
-                    <pre key={block.id} className="notion-code notion-block">
-                      <code>
-                        {value.rich_text.map((t: any) => t.plain_text).join('')}
-                      </code>
-                    </pre>
-                  );
-                default:
-                  return null;
-              }
-            };
-            
-            return (
-              <div key={block.id} className="notion-block-wrapper">
-                {renderBlockContent()}
-                {banner}
-              </div>
-            );
-            })}
 
-            
-            {/* CTA セミナー案内 (C2対応) */}
-            {(() => {
-              const s = slug.toLowerCase();
-              let bannerHref = '';
-              let bannerText = '';
-              
-              if (s === 'us-stock-beginners-guide' || s === 'sp500-beginners-guide') {
-                bannerHref = '/seminar';
-                bannerText = '東京・川崎の初心者向け米国株セミナー（無料）';
-              } else {
-                bannerHref = '/seminar/cashflow-game';
-                bannerText = '遊びながらお金の考え方を学ぶキャッシュフローゲーム会';
+              // インライン案内の挿入位置：2つ目のH2（Notionのheading_2/heading_1）の直前、なければ3つ目の段落の後ろ
+              const h2Indices: number[] = [];
+              const paraIndices: number[] = [];
+              filteredBlocks.forEach((b: any, idx: number) => {
+                if (idx < minStartIdx) return;
+                if (b.type === 'heading_1' || b.type === 'heading_2') {
+                  h2Indices.push(idx);
+                } else if (b.type === 'paragraph') {
+                  paraIndices.push(idx);
+                }
+              });
+
+              const inlineBeforeIdx = h2Indices.length >= 2 ? h2Indices[1] : -1;
+              const inlineAfterIdx =
+                inlineBeforeIdx === -1 && paraIndices.length > 0
+                  ? paraIndices[Math.min(2, paraIndices.length - 1)]
+                  : -1;
+
+              // 末尾案内の挿入位置：本文後半にある免責事項の見出し・段落の直前（見つからなければ本文の最後）
+              const halfIdx = Math.floor(filteredBlocks.length / 2);
+              let disclaimerIdx = -1;
+              for (let i = halfIdx; i < filteredBlocks.length; i++) {
+                const txt = getBlockPlainText(filteredBlocks[i]);
+                if (
+                  txt.includes('免責事項') ||
+                  txt.includes('免責') ||
+                  txt.includes('本記事は情報提供を目的') ||
+                  txt.includes('特定の金融商品への投資勧誘') ||
+                  txt.includes('投資は自己責任のもとで')
+                ) {
+                  disclaimerIdx = i;
+                  break;
+                }
               }
-              
-              if (bannerHref) {
-                return (
-                  <div className="glass-card" style={{ marginTop: '2rem', padding: '1.5rem', background: 'var(--bg-white)', borderRadius: '12px', border: '2px solid var(--primary)' }}>
-                    <h4 style={{ fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '1rem', marginTop: 0 }}>
-                      おすすめの勉強会・体験会
-                    </h4>
-                    <Link href={bannerHref} style={{ display: 'inline-flex', alignItems: 'center', color: 'var(--primary)', fontWeight: 'bold', textDecoration: 'underline' }}>
-                      {bannerText} <ArrowRight size={16} style={{ marginLeft: '4px' }} />
-                    </Link>
-                  </div>
-                );
-              }
-              return null;
+
+              return (
+                <>
+                  {filteredBlocks.map((block: any, idx: number) => {
+                    const { type } = block;
+                    const value = block[type];
+
+                    // Helper to render rich text
+                    const renderRichText = (richText: any[]) => {
+                      return richText.map((t: any, i: number) => {
+                        const { annotations, href } = t;
+                        const style: React.CSSProperties = {
+                          fontWeight: annotations.bold ? 'bold' : 'normal',
+                          fontStyle: annotations.italic ? 'italic' : 'normal',
+                          textDecoration: annotations.strikethrough ? 'line-through' : (annotations.underline ? 'underline' : 'none'),
+                          color: annotations.color !== 'default' ? annotations.color : 'inherit',
+                        };
+
+                        if (href) {
+                          // Notionドメインを含む内部リンクを正規化
+                          const normalizedHref = href.replace(/^https?:\/\/(?:app\.|www\.)?notion\.com/, '');
+                          // 内部リンク判定（/blog/, /knowledge/ などサイト内パス）
+                          const isInternal = /^\/(?:blog|knowledge|about|contact|privacy)\b/.test(normalizedHref);
+
+                          if (isInternal) {
+                            return <a key={i} href={normalizedHref} style={style}>{t.plain_text}</a>;
+                          }
+                          return <a key={i} href={normalizedHref} target="_blank" rel="noopener noreferrer" style={style}>{t.plain_text}</a>;
+                        }
+                        return <span key={i} style={style}>{t.plain_text}</span>;
+                      });
+                    };
+
+                    const renderBlockContent = () => {
+                      switch (type) {
+                      case 'paragraph':
+                        return (
+                          <p key={block.id} className="notion-p notion-block">
+                            {renderRichText(value.rich_text)}
+                          </p>
+                        );
+                      case 'heading_1':
+                        return (
+                          <h2 key={block.id} className="notion-h1 notion-block">
+                            {renderRichText(value.rich_text)}
+                          </h2>
+                        );
+                      case 'heading_2':
+                        return (
+                          <h3 key={block.id} className="notion-h2 notion-block">
+                            {renderRichText(value.rich_text)}
+                          </h3>
+                        );
+                      case 'heading_3':
+                        return (
+                          <h4 key={block.id} className="notion-h3 notion-block">
+                            {renderRichText(value.rich_text)}
+                          </h4>
+                        );
+                      case 'bulleted_list_item':
+                        return (
+                          <ul key={block.id} className="notion-list notion-block">
+                            <li className="notion-li">
+                              {renderRichText(value.rich_text)}
+                            </li>
+                          </ul>
+                        );
+                      case 'numbered_list_item':
+                        return (
+                          <ol key={block.id} className="notion-list notion-block" style={{ listStyleType: 'decimal' }}>
+                            <li className="notion-li">
+                              {renderRichText(value.rich_text)}
+                            </li>
+                          </ol>
+                        );
+                      case 'quote':
+                        return (
+                          <blockquote key={block.id} className="notion-quote notion-block">
+                            {renderRichText(value.rich_text)}
+                          </blockquote>
+                        );
+                      case 'divider':
+                        return <hr key={block.id} className="notion-divider" />;
+                      case 'image':
+                        const src = value.type === 'external' ? value.external.url : value.file.url;
+                        return (
+                          <figure key={block.id} className="notion-image-block notion-block">
+                            <img src={src} alt="Post content" />
+                            {value.caption?.length > 0 && (
+                              <figcaption className="notion-caption">
+                                {renderRichText(value.caption)}
+                              </figcaption>
+                            )}
+                          </figure>
+                        );
+                      case 'code':
+                        return (
+                          <pre key={block.id} className="notion-code notion-block">
+                            <code>
+                              {value.rich_text.map((t: any) => t.plain_text).join('')}
+                            </code>
+                          </pre>
+                        );
+                      default:
+                        return null;
+                    }
+                  };
+
+                  return (
+                    <div key={block.id} className="notion-block-wrapper">
+                      {idx === inlineBeforeIdx && <SeminarInlineCta pathname={pathname} />}
+                      {idx === disclaimerIdx && <SeminarFooterCta pathname={pathname} variant="notion" />}
+                      {renderBlockContent()}
+                      {idx === inlineAfterIdx && <SeminarInlineCta pathname={pathname} />}
+                    </div>
+                  );
+                  })}
+
+                  {inlineBeforeIdx === -1 && inlineAfterIdx === -1 && (
+                    <SeminarInlineCta pathname={pathname} />
+                  )}
+                  {disclaimerIdx === -1 && (
+                    <SeminarFooterCta pathname={pathname} variant="notion" />
+                  )}
+                </>
+              );
             })()}
 
             

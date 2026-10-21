@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CheckCircle, AlertCircle, Loader2, ArrowRight } from 'lucide-react';
 import { CFGEvent } from '@/lib/microcms';
 
@@ -11,6 +11,42 @@ interface CfgApplyFormProps {
 
 export default function CfgApplyForm({ events, selectedEventId }: CfgApplyFormProps) {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const resolveValidId = (id?: string | null) =>
+    id && events && events.some((ev) => ev.id === id && ev.status === 'open') ? id : '';
+  const [selectedEvent, setSelectedEvent] = useState<string>(() => {
+    const valid = resolveValidId(selectedEventId);
+    if (valid) return valid;
+    return !events || events.length === 0 ? 'other' : '';
+  });
+
+  useEffect(() => {
+    const applySelection = (rawId?: string | null) => {
+      const valid = resolveValidId(rawId);
+      if (valid) {
+        setSelectedEvent(valid);
+      } else if (rawId) {
+        setSelectedEvent('');
+      } else {
+        setSelectedEvent(!events || events.length === 0 ? 'other' : '');
+      }
+    };
+
+    if (selectedEventId) {
+      applySelection(selectedEventId);
+    } else if (typeof window !== 'undefined') {
+      const param = new URLSearchParams(window.location.search).get('event');
+      applySelection(param);
+    } else {
+      applySelection(null);
+    }
+
+    const handleSelectEvent = (e: Event) => {
+      const customEvent = e as CustomEvent<string>;
+      applySelection(customEvent.detail);
+    };
+    window.addEventListener('seminar-select-event', handleSelectEvent);
+    return () => window.removeEventListener('seminar-select-event', handleSelectEvent);
+  }, [selectedEventId, events]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -133,7 +169,8 @@ export default function CfgApplyForm({ events, selectedEventId }: CfgApplyFormPr
                     value={ev.id}
                     required
                     disabled={isClosed}
-                    defaultChecked={ev.id === selectedEventId && !isClosed}
+                    checked={selectedEvent === ev.id && !isClosed}
+                    onChange={(e) => setSelectedEvent(e.target.value)}
                     style={{
                       width: '18px',
                       height: '18px',
@@ -173,7 +210,8 @@ export default function CfgApplyForm({ events, selectedEventId }: CfgApplyFormPr
               name="event"
               value="other"
               required
-              defaultChecked={!events || events.length === 0}
+              checked={selectedEvent === 'other'}
+              onChange={(e) => setSelectedEvent(e.target.value)}
               style={{
                 width: '18px',
                 height: '18px',
@@ -200,6 +238,9 @@ export default function CfgApplyForm({ events, selectedEventId }: CfgApplyFormPr
       <div className="form-group">
         <label htmlFor="phone" className="form-label">電話番号 <span style={{ color: '#ef4444', fontSize: '0.8rem', marginLeft: '4px' }}>必須</span></label>
         <input type="tel" id="phone" name="phone" required className="form-input" placeholder="例: 090-1234-5678" />
+        <p style={{ margin: '0.4rem 0 0 0', fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+          当日の待ち合わせ・到着時のご連絡にのみ使います。
+        </p>
       </div>
 
       <div className="form-group">

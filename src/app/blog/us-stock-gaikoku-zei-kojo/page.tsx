@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import StaticBlogPost from "@/components/StaticBlogPost";
+import SeminarInlineCta from "@/components/SeminarInlineCta";
 
 export const metadata: Metadata = {
   title: '米国株の外国税額控除とは？確定申告で取り戻せる税金を解説',
@@ -69,6 +70,8 @@ export default function UsStockGaikokuZeiKojoPage() {
         <p>
           国際的な日米租税条約のルールに基づき、同じ所得（配当金）に対して2つの国から重なって二重課税されるのを防止するために用意されている調整制度が「外国税額控除」です。確定申告を行うことで、米国の10%分を自分の所得税や住民税から差し引いて還付を受けられます。
         </p>
+
+        <SeminarInlineCta pathname="/blog/us-stock-gaikoku-zei-kojo" />
 
         <h2 style={{ fontSize: "1.5rem", fontWeight: "900", color: "var(--primary-dark)", borderBottom: "2px solid var(--primary-light)", paddingBottom: "0.5rem", marginTop: "2.5rem", marginBottom: "1.2rem" }}>
           いくら戻ってくる？外国税額控除の計算方法

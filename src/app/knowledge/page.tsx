@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, ShieldCheck, CheckCircle2, TrendingUp, Layers, HelpCircle, DollarSign, Award, Globe, Building, Clock, Coins, BookOpen } from 'lucide-react';
 import Script from 'next/script';
+import SeminarInlineCta from '@/components/SeminarInlineCta';
+import CtaTrackLink from '@/components/CtaTrackLink';
 
 export const metadata: Metadata = {
   title: '米国株とは？初心者向けにわかりやすく解説｜特徴・始め方・NISA',
@@ -156,6 +158,8 @@ export default function KnowledgePage() {
             一言で言えば、<strong>「長期的に見て圧倒的な成長を続けているから」</strong>です。アメリカは世界最大の経済大国であり、IT、AI、ヘルスケアなど、あらゆる最先端技術が生まれる土壌があります。さらに、世界中から優秀な人材と莫大な投資マネーが集まる仕組みが出来上がっているため、アメリカ一国の株式市場だけで、世界の株式時価総額の過半数を占めるほどの規模を誇っています。
           </p>
 
+
+          <SeminarInlineCta pathname="/knowledge" />
 
           {/* 見出し2: 米国株の5つの特徴 */}
           <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.4rem, 4vw, 1.8rem)', fontWeight: '900', color: 'var(--primary-dark)', borderBottom: '3px solid var(--primary)', paddingBottom: '0.8rem', marginTop: '4rem', marginBottom: '2.5rem' }}>
@@ -420,9 +424,9 @@ export default function KnowledgePage() {
             <h4 style={{ fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--primary-dark)', marginBottom: '1rem', marginTop: 0 }}>
               まずは基礎から学びたい方へ
             </h4>
-            <Link href="/seminar" style={{ display: 'inline-flex', alignItems: 'center', color: 'var(--primary)', fontWeight: 'bold', textDecoration: 'underline' }}>
+            <CtaTrackLink href="/seminar#schedule" ctaLocation="footer" seminarType="us_stock" style={{ display: 'inline-flex', alignItems: 'center', color: 'var(--primary)', fontWeight: 'bold', textDecoration: 'underline' }}>
               東京・川崎の初心者向け米国株セミナー（無料） <ArrowRight size={16} style={{ marginLeft: '4px' }} />
-            </Link>
+            </CtaTrackLink>
           </div>
 
           {/* 免責事項 */}
