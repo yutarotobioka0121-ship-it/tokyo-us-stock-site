@@ -53,19 +53,54 @@ export default function SeminarStickyBar({ nextMap }: { nextMap: NextSessionMap 
     return () => mq.removeEventListener?.('change', update);
   }, []);
 
-  // 25% スクロールしたら表示
+  // 25% スクロールしたら表示（body が overflow:auto でスクロールする場合と window スクロールの両方に対応）
   useEffect(() => {
     setScrolled(false);
     if (!target) return;
-    const onScroll = () => {
+    const onScroll = (e?: Event) => {
       const doc = document.documentElement;
-      const max = doc.scrollHeight - window.innerHeight;
-      if (max <= 0) return;
-      if (window.scrollY / max >= SCROLL_RATIO) setScrolled(true);
+      const body = document.body;
+
+      const winMax = doc.scrollHeight - window.innerHeight;
+      const winRatio = winMax > 0 ? window.scrollY / winMax : 0;
+
+      const bodyMax = body ? body.scrollHeight - body.clientHeight : 0;
+      const bodyRatio = bodyMax > 0 ? body.scrollTop / bodyMax : 0;
+
+      const docMax = doc.scrollHeight - doc.clientHeight;
+      const docRatio = docMax > 0 ? doc.scrollTop / docMax : 0;
+
+      let targetRatio = 0;
+      if (e?.target instanceof HTMLElement) {
+        const el = e.target;
+        const elMax = el.scrollHeight - el.clientHeight;
+        if (elMax > 100) {
+          targetRatio = el.scrollTop / elMax;
+        }
+      }
+
+      const contentEl = document.querySelector('main, article, .post-detail, .knowledge-page');
+      let rectRatio = 0;
+      if (contentEl) {
+        const rect = contentEl.getBoundingClientRect();
+        const rectMax = rect.height - window.innerHeight;
+        if (rectMax > 0) {
+          rectRatio = -rect.top / rectMax;
+        }
+      }
+
+      const ratio = Math.max(winRatio, bodyRatio, docRatio, targetRatio, rectRatio);
+      if (ratio >= SCROLL_RATIO) setScrolled(true);
     };
     onScroll();
+    document.addEventListener('scroll', onScroll, { capture: true, passive: true });
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    document.body?.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      document.removeEventListener('scroll', onScroll, { capture: true });
+      window.removeEventListener('scroll', onScroll);
+      document.body?.removeEventListener('scroll', onScroll);
+    };
   }, [pathname, target]);
 
   const visible = target && isMobile && scrolled && !dismissed;
@@ -90,7 +125,7 @@ export default function SeminarStickyBar({ nextMap }: { nextMap: NextSessionMap 
 
   const seminar = getSeminarForPath(pathname);
   const next = nextMap[seminar.type];
-  const label = next ? `次回 ${next.shortDateLabel} ${seminar.name}` : `${seminar.name}の日程を見る`;
+  const label = next ? `次回 ${next.shortDateLabel}${seminar.name}` : `${seminar.name}の日程を見る`;
 
   return (
     <div
