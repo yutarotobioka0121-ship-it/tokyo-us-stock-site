@@ -9,14 +9,14 @@ import { CheckCircle2 } from "lucide-react";
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'キャッシュフローゲーム会｜川崎・新宿で開催・参加費1,000円',
-  description: 'ボードゲームで遊びながらお金の流れと投資の基本を学ぶ2時間の体験会。川崎駅前・新宿駅前で開催、参加費1,000円。日程とお申し込みはこちら。',
+  title: 'キャッシュフローゲーム会｜東京・神奈川で開催・参加費1,000円',
+  description: 'ボードゲームで遊びながらお金の流れと投資の基本を学ぶ2時間の体験会。東京・神奈川の貸し会議室で開催、参加費1,000円。日程とお申し込みはこちら。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com/seminar/cashflow-game',
   },
   openGraph: {
-    title: 'キャッシュフローゲーム会｜川崎・新宿で開催・参加費1,000円',
-    description: 'ボードゲームで遊びながらお金の流れと投資の基本を学ぶ2時間の体験会。川崎駅前・新宿駅前で開催、参加費1,000円。日程とお申し込みはこちら。',
+    title: 'キャッシュフローゲーム会｜東京・神奈川で開催・参加費1,000円',
+    description: 'ボードゲームで遊びながらお金の流れと投資の基本を学ぶ2時間の体験会。東京・神奈川の貸し会議室で開催、参加費1,000円。日程とお申し込みはこちら。',
     url: 'https://www.tokyo-us-stock.com/seminar/cashflow-game',
     siteName: '東京米国株クラブ',
     images: [
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'キャッシュフローゲーム会｜川崎・新宿で開催・参加費1,000円',
-    description: 'ボードゲームで遊びながらお金の流れと投資の基本を学ぶ2時間の体験会。川崎駅前・新宿駅前で開催、参加費1,000円。日程とお申し込みはこちら。',
+    title: 'キャッシュフローゲーム会｜東京・神奈川で開催・参加費1,000円',
+    description: 'ボードゲームで遊びながらお金の流れと投資の基本を学ぶ2時間の体験会。東京・神奈川の貸し会議室で開催、参加費1,000円。日程とお申し込みはこちら。',
     images: ['https://www.tokyo-us-stock.com/images/cfg/cfg-hero.jpg'],
   },
 };
@@ -71,9 +71,10 @@ function generateEventSchema(events: CFGEvent[]) {
     if (!schedule) return null;
     const { startDateStr, endDateStr } = schedule;
 
-    const locName = (ev.location || '').includes('川崎') ? '神奈川県川崎駅前 貸し会議室' : '新宿駅前 貸し会議室';
-    const locCity = (ev.location || '').includes('川崎') ? '川崎市' : '新宿区';
-    const locPref = (ev.location || '').includes('川崎') ? '神奈川県' : '東京都';
+    const isKanagawa = (ev.location || '').includes('神奈川') || (ev.location || '').includes('川崎') || (ev.location || '').includes('横浜');
+    const locName = ev.location || '東京都内・神奈川県内の貸し会議室';
+    const locCity = isKanagawa ? '神奈川県' : '東京都';
+    const locPref = isKanagawa ? '神奈川県' : '東京都';
 
     return {
       "@context": "https://schema.org",
@@ -87,7 +88,7 @@ function generateEventSchema(events: CFGEvent[]) {
         "@id": "https://www.tokyo-us-stock.com/#organization",
         "name": "東京米国株クラブ",
         "url": "https://www.tokyo-us-stock.com/",
-        "description": "東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。"
+        "description": "東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京・神奈川での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。"
       },
       
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",

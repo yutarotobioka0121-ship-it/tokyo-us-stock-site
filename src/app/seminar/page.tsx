@@ -117,16 +117,14 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
     if (!schedule) return null;
     const locationStr = session.location || '';
     
-    let addressLocality = '川崎市';
-    let addressRegion = '神奈川県';
-    let addressName = '川崎駅周辺のカフェ（詳細は申し込み後にメールでご案内）';
-    let areaName = '川崎';
+    let addressLocality = '東京都・神奈川県';
+    let addressRegion = '東京都';
+    let addressName = session.location ? `${session.location}（詳細は申し込み後にメールでご案内）` : '東京都内・神奈川県内のカフェ（詳細は申し込み後にメールでご案内）';
+    let areaName = session.location || '東京・神奈川';
     
-    if (locationStr.includes('新宿')) {
-      addressLocality = '新宿区';
-      addressRegion = '東京都';
-      addressName = '新宿駅周辺のカフェ（詳細は申し込み後にメールでご案内）';
-      areaName = '新宿';
+    if (locationStr.includes('神奈川') || locationStr.includes('川崎') || locationStr.includes('横浜')) {
+      addressLocality = '神奈川県';
+      addressRegion = '神奈川県';
     }
 
     return {
@@ -149,7 +147,7 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
         '@type': 'Organization', 
         name: '東京米国株クラブ', 
         url: 'https://www.tokyo-us-stock.com/',
-        description: '東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。'
+        description: '東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京・神奈川での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。'
       },
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'JPY', availability: 'https://schema.org/InStock', url: 'https://www.tokyo-us-stock.com/seminar', validFrom: '2026-09-01T00:00:00+09:00' },
     };
@@ -230,7 +228,7 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
             </h2>
             <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8' }}>
               <li>・東京米国株クラブの米国株セミナーは、投資初心者向けの無料の勉強会です。</li>
-              <li>・会場は東京（新宿駅周辺）・神奈川（川崎駅周辺）のカフェと、オンライン（Zoom）です。</li>
+              <li>・会場は東京都内・神奈川県内のカフェと、オンライン（Zoom）です。</li>
               <li>・定員は1回4名までの少人数制で、所要時間は約1時間です。</li>
               <li>・米国株・S&P500・新NISAを使った長期・積立・分散投資の基礎を学べます。</li>
               <li>・金融商品の販売や勧誘は行いません。</li>
@@ -250,7 +248,7 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
                 <tbody>
                   <tr>
                     <td style={{ padding: '0.8rem', border: '1px solid var(--border)', fontWeight: '700' }}>対面</td>
-                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>新宿駅・川崎駅周辺のカフェ</td>
+                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>東京都内・神奈川県内のカフェ</td>
                     <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>4名</td>
                     <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>無料</td>
                   </tr>
@@ -584,15 +582,15 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
               <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px' }}>
                 <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', wordBreak: 'keep-all', whiteSpace: 'nowrap' }}>
-                  <MapPin size={20} color="var(--primary)" /> 東京エリア（新宿など）
+                  <MapPin size={20} color="var(--primary)" /> 東京エリア
                 </h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>都内のアクセスしやすいカフェ（主に新宿駅周辺など）で開催します。お仕事帰りや休日のお出かけついでにも便利です。</p>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>都内のアクセスしやすい駅周辺のカフェで開催します。お仕事帰りや休日のお出かけついでにも便利です。</p>
               </div>
               <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px' }}>
                 <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', wordBreak: 'keep-all', whiteSpace: 'nowrap' }}>
-                  <MapPin size={20} color="var(--primary)" /> 神奈川エリア（川崎など）
+                  <MapPin size={20} color="var(--primary)" /> 神奈川エリア
                 </h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>神奈川県内のカフェ（主に川崎駅周辺など）で開催します。横浜・川崎方面の方におすすめです。</p>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', margin: 0, lineHeight: '1.6' }}>神奈川県内のアクセスしやすい駅周辺のカフェで開催します。お仕事帰りや休日のお出かけついでにも便利です。</p>
               </div>
               <div className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px' }}>
                 <h3 style={{ fontSize: '1.1rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', wordBreak: 'keep-all', whiteSpace: 'nowrap' }}>
@@ -659,7 +657,7 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
               lineHeight: '1.8',
               margin: 0
             }}>
-              <strong>東京米国株クラブとは</strong>、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京（新宿・川崎）での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。
+              <strong>東京米国株クラブとは</strong>、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京・神奈川での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。
             </p>
           </div>
         </div>
