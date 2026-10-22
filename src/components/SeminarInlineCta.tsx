@@ -9,7 +9,7 @@ interface SeminarInlineCtaProps {
   pathname: string;
 }
 
-const ib = { display: 'inline-block' as const };
+const ib = { display: 'inline-block' as const, whiteSpace: 'nowrap' as const };
 
 /** 見出し（「か」「す」などが1文字だけ次の行に落ちないよう語句ごとに inline-block 化） */
 function renderHeading(type: SeminarType): ReactNode {
@@ -96,7 +96,7 @@ export default async function SeminarInlineCta({ pathname }: SeminarInlineCtaPro
       aria-label={`${seminar.name}のご案内`}
       style={{
         margin: '2.5rem 0',
-        padding: '1.4rem 1.25rem 1.5rem',
+        padding: '1.25rem 1.1rem 1.35rem',
         background: 'var(--bg-warm)',
         border: '1px solid rgba(176, 58, 46, 0.18)',
         borderLeft: '4px solid var(--primary)',
@@ -110,7 +110,7 @@ export default async function SeminarInlineCta({ pathname }: SeminarInlineCtaPro
       <p
         style={{
           margin: '0 0 0.45rem 0',
-          fontSize: '1.12rem',
+          fontSize: 'clamp(0.95rem, 4.2vw, 1.12rem)',
           fontWeight: 900,
           color: 'var(--primary-dark)',
           lineHeight: 1.5,
@@ -124,7 +124,7 @@ export default async function SeminarInlineCta({ pathname }: SeminarInlineCtaPro
       <p
         style={{
           margin: '0 0 1rem 0',
-          fontSize: '0.9rem',
+          fontSize: 'clamp(0.84rem, 3.6vw, 0.9rem)',
           color: 'var(--text-muted)',
           lineHeight: 1.6,
           wordBreak: 'keep-all',
@@ -140,9 +140,9 @@ export default async function SeminarInlineCta({ pathname }: SeminarInlineCtaPro
           style={{
             background: 'white',
             borderRadius: '10px',
-            padding: '0.85rem 0.95rem',
+            padding: '0.8rem 0.85rem',
             marginBottom: '1.1rem',
-            fontSize: '0.9rem',
+            fontSize: 'clamp(0.84rem, 3.6vw, 0.9rem)',
             color: 'var(--text-main)',
             display: 'flex',
             flexDirection: 'column',
@@ -151,9 +151,9 @@ export default async function SeminarInlineCta({ pathname }: SeminarInlineCtaPro
         >
           <div style={rowStyle}>
             <CalendarDays size={16} color="var(--primary)" style={{ flexShrink: 0 }} />
-            <span>
-              <span style={{ fontWeight: 800, color: 'var(--primary)', marginRight: '0.4rem' }}>次回</span>
-              <span style={{ ...ib, fontWeight: 800 }}>{next.dateLabel}</span>
+            <span style={ib}>
+              <span style={{ fontWeight: 800, color: 'var(--primary)', marginRight: '0.35rem' }}>次回</span>
+              <span style={{ fontWeight: 800 }}>{next.dateLabel}</span>
             </span>
           </div>
           {next.timeLabel && (

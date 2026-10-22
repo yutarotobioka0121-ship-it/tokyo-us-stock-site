@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { getSeminarForPath, type SeminarType } from '@/lib/seminar-routing';
 import CtaTrackLink from '@/components/CtaTrackLink';
 
-const ib = { display: 'inline-block' as const };
+const ib = { display: 'inline-block' as const, whiteSpace: 'nowrap' as const };
 
 // 記事末尾のセミナー案内（免責文より前に置く）。案内先は記事のテーマで判定する
 const FOOTER_TEXT: Record<SeminarType, { linkText: ReactNode; heading: ReactNode; body: ReactNode }> = {
@@ -21,7 +21,8 @@ const FOOTER_TEXT: Record<SeminarType, { linkText: ReactNode; heading: ReactNode
     ),
     body: (
       <>
-        <span style={ib}>定員4名の少人数制カフェスタイルで、</span>
+        <span style={ib}>定員4名の</span>
+        <span style={ib}>少人数制カフェスタイルで、</span>
         <span style={ib}>実践的な資産運用のコツを</span>
         <span style={ib}>質問しながら学べます。</span>
       </>
@@ -41,7 +42,8 @@ const FOOTER_TEXT: Record<SeminarType, { linkText: ReactNode; heading: ReactNode
     ),
     body: (
       <>
-        <span style={ib}>定員4名の少人数制カフェスタイルで、</span>
+        <span style={ib}>定員4名の</span>
+        <span style={ib}>少人数制カフェスタイルで、</span>
         <span style={ib}>新NISAの始め方を</span>
         <span style={ib}>質問しながら学べます。</span>
       </>
