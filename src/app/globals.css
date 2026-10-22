@@ -802,6 +802,14 @@ button {
   font-weight: 800;
 }
 
+.footer .logo-text {
+  color: white;
+}
+
+.footer .logo-accent {
+  color: #FFD5CC;
+}
+
 .footer .footer-desc,
 .footer .logo-sub {
   color: rgba(255, 255, 255, 0.9);
