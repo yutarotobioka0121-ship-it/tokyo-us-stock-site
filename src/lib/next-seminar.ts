@@ -1,6 +1,6 @@
 import { cache } from 'react';
 import { getSessions, getCFGSchedule } from '@/lib/microcms';
-import { getSessionStartDateTime, isSessionDeadlinePassed, formatSessionTime } from '@/lib/utils';
+import { getSessionStartDateTime, isSessionDeadlinePassed, formatSessionTime, formatTimeDisplay, formatFeeDisplay } from '@/lib/utils';
 import type { SeminarType } from '@/lib/seminar-routing';
 
 // 記事内の案内で使う「次回の開催回」の情報（サーバー専用）
@@ -9,10 +9,14 @@ export interface NextSessionInfo {
   dateLabel: string;
   /** 例：10/25（日）  ※固定バー用 */
   shortDateLabel: string;
-  /** 例：19:00〜 / 13:00〜15:00 */
+  /** 例：19:00〜 / 10:00〜12:00 */
   timeLabel: string;
-  /** 例：川崎駅周辺 カフェ / オンライン（Zoom） */
+  /** 例：東京都内 カフェ / オンライン（Zoom） */
   venue: string;
+  /** 例：少人数制（定員4名まで） / 定員4名 */
+  capacityLabel: string;
+  /** 例：参加費無料 / 参加費1,000円 */
+  feeLabel: string;
   /** 例：参加費無料・少人数制（定員4名まで） */
   capacityFeeLabel: string;
 }
@@ -23,6 +27,8 @@ export type NextSessionMap = Record<SeminarType, NextSessionInfo | null>;
 const REQUEST_INIT = { next: { revalidate: 3600 } };
 
 // 米国株セミナー・NISA初心者セミナーは microCMS に定員・参加費の項目がないため固定文言
+const FIXED_CAPACITY = '少人数制（定員4名まで）';
+const FIXED_FEE = '参加費無料';
 const FIXED_CAPACITY_FEE = '参加費無料・少人数制（定員4名まで）';
 
 const WEEKDAYS = ['日', '月', '火', '水', '木', '金', '土'];
@@ -66,8 +72,10 @@ async function getNextStudySession(kind: 'us_stock' | 'nisa', sessions: any[]): 
   return {
     dateLabel: `${p.y}年${p.m}月${p.day}日(${p.w})`,
     shortDateLabel: `${p.m}/${p.day}（${p.w}）`,
-    timeLabel: `${formatSessionTime(s.time || s.date)}〜`,
+    timeLabel: formatTimeDisplay(`${formatSessionTime(s.time || s.date)}〜`),
     venue: isOnline ? 'オンライン（Zoom）' : (s.location || '都内近郊').replace(/\u3000/g, ' '),
+    capacityLabel: FIXED_CAPACITY,
+    feeLabel: FIXED_FEE,
     capacityFeeLabel: FIXED_CAPACITY_FEE,
   };
 }
@@ -96,15 +104,20 @@ async function getNextCfgEvent(): Promise<NextSessionInfo | null> {
   if (candidates.length === 0) return null;
   const { ev, start, y, mo, d } = candidates[0];
   const w = jstParts(start).w;
+  const formattedFee = ev.fee ? formatFeeDisplay(ev.fee) : '';
+  const feeLabel = formattedFee ? `参加費${formattedFee}` : '';
+  const capacityLabel = ev.capacity ? `定員${ev.capacity}名` : '';
   const parts: string[] = [];
-  if (ev.fee) parts.push(`参加費${ev.fee}`);
-  if (ev.capacity) parts.push(`定員${ev.capacity}名`);
+  if (feeLabel) parts.push(feeLabel);
+  if (capacityLabel) parts.push(capacityLabel);
 
   return {
     dateLabel: `${y}年${mo}月${d}日(${w})`,
     shortDateLabel: `${mo}/${d}（${w}）`,
-    timeLabel: ev.time || '',
-    venue: ev.location || '',
+    timeLabel: formatTimeDisplay(ev.time || ''),
+    venue: (ev.location || '').replace(/\u3000/g, ' '),
+    capacityLabel,
+    feeLabel,
     capacityFeeLabel: parts.join('・'),
   };
 }

@@ -11,8 +11,10 @@ export type SeminarType = 'us_stock' | 'nisa' | 'cashflow_game';
 
 export interface SeminarInfo {
   type: SeminarType;
-  /** セミナー名（固定バーなどで使用） */
+  /** セミナー名（インライン案内などで使用） */
   name: string;
+  /** 固定バー用の短いセミナー名 */
+  shortName: string;
   /** セミナーページのパス */
   href: string;
   /** インライン案内の見出し */
@@ -53,6 +55,7 @@ export const SEMINARS: Record<SeminarType, SeminarInfo> = {
   us_stock: {
     type: 'us_stock',
     name: '米国株セミナー',
+    shortName: '米国株セミナー',
     href: '/seminar',
     heading: 'この記事の内容を、少人数で直接学べます',
     description: '初心者向け・少人数制・金融商品の勧誘はありません',
@@ -60,6 +63,7 @@ export const SEMINARS: Record<SeminarType, SeminarInfo> = {
   nisa: {
     type: 'nisa',
     name: 'NISA初心者セミナー',
+    shortName: 'NISAセミナー',
     href: '/seminar/nisa',
     heading: '新NISAの始め方を、少人数で直接学べます',
     description: '初心者向け・少人数制・金融商品の勧誘はありません',
@@ -67,6 +71,7 @@ export const SEMINARS: Record<SeminarType, SeminarInfo> = {
   cashflow_game: {
     type: 'cashflow_game',
     name: 'キャッシュフローゲーム会',
+    shortName: 'キャッシュフローゲーム会',
     href: '/seminar/cashflow-game',
     heading: 'この考え方を、ゲームで体験してみませんか',
     description: 'ボードゲームで遊びながら、お金の流れを学ぶ2時間の体験会です',

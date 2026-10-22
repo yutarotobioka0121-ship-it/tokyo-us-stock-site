@@ -1,3 +1,65 @@
+/** 時間の区切り文字（~ / ～）を全ページ共通で「〜」にそろえる */
+export function formatTimeDisplay(timeStr?: string | null): string {
+  if (!timeStr) return '';
+  return String(timeStr)
+    .replace(/\s*[~～〜]\s*/g, '〜')
+    .trim();
+}
+
+/** 金額表記を3桁カンマ区切り（例: 1000円 → 1,000円）にそろえる。「無料」はそのまま返す */
+export function formatFeeDisplay(fee?: string | number | null): string {
+  if (fee === undefined || fee === null || fee === '') return '無料';
+  if (typeof fee === 'number') {
+    return fee === 0 ? '無料' : `${fee.toLocaleString('ja-JP')}円`;
+  }
+  const trimmed = String(fee).trim();
+  if (trimmed === '無料' || trimmed === '0' || trimmed === '0円') return '無料';
+  if (/^\d+$/.test(trimmed)) {
+    return `${Number(trimmed).toLocaleString('ja-JP')}円`;
+  }
+  return trimmed.replace(/\d{4,}/g, (match) => Number(match).toLocaleString('ja-JP'));
+}
+
+/** 1時間のセミナーの時間帯（例: 19:00〜20:00）を共通フォーマットで返す */
+export function formatSessionTimeRange(timeStr?: string | null): string {
+  if (!timeStr) return '';
+
+  if (/[~～〜]/.test(timeStr)) {
+    return formatTimeDisplay(timeStr);
+  }
+
+  let startHour = 0;
+  let startMinute = 0;
+
+  if (/^\d{1,2}:\d{2}$/.test(timeStr)) {
+    const parts = timeStr.split(':');
+    startHour = parseInt(parts[0], 10);
+    startMinute = parseInt(parts[1], 10);
+  } else {
+    try {
+      const dateObj = new Date(timeStr);
+      if (isNaN(dateObj.getTime())) return formatTimeDisplay(timeStr);
+
+      const formatted = new Intl.DateTimeFormat('ja-JP', {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+        timeZone: 'Asia/Tokyo',
+      }).format(dateObj);
+      const parts = formatted.split(':');
+      startHour = parseInt(parts[0], 10);
+      startMinute = parseInt(parts[1], 10);
+    } catch {
+      return formatTimeDisplay(timeStr);
+    }
+  }
+
+  const endHour = (startHour + 1) % 24;
+  const pad = (num: number) => num.toString().padStart(2, '0');
+
+  return `${pad(startHour)}:${pad(startMinute)}〜${pad(endHour)}:${pad(startMinute)}`;
+}
+
 export function formatSessionDate(dateStr: string) {
   const dateObj = new Date(dateStr);
   return new Intl.DateTimeFormat('ja-JP', {

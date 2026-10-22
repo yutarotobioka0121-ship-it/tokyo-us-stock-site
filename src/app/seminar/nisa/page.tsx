@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Users, Target, BookOpen, Coffee, Zap, PieChart, ShieldCheck, ArrowLeft, TrendingUp, Monitor } from "lucide-react";
 import { getSessions } from "@/lib/microcms";
-import { formatSessionDate, buildEventSchedule, formatSessionTime, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
+import { formatSessionDate, buildEventSchedule, formatSessionTime, formatSessionTimeRange, formatFeeDisplay, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
 import NisaApplyForm from "@/components/NisaApplyForm";
 import CtaTrackLink from "@/components/CtaTrackLink";
 
@@ -39,41 +39,6 @@ export const metadata: Metadata = {
   },
 };
 
-
-function formatSessionTimeRange(timeStr: string) {
-  if (!timeStr) return '';
-  
-  let startHour = 0;
-  let startMinute = 0;
-
-  if (/^\d{2}:\d{2}$/.test(timeStr)) {
-    const parts = timeStr.split(':');
-    startHour = parseInt(parts[0], 10);
-    startMinute = parseInt(parts[1], 10);
-  } else {
-    try {
-      const dateObj = new Date(timeStr);
-      if (isNaN(dateObj.getTime())) return timeStr;
-      
-      const formatted = new Intl.DateTimeFormat('ja-JP', {
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false,
-        timeZone: 'Asia/Tokyo',
-      }).format(dateObj);
-      const parts = formatted.split(':');
-      startHour = parseInt(parts[0], 10);
-      startMinute = parseInt(parts[1], 10);
-    } catch (e) {
-      return timeStr;
-    }
-  }
-
-  const endHour = (startHour + 1) % 24;
-  const pad = (num: number) => num.toString().padStart(2, '0');
-  
-  return `${pad(startHour)}:${pad(startMinute)}〜${pad(endHour)}:${pad(startMinute)}`;
-}
 
 const INVESTING_SINCE = 2020;
   const currentYear = Number(new Intl.DateTimeFormat('en', { year: 'numeric', timeZone: 'Asia/Tokyo' }).format(new Date()));

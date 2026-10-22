@@ -70,7 +70,7 @@ export default function Footer() {
                 style={{ 
                   background: 'none', 
                   border: 'none', 
-                  color: 'var(--text-muted)', 
+                  color: 'rgba(255, 255, 255, 0.9)', 
                   cursor: 'pointer', 
                   padding: 0, 
                   fontFamily: 'inherit', 
@@ -87,7 +87,7 @@ export default function Footer() {
       </div>
 
       {showDisclaimer && (
-        <div className="container" style={{ marginTop: '2rem', padding: '1.5rem', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '12px', fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.8', textAlign: 'left' }}>
+        <div className="container" style={{ marginTop: '2rem', padding: '1.5rem', background: 'rgba(255, 255, 255, 0.08)', borderRadius: '12px', fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.8', textAlign: 'left' }}>
           <h4 style={{ color: 'white', marginBottom: '1rem', fontSize: '0.95rem', fontWeight: '800' }}>免責事項</h4>
           <p style={{ marginBottom: '1rem' }}>
             東京米国株クラブ（以下「当クラブ」）が提供するウェブサイト、セミナー、SNSアカウント、各種コンテンツおよび教材（以下「本サービス」）において提供される情報は、米国株投資や資産形成に関する一般的な知識の普及、学習および情報提供のみを目的としたものであり、特定の金融商品の購入、売却、または特定の投資戦略の勧誘、投資助言、取引の推奨を目的としたものではありません。

@@ -125,7 +125,6 @@ export default function SeminarStickyBar({ nextMap }: { nextMap: NextSessionMap 
 
   const seminar = getSeminarForPath(pathname);
   const next = nextMap[seminar.type];
-  const label = next ? `次回 ${next.shortDateLabel}${seminar.name}` : `${seminar.name}の日程を見る`;
 
   return (
     <div
@@ -143,7 +142,7 @@ export default function SeminarStickyBar({ nextMap }: { nextMap: NextSessionMap 
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.6rem 0.6rem 0.6rem 1rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', padding: '0.55rem 0.5rem 0.55rem 0.85rem' }}>
         <CtaTrackLink
           href={`${seminar.href}#schedule`}
           ctaLocation="sticky"
@@ -153,14 +152,27 @@ export default function SeminarStickyBar({ nextMap }: { nextMap: NextSessionMap 
             minWidth: 0,
             display: 'flex',
             alignItems: 'center',
+            justifyContent: 'space-between',
             gap: '0.5rem',
             textDecoration: 'none',
             color: 'var(--primary-dark)',
             fontWeight: 800,
-            fontSize: '0.88rem',
           }}
         >
-          <span style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{label}</span>
+          {next ? (
+            <span style={{ display: 'flex', flexDirection: 'column', gap: '0.1rem', lineHeight: 1.3 }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--primary)', whiteSpace: 'nowrap' }}>
+                次回 {next.shortDateLabel}
+              </span>
+              <span style={{ fontSize: '0.875rem', fontWeight: 900, color: 'var(--primary-dark)', whiteSpace: 'nowrap' }}>
+                {seminar.shortName}
+              </span>
+            </span>
+          ) : (
+            <span style={{ fontSize: '0.875rem', fontWeight: 800, color: 'var(--primary-dark)', whiteSpace: 'nowrap' }}>
+              {seminar.shortName}の日程を見る
+            </span>
+          )}
           {next && (
             <span
               style={{

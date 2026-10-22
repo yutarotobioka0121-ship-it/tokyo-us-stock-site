@@ -1,11 +1,76 @@
-import { ArrowRight, CalendarDays, MapPin, Users } from 'lucide-react';
-import { getSeminarForPath } from '@/lib/seminar-routing';
+import type { ReactNode } from 'react';
+import { ArrowRight, CalendarDays, Clock, MapPin, Users, Coins } from 'lucide-react';
+import { getSeminarForPath, type SeminarType } from '@/lib/seminar-routing';
 import { getNextSessionMap } from '@/lib/next-seminar';
 import CtaTrackLink from '@/components/CtaTrackLink';
 
 interface SeminarInlineCtaProps {
   /** 表示しているページのパス（例：/blog/nisa-us-stock-tax-free） */
   pathname: string;
+}
+
+const ib = { display: 'inline-block' as const };
+
+/** 見出し（「か」「す」などが1文字だけ次の行に落ちないよう語句ごとに inline-block 化） */
+function renderHeading(type: SeminarType): ReactNode {
+  if (type === 'cashflow_game') {
+    return (
+      <>
+        <span style={ib}>この考え方を、</span>
+        <span style={ib}>ゲームで体験してみませんか</span>
+      </>
+    );
+  }
+  if (type === 'nisa') {
+    return (
+      <>
+        <span style={ib}>新NISAの始め方を、</span>
+        <span style={ib}>少人数で直接学べます</span>
+      </>
+    );
+  }
+  return (
+    <>
+      <span style={ib}>この記事の内容を、</span>
+      <span style={ib}>少人数で直接学べます</span>
+    </>
+  );
+}
+
+/** 1行説明（「です」などが1文字だけ落ちないよう語句ごとに inline-block 化） */
+function renderDescription(type: SeminarType): ReactNode {
+  if (type === 'cashflow_game') {
+    return (
+      <>
+        <span style={ib}>ボードゲームで遊びながら、</span>
+        <span style={ib}>お金の流れを学ぶ</span>
+        <span style={ib}>2時間の体験会です</span>
+      </>
+    );
+  }
+  return (
+    <>
+      <span style={ib}>初心者向け・</span>
+      <span style={ib}>少人数制・</span>
+      <span style={ib}>金融商品の勧誘はありません</span>
+    </>
+  );
+}
+
+/** 会場名・かっこ書き（「貸し会議室」「（定員4名まで）」など）が途中で改行されないようにする */
+function renderKeepTogether(text: string): ReactNode {
+  if (!text) return null;
+  const tokens = text
+    .split(/(貸し会議室|（[^）]+）|\([^)]+\)|\s+)/g)
+    .filter((t) => t.length > 0);
+  return tokens.map((token, idx) => {
+    if (/^\s+$/.test(token)) return ' ';
+    return (
+      <span key={idx} style={ib}>
+        {token}
+      </span>
+    );
+  });
 }
 
 /**
@@ -17,7 +82,13 @@ export default async function SeminarInlineCta({ pathname }: SeminarInlineCtaPro
   const nextMap = await getNextSessionMap();
   const next = nextMap[seminar.type];
 
-  const nowrap = { whiteSpace: 'nowrap' as const };
+  const rowStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    wordBreak: 'keep-all' as const,
+    overflowWrap: 'anywhere' as const,
+  };
 
   return (
     <aside
@@ -25,22 +96,43 @@ export default async function SeminarInlineCta({ pathname }: SeminarInlineCtaPro
       aria-label={`${seminar.name}のご案内`}
       style={{
         margin: '2.5rem 0',
-        padding: '1.5rem 1.5rem 1.6rem',
+        padding: '1.4rem 1.25rem 1.5rem',
         background: 'var(--bg-warm)',
         border: '1px solid rgba(176, 58, 46, 0.18)',
         borderLeft: '4px solid var(--primary)',
         borderRadius: '14px',
-        lineHeight: 1.7,
+        lineHeight: 1.65,
       }}
     >
       <p style={{ margin: '0 0 0.3rem 0', fontSize: '0.8rem', fontWeight: 800, color: 'var(--primary)', letterSpacing: '0.04em' }}>
         {seminar.name}のご案内
       </p>
-      <p style={{ margin: '0 0 0.4rem 0', fontSize: '1.15rem', fontWeight: 900, color: 'var(--primary-dark)', lineHeight: 1.5, wordBreak: 'keep-all', overflowWrap: 'anywhere' }}>
-        {seminar.heading}
+      <p
+        style={{
+          margin: '0 0 0.45rem 0',
+          fontSize: '1.12rem',
+          fontWeight: 900,
+          color: 'var(--primary-dark)',
+          lineHeight: 1.5,
+          wordBreak: 'keep-all',
+          overflowWrap: 'anywhere',
+          textWrap: 'balance',
+        }}
+      >
+        {renderHeading(seminar.type)}
       </p>
-      <p style={{ margin: '0 0 1rem 0', fontSize: '0.92rem', color: 'var(--text-muted)', wordBreak: 'keep-all', overflowWrap: 'anywhere' }}>
-        {seminar.description}
+      <p
+        style={{
+          margin: '0 0 1rem 0',
+          fontSize: '0.9rem',
+          color: 'var(--text-muted)',
+          lineHeight: 1.6,
+          wordBreak: 'keep-all',
+          overflowWrap: 'anywhere',
+          textWrap: 'pretty',
+        }}
+      >
+        {renderDescription(seminar.type)}
       </p>
 
       {next ? (
@@ -48,38 +140,49 @@ export default async function SeminarInlineCta({ pathname }: SeminarInlineCtaPro
           style={{
             background: 'white',
             borderRadius: '10px',
-            padding: '0.9rem 1rem',
+            padding: '0.85rem 0.95rem',
             marginBottom: '1.1rem',
-            fontSize: '0.92rem',
+            fontSize: '0.9rem',
             color: 'var(--text-main)',
             display: 'flex',
             flexDirection: 'column',
-            gap: '0.35rem',
+            gap: '0.4rem',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
-            <CalendarDays size={17} color="var(--primary)" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
+          <div style={rowStyle}>
+            <CalendarDays size={16} color="var(--primary)" style={{ flexShrink: 0 }} />
             <span>
               <span style={{ fontWeight: 800, color: 'var(--primary)', marginRight: '0.4rem' }}>次回</span>
-              <span style={{ ...nowrap, fontWeight: 800 }}>{next.dateLabel}</span>{' '}
-              {next.timeLabel && <span style={nowrap}>{next.timeLabel}</span>}
+              <span style={{ ...ib, fontWeight: 800 }}>{next.dateLabel}</span>
             </span>
           </div>
-          {next.venue && (
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
-              <MapPin size={17} color="var(--primary)" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
-              <span>{next.venue}</span>
+          {next.timeLabel && (
+            <div style={rowStyle}>
+              <Clock size={16} color="var(--primary)" style={{ flexShrink: 0 }} />
+              <span style={ib}>{next.timeLabel}</span>
             </div>
           )}
-          {next.capacityFeeLabel && (
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
-              <Users size={17} color="var(--primary)" style={{ flexShrink: 0, marginTop: '0.2rem' }} />
-              <span>{next.capacityFeeLabel}</span>
+          {next.venue && (
+            <div style={rowStyle}>
+              <MapPin size={16} color="var(--primary)" style={{ flexShrink: 0 }} />
+              <span>{renderKeepTogether(next.venue)}</span>
+            </div>
+          )}
+          {next.capacityLabel && (
+            <div style={rowStyle}>
+              <Users size={16} color="var(--primary)" style={{ flexShrink: 0 }} />
+              <span>{renderKeepTogether(next.capacityLabel)}</span>
+            </div>
+          )}
+          {next.feeLabel && (
+            <div style={rowStyle}>
+              <Coins size={16} color="var(--primary)" style={{ flexShrink: 0 }} />
+              <span style={{ ...ib, fontWeight: 700 }}>{renderKeepTogether(next.feeLabel)}</span>
             </div>
           )}
         </div>
       ) : (
-        <p style={{ margin: '0 0 1.1rem 0', fontSize: '0.92rem', color: 'var(--text-main)', background: 'white', borderRadius: '10px', padding: '0.8rem 1rem' }}>
+        <p style={{ margin: '0 0 1.1rem 0', fontSize: '0.9rem', color: 'var(--text-main)', background: 'white', borderRadius: '10px', padding: '0.8rem 1rem' }}>
           日程は近日公開予定です
         </p>
       )}
@@ -94,7 +197,7 @@ export default async function SeminarInlineCta({ pathname }: SeminarInlineCtaPro
           alignItems: 'center',
           justifyContent: 'center',
           gap: '0.4rem',
-          padding: '0.75rem 1.8rem',
+          padding: '0.75rem 1.6rem',
           borderRadius: '30px',
           fontWeight: 800,
           fontSize: '0.95rem',

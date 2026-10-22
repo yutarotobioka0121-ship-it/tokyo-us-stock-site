@@ -390,8 +390,8 @@ export default function YutaiKnowledgePage() {
                 セミナーの詳細・開催スケジュールはこちら
               </p>
 
-              <CtaTrackLink href="/seminar#schedule" ctaLocation="footer" seminarType="us_stock" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', transition: 'all 0.3s ease', textDecoration: 'none' }}>
-                セミナーの詳細を見る <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
+              <CtaTrackLink href="/seminar#schedule" ctaLocation="footer" seminarType="us_stock" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '0.85rem 1.8rem', borderRadius: '30px', fontWeight: '800', fontSize: '0.95rem', transition: 'all 0.3s ease', textDecoration: 'none', whiteSpace: 'nowrap' }}>
+                日程・詳細を見る <ArrowRight size={18} style={{ marginLeft: '0.4rem' }} />
               </CtaTrackLink>
             </div>
           </div>

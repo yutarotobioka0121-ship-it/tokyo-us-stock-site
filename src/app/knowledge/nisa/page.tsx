@@ -478,12 +478,12 @@ export default function NisaKnowledgePage() {
             </p>
 
             <div className="glass-card" style={{ background: 'var(--bg-white)', borderRadius: '24px', padding: '2rem 1.5rem', border: '1px solid var(--glass-border)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <p style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1rem, 3vw, 1.2rem)', fontWeight: '800', lineHeight: '1.7', marginBottom: '1.5rem', color: 'var(--primary-dark)' }}>
-                東京・川崎で新NISAを学べる初心者セミナー
+              <p style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1rem, 3vw, 1.2rem)', fontWeight: '800', lineHeight: '1.7', marginBottom: '1.5rem', color: 'var(--primary-dark)', wordBreak: 'keep-all', overflowWrap: 'anywhere', textWrap: 'balance' }}>
+                東京・神奈川で新NISAを学べる初心者セミナー
               </p>
 
-              <CtaTrackLink href="/seminar/nisa#schedule" ctaLocation="footer" seminarType="nisa" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', transition: 'all 0.3s ease', textDecoration: 'none' }}>
-                東京・川崎で新NISAを学べる初心者セミナー <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
+              <CtaTrackLink href="/seminar/nisa#schedule" ctaLocation="footer" seminarType="nisa" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '0.85rem 1.8rem', borderRadius: '30px', fontWeight: '800', fontSize: '0.95rem', transition: 'all 0.3s ease', textDecoration: 'none', whiteSpace: 'nowrap' }}>
+                日程・詳細を見る <ArrowRight size={18} style={{ marginLeft: '0.4rem' }} />
               </CtaTrackLink>
             </div>
           </div>

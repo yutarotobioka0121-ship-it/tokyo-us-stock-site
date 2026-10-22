@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Image from "next/image";
-import { buildEventSchedule } from "@/lib/utils";
+import { buildEventSchedule, formatTimeDisplay, formatFeeDisplay } from "@/lib/utils";
 import { getCFGSchedule, CFGEvent } from "@/lib/microcms";
 import CfgApplyForm from "@/components/CfgApplyForm";
 import CtaTrackLink from "@/components/CtaTrackLink";
@@ -267,9 +267,9 @@ export default async function CashflowGamePage({ searchParams }: { searchParams?
                     return (
                       <tr key={event.id} style={{ borderBottom: index === schedule.length - 1 ? 'none' : '1px solid var(--border)', background: isEnded ? '#f9fafb' : 'white', opacity: isEnded ? 0.6 : 1 }}>
                         <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary-dark)', wordBreak: 'keep-all' }}>{getJapaneseDayOfWeek(event.date)}</td>
-                        <td style={{ padding: '1.2rem 0.5rem', fontWeight: '700', wordBreak: 'keep-all' }}>{event.time}</td>
+                        <td style={{ padding: '1.2rem 0.5rem', fontWeight: '700', wordBreak: 'keep-all' }}>{formatTimeDisplay(event.time)}</td>
                         <td style={{ padding: '1.2rem 0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>{event.location}</td>
-                        <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary)' }}>{event.fee}</td>
+                        <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary)' }}>{formatFeeDisplay(event.fee)}</td>
                         <td style={{ padding: '1.2rem 0.5rem', color: 'var(--text-muted)' }}>{event.capacity}名</td>
                         <td style={{ padding: '1.2rem 0.5rem' }}>
                           {isEnded ? (
@@ -342,7 +342,7 @@ export default async function CashflowGamePage({ searchParams }: { searchParams?
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
                         <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
                           <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '60px' }}>時間：</span>
-                          <span>{event.time}</span>
+                          <span>{formatTimeDisplay(event.time)}</span>
                         </div>
                         <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
                           <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '60px' }}>場所：</span>
@@ -350,7 +350,7 @@ export default async function CashflowGamePage({ searchParams }: { searchParams?
                         </div>
                         <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
                           <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '60px' }}>参加費：</span>
-                          <span style={{ fontWeight: '800', color: 'var(--primary)' }}>{event.fee}</span>
+                          <span style={{ fontWeight: '800', color: 'var(--primary)' }}>{formatFeeDisplay(event.fee)}</span>
                         </div>
                         <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
                           <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '60px' }}>定員：</span>

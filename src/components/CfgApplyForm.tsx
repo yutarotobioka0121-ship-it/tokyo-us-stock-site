@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { CheckCircle, AlertCircle, Loader2, ArrowRight } from 'lucide-react';
 import { CFGEvent } from '@/lib/microcms';
+import { formatTimeDisplay } from '@/lib/utils';
 
 interface CfgApplyFormProps {
   events: CFGEvent[];
@@ -63,7 +64,8 @@ export default function CfgApplyForm({ events, selectedEventId }: CfgApplyFormPr
     } else {
       const foundEvent = events.find(ev => ev.id === eventVal);
       if (foundEvent) {
-        eventName = `キャッシュフローゲーム会 [${foundEvent.date} ${foundEvent.time}〜 (${foundEvent.location})]`;
+        const displayTime = formatTimeDisplay(foundEvent.time);
+        eventName = `キャッシュフローゲーム会 [${foundEvent.date} ${displayTime} (${foundEvent.location})]`;
       }
     }
 
@@ -143,7 +145,8 @@ export default function CfgApplyForm({ events, selectedEventId }: CfgApplyFormPr
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           {events && events.length > 0 ? (
             events.map((ev) => {
-              const labelText = `${ev.date} ${ev.time}〜 (${ev.location})`;
+              const displayTime = formatTimeDisplay(ev.time);
+              const labelText = `${ev.date} ${displayTime} (${ev.location})`;
               const isClosed = ev.status !== 'open';
               return (
                 <label

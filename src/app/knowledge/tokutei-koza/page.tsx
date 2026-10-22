@@ -414,8 +414,8 @@ export default function TokuteiKozaKnowledgePage() {
             </p>
 
             <div className="glass-card" style={{ background: 'var(--bg-white)', borderRadius: '24px', padding: '2rem 1.5rem', border: '1px solid var(--glass-border)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <CtaTrackLink href="/seminar/nisa#schedule" ctaLocation="footer" seminarType="nisa" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '1rem 2.5rem', borderRadius: '30px', fontWeight: '800', fontSize: '1.05rem', textDecoration: 'none', background: 'var(--primary)', color: 'white' }}>
-                初心者向けNISAセミナーの日程を見る <ArrowRight size={18} style={{ marginLeft: '0.5rem' }} />
+              <CtaTrackLink href="/seminar/nisa#schedule" ctaLocation="footer" seminarType="nisa" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '0.85rem 1.8rem', borderRadius: '30px', fontWeight: '800', fontSize: '0.95rem', textDecoration: 'none', background: 'var(--primary)', color: 'white', whiteSpace: 'nowrap' }}>
+                日程・詳細を見る <ArrowRight size={18} style={{ marginLeft: '0.4rem' }} />
               </CtaTrackLink>
             </div>
           </div>
