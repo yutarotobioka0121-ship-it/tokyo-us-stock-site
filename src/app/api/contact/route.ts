@@ -1,11 +1,39 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { addCustomerToNotion } from '@/lib/notion';
+import {
+  checkRateLimit,
+  sanitizeSingleLine,
+  sanitizeMultiLine,
+  isValidEmail,
+} from '@/lib/rate-limit';
 
 export async function POST(request: Request) {
   try {
+    const rate = checkRateLimit(request);
+    if (!rate.allowed) {
+      return NextResponse.json(
+        { error: 'Too Many Requests' },
+        {
+          status: 429,
+          headers: { 'Retry-After': String(rate.retryAfterSec) },
+        }
+      );
+    }
+
     const data = await request.json();
-    const { name, email, phone, subject, message } = data;
+    const name = sanitizeSingleLine(data.name, 100);
+    const email = sanitizeSingleLine(data.email, 254);
+    const phone = sanitizeSingleLine(data.phone, 30);
+    const subject = sanitizeSingleLine(data.subject, 100);
+    const message = sanitizeMultiLine(data.message, 5000);
+
+    if (!name || !isValidEmail(email) || !message) {
+      return NextResponse.json(
+        { error: 'Invalid input' },
+        { status: 400 }
+      );
+    }
 
     // 件名のマッピング
     const subjectMap: Record<string, string> = {
@@ -92,6 +120,6 @@ ${message}
     return NextResponse.json({ success: true });
   } catch (error: any) {
     console.error('Contact API error:', error);
-    return NextResponse.json({ error: 'Internal Server Error', details: error.message }, { status: 500 });
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }

@@ -3,11 +3,39 @@ import nodemailer from 'nodemailer';
 import { getSessions } from '@/lib/microcms';
 import { formatSessionDate, formatSessionTime } from '@/lib/utils';
 import { addCustomerToNotion } from '@/lib/notion';
+import {
+  checkRateLimit,
+  sanitizeSingleLine,
+  sanitizeMultiLine,
+  isValidEmail,
+} from '@/lib/rate-limit';
 
 export async function POST(request: Request) {
   try {
+    const rate = checkRateLimit(request);
+    if (!rate.allowed) {
+      return NextResponse.json(
+        { error: 'Too Many Requests' },
+        {
+          status: 429,
+          headers: { 'Retry-After': String(rate.retryAfterSec) },
+        }
+      );
+    }
+
     const data = await request.json();
-    const { name, email, phone, event: sessionId, message } = data;
+    const name = sanitizeSingleLine(data.name, 100);
+    const email = sanitizeSingleLine(data.email, 254);
+    const phone = sanitizeSingleLine(data.phone, 30);
+    const sessionId = sanitizeSingleLine(data.event, 300);
+    const message = sanitizeMultiLine(data.message, 5000);
+
+    if (!name || !isValidEmail(email) || !sessionId) {
+      return NextResponse.json(
+        { error: 'Invalid input' },
+        { status: 400 }
+      );
+    }
 
     // 1. Fetch session details from MicroCMS
     const allSessions = await getSessions();
@@ -278,6 +306,6 @@ ${message || '（記入なし）'}
     return NextResponse.json({ success: true });
   } catch (error: any) {
     console.error('Apply API error:', error);
-    return NextResponse.json({ error: 'Internal Server Error', details: error.message }, { status: 500 });
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
