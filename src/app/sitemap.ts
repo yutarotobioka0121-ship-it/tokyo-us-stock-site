@@ -1,9 +1,19 @@
 import { MetadataRoute } from 'next';
+import { connection } from 'next/server';
+import { unstable_cache } from 'next/cache';
 import { getPosts } from '@/lib/notion';
 
-export const revalidate = 3600;
+export const revalidate = 3600; // 1時間
+
+const getCachedPostsForSitemap = unstable_cache(
+  async () => getPosts(),
+  ['sitemap-posts'],
+  { revalidate: 3600, tags: ['sitemap-posts'] }
+);
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  await connection();
+
   const baseUrl = 'https://www.tokyo-us-stock.com';
 
   // 1. 静的ページおよび固定ブログ記事
@@ -47,10 +57,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // 2. Notion CMSの動的ブログ記事ページを追加
   try {
-    const posts = await getPosts();
+    const posts = await getCachedPostsForSitemap();
     const blogRoutes = posts.map((post) => ({
       url: `${baseUrl}/blog/${post.slug}`,
-      lastModified: new Date(post.date),
+      lastModified: new Date(post.lastEditedTime || post.date),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     }));

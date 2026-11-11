@@ -101,6 +101,8 @@ export async function getPosts() {
         title: props.Title?.title?.[0]?.plain_text || 'Untitled',
         slug: mappedSlug,
         date: props.Date?.date?.start || '',
+        lastEditedTime: page.last_edited_time || '',
+        createdTime: page.created_time || '',
         summary: props.Summary?.rich_text?.[0]?.plain_text || '',
         cover: page.cover?.external?.url || page.cover?.file?.url || null,
       };
