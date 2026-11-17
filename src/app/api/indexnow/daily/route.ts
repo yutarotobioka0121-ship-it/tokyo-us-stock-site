@@ -4,6 +4,7 @@ import { getPosts } from '@/lib/notion';
 import { BASE_URL, submitUrlsToIndexNow } from '@/lib/indexnow';
 
 export const dynamic = 'force-dynamic';
+export const maxDuration = 60;
 
 function isAuthorizedCron(request: Request): boolean {
   const cronSecret = process.env.CRON_SECRET;
@@ -26,6 +27,9 @@ export async function GET(request: Request) {
   if (!isAuthorizedCron(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
+
+  const userAgent = request.headers.get('user-agent') || '';
+  const trigger = userAgent.toLowerCase().includes('vercel-cron') ? 'cron' : 'manual';
 
   try {
     const { searchParams } = new URL(request.url);
@@ -84,11 +88,12 @@ export async function GET(request: Request) {
     const result = await submitUrlsToIndexNow(urlsToSubmit);
 
     console.log(
-      `[IndexNow Daily] Matched ${recentPosts.length} articles, submitted ${result.submittedCount} URLs, IndexNow status: ${result.status}`
+      `[indexnow-daily] urls=${result.submittedCount} status=${result.status} trigger=${trigger}`
     );
 
     return NextResponse.json({
       success: result.ok,
+      trigger,
       matchedArticlesCount: recentPosts.length,
       submittedCount: result.submittedCount,
       indexNowStatus: result.status,

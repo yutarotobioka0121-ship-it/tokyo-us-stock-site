@@ -18,7 +18,7 @@
       "statusCode": 301
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!api/indexnow/).*)",
       "has": [
         {
           "type": "host",
