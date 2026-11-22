@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Users, Target, BookOpen, Coffee, Zap, PieChart, ShieldCheck, ArrowLeft, TrendingUp, Monitor } from "lucide-react";
 import { getSessions } from "@/lib/microcms";
-import { formatSessionDate, buildEventSchedule, formatSessionTime, formatSessionTimeRange, formatFeeDisplay, getSessionStartDateTime, isSessionDeadlinePassed, getSessionFeeDisplay, getSessionPriceValue } from "@/lib/utils";
+import { formatSessionDate, buildEventSchedule, formatSessionTime, formatSessionTimeRange, formatFeeDisplay, getSessionStartDateTime, isSessionDeadlinePassed, getSessionFeeDisplay, getSessionPriceValue, getSessionDeadlineDateTime, formatJstIsoString } from "@/lib/utils";
 import NisaApplyForm from "@/components/NisaApplyForm";
 import CtaTrackLink from "@/components/CtaTrackLink";
 
@@ -74,11 +74,20 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
   });
 
   const eventSchema = availableSessions.map(session => {
+    const status = Array.isArray(session.status) ? session.status[0] : session.status;
     const typeArr = Array.isArray(session.type) ? session.type : [session.type];
     const typeStr = typeArr.join(' ').toLowerCase();
     const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
     const schedule = buildEventSchedule(session.date, session.time || session.date, 1);
     if (!schedule) return null;
+    const deadlineDt = getSessionDeadlineDateTime(session);
+    const isSoldOut =
+      status === 'full' ||
+      status === '満席' ||
+      status === 'ended' ||
+      status === 'closed' ||
+      status === '受付終了' ||
+      isSessionDeadlinePassed(session, now);
     const locStr = session.location || '';
     const isKanagawa = locStr.includes('神奈川') || locStr.includes('川崎') || locStr.includes('横浜');
 
@@ -126,9 +135,10 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
         '@type': 'Offer',
         price: getSessionPriceValue(session),
         priceCurrency: 'JPY',
-        availability: 'https://schema.org/InStock',
+        availability: isSoldOut ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock',
         url: 'https://www.tokyo-us-stock.com/seminar/nisa',
         validFrom: '2026-01-01',
+        validThrough: formatJstIsoString(deadlineDt),
       },
     };
   }).filter(Boolean);

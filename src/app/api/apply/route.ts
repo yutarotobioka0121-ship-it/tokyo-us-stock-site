@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { getSessions } from '@/lib/microcms';
-import { formatSessionDate, formatSessionTime, isPaidOfflineSession } from '@/lib/utils';
+import { formatSessionDate, formatSessionTime, isPaidOfflineSession, isSessionDeadlinePassed } from '@/lib/utils';
 import { addCustomerToNotion } from '@/lib/notion';
 import {
   checkRateLimit,
@@ -63,6 +63,20 @@ export async function POST(request: Request) {
     const isCfg = data.seminarType === 'キャッシュフローゲーム会';
 
     if (session) {
+      const status = Array.isArray(session.status) ? session.status[0] : session.status;
+      const isClosedStatus =
+        status === 'full' ||
+        status === '満席' ||
+        status === 'ended' ||
+        status === 'closed' ||
+        status === '受付終了';
+      if (isClosedStatus || isSessionDeadlinePassed(session)) {
+        return NextResponse.json(
+          { error: 'この日程の申し込み受付は終了しました。' },
+          { status: 400 }
+        );
+      }
+
       const typeArr = Array.isArray(session.type) ? session.type : [session.type];
       const typeStr = typeArr.join(' ').toLowerCase();
       isZoom = typeStr.includes('online') || typeStr.includes('オンライン');

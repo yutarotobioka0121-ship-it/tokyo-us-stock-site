@@ -131,31 +131,38 @@ export function getSessionStartDateTime(dateStr: string, timeStr: string): Date 
   return new Date(`${jstDateFormatted}T${timePart}:00+09:00`);
 }
 
+/** 米国株セミナー・NISA初心者セミナーの申込締切（開催日時の何時間前か） */
+export const APPLY_DEADLINE_HOURS = 6;
+
+/** Date オブジェクトを日本時間（+09:00）の ISO 8601 文字列にフォーマットする */
+export function formatJstIsoString(date: Date): string {
+  const parts = new Intl.DateTimeFormat('ja-JP', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+    timeZone: 'Asia/Tokyo',
+  }).formatToParts(date);
+  const get = (type: string) => parts.find((p) => p.type === type)?.value || '00';
+  const hour = get('hour') === '24' ? '00' : get('hour');
+  return `${get('year')}-${get('month')}-${get('day')}T${hour}:${get('minute')}:${get('second')}+09:00`;
+}
+
+/** 米国株・NISAセミナーの申込締切日時（日本時間基準で開催日時の APPLY_DEADLINE_HOURS 時間前）を返す */
+export function getSessionDeadlineDateTime(session: { date: string; time?: string }): Date {
+  const startDateTime = getSessionStartDateTime(session.date, session.time || session.date);
+  return new Date(startDateTime.getTime() - APPLY_DEADLINE_HOURS * 60 * 60 * 1000);
+}
+
 export function isSessionDeadlinePassed(
-  session: { date: string; time?: string; type: string | string[] }, 
+  session: { date: string; time?: string; type?: string | string[] },
   now: Date = new Date()
 ): boolean {
-  const startDateTime = getSessionStartDateTime(session.date, session.time || session.date);
-  const typeArr = Array.isArray(session.type) ? session.type : [session.type || ''];
-  const typeStr = typeArr.join(' ').toLowerCase();
-  const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
-  
-  if (isOnline) {
-    // オンライン：開催時間の1時間前まで
-    const deadline = new Date(startDateTime.getTime() - 60 * 60 * 1000);
-    return now > deadline;
-  } else {
-    // 対面：開催日前日の21時まで
-    const prevDay = new Date(startDateTime.getTime() - 24 * 60 * 60 * 1000);
-    const prevDayFormatted = new Intl.DateTimeFormat('ja-JP', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      timeZone: 'Asia/Tokyo'
-    }).format(prevDay).replace(/\//g, '-');
-    const deadline = new Date(`${prevDayFormatted}T21:00:00+09:00`);
-    return now > deadline;
-  }
+  const deadline = getSessionDeadlineDateTime(session);
+  return now > deadline;
 }
 
 

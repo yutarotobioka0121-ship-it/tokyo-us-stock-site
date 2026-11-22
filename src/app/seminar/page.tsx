@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Users, Target, BookOpen, Coffee, Zap, PieChart, ShieldCheck, Monitor } from "lucide-react";
 import { getSessions } from "@/lib/microcms";
-import { formatSessionDate, buildEventSchedule, formatSessionTime, formatSessionTimeRange, formatFeeDisplay, getSessionStartDateTime, isSessionDeadlinePassed, getSessionFeeDisplay, getSessionPriceValue } from "@/lib/utils";
+import { formatSessionDate, buildEventSchedule, formatSessionTime, formatSessionTimeRange, formatFeeDisplay, getSessionStartDateTime, isSessionDeadlinePassed, getSessionFeeDisplay, getSessionPriceValue, getSessionDeadlineDateTime, formatJstIsoString } from "@/lib/utils";
 import ApplyForm from "@/components/ApplyForm";
 import CtaTrackLink from "@/components/CtaTrackLink";
 
@@ -74,11 +74,20 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
   });
 
   const eventSchemas = futureEvents.map(session => {
+    const status = Array.isArray(session.status) ? session.status[0] : session.status;
     const typeArr = Array.isArray(session.type) ? session.type : [session.type];
     const typeStr = typeArr.join(' ').toLowerCase();
     const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
     const schedule = buildEventSchedule(session.date, session.time || session.date, 1);
     if (!schedule) return null;
+    const deadlineDt = getSessionDeadlineDateTime(session);
+    const isSoldOut =
+      status === 'full' ||
+      status === '満席' ||
+      status === 'ended' ||
+      status === 'closed' ||
+      status === '受付終了' ||
+      isSessionDeadlinePassed(session, now);
     const locationStr = session.location || '';
     
     let addressLocality = '東京都・神奈川県';
@@ -113,7 +122,15 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
         url: 'https://www.tokyo-us-stock.com/',
         description: '東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京・神奈川での対面形式やオンライン（Zoom）にて、少人数制のセミナー（オンラインは無料）やキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。'
       },
-      offers: { '@type': 'Offer', price: getSessionPriceValue(session), priceCurrency: 'JPY', availability: 'https://schema.org/InStock', url: 'https://www.tokyo-us-stock.com/seminar', validFrom: '2026-09-01T00:00:00+09:00' },
+      offers: {
+        '@type': 'Offer',
+        price: getSessionPriceValue(session),
+        priceCurrency: 'JPY',
+        availability: isSoldOut ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock',
+        url: 'https://www.tokyo-us-stock.com/seminar',
+        validFrom: '2026-09-01T00:00:00+09:00',
+        validThrough: formatJstIsoString(deadlineDt),
+      },
     };
   }).filter(Boolean);
 
