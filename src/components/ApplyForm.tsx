@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { CheckCircle, AlertCircle, Loader2, ArrowRight } from 'lucide-react';
 import { StudySession } from '@/lib/microcms';
-import { formatSessionDate, formatSessionTime, isOnlineSession } from '@/lib/utils';
+import { formatSessionDate, formatSessionTime, isPaidOfflineSession } from '@/lib/utils';
 
 const PAYMENT_METHODS = ['事前振込', 'PayPay', '当日現地払い'] as const;
 
@@ -20,7 +20,7 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
   const [paymentMethod, setPaymentMethod] = useState<string>('');
 
   const selectedSession = sessions.find((s) => s.id === selectedEvent);
-  const isOfflineSelected = Boolean(selectedSession && !isOnlineSession(selectedSession));
+  const isOfflineSelected = Boolean(selectedSession && isPaidOfflineSession(selectedSession));
 
   useEffect(() => {
     if (!isOfflineSelected) {

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { getSessions } from '@/lib/microcms';
-import { formatSessionDate, formatSessionTime } from '@/lib/utils';
+import { formatSessionDate, formatSessionTime, isPaidOfflineSession } from '@/lib/utils';
 import { addCustomerToNotion } from '@/lib/notion';
 import {
   checkRateLimit,
@@ -79,7 +79,7 @@ URL: https://us06web.zoom.us/j/9612252694?pwd=SWp5MGxTUm1SVmhTcjVWVnlqY3BQdz09&o
 
 ※参加はカメラOn、ミュート解除できる環境でご参加ください。
 `;
-      } else {
+      } else if (isPaidOfflineSession(session)) {
         if (!(ALLOWED_PAYMENT_METHODS as readonly string[]).includes(paymentMethod)) {
           return NextResponse.json(
             { error: 'Invalid payment method' },
@@ -103,6 +103,11 @@ ${paymentMethod}${paymentNotice}
 ■キャンセルについて
 キャンセルされる場合は、このメールへの返信でご連絡ください。事前にお支払いいただいた参加費は返金いたします。
 `;
+      } else {
+        sessionDetails = `
+■開催場所
+${session.location || '都内近郊'}
+`;
       }
     } else if (sessionId === 'other') {
       eventString = '日程選択: その他・個別調整希望';
@@ -110,7 +115,7 @@ ${paymentMethod}${paymentNotice}
       eventString = '日程選択: その他・個別調整希望'; // Fallback for old clients
     }
 
-    const isOfflineSession = Boolean(session && !isZoom);
+    const isOfflineSession = Boolean(session && isPaidOfflineSession(session));
     const adminPaymentLine = isOfflineSession && paymentMethod ? `\nお支払い方法：${paymentMethod}` : '';
 
     let notionType = '米国株セミナー';

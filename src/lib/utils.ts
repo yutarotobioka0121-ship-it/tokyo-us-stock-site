@@ -167,9 +167,24 @@ export function isOnlineSession(session: { type?: string | string[] }): boolean 
   return typeStr.includes('online') || typeStr.includes('オンライン');
 }
 
-const PAID_OFFLINE_START_MS = new Date('2026-11-23T00:00:00+09:00').getTime();
+export const PAID_OFFLINE_START_MS = new Date('2026-11-22T00:00:00+09:00').getTime();
 
-/** セッションの参加費表示を返す（microCMS の fee があればそれを優先、未設定時は11/23以降の対面を1,000円・オンラインを無料） */
+/** セッションが有料の対面開催（11/22 00:00 JST以降の対面、または fee > 0）かどうかを判定する */
+export function isPaidOfflineSession(session: {
+  date: string;
+  time?: string;
+  type?: string | string[];
+  fee?: string | number | null;
+}): boolean {
+  if (isOnlineSession(session)) return false;
+  if (session.fee !== undefined && session.fee !== null && String(session.fee).trim() !== '') {
+    return formatFeeDisplay(session.fee) !== '無料';
+  }
+  const startDt = getSessionStartDateTime(session.date, session.time || session.date);
+  return !isNaN(startDt.getTime()) && startDt.getTime() >= PAID_OFFLINE_START_MS;
+}
+
+/** セッションの参加費表示を返す（microCMS の fee があればそれを優先、未設定時は11/22以降の対面を1,000円・オンラインを無料） */
 export function getSessionFeeDisplay(session: {
   date: string;
   time?: string;
@@ -179,12 +194,8 @@ export function getSessionFeeDisplay(session: {
   if (session.fee !== undefined && session.fee !== null && String(session.fee).trim() !== '') {
     return formatFeeDisplay(session.fee);
   }
-  if (isOnlineSession(session)) {
-    return '無料';
-  }
-  const startDt = getSessionStartDateTime(session.date, session.time || session.date);
-  if (!isNaN(startDt.getTime()) && startDt.getTime() >= PAID_OFFLINE_START_MS) {
-    return '1,000円';
+  if (isPaidOfflineSession(session)) {
+    return formatFeeDisplay(1000);
   }
   return '無料';
 }
