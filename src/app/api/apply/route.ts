@@ -86,6 +86,10 @@ URL: https://us06web.zoom.us/j/9612252694?pwd=SWp5MGxTUm1SVmhTcjVWVnlqY3BQdz09&o
             { status: 400 }
           );
         }
+        const paymentNotice =
+          paymentMethod === '事前振込' || paymentMethod === 'PayPay'
+            ? '\n※事前振込・PayPayの場合のお支払い先は、追って運営からのご案内メールでお知らせします。'
+            : '';
         sessionDetails = `
 ■開催場所
 ${session.location || '都内近郊'}
@@ -94,8 +98,7 @@ ${session.location || '都内近郊'}
 1,000円（ご自身の飲食代は別途ご負担ください）
 
 ■お支払い方法
-${paymentMethod}
-※事前振込・PayPayの場合のお支払い先は、追って運営からのご案内メールでお知らせします。
+${paymentMethod}${paymentNotice}
 
 ■キャンセルについて
 キャンセルされる場合は、このメールへの返信でご連絡ください。事前にお支払いいただいた参加費は返金いたします。
