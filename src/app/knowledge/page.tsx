@@ -425,7 +425,7 @@ export default function KnowledgePage() {
               まずは基礎から学びたい方へ
             </h4>
             <CtaTrackLink href="/seminar#schedule" ctaLocation="footer" seminarType="us_stock" style={{ display: 'inline-flex', alignItems: 'center', color: 'var(--primary)', fontWeight: 'bold', textDecoration: 'underline', wordBreak: 'keep-all', overflowWrap: 'anywhere' }}>
-              <span>東京・神奈川の初心者向け米国株セミナー<span style={{ display: 'inline-block' }}>（無料）</span></span> <ArrowRight size={16} style={{ marginLeft: '4px', flexShrink: 0 }} />
+              <span>東京・神奈川の初心者向け米国株セミナー</span> <ArrowRight size={16} style={{ marginLeft: '4px', flexShrink: 0 }} />
             </CtaTrackLink>
           </div>
 

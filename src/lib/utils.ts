@@ -160,16 +160,71 @@ export function isSessionDeadlinePassed(
 
 
 
+/** セッションがオンライン開催かどうかを判定する */
+export function isOnlineSession(session: { type?: string | string[] }): boolean {
+  const typeArr = Array.isArray(session.type) ? session.type : [session.type || ''];
+  const typeStr = typeArr.join(' ').toLowerCase();
+  return typeStr.includes('online') || typeStr.includes('オンライン');
+}
+
+const PAID_OFFLINE_START_MS = new Date('2026-11-23T00:00:00+09:00').getTime();
+
+/** セッションの参加費表示を返す（microCMS の fee があればそれを優先、未設定時は11/23以降の対面を1,000円・オンラインを無料） */
+export function getSessionFeeDisplay(session: {
+  date: string;
+  time?: string;
+  type?: string | string[];
+  fee?: string | number | null;
+}): string {
+  if (session.fee !== undefined && session.fee !== null && String(session.fee).trim() !== '') {
+    return formatFeeDisplay(session.fee);
+  }
+  if (isOnlineSession(session)) {
+    return '無料';
+  }
+  const startDt = getSessionStartDateTime(session.date, session.time || session.date);
+  if (!isNaN(startDt.getTime()) && startDt.getTime() >= PAID_OFFLINE_START_MS) {
+    return '1,000円';
+  }
+  return '無料';
+}
+
+/** 構造化データ（EducationEvent）の offers.price 用に数値文字列（"1000" / "0"）を返す */
+export function getSessionPriceValue(session: {
+  date: string;
+  time?: string;
+  type?: string | string[];
+  fee?: string | number | null;
+}): string {
+  const display = getSessionFeeDisplay(session);
+  if (display === '無料') return '0';
+  const digits = display.replace(/[^0-9]/g, '');
+  return digits || '0';
+}
+
 export function buildEventSchedule(dateStr: string, timeStr: string, defaultDurationHours = 1) {
   let ymd = '';
   const jpMatch = dateStr?.match(/(\d{4})年(\d{1,2})月(\d{1,2})日/);
   if (jpMatch) {
     ymd = `${jpMatch[1]}-${jpMatch[2].padStart(2, '0')}-${jpMatch[3].padStart(2, '0')}`;
+  } else if (dateStr && /[T\s]\d{2}:\d{2}/.test(dateStr)) {
+    // ISO 8601 日時文字列（UTC 等）は必ず日本時間（Asia/Tokyo）に変換して日付を取得する
+    const d = new Date(dateStr);
+    if (!isNaN(d.getTime())) {
+      ymd = new Intl.DateTimeFormat('ja-JP', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        timeZone: 'Asia/Tokyo',
+      })
+        .format(d)
+        .replace(/\//g, '-');
+    }
   } else {
     const isoMatch = dateStr?.match(/^(\d{4}-\d{2}-\d{2})/);
     if (isoMatch) ymd = isoMatch[1];
   }
-  
+
   if (!ymd) return null;
 
   let startH = 0, startM = 0;
@@ -177,21 +232,32 @@ export function buildEventSchedule(dateStr: string, timeStr: string, defaultDura
   let hasEnd = false;
 
   if (timeStr) {
-    const parts = timeStr.split(/[~〜]/).map(s => s.trim());
-    
-    const parseHM = (str: string) => {
-      const hmMatch = str.match(/(\d{1,2}):(\d{2})/);
-      if (hmMatch) return [parseInt(hmMatch[1]), parseInt(hmMatch[2])];
-      try {
-        const d = new Date(str);
-        if (!isNaN(d.getTime())) {
-          return [parseInt(new Intl.DateTimeFormat('ja-JP', { hour: 'numeric', hour12: false, timeZone: 'Asia/Tokyo' }).format(d)), 
-                  parseInt(new Intl.DateTimeFormat('ja-JP', { minute: 'numeric', timeZone: 'Asia/Tokyo' }).format(d))];
+    const parts = timeStr.split(/[~～〜]/).map(s => s.trim());
+
+    const parseHM = (str: string): [number, number] | null => {
+      // ISO 8601 日時文字列（例: 2026-11-23T07:00:00.000Z）を先に判定し、日本時間（Asia/Tokyo）に変換する
+      if (/^\d{4}-\d{2}-\d{2}[T\s]/.test(str)) {
+        try {
+          const d = new Date(str);
+          if (!isNaN(d.getTime())) {
+            const jstHM = new Intl.DateTimeFormat('ja-JP', {
+              hour: '2-digit',
+              minute: '2-digit',
+              hour12: false,
+              timeZone: 'Asia/Tokyo',
+            }).format(d);
+            const m = jstHM.match(/(\d{1,2}):(\d{2})/);
+            if (m) return [parseInt(m[1], 10) % 24, parseInt(m[2], 10)];
+          }
+        } catch {
+          // fall through
         }
-      } catch (e) {}
+      }
+      const hmMatch = str.match(/(\d{1,2}):(\d{2})/);
+      if (hmMatch) return [parseInt(hmMatch[1], 10), parseInt(hmMatch[2], 10)];
       return null;
     };
-    
+
     if (parts.length >= 2) {
       const startParts = parseHM(parts[0]);
       const endParts = parseHM(parts[1]);
@@ -213,26 +279,22 @@ export function buildEventSchedule(dateStr: string, timeStr: string, defaultDura
   if (!hasEnd) {
     endH = startH + defaultDurationHours;
     endM = startM;
-    if (endH >= 24) { endH -= 24; } // simplistic
+    if (endH >= 24) { endH -= 24; }
   }
 
   const pad = (n: number) => n.toString().padStart(2, '0');
-  
+
   const startDateStr = `${ymd}T${pad(startH)}:${pad(startM)}:00+09:00`;
   const endDateStr = `${ymd}T${pad(endH)}:${pad(endM)}:00+09:00`;
 
   const sTime = new Date(startDateStr).getTime();
   let eTime = new Date(endDateStr).getTime();
-  
+
   if (isNaN(sTime)) return null;
-  
-  // if end time logic wrapped around (e.g. 23:00 + 2h = 01:00) without changing date
+
   if (eTime <= sTime) {
-    // Just force it to be start + duration
     eTime = sTime + defaultDurationHours * 3600 * 1000;
   }
-  
-  // I'll just use my simple logic, because events won't cross midnight
-  
-  return { startDateStr, endDateStr: eTime > sTime ? endDateStr : null }; // If it failed, don't return end date string that is wrong
+
+  return { startDateStr, endDateStr: eTime > sTime ? endDateStr : null };
 }

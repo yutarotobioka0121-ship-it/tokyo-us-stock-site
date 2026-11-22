@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Users, Target, BookOpen, Coffee, Zap, PieChart, ShieldCheck, ArrowLeft, TrendingUp, Monitor } from "lucide-react";
 import { getSessions } from "@/lib/microcms";
-import { formatSessionDate, buildEventSchedule, formatSessionTime, formatSessionTimeRange, formatFeeDisplay, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
+import { formatSessionDate, buildEventSchedule, formatSessionTime, formatSessionTimeRange, formatFeeDisplay, getSessionStartDateTime, isSessionDeadlinePassed, getSessionFeeDisplay, getSessionPriceValue } from "@/lib/utils";
 import NisaApplyForm from "@/components/NisaApplyForm";
 import CtaTrackLink from "@/components/CtaTrackLink";
 
@@ -66,24 +66,6 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
 
   const now = new Date();
 
-  // 次回セッションからstartDate/endDateを動的生成
-  const nextSession = sortedSessions.find(s => {
-    const status = Array.isArray(s.status) ? s.status[0] : s.status;
-    return status === 'open' || status === '募集開始' || status === '受付中';
-  }) || sortedSessions[0];
-
-  const buildEventDate = (session: typeof nextSession, offsetHours = 0) => {
-    if (!session) return '2026-08-15T22:00:00+09:00';
-    try {
-      const base = getSessionStartDateTime(session.date, session.time || session.date);
-      if (!base) return '2026-08-15T22:00:00+09:00';
-      const d = new Date(base);
-      d.setHours(d.getHours() + offsetHours);
-      const pad = (n: number) => n.toString().padStart(2, '0');
-      return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}:00+09:00`;
-    } catch { return '2026-08-15T22:00:00+09:00'; }
-  };
-
   const availableSessions = sortedSessions.filter(s => {
     const status = Array.isArray(s.status) ? s.status[0] : s.status;
     const isOpen = status === 'open' || status === '募集開始' || status === '受付中';
@@ -125,8 +107,8 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
         ? 'https://schema.org/OnlineEventAttendanceMode'
         : 'https://schema.org/OfflineEventAttendanceMode',
       eventStatus: 'https://schema.org/EventScheduled',
-      startDate: buildEventDate(session, 0),
-      endDate: buildEventDate(session, 2),
+      startDate: schedule.startDateStr,
+      endDate: schedule.endDateStr,
       image: 'https://www.tokyo-us-stock.com/ogp.png',
       performer: {
         '@type': 'Person',
@@ -138,18 +120,18 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
         '@type': 'Organization',
         name: '東京米国株クラブ',
         url: 'https://www.tokyo-us-stock.com/',
-        description: '東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京・神奈川での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。'
+        description: '東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京・神奈川での対面形式やオンライン（Zoom）にて、少人数制のセミナー（オンラインは無料）やキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。'
       },
       offers: {
         '@type': 'Offer',
-        price: '0',
+        price: getSessionPriceValue(session),
         priceCurrency: 'JPY',
         availability: 'https://schema.org/InStock',
         url: 'https://www.tokyo-us-stock.com/seminar/nisa',
         validFrom: '2026-01-01',
       },
     };
-  });
+  }).filter(Boolean);
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -173,10 +155,10 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
       },
       {
         '@type': 'Question',
-        name: '参加費は本当に無料ですか？',
+        name: '参加費はいくらですか？',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'はい、完全無料で開催しております。対面開催の場合、カフェでのご自身の飲食代のみご負担をお願いしております。',
+          text: '対面開催は1,000円、オンライン（Zoom）開催は無料です。対面の場合、ご自身の飲食代は別途ご負担ください。お支払いは「事前振込」「PayPay」「当日現地払い」からお選びいただけます。お支払い先は、お申し込み後のご案内メールでお知らせします。キャンセルされる場合、事前にお支払いいただいた参加費は返金いたします。',
         },
       },
       {
@@ -243,7 +225,7 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
               📌 このセミナーについて
             </h2>
             <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', color: 'var(--text-main)', fontSize: '1rem', lineHeight: '1.8', margin: 0 }}>
-              <li>東京米国株クラブのNISA初心者セミナーは、新NISAをこれから始める方向けの無料の勉強会です。</li>
+              <li>東京米国株クラブのNISA初心者セミナーは、新NISAをこれから始める方向けの少人数制の勉強会です（対面1,000円／オンライン無料）。</li>
               <li>会場は東京都内・神奈川県内のカフェと、オンライン（Zoom）です。</li>
               <li>定員は1回4名、所要時間は約1時間です。</li>
             </ul>
@@ -312,7 +294,7 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
                         <td style={{ padding: '1.2rem 0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
                           {isOnline ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`}
                         </td>
-                        <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary)' }}>無料</td>
+                        <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary)' }}>{getSessionFeeDisplay(session)}</td>
                         <td style={{ padding: '1.2rem 0.5rem' }}>
                           {isEnded ? (
                             <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', background: '#f3f4f6', color: '#9ca3af' }}>受付終了</button>
@@ -368,7 +350,7 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
                       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
                         <div><span style={{ color: 'var(--primary)', fontWeight: '800' }}>時間：</span>{formattedTime}</div>
                         <div><span style={{ color: 'var(--primary)', fontWeight: '800' }}>場所：</span>{isOnline ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`}</div>
-                        <div><span style={{ color: 'var(--primary)', fontWeight: '800' }}>参加費：</span><span style={{ fontWeight: '800', color: 'var(--primary)' }}>無料</span></div>
+                        <div><span style={{ color: 'var(--primary)', fontWeight: '800' }}>参加費：</span><span style={{ fontWeight: '800', color: 'var(--primary)' }}>{getSessionFeeDisplay(session)}</span></div>
                       </div>
                       {isEnded ? <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.8rem' }}>受付終了</button> : isFull ? <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.8rem' }}>満席</button> : <CtaTrackLink href={`?event=${session.id}#apply-form-section`} ctaLocation="schedule" seminarType="nisa" className="btn btn-primary" style={{ width: '100%', padding: '0.8rem', justifyContent: 'center', fontWeight: '800' }}>この日程で申し込む</CtaTrackLink>}
                     </div>
@@ -626,7 +608,7 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
               lineHeight: '1.8',
               margin: 0
             }}>
-              <strong>東京米国株クラブとは</strong>、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京・神奈川での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。
+              <strong>東京米国株クラブとは</strong>、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京・神奈川での対面形式やオンライン（Zoom）にて、少人数制のセミナー（オンラインは無料）やキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。
             </p>
           </div>
         </div>

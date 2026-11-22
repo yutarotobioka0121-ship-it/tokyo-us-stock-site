@@ -10,7 +10,7 @@ const FOOTER_TEXT: Record<SeminarType, { linkText: ReactNode; heading: ReactNode
   us_stock: {
     linkText: (
       <span>
-        東京・神奈川の初心者向け米国株セミナー<span style={ib}>（無料）</span>
+        東京・神奈川の初心者向け米国株セミナー
       </span>
     ),
     heading: (
@@ -31,7 +31,7 @@ const FOOTER_TEXT: Record<SeminarType, { linkText: ReactNode; heading: ReactNode
   nisa: {
     linkText: (
       <span>
-        東京・神奈川の初心者向けNISAセミナー<span style={ib}>（無料）</span>
+        東京・神奈川の初心者向けNISAセミナー
       </span>
     ),
     heading: (

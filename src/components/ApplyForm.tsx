@@ -3,7 +3,9 @@
 import { useEffect, useState } from 'react';
 import { CheckCircle, AlertCircle, Loader2, ArrowRight } from 'lucide-react';
 import { StudySession } from '@/lib/microcms';
-import { formatSessionDate, formatSessionTime } from '@/lib/utils';
+import { formatSessionDate, formatSessionTime, isOnlineSession } from '@/lib/utils';
+
+const PAYMENT_METHODS = ['事前振込', 'PayPay', '当日現地払い'] as const;
 
 interface ApplyFormProps {
   sessions: StudySession[];
@@ -15,6 +17,16 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
   const resolveValidId = (id?: string | null) =>
     id && sessions.some((s) => s.id === id) ? id : '';
   const [selectedEvent, setSelectedEvent] = useState<string>(() => resolveValidId(selectedSessionId));
+  const [paymentMethod, setPaymentMethod] = useState<string>('');
+
+  const selectedSession = sessions.find((s) => s.id === selectedEvent);
+  const isOfflineSelected = Boolean(selectedSession && !isOnlineSession(selectedSession));
+
+  useEffect(() => {
+    if (!isOfflineSelected) {
+      setPaymentMethod('');
+    }
+  }, [isOfflineSelected]);
 
   useEffect(() => {
     const fromProp = resolveValidId(selectedSessionId);
@@ -42,6 +54,7 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
     
     const payload = {
       ...data,
+      paymentMethod: isOfflineSelected ? paymentMethod : '',
       seminarType: '米国株セミナー',
     };
 
@@ -82,6 +95,7 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
           });
         }
       (e.target as HTMLFormElement).reset();
+      setPaymentMethod('');
     } catch (error) {
       console.error('Submission error:', error);
       setStatus('error');
@@ -189,6 +203,52 @@ export default function ApplyForm({ sessions, selectedSessionId }: ApplyFormProp
           </label>
         </div>
       </div>
+
+      {isOfflineSelected && (
+        <div className="form-group" style={{ background: 'var(--bg-warm)', padding: '1.1rem 1rem', borderRadius: '12px', border: '1px solid rgba(176, 58, 46, 0.18)' }}>
+          <p style={{ margin: '0 0 0.9rem 0', fontSize: '0.92rem', fontWeight: 700, color: 'var(--primary-dark)', lineHeight: 1.6 }}>
+            対面開催の参加費は1,000円です（飲食代は別途ご負担ください）。
+          </p>
+          <label className="form-label" style={{ marginBottom: '0.6rem' }}>
+            お支払い方法 <span style={{ color: '#ef4444', fontSize: '0.8rem', marginLeft: '4px' }}>必須</span>
+          </label>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+            {PAYMENT_METHODS.map((method) => (
+              <label
+                key={method}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.7rem',
+                  padding: '0.75rem 0.95rem',
+                  borderRadius: '10px',
+                  border: '1px solid rgba(0, 0, 0, 0.08)',
+                  background: 'white',
+                  cursor: 'pointer',
+                  fontSize: '0.95rem',
+                  color: 'var(--text-main)',
+                }}
+              >
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value={method}
+                  required={isOfflineSelected}
+                  checked={paymentMethod === method}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                  style={{
+                    width: '18px',
+                    height: '18px',
+                    accentColor: 'var(--primary)',
+                    flexShrink: 0,
+                  }}
+                />
+                <span>{method}</span>
+              </label>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="form-group">
         <label htmlFor="name" className="form-label">お名前</label>

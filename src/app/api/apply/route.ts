@@ -10,6 +10,8 @@ import {
   isValidEmail,
 } from '@/lib/rate-limit';
 
+const ALLOWED_PAYMENT_METHODS = ['事前振込', 'PayPay', '当日現地払い'] as const;
+
 export async function POST(request: Request) {
   try {
     const rate = checkRateLimit(request);
@@ -28,11 +30,22 @@ export async function POST(request: Request) {
     const email = sanitizeSingleLine(data.email, 254);
     const phone = sanitizeSingleLine(data.phone, 30);
     const sessionId = sanitizeSingleLine(data.event, 300);
+    const paymentMethod = sanitizeSingleLine(data.paymentMethod, 30);
     const message = sanitizeMultiLine(data.message, 5000);
 
     if (!name || !isValidEmail(email) || !sessionId) {
       return NextResponse.json(
         { error: 'Invalid input' },
+        { status: 400 }
+      );
+    }
+
+    if (
+      paymentMethod &&
+      !(ALLOWED_PAYMENT_METHODS as readonly string[]).includes(paymentMethod)
+    ) {
+      return NextResponse.json(
+        { error: 'Invalid payment method' },
         { status: 400 }
       );
     }
@@ -67,9 +80,25 @@ URL: https://us06web.zoom.us/j/9612252694?pwd=SWp5MGxTUm1SVmhTcjVWVnlqY3BQdz09&o
 ※参加はカメラOn、ミュート解除できる環境でご参加ください。
 `;
       } else {
+        if (!(ALLOWED_PAYMENT_METHODS as readonly string[]).includes(paymentMethod)) {
+          return NextResponse.json(
+            { error: 'Invalid payment method' },
+            { status: 400 }
+          );
+        }
         sessionDetails = `
 ■開催場所
 ${session.location || '都内近郊'}
+
+■参加費
+1,000円（飲食代は別途ご負担ください）
+
+■お支払い方法
+${paymentMethod}
+※事前振込・PayPayの場合のお支払い先は、追って運営からのご案内メールでお知らせします。
+
+■キャンセルについて
+キャンセルされる場合は、このメールへの返信でご連絡ください。事前にお支払いいただいた参加費は返金いたします。
 `;
       }
     } else if (sessionId === 'other') {
@@ -77,6 +106,9 @@ ${session.location || '都内近郊'}
     } else if (isNisa) {
       eventString = '日程選択: その他・個別調整希望'; // Fallback for old clients
     }
+
+    const isOfflineSession = Boolean(session && !isZoom);
+    const adminPaymentLine = isOfflineSession && paymentMethod ? `\nお支払い方法：${paymentMethod}` : '';
 
     let notionType = '米国株セミナー';
     if (isConsultation) {
@@ -87,13 +119,18 @@ ${session.location || '都内近郊'}
       notionType = 'キャッシュフローゲーム会';
     }
 
+    const notionMessageParts: string[] = [];
+    if (phone) notionMessageParts.push(`【電話番号】${phone}`);
+    if (isOfflineSession && paymentMethod) notionMessageParts.push(`【お支払い方法】${paymentMethod}`);
+    if (message) notionMessageParts.push(message);
+
     // Notionへ顧客データを登録
     await addCustomerToNotion({
       name,
       email,
       type: notionType,
       subject: eventString,
-      message: phone ? `【電話番号】${phone}\n\n${message || ''}` : (message || ''),
+      message: notionMessageParts.join('\n\n'),
     });
 
     // 3. Send automatic reply email
@@ -254,7 +291,7 @@ ${message || '（記入なし）'}
 電話番号：${phone || '未入力'}
 
 ■お申し込み内容・希望詳細
-${eventString}
+${eventString}${adminPaymentLine}
 
 ■詳細・メッセージ
 ${message || '（記入なし）'}
@@ -281,7 +318,7 @@ ${message || '（記入なし）'}
 以下の内容で米国株投資セミナーへの新規お申し込みがありました。
 
 ■お申し込み内容
-希望日程・形式：${eventString}
+希望日程・形式：${eventString}${adminPaymentLine}
 
 ■お客様情報
 お名前：${name} 様

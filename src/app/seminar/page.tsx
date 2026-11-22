@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Users, Target, BookOpen, Coffee, Zap, PieChart, ShieldCheck, Monitor } from "lucide-react";
 import { getSessions } from "@/lib/microcms";
-import { formatSessionDate, buildEventSchedule, formatSessionTime, formatSessionTimeRange, formatFeeDisplay, getSessionStartDateTime, isSessionDeadlinePassed } from "@/lib/utils";
+import { formatSessionDate, buildEventSchedule, formatSessionTime, formatSessionTimeRange, formatFeeDisplay, getSessionStartDateTime, isSessionDeadlinePassed, getSessionFeeDisplay, getSessionPriceValue } from "@/lib/utils";
 import ApplyForm from "@/components/ApplyForm";
 import CtaTrackLink from "@/components/CtaTrackLink";
 
@@ -111,11 +111,11 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
         '@type': 'Organization', 
         name: '東京米国株クラブ', 
         url: 'https://www.tokyo-us-stock.com/',
-        description: '東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京・神奈川での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。'
+        description: '東京米国株クラブとは、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京・神奈川での対面形式やオンライン（Zoom）にて、少人数制のセミナー（オンラインは無料）やキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。'
       },
-      offers: { '@type': 'Offer', price: '0', priceCurrency: 'JPY', availability: 'https://schema.org/InStock', url: 'https://www.tokyo-us-stock.com/seminar', validFrom: '2026-09-01T00:00:00+09:00' },
+      offers: { '@type': 'Offer', price: getSessionPriceValue(session), priceCurrency: 'JPY', availability: 'https://schema.org/InStock', url: 'https://www.tokyo-us-stock.com/seminar', validFrom: '2026-09-01T00:00:00+09:00' },
     };
-  });
+  }).filter(Boolean);
 
   const availableSessions = sortedSessions.filter(s => {
     const status = Array.isArray(s.status) ? s.status[0] : s.status;
@@ -142,8 +142,8 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
       },
       {
         '@type': 'Question',
-        name: '参加費は本当に無料ですか？',
-        acceptedAnswer: { '@type': 'Answer', text: 'はい、セミナーの参加費は完全無料です。対面開催の場合のみ、ご自身の飲食代のご負担をお願いしております。' }
+        name: '参加費はいくらですか？',
+        acceptedAnswer: { '@type': 'Answer', text: '対面開催は1,000円、オンライン（Zoom）開催は無料です。対面の場合、ご自身の飲食代は別途ご負担ください。お支払いは「事前振込」「PayPay」「当日現地払い」からお選びいただけます。お支払い先は、お申し込み後のご案内メールでお知らせします。キャンセルされる場合、事前にお支払いいただいた参加費は返金いたします。' }
       },
       {
         '@type': 'Question',
@@ -191,7 +191,7 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
               📌 このセミナーについて
             </h2>
             <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8' }}>
-              <li>・東京米国株クラブの米国株セミナーは、投資初心者向けの無料の勉強会です。</li>
+              <li>・東京米国株クラブの米国株セミナーは、投資初心者向けの少人数制の勉強会です（対面1,000円／オンライン無料）。</li>
               <li>・会場は東京都内・神奈川県内のカフェと、オンライン（Zoom）です。</li>
               <li>・定員は1回4名までの少人数制で、所要時間は約1時間です。</li>
               <li>・米国株・S&P500・新NISAを使った長期・積立・分散投資の基礎を学べます。</li>
@@ -214,7 +214,7 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
                     <td style={{ padding: '0.8rem', border: '1px solid var(--border)', fontWeight: '700' }}>対面</td>
                     <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>東京都内・神奈川県内のカフェ</td>
                     <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>4名</td>
-                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>無料</td>
+                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>1,000円（飲食代別）</td>
                   </tr>
                   <tr>
                     <td style={{ padding: '0.8rem', border: '1px solid var(--border)', fontWeight: '700' }}>オンライン</td>
@@ -304,7 +304,7 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
                           <td style={{ padding: '1.2rem 0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
                             {isOnline ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`}
                           </td>
-                          <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary)' }}>無料</td>
+                          <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary)' }}>{getSessionFeeDisplay(session)}</td>
                           <td style={{ padding: '1.2rem 0.5rem' }}>
                             {isEnded ? (
                               <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', background: '#f3f4f6', color: '#9ca3af', borderColor: '#d1d5db', whiteSpace: 'nowrap' }}>
@@ -402,7 +402,7 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
                           </div>
                           <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
                             <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '60px' }}>参加費：</span>
-                            <span style={{ fontWeight: '800', color: 'var(--primary)' }}>無料</span>
+                            <span style={{ fontWeight: '800', color: 'var(--primary)' }}>{getSessionFeeDisplay(session)}</span>
                           </div>
                         </div>
 
@@ -434,7 +434,7 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
           {/* 米国株セミナーとは */}
           <div>
             <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>米国株セミナーとは</h2>
-            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>東京米国株クラブが開催する、初心者向けの無料の勉強会です。</p>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>東京米国株クラブが開催する、初心者向けの少人数制の勉強会です（対面1,000円／オンライン無料）。</p>
             <div className="glass-card" style={{ padding: '1.5rem' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
                 <div>
@@ -621,7 +621,7 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
               lineHeight: '1.8',
               margin: 0
             }}>
-              <strong>東京米国株クラブとは</strong>、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京・神奈川での対面形式やオンライン（Zoom）にて、参加費無料のセミナーやキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。
+              <strong>東京米国株クラブとは</strong>、投資初心者向けに米国株・新NISAを活用した長期・積立・分散投資の基礎をわかりやすく教える少人数制の勉強会コミュニティです。5年で1300%以上の運用実績を持つ現役投資家（とびー）が主催しており、金融商品の販売や勧誘を一切行わない純粋な学びの場を提供しています。東京・神奈川での対面形式やオンライン（Zoom）にて、少人数制のセミナー（オンラインは無料）やキャッシュフローゲーム会を定期的に開催し、これまで延べ300名以上の初心者が受講しています。ギャンブルではない堅実な資産形成を通じて、参加者の将来の不安解消や経済的自立をサポートする活動を行っています。
             </p>
           </div>
         </div>

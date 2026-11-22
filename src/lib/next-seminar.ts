@@ -1,6 +1,6 @@
 import { cache } from 'react';
 import { getSessions, getCFGSchedule } from '@/lib/microcms';
-import { getSessionStartDateTime, isSessionDeadlinePassed, formatSessionTime, formatTimeDisplay, formatFeeDisplay } from '@/lib/utils';
+import { getSessionStartDateTime, isSessionDeadlinePassed, formatSessionTime, formatTimeDisplay, formatFeeDisplay, getSessionFeeDisplay } from '@/lib/utils';
 import type { SeminarType } from '@/lib/seminar-routing';
 
 // 記事内の案内で使う「次回の開催回」の情報（サーバー専用）
@@ -26,10 +26,8 @@ export type NextSessionMap = Record<SeminarType, NextSessionInfo | null>;
 // 記事ページは ISR（1時間）なので、日程データも1時間キャッシュで取得する
 const REQUEST_INIT = { next: { revalidate: 3600 } };
 
-// 米国株セミナー・NISA初心者セミナーは microCMS に定員・参加費の項目がないため固定文言
+// 米国株セミナー・NISA初心者セミナーの定員は固定文言（参加費は日程データから表示）
 const FIXED_CAPACITY = '少人数制（定員4名まで）';
-const FIXED_FEE = '参加費無料';
-const FIXED_CAPACITY_FEE = '参加費無料・少人数制（定員4名まで）';
 
 const WEEKDAYS = ['日', '月', '火', '水', '木', '金', '土'];
 
@@ -69,14 +67,17 @@ async function getNextStudySession(kind: 'us_stock' | 'nisa', sessions: any[]): 
   const typeStr = typeArr.join(' ').toLowerCase();
   const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
 
+  const feeDisplay = getSessionFeeDisplay(s);
+  const feeLabel = `参加費${feeDisplay}`;
+
   return {
     dateLabel: `${p.y}年${p.m}月${p.day}日(${p.w})`,
     shortDateLabel: `${p.m}/${p.day}（${p.w}）`,
     timeLabel: formatTimeDisplay(`${formatSessionTime(s.time || s.date)}〜`),
     venue: isOnline ? 'オンライン（Zoom）' : (s.location || '都内近郊').replace(/\u3000/g, ' '),
     capacityLabel: FIXED_CAPACITY,
-    feeLabel: FIXED_FEE,
-    capacityFeeLabel: FIXED_CAPACITY_FEE,
+    feeLabel,
+    capacityFeeLabel: `${feeLabel}・${FIXED_CAPACITY}`,
   };
 }
 

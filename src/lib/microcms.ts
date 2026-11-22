@@ -14,6 +14,7 @@ export interface StudySession {
   type: string | string[];
   status: string | string[];
   location?: string;  // Approximate station name for offline sessions
+  fee?: string | number; // Optional fee from microCMS (e.g., 1000, "1,000円", "無料")
   zoomUrl?: string;
   zoomId?: string;
   zoomPassword?: string;

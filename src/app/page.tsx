@@ -10,7 +10,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: '東京米国株クラブ｜米国株の始め方・おすすめを学ぶ東京のセミナー',
-  description: '「米国株の始め方がわからない」初心者向けの東京の投資セミナー。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。参加費無料。',
+  description: '「米国株の始め方がわからない」初心者向けの東京の投資セミナー。S&P500・新NISAのおすすめ活用法から口座開設まで、5年で資産13倍の講師が少人数制カフェスタイルで丁寧に解説。オンライン参加は無料。',
   alternates: {
     canonical: 'https://www.tokyo-us-stock.com',
   },
