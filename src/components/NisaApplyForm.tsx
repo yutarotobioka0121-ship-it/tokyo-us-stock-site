@@ -229,7 +229,7 @@ export default function NisaApplyForm({ sessions, selectedSessionId }: NisaApply
       {isOfflineSelected && (
         <div className="form-group" style={{ background: 'var(--bg-warm)', padding: '1.1rem 1rem', borderRadius: '12px', border: '1px solid rgba(176, 58, 46, 0.18)' }}>
           <p style={{ margin: '0 0 0.9rem 0', fontSize: '0.92rem', fontWeight: 700, color: 'var(--primary-dark)', lineHeight: 1.6 }}>
-            対面開催の参加費は1,000円です（飲食代は別途ご負担ください）。
+            対面開催の参加費は1,000円です（ご自身の飲食代は別途ご負担ください）。
           </p>
           <label className="form-label" style={{ marginBottom: '0.6rem' }}>
             お支払い方法 <span style={{ color: '#ef4444', fontSize: '0.8rem', marginLeft: '4px' }}>必須</span>

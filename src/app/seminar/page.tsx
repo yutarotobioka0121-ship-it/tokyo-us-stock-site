@@ -214,7 +214,7 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
                     <td style={{ padding: '0.8rem', border: '1px solid var(--border)', fontWeight: '700' }}>対面</td>
                     <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>東京都内・神奈川県内のカフェ</td>
                     <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>4名</td>
-                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>1,000円（飲食代別）</td>
+                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>1,000円（ご自身の飲食代は別）</td>
                   </tr>
                   <tr>
                     <td style={{ padding: '0.8rem', border: '1px solid var(--border)', fontWeight: '700' }}>オンライン</td>
