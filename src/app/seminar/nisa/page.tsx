@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Use
 import { getSessions } from "@/lib/microcms";
 import { formatSessionDate, buildEventSchedule, formatSessionTime, formatSessionTimeRange, formatFeeDisplay, getSessionStartDateTime, isSessionDeadlinePassed, getSessionFeeDisplay, getSessionPriceValue, getSessionDeadlineDateTime, formatJstIsoString } from "@/lib/utils";
 import NisaApplyForm from "@/components/NisaApplyForm";
-import CtaTrackLink from "@/components/CtaTrackLink";
+import SeminarScheduleList, { type ScheduleCardItem } from "@/components/SeminarScheduleList";
 
 export const dynamic = 'force-dynamic';
 
@@ -198,6 +198,35 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
     ],
   };
 
+  const scheduleItems: ScheduleCardItem[] = sortedSessions
+    .map((session) => {
+      const status = Array.isArray(session.status) ? session.status[0] : session.status;
+      const typeArr = Array.isArray(session.type) ? session.type : [session.type];
+      const typeStr = typeArr.join(' ').toLowerCase();
+      const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
+      const schedule = buildEventSchedule(session.date, session.time || session.date, 1);
+      if (!schedule) return null;
+
+      const startDateTime = getSessionStartDateTime(session.date, session.time || session.date);
+      const isPast = startDateTime < now;
+      const isDeadlinePassed = isSessionDeadlinePassed(session, now);
+      const isFull = status === 'full' || status === '満席';
+      const isEnded = isPast || status === '受付終了' || isDeadlinePassed;
+
+      return {
+        id: session.id,
+        formattedDate: formatSessionDate(session.date),
+        formattedTime: formatSessionTimeRange(session.time || session.date),
+        isOnline,
+        locationLabel: isOnline ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`,
+        feeDisplay: getSessionFeeDisplay(session),
+        isPast,
+        isFull,
+        isEnded,
+      };
+    })
+    .filter((item): item is ScheduleCardItem => item !== null);
+
   return (
     <div className="seminar-page" style={{ overflowWrap: 'break-word' }}>
       <script
@@ -209,39 +238,25 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero Section */}
-      <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '100px 0 0', textAlign: 'left' }}>
+      {/* Hero Section (First View: H1 -> キャッチコピー -> 写真) */}
+      <section className="seminar-hero seminar-hero-fv" style={{ background: 'var(--bg-warm)', textAlign: 'left' }}>
         <div className="container">
-          <Link href="/" className="btn-link" style={{ marginBottom: '1.5rem', display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--font-body)', fontSize: '0.95rem' }}>
-            <ArrowLeft size={18} style={{ marginRight: '0.5rem' }} /> トップへ戻る
+          <Link href="/" className="btn-link" style={{ marginBottom: '0.6rem', display: 'inline-flex', alignItems: 'center', fontFamily: 'var(--font-body)', fontSize: '0.9rem' }}>
+            <ArrowLeft size={16} style={{ marginRight: '0.4rem' }} /> トップへ戻る
           </Link>
 
-          <div style={{ marginBottom: '1rem' }}>
+          <div style={{ marginBottom: '0.5rem' }}>
             <span className="featured-tag">新NISA特化コース</span>
           </div>
 
-          <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3', marginLeft: '0', marginRight: 'auto', maxWidth: 'none' }}>
+          <h1 className="post-title" style={{ marginBottom: '0.6rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3', marginLeft: '0', marginRight: 'auto', maxWidth: 'none' }}>
             NISA初心者セミナー
           </h1>
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1rem, 4vw, 1.4rem)', fontWeight: '800', color: 'var(--primary)', marginBottom: '1.5rem', textAlign: 'left', lineHeight: '1.8' }}>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.95rem, 3.8vw, 1.35rem)', fontWeight: '800', color: 'var(--primary)', marginBottom: '0.9rem', textAlign: 'left', lineHeight: '1.6' }}>
             「つみたて投資枠」「成長投資枠」の活用法、証券口座の選び方まで。初めての方でもわかりやすく解説します。
           </p>
 
-          
-
-          {/* サマリーセクション */}
-          <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.1)', margin: '0 auto 2rem auto', maxWidth: '800px' }}>
-            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              📌 このセミナーについて
-            </h2>
-            <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', color: 'var(--text-main)', fontSize: '1rem', lineHeight: '1.8', margin: 0 }}>
-              <li>東京米国株クラブのNISA初心者セミナーは、新NISAをこれから始める方向けの少人数制の勉強会です（対面1,000円／オンライン無料）。</li>
-              <li>会場は東京都内・神奈川県内のカフェと、オンライン（Zoom）です。</li>
-              <li>定員は1回4名、所要時間は約1時間です。</li>
-            </ul>
-          </div>
-
-          <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem auto 0 auto', aspectRatio: '16/9', position: 'relative' }}>
+          <div className="seminar-hero-fv-image">
             <Image
               src="/hero.jpg"
               alt="NISA初心者セミナーの様子"
@@ -253,140 +268,44 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
         </div>
       </section>
 
-      {/* Schedule Section */}
-      <section id="schedule" className="schedule-section" style={{ background: 'white', padding: '2rem 0 1.5rem 0' }}>
-        <div className="container">
-          <div style={{ textAlign: 'left', marginBottom: '1rem', width: '100%' }}>
+      {/* 2. 開催スケジュール */}
+      <section id="schedule" className="schedule-section" style={{ background: 'white', padding: '2.5rem 0 1.5rem 0' }}>
+        <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'left', marginBottom: '1.25rem', width: '100%' }}>
             <h2 style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--primary-dark)', margin: 0, paddingLeft: '0.5rem', borderLeft: '4px solid var(--primary)' }}>開催スケジュール</h2>
           </div>
 
-          {/* Desktop Schedule Table */}
-          <div className="schedule-table-container schedule-desktop-only" style={{ width: '100%', overflowX: 'auto', paddingBottom: '1rem' }}>
-            <table className="schedule-table" style={{ width: '100%', minWidth: '700px', borderCollapse: 'collapse', textAlign: 'center', background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', margin: '0 auto' }}>
-              <thead style={{ background: 'var(--primary)', color: 'white' }}>
-                <tr>
-                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>開催日</th>
-                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>開催時間</th>
-                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>開催形式</th>
-                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>開催場所</th>
-                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>参加費</th>
-                  <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>お申し込み</th>
-                </tr>
-              </thead>
-              <tbody>
-                {sortedSessions && sortedSessions.length > 0 ? (
-                  sortedSessions.map((session, index) => {
-                    const status = Array.isArray(session.status) ? session.status[0] : session.status;
-                    const typeArr = Array.isArray(session.type) ? session.type : [session.type];
-                    const typeStr = typeArr.join(' ').toLowerCase();
-                    const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
-    const schedule = buildEventSchedule(session.date, session.time || session.date, 1);
-    if (!schedule) return null;
-                    
-                    const formattedDate = formatSessionDate(session.date);
-                    const formattedTime = formatSessionTimeRange(session.time || session.date);
-                    
-                    const startDateTime = getSessionStartDateTime(session.date, session.time || session.date);
-                    const isPast = startDateTime < now;
-                    const isDeadlinePassed = isSessionDeadlinePassed(session, now);
-                    const isFull = status === 'full' || status === '満席';
-                    const isEnded = isPast || status === '受付終了' || isDeadlinePassed;
-
-                    return (
-                      <tr key={session.id} style={{ borderBottom: index === sortedSessions.length - 1 ? 'none' : '1px solid var(--border)', background: isPast ? '#f9fafb' : 'white', opacity: isPast ? 0.6 : 1 }}>
-                        <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary-dark)' }}>{formattedDate}</td>
-                        <td style={{ padding: '1.2rem 0.5rem', fontWeight: '700' }}>{formattedTime}</td>
-                        <td style={{ padding: '1.2rem 0.5rem' }}>
-                          <span className="badge badge-type" style={{ fontSize: '0.85rem', padding: '0.3rem 0.8rem', background: isOnline ? 'var(--bg-warm)' : 'var(--primary)', color: isOnline ? 'var(--text-main)' : 'white' }}>
-                            {isOnline ? 'オンライン' : '対面開催'}
-                          </span>
-                        </td>
-                        <td style={{ padding: '1.2rem 0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                          {isOnline ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`}
-                        </td>
-                        <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary)' }}>{getSessionFeeDisplay(session)}</td>
-                        <td style={{ padding: '1.2rem 0.5rem' }}>
-                          {isEnded ? (
-                            <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', background: '#f3f4f6', color: '#9ca3af' }}>受付終了</button>
-                          ) : isFull ? (
-                            <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', opacity: 0.5 }}>満席</button>
-                          ) : (
-                            <CtaTrackLink href={`?event=${session.id}#apply-form-section`} ctaLocation="schedule" seminarType="nisa" className="btn btn-primary" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', justifyContent: 'center' }}>申し込み</CtaTrackLink>
-                          )}
-                        </td>
-                      </tr>
-                    );
-                  })
-                ) : (
-                  <tr>
-                    <td colSpan={6} style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-muted)' }}>
-                      現在、固定スケジュールの指定はありません。下部のフォームよりご希望日時をご指定ください。
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Mobile Schedule Cards */}
-          <div className="schedule-mobile-only">
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              {sortedSessions && sortedSessions.length > 0 ? (
-                sortedSessions.map((session) => {
-                  const status = Array.isArray(session.status) ? session.status[0] : session.status;
-                  const typeArr = Array.isArray(session.type) ? session.type : [session.type];
-                  const typeStr = typeArr.join(' ').toLowerCase();
-                  const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
-    const schedule = buildEventSchedule(session.date, session.time || session.date, 1);
-    if (!schedule) return null;
-                  
-                  const formattedDate = formatSessionDate(session.date);
-                  const formattedTime = formatSessionTimeRange(session.time || session.date);
-                  const startDateTime = getSessionStartDateTime(session.date, session.time || session.date);
-                  const isPast = startDateTime < now;
-                  const isDeadlinePassed = isSessionDeadlinePassed(session, now);
-                  const isFull = status === 'full' || status === '満席';
-                  const isEnded = isPast || status === '受付終了' || isDeadlinePassed;
-
-                  return (
-                    <div key={session.id} className="glass-card" style={{ padding: '1.5rem', borderRadius: '16px', border: '1px solid rgba(176, 58, 46, 0.15)', background: isPast ? '#f9fafb' : 'white', opacity: isPast ? 0.7 : 1 }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
-                        <span className="badge badge-type" style={{ fontSize: '0.8rem', padding: '0.3rem 0.8rem', background: isOnline ? 'var(--bg-warm)' : 'var(--primary)', color: isOnline ? 'var(--text-main)' : 'white', borderRadius: '20px', fontWeight: '800' }}>
-                          {isOnline ? 'オンライン' : '対面開催'}
-                        </span>
-                        {isEnded ? <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: '700' }}>受付終了</span> : isFull ? <span style={{ fontSize: '0.85rem', color: 'var(--primary)', fontWeight: '700' }}>満席</span> : <span style={{ fontSize: '0.85rem', color: 'var(--accent)', fontWeight: '700' }}>受付中</span>}
-                      </div>
-                      <h3 style={{ fontSize: '1.3rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem' }}>{formattedDate}</h3>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
-                        <div><span style={{ color: 'var(--primary)', fontWeight: '800' }}>時間：</span>{formattedTime}</div>
-                        <div><span style={{ color: 'var(--primary)', fontWeight: '800' }}>場所：</span>{isOnline ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`}</div>
-                        <div><span style={{ color: 'var(--primary)', fontWeight: '800' }}>参加費：</span><span style={{ fontWeight: '800', color: 'var(--primary)' }}>{getSessionFeeDisplay(session)}</span></div>
-                      </div>
-                      {isEnded ? <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.8rem' }}>受付終了</button> : isFull ? <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.8rem' }}>満席</button> : <CtaTrackLink href={`?event=${session.id}#apply-form-section`} ctaLocation="schedule" seminarType="nisa" className="btn btn-primary" style={{ width: '100%', padding: '0.8rem', justifyContent: 'center', fontWeight: '800' }}>この日程で申し込む</CtaTrackLink>}
-                    </div>
-                  );
-                })
-              ) : (
-                <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', color: 'var(--text-muted)' }}>
-                  現在、固定スケジュールの指定はありません。下部のフォームよりご希望日時をご指定ください。
-                </div>
-              )}
-            </div>
-          </div>
+          <SeminarScheduleList
+            items={scheduleItems}
+            seminarType="nisa"
+            applyButtonLabel="この日程で申し込む"
+            emptyMessage="現在、固定スケジュールの指定はありません。下部のフォームよりご希望日時をご指定ください。"
+          />
         </div>
       </section>
 
-      {/* イベント詳細 Section */}
-      <section style={{ background: 'white', padding: 'clamp(3.5rem, 5vw, 5rem) 0' }}>
-        <div className="container" style={{ maxWidth: '860px', margin: '0 auto' }}>
-          
-          <div style={{ marginBottom: '3rem' }}>
-            <h2 style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--primary-dark)', margin: '0 0 1.5rem 0', paddingLeft: '0.5rem', borderLeft: '4px solid var(--primary)' }}>イベント詳細</h2>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8', marginBottom: '1.5rem' }}>
+      {/* 3. こんな方におすすめ（＋イベント詳細の共感文） */}
+      <section style={{ background: 'white', padding: '2.5rem 0' }}>
+        <div className="container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+          <div className="glass-card" style={{ padding: '2rem', borderRadius: '16px', background: 'var(--bg-warm)', border: '1px solid rgba(0,0,0,0.06)' }}>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Target size={20} color="var(--primary)" /> こんな方におすすめ
+            </h2>
+            <ul style={{ listStyleType: 'none', paddingLeft: 0, color: 'var(--text-main)', fontSize: '1rem', lineHeight: '2', margin: 0, fontWeight: '600' }}>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={18} color="var(--primary)" /> 投資で失敗したことがある方</li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={18} color="var(--primary)" /> NISAについて知りたい方</li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={18} color="var(--primary)" /> 資産運用を考えている方</li>
+              <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={18} color="var(--primary)" /> これから投資を始める方</li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--primary-dark)', margin: '0 0 1.25rem 0', paddingLeft: '0.5rem', borderLeft: '4px solid var(--primary)' }}>イベント詳細</h2>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8', marginBottom: '1.25rem' }}>
               投資に興味があるけど何からしたらいいかわからない方や、そもそも今始めるべきなのかわからない方。投資よりも貯金の方が安全なのでは？と思う方。<br />
               投資に興味を持ち、一歩踏み出したい方々に向けて、初心者向けのNISA勉強会を開催しています。
             </p>
-            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8', marginBottom: '1.5rem' }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8', marginBottom: '1.25rem' }}>
               SNS等で詐欺まがいやぼったくり投資商品を勧められないためにもここで学んでみてはどうでしょうか。
             </p>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.05rem', color: 'var(--text-main)', lineHeight: '1.8', margin: 0 }}>
@@ -394,46 +313,60 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
               参加者も20代や30代の方が多く、お一人様や初参加の方のご応募がほとんどです。
             </p>
           </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-            {/* 講座内容 */}
-            <div className="glass-card" style={{ padding: '2rem', borderRadius: '16px', background: 'var(--bg-warm)', border: '1px solid rgba(0,0,0,0.06)' }}>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <BookOpen size={20} color="var(--primary)" /> 講座内容
-              </h3>
-              <ol style={{ paddingLeft: '1.2rem', color: 'var(--text-main)', fontSize: '1rem', lineHeight: '2', margin: 0, fontWeight: '600' }}>
-                <li>自己紹介</li>
-                <li>NISAとは？</li>
-                <li>貯金よりも安全？</li>
-                <li>何にどのように投資したら良い？</li>
-                <li>投資と回収のシミュレーション</li>
-                <li>感想の共有</li>
-              </ol>
-            </div>
-
-            {/* こんな方におすすめ */}
-            <div className="glass-card" style={{ padding: '2rem', borderRadius: '16px', background: 'var(--bg-warm)', border: '1px solid rgba(0,0,0,0.06)' }}>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Target size={20} color="var(--primary)" /> こんな方におすすめ
-              </h3>
-              <ul style={{ listStyleType: 'none', paddingLeft: 0, color: 'var(--text-main)', fontSize: '1rem', lineHeight: '2', margin: 0, fontWeight: '600' }}>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={18} color="var(--primary)" /> 投資で失敗したことがある方</li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={18} color="var(--primary)" /> NISAについて知りたい方</li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={18} color="var(--primary)" /> 資産運用を考えている方</li>
-                <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><CheckCircle2 size={18} color="var(--primary)" /> これから投資を始める方</li>
-              </ul>
-            </div>
-          </div>
-
         </div>
       </section>
 
-      {/* PR Section: 現役投資家から直接学べる */}
-      <section style={{ background: 'white', padding: 'clamp(2.5rem, 5vw, 4rem) 0', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
-        <div className="container" style={{ maxWidth: '860px', margin: '0 auto' }}>
+      {/* 4. 学べること（Course Details） & 5. 講座内容（当日の流れ相当） */}
+      <section style={{ background: 'white', padding: '0 0 3rem 0' }}>
+        <div className="container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          <div className="glass-card" style={{ padding: '2rem' }}>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【NISAセミナーで学べること】</h3>
+            <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
+              <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                <CheckCircle2 color="var(--primary)" size={20} style={{ flexShrink: 0, marginTop: '2px' }} />
+                <span><strong>新NISA制度の全体像</strong>：「つみたて投資枠（年間120万円）」と「成長投資枠（年間240万円）」の違いと賢い使い分け。</span>
+              </li>
+              <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                <CheckCircle2 color="var(--primary)" size={20} style={{ flexShrink: 0, marginTop: '2px' }} />
+                <span><strong>証券口座の比較＆開設</strong>：SBI証券・楽天証券などのネット証券の選び方と非課税口座の開設手順。</span>
+              </li>
+              <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                <CheckCircle2 color="var(--primary)" size={20} style={{ flexShrink: 0, marginTop: '2px' }} />
+                <span><strong>長期積立のコツ</strong>：S&P500や全米株式など、非課税メリットを最大化するリスク分散の組み方。</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="glass-card" style={{ padding: '2rem' }}>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【当クラブの安心の約束】</h3>
+            <p style={{ lineHeight: '1.8', color: 'var(--text-main)' }}>
+              特定の商品や金融サービスの強引な勧誘、高額セミナーの販売などは一切行いません。投資初心者の方が知識を付け、安全に第一歩を踏み出せるよう、中立な立場から分かりやすく解説いたします。
+            </p>
+          </div>
+
+          {/* 5. 講座内容（当日の流れ相当） */}
+          <div className="glass-card" style={{ padding: '2rem', borderRadius: '16px', background: 'var(--bg-warm)', border: '1px solid rgba(0,0,0,0.06)' }}>
+            <h3 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <BookOpen size={20} color="var(--primary)" /> 講座内容
+            </h3>
+            <ol style={{ paddingLeft: '1.2rem', color: 'var(--text-main)', fontSize: '1rem', lineHeight: '2', margin: 0, fontWeight: '600' }}>
+              <li>自己紹介</li>
+              <li>NISAとは？</li>
+              <li>貯金よりも安全？</li>
+              <li>何にどのように投資したら良い？</li>
+              <li>投資と回収のシミュレーション</li>
+              <li>感想の共有</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. PR Section: 現役投資家から直接学べる（講師について相当） */}
+      <section style={{ background: 'white', padding: '0 0 3.5rem 0', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
+        <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
 
           {/* キャッチコピー */}
-          <div style={{ textAlign: 'left', marginBottom: '2.5rem', width: '100%' }}>
+          <div style={{ textAlign: 'left', marginBottom: '2rem', width: '100%' }}>
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: '900', color: 'var(--primary-dark)', margin: 0, lineHeight: '1.5' }}>
               「知っている人」ではなく、<br className="sp-hide" />
               「実際に成果を出している人」から学ぶ。
@@ -492,42 +425,44 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
         </div>
       </section>
 
-      {/* Course Details */}
-      <section style={{ background: 'white', padding: '0 0 3rem 0' }}>
-        <div className="container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-          
-          <div className="glass-card" style={{ padding: '2rem' }}>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【NISAセミナーで学べること】</h3>
-            <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
-              <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-                <CheckCircle2 color="var(--primary)" size={20} style={{ flexShrink: 0, marginTop: '2px' }} />
-                <span><strong>新NISA制度の全体像</strong>：「つみたて投資枠（年間120万円）」と「成長投資枠（年間240万円）」の違いと賢い使い分け。</span>
-              </li>
-              <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-                <CheckCircle2 color="var(--primary)" size={20} style={{ flexShrink: 0, marginTop: '2px' }} />
-                <span><strong>証券口座の比較＆開設</strong>：SBI証券・楽天証券などのネット証券の選び方と非課税口座の開設手順。</span>
-              </li>
-              <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-                <CheckCircle2 color="var(--primary)" size={20} style={{ flexShrink: 0, marginTop: '2px' }} />
-                <span><strong>長期積立のコツ</strong>：S&P500や全米株式など、非課税メリットを最大化するリスク分散の組み方。</span>
-              </li>
-            </ul>
+      {/* 7. Apply Form Section */}
+      <section id="apply-form-section" style={{ background: 'var(--bg-warm)', padding: '3.5rem 0' }}>
+        <div className="container" style={{ maxWidth: '700px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: '900', color: 'var(--primary-dark)', margin: '0.5rem 0', wordBreak: 'keep-all' }}>
+              <span style={{ display: 'inline-block' }}>NISA初心者セミナー</span>{' '}
+              <span style={{ display: 'inline-block' }}>お申し込みフォーム</span>
+            </h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
+              ご希望の日程を選択し、必要事項をご入力の上ご送信ください。
+            </p>
           </div>
 
-          <div className="glass-card" style={{ padding: '2rem' }}>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1.2rem', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.4rem', display: 'inline-block' }}>【当クラブの安心の約束】</h3>
-            <p style={{ lineHeight: '1.8', color: 'var(--text-main)' }}>
-              特定の商品や金融サービスの強引な勧誘、高額セミナーの販売などは一切行いません。投資初心者の方が知識を付け、安全に第一歩を踏み出せるよう、中立な立場から分かりやすく解説いたします。
-            </p>
+          <div className="glass-card" style={{ padding: '2rem 1.5rem', background: 'white', borderRadius: '24px' }}>
+            <NisaApplyForm sessions={availableSessions} selectedSessionId={resolvedSearchParams?.event} />
           </div>
         </div>
       </section>
 
-      {/* 開催エリア・外部サイト */}
-      <section style={{ background: 'white', padding: '0 0 3rem 0' }}>
+      {/* 8. 📌 このセミナーについて -> 9. 開催エリア */}
+      <section style={{ background: 'white', padding: '3rem 0' }}>
         <div className="container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '3rem' }}>
-          
-          {/* 開催エリア */}
+
+          {/* 8. サマリーセクション（条件のまとめ） */}
+          <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.1)' }}>
+            <h2 style={{ fontSize: '1.2rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              📌 このセミナーについて
+            </h2>
+            <ul style={{ listStyleType: 'disc', paddingLeft: '1.5rem', color: 'var(--text-main)', fontSize: '1rem', lineHeight: '1.8', margin: 0 }}>
+              <li>東京米国株クラブのNISA初心者セミナーは、新NISAをこれから始める方向けの少人数制の勉強会です（対面1,000円／オンライン無料）。</li>
+              <li>会場は東京都内・神奈川県内のカフェと、オンライン（Zoom）です。</li>
+              <li>対面の会場：駅近くの落ち着いたカフェ（詳しい場所は、お申し込み後にメールでお知らせします）</li>
+              <li>オンラインの会場：Zoomウェビナー（お申し込み後に、入室用のURLをお送りします）</li>
+              <li>定員は1回4名、所要時間は約1時間です。</li>
+            </ul>
+          </div>
+
+          {/* 9. 開催エリア */}
           <div>
             <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>開催エリア</h2>
             <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>
@@ -555,13 +490,11 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
             </div>
           </div>
 
-          
-
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section style={{ background: 'var(--bg-warm)', padding: '4rem 0' }}>
+      {/* 10. FAQ Section */}
+      <section style={{ background: 'var(--bg-warm)', padding: '3.5rem 0' }}>
         <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
           <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '2rem', textAlign: 'center', borderBottom: '2px solid var(--primary-light)', paddingBottom: '0.5rem', display: 'inline-block', left: '50%', transform: 'translateX(-50%)', position: 'relative' }}>
             よくあるご質問
@@ -581,27 +514,7 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
         </div>
       </section>
 
-      {/* Apply Form Section */}
-      <section id="apply-form-section" style={{ background: 'var(--bg-warm)', padding: '4rem 0' }}>
-        <div className="container" style={{ maxWidth: '700px', margin: '0 auto' }}>
-          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <h2 style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)', fontWeight: '900', color: 'var(--primary-dark)', margin: '0.5rem 0', wordBreak: 'keep-all' }}>
-              <span style={{ display: 'inline-block' }}>NISA初心者セミナー</span>{' '}
-              <span style={{ display: 'inline-block' }}>お申し込みフォーム</span>
-            </h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-              ご希望の日程を選択し、必要事項をご入力の上ご送信ください。
-            </p>
-          </div>
-
-          <div className="glass-card" style={{ padding: '2rem', background: 'white', borderRadius: '24px' }}>
-            <NisaApplyForm sessions={availableSessions} selectedSessionId={resolvedSearchParams?.event} />
-          </div>
-        </div>
-      </section>
-
-
-      <section style={{ padding: '4rem 0', background: 'white' }}>
+      <section style={{ padding: '3rem 0', background: 'white' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           {/* Definition Paragraph */}
           <div style={{
@@ -609,7 +522,6 @@ export default async function NisaSeminarPage({ searchParams }: { searchParams?:
             padding: '1.5rem',
             borderRadius: '12px',
             border: '1px solid rgba(0,0,0,0.1)',
-            marginBottom: '2rem'
           }}>
             <p style={{
               fontFamily: 'var(--font-body)',

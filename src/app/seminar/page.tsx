@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, Clock, MapPin, MessageCircle, HelpCircle, Use
 import { getSessions } from "@/lib/microcms";
 import { formatSessionDate, buildEventSchedule, formatSessionTime, formatSessionTimeRange, formatFeeDisplay, getSessionStartDateTime, isSessionDeadlinePassed, getSessionFeeDisplay, getSessionPriceValue, getSessionDeadlineDateTime, formatJstIsoString } from "@/lib/utils";
 import ApplyForm from "@/components/ApplyForm";
-import CtaTrackLink from "@/components/CtaTrackLink";
+import SeminarScheduleList, { type ScheduleCardItem } from "@/components/SeminarScheduleList";
 
 export const dynamic = 'force-dynamic';
 
@@ -180,6 +180,35 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
     ]
   };
 
+  const scheduleItems: ScheduleCardItem[] = sortedSessions
+    .map((session) => {
+      const status = Array.isArray(session.status) ? session.status[0] : session.status;
+      const typeArr = Array.isArray(session.type) ? session.type : [session.type];
+      const typeStr = typeArr.join(' ').toLowerCase();
+      const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
+      const schedule = buildEventSchedule(session.date, session.time || session.date, 1);
+      if (!schedule) return null;
+
+      const startDateTime = getSessionStartDateTime(session.date, session.time || session.date);
+      const isPast = startDateTime < now;
+      const isDeadlinePassed = isSessionDeadlinePassed(session, now);
+      const isFull = status === 'full' || status === '満席';
+      const isEnded = isPast || status === '受付終了' || isDeadlinePassed;
+
+      return {
+        id: session.id,
+        formattedDate: formatSessionDate(session.date),
+        formattedTime: formatSessionTimeRange(session.time || session.date),
+        isOnline,
+        locationLabel: isOnline ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`,
+        feeDisplay: getSessionFeeDisplay(session),
+        isPast,
+        isFull,
+        isEnded,
+      };
+    })
+    .filter((item): item is ScheduleCardItem => item !== null);
+
   return (
     <div className="seminar-page" style={{ overflowWrap: 'break-word' }}>
       {/* JSON-LD Event Schema */}
@@ -192,67 +221,23 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero Section & Summary */}
-      <section className="seminar-hero" style={{ background: 'var(--bg-warm)', padding: '100px 0 2rem 0', textAlign: 'left' }}>
+      {/* Hero Section (First View: H1 -> キャッチコピー -> 写真) */}
+      <section className="seminar-hero seminar-hero-fv" style={{ background: 'var(--bg-warm)', textAlign: 'left' }}>
         <div className="container">
-          <h1 className="post-title" style={{ marginBottom: '1rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3', marginLeft: '0', marginRight: 'auto', maxWidth: 'none' }}>
-            <span style={{ fontSize: 'clamp(1rem, 3.5vw, 1.6rem)', color: 'var(--primary)', display: 'block', marginBottom: '0.5rem', fontWeight: '800' }}>東京の初心者向け</span>
+          <h1 className="post-title" style={{ marginBottom: '0.75rem', fontSize: 'clamp(1.5rem, 6vw, 2.8rem)', textAlign: 'left', lineHeight: '1.3', marginLeft: '0', marginRight: 'auto', maxWidth: 'none' }}>
+            <span style={{ fontSize: 'clamp(0.95rem, 3.5vw, 1.6rem)', color: 'var(--primary)', display: 'block', marginBottom: '0.35rem', fontWeight: '800' }}>東京の初心者向け</span>
             米国株セミナー
           </h1>
 
-          
-          
-          {/* Summary */}
-          <div style={{ margin: '2rem auto 0 auto', padding: '1.5rem', background: 'rgba(255, 255, 255, 0.8)', borderRadius: '16px', border: '1px solid var(--primary-light)', boxShadow: 'var(--shadow-soft)', maxWidth: '800px' }}>
-            <h2 style={{ fontSize: '1.3rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: 'none' }}>
-              📌 このセミナーについて
-            </h2>
-            <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8' }}>
-              <li>・東京米国株クラブの米国株セミナーは、投資初心者向けの少人数制の勉強会です（対面1,000円／オンライン無料）。</li>
-              <li>・会場は東京都内・神奈川県内のカフェと、オンライン（Zoom）です。</li>
-              <li>・定員は1回4名までの少人数制で、所要時間は約1時間です。</li>
-              <li>・米国株・S&P500・新NISAを使った長期・積立・分散投資の基礎を学べます。</li>
-              <li>・金融商品の販売や勧誘は行いません。</li>
-            </ul>
-
-            {/* Course comparison table */}
-            <div style={{ marginTop: '1.5rem', overflowX: 'auto' }}>
-              <table style={{ width: '100%', minWidth: '500px', borderCollapse: 'collapse', textAlign: 'center', fontSize: '0.9rem', background: 'white' }}>
-                <thead>
-                  <tr>
-                    <th style={{ padding: '0.8rem', border: '1px solid var(--border)', background: 'var(--primary)', color: 'white', fontWeight: '800' }}>形式</th>
-                    <th style={{ padding: '0.8rem', border: '1px solid var(--border)', background: 'var(--primary)', color: 'white', fontWeight: '800' }}>会場</th>
-                    <th style={{ padding: '0.8rem', border: '1px solid var(--border)', background: 'var(--primary)', color: 'white', fontWeight: '800' }}>定員</th>
-                    <th style={{ padding: '0.8rem', border: '1px solid var(--border)', background: 'var(--primary)', color: 'white', fontWeight: '800' }}>参加費</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)', fontWeight: '700' }}>対面</td>
-                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>東京都内・神奈川県内のカフェ</td>
-                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>4名</td>
-                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>1,000円（ご自身の飲食代は別）</td>
-                  </tr>
-                  <tr>
-                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)', fontWeight: '700' }}>オンライン</td>
-                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>Zoom</td>
-                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>4名</td>
-                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)' }}>無料</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(1rem, 4vw, 1.4rem)', fontWeight: '800', color: 'var(--primary)', marginTop: '2.5rem', marginBottom: '1.5rem', textAlign: 'left', lineHeight: '1.8' }}>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: 'clamp(0.98rem, 3.8vw, 1.35rem)', fontWeight: '800', color: 'var(--primary)', marginTop: '0.5rem', marginBottom: '0.65rem', textAlign: 'left', lineHeight: '1.6' }}>
             東京で開催する初心者向け投資勉強会。難しい専門用語を使わず、わかりやすくお話しします。
           </p>
-          <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '600px', marginBottom: '2.5rem', color: 'var(--text-muted)', textAlign: 'left', fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)', lineHeight: '1.8' }}>
+          <p className="hero-subtitle" style={{ fontFamily: 'var(--font-body)', maxWidth: '600px', marginBottom: '1rem', color: 'var(--text-muted)', textAlign: 'left', fontSize: 'clamp(0.9rem, 3.3vw, 1.08rem)', lineHeight: '1.65' }}>
             カフェでリラックスした雰囲気で、<br className="sp-hide" />
             投資の「わからない」を「わかった」に変えませんか？
           </p>
 
-          <div className="seminar-hero-image" style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', maxWidth: '800px', margin: '2rem auto 0 auto', aspectRatio: '16/9', position: 'relative' }}>
+          <div className="seminar-hero-fv-image">
             <Image
               src="/workshop.jpg"
               alt="セミナーの様子"
@@ -264,215 +249,38 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
         </div>
       </section>
 
-      {/* Main Content Sections */}
-      <section style={{ background: 'white', padding: '3rem 0' }}>
+      {/* Main Content Sections (2. 日程 -> 3. こんな方におすすめ -> 4. 学べること -> 5. 当日の流れ -> 6. 講師について) */}
+      <section style={{ background: 'white', padding: '2.5rem 0 3rem 0' }}>
         <div className="container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '3rem' }}>
-          
-          {/* 開催スケジュール */}
+
+          {/* 2. 開催スケジュール */}
           <div id="schedule">
             <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>開催スケジュール</h2>
-            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>現在募集中の米国株セミナーの日程は以下の通りです。</p>
-            
-            {/* Desktop schedule table */}
-            <div className="schedule-table-container schedule-desktop-only" style={{ width: '100%', overflowX: 'auto', WebkitOverflowScrolling: 'touch', paddingBottom: '1rem' }}>
-              <table className="schedule-table" style={{ width: '100%', minWidth: '700px', borderCollapse: 'collapse', textAlign: 'center', background: 'white', borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-soft)', margin: '0 auto' }}>
-                <thead style={{ background: 'var(--primary)', color: 'white' }}>
-                  <tr>
-                    <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>開催日</th>
-                    <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>開催時間</th>
-                    <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>開催形式</th>
-                    <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>開催場所</th>
-                    <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>参加費</th>
-                    <th style={{ padding: '1.2rem 0.5rem', fontWeight: '800' }}>お申し込み</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {sortedSessions && sortedSessions.length > 0 ? (
-                    sortedSessions.map((session, index) => {
-                      const status = Array.isArray(session.status) ? session.status[0] : session.status;
-                      const typeArr = Array.isArray(session.type) ? session.type : [session.type];
-                      const typeStr = typeArr.join(' ').toLowerCase();
-                      const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
-    const schedule = buildEventSchedule(session.date, session.time || session.date, 1);
-    if (!schedule) return null;
-                      
-                      const formattedDate = formatSessionDate(session.date);
-                      const formattedTime = formatSessionTimeRange(session.time || session.date);
-                      
-                      const now = new Date();
-                      const startDateTime = getSessionStartDateTime(session.date, session.time || session.date);
-                      const isPast = startDateTime < now;
-
-                      // 申込期限判定
-                      const isDeadlinePassed = isSessionDeadlinePassed(session, now);
-
-                      const isFull = status === 'full' || status === '満席';
-                      const isEnded = isPast || status === '受付終了' || isDeadlinePassed;
-
-                      return (
-                        <tr key={session.id} style={{ borderBottom: index === sortedSessions.length - 1 ? 'none' : '1px solid var(--border)', background: isPast ? '#f9fafb' : 'white', opacity: isPast ? 0.6 : 1 }}>
-                          <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary-dark)', wordBreak: 'keep-all' }}>{formattedDate}</td>
-                          <td style={{ padding: '1.2rem 0.5rem', fontWeight: '700', wordBreak: 'keep-all' }}>{formattedTime}</td>
-                          <td style={{ padding: '1.2rem 0.5rem' }}>
-                            <span className="badge badge-type" style={{ fontSize: '0.85rem', padding: '0.3rem 0.8rem', wordBreak: 'keep-all', background: isOnline ? 'var(--bg-warm)' : 'var(--primary)', color: isOnline ? 'var(--text-main)' : 'white' }}>
-                              {isOnline ? 'オンライン' : '対面開催'}
-                            </span>
-                          </td>
-                          <td style={{ padding: '1.2rem 0.5rem', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                            {isOnline ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`}
-                          </td>
-                          <td style={{ padding: '1.2rem 0.5rem', fontWeight: '800', color: 'var(--primary)' }}>{getSessionFeeDisplay(session)}</td>
-                          <td style={{ padding: '1.2rem 0.5rem' }}>
-                            {isEnded ? (
-                              <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', background: '#f3f4f6', color: '#9ca3af', borderColor: '#d1d5db', whiteSpace: 'nowrap' }}>
-                                受付終了
-                              </button>
-                            ) : isFull ? (
-                              <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', opacity: 0.5, whiteSpace: 'nowrap' }}>
-                                満席
-                              </button>
-                            ) : (
-                              <CtaTrackLink href={`?event=${session.id}#apply-form-section`} ctaLocation="schedule" seminarType="us_stock" className="btn btn-primary" style={{ width: '100%', padding: '0.6rem 1rem', fontSize: '0.9rem', whiteSpace: 'nowrap', justifyContent: 'center' }}>
-                                申し込み
-                              </CtaTrackLink>
-                            )}
-                          </td>
-                        </tr>
-                      );
-                    })
-                  ) : (
-                    <tr>
-                      <td colSpan={6} style={{ padding: '3rem', textAlign: 'center', color: 'var(--text-muted)' }}>
-                        現在、予定されているセミナーはありません。
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-
-            {/* Mobile schedule cards */}
-            <div className="schedule-mobile-only">
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                {sortedSessions && sortedSessions.length > 0 ? (
-                  sortedSessions.map((session) => {
-                    const status = Array.isArray(session.status) ? session.status[0] : session.status;
-                    const typeArr = Array.isArray(session.type) ? session.type : [session.type];
-                    const typeStr = typeArr.join(' ').toLowerCase();
-                    const isOnline = typeStr.includes('online') || typeStr.includes('オンライン');
-    const schedule = buildEventSchedule(session.date, session.time || session.date, 1);
-    if (!schedule) return null;
-                    const formattedDate = formatSessionDate(session.date);
-                    const formattedTime = formatSessionTimeRange(session.time || session.date);
-                    
-                    const now = new Date();
-                    const startDateTime = getSessionStartDateTime(session.date, session.time || session.date);
-                    const isPast = startDateTime < now;
-
-                    // 申込期限判定
-                    const isDeadlinePassed = isSessionDeadlinePassed(session, now);
-
-                    const isFull = status === 'full' || status === '満席';
-                    const isEnded = isPast || status === '受付終了' || isDeadlinePassed;
-
-                    return (
-                      <div 
-                        key={session.id} 
-                        className="glass-card" 
-                        style={{ 
-                          padding: '1.5rem', 
-                          borderRadius: '16px', 
-                          border: '1px solid rgba(176, 58, 46, 0.15)',
-                          background: isPast ? '#f9fafb' : 'white', 
-                          opacity: isPast ? 0.7 : 1,
-                          boxShadow: 'var(--shadow-soft)',
-                          textAlign: 'left'
-                        }}
-                      >
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.2rem' }}>
-                          <span className="badge badge-type" style={{ fontSize: '0.8rem', padding: '0.3rem 0.8rem', background: isOnline ? 'var(--bg-warm)' : 'var(--primary)', color: isOnline ? 'var(--text-main)' : 'white', borderRadius: '20px', fontWeight: '800' }}>
-                            {isOnline ? 'オンライン' : '対面開催'}
-                          </span>
-                          {isEnded ? (
-                            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: '700' }}>受付終了</span>
-                          ) : isFull ? (
-                            <span style={{ fontSize: '0.85rem', color: 'var(--primary)', fontWeight: '700' }}>満席</span>
-                          ) : (
-                            <span style={{ fontSize: '0.85rem', color: 'var(--accent)', fontWeight: '700' }}>受付中</span>
-                          )}
-                        </div>
-
-                        <h3 style={{ fontSize: '1.3rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', fontFamily: 'var(--font-serif)' }}>
-                          {formattedDate}
-                        </h3>
-                        
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem', fontSize: '0.95rem' }}>
-                          <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
-                            <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '60px' }}>時間：</span>
-                            <span>{formattedTime}</span>
-                          </div>
-                          <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
-                            <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '60px' }}>場所：</span>
-                            <span style={{ color: 'var(--text-muted)' }}>
-                              {isOnline ? 'Zoom (URL別途案内)' : `${session.location || '都内近郊'}`}
-                            </span>
-                          </div>
-                          <div style={{ display: 'flex', gap: '0.5rem', color: 'var(--text-main)' }}>
-                            <span style={{ color: 'var(--primary)', fontWeight: '800', minWidth: '60px' }}>参加費：</span>
-                            <span style={{ fontWeight: '800', color: 'var(--primary)' }}>{getSessionFeeDisplay(session)}</span>
-                          </div>
-                        </div>
-
-                        {isEnded ? (
-                          <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.8rem', fontSize: '0.95rem', background: '#f3f4f6', color: '#9ca3af', borderColor: '#d1d5db', justifyContent: 'center' }}>
-                            受付終了
-                          </button>
-                        ) : isFull ? (
-                          <button disabled className="btn btn-outline cursor-not-allowed" style={{ width: '100%', padding: '0.8rem', fontSize: '0.95rem', opacity: 0.5, justifyContent: 'center' }}>
-                            満席
-                          </button>
-                        ) : (
-                          <CtaTrackLink href={`?event=${session.id}#apply-form-section`} ctaLocation="schedule" seminarType="us_stock" className="btn btn-primary" style={{ width: '100%', padding: '0.8rem', fontSize: '0.95rem', justifyContent: 'center', fontWeight: '800' }}>
-                            申し込み
-                          </CtaTrackLink>
-                        )}
-                      </div>
-                    );
-                  })
-                ) : (
-                  <div className="glass-card" style={{ padding: '2rem', textAlign: 'center', color: 'var(--text-muted)' }}>
-                    現在、予定されているセミナーはありません。
-                  </div>
-                )}
-              </div>
-            </div>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.25rem', lineHeight: '1.8' }}>現在募集中の米国株セミナーの日程は以下の通りです。</p>
+            <SeminarScheduleList
+              items={scheduleItems}
+              seminarType="us_stock"
+              applyButtonLabel="申し込み"
+              emptyMessage="現在、予定されているセミナーはありません。"
+            />
           </div>
 
-          {/* 米国株セミナーとは */}
+          {/* 3. こんな方におすすめ */}
           <div>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>米国株セミナーとは</h2>
-            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>東京米国株クラブが開催する、初心者向けの少人数制の勉強会です（対面1,000円／オンライン無料）。</p>
+            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>こんな方におすすめ</h2>
+            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>投資を基礎から学びたい方や、将来のお金の不安を解消したい方に最適なセミナーです。</p>
             <div className="glass-card" style={{ padding: '1.5rem' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-                <div>
-                  <h4 style={{ fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.4rem' }}>● リアル会場（対面）</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: 0, paddingLeft: '0.5rem', lineHeight: '1.8' }}>
-                    駅近郊の落ち着いたカフェにて開催いたします。<br />
-                    ※お申込み完了後、詳細な開催場所をメールにてご連絡いたします。
-                  </p>
-                </div>
-                <div>
-                  <h4 style={{ fontSize: '1.05rem', fontWeight: '700', color: 'var(--text-main)', marginBottom: '0.4rem' }}>● オンライン会場（Zoom）</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', margin: 0, paddingLeft: '0.5rem' }}>
-                    ご自宅などからご参加いただけるZoomウェビナー形式です。<br />
-                    お申込み後、専用の入室用URLをお送りいたします。
-                  </p>
-                </div>
-              </div>
+              <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.8' }}>
+                <li>・株投資や新NISAについて一から分かりやすく学びたい方</li>
+                <li>・将来に備え、働かなくても困らない堅実な資産・収入源をつくりたい方</li>
+                <li>・最近の物価高・インフレに対して不安を感じている方</li>
+                <li>・投資の基礎をしっかり身につけて、ギャンブルではない堅実な資産形成をしたい方</li>
+                <li>・自分のやりたい夢やライフプランを実現するための不労所得を育てたい方</li>
+              </ul>
             </div>
           </div>
 
-          {/* このセミナーで学べること */}
+          {/* 4. このセミナーで学べること */}
           <div>
             <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>このセミナーで学べること</h2>
             <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>知識ゼロから安全に始められる米国株・新NISAの長期投資の基礎をわかりやすく解説します。</p>
@@ -489,7 +297,7 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
             </div>
           </div>
 
-          {/* 当日の流れ */}
+          {/* 5. 当日の流れ */}
           <div>
             <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>当日の流れ</h2>
             <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>自己紹介から始まり、投資の基本マインドから実践までステップバイステップで学びます。</p>
@@ -503,22 +311,7 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
             </div>
           </div>
 
-          {/* こんな方におすすめ */}
-          <div>
-            <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>こんな方におすすめ</h2>
-            <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>投資を基礎から学びたい方や、将来のお金の不安を解消したい方に最適なセミナーです。</p>
-            <div className="glass-card" style={{ padding: '1.5rem' }}>
-              <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.8' }}>
-                <li>・株投資や新NISAについて一から分かりやすく学びたい方</li>
-                <li>・将来に備え、働かなくても困らない堅実な資産・収入源をつくりたい方</li>
-                <li>・最近の物価高・インフレに対して不安を感じている方</li>
-                <li>・投資の基礎をしっかり身につけて、ギャンブルではない堅実な資産形成をしたい方</li>
-                <li>・自分のやりたい夢やライフプランを実現するための不労所得を育てたい方</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* 講師について */}
+          {/* 6. 講師について */}
           <div>
             <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>講師について</h2>
             <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>5年で1300%以上の実績を持つ現役投資家が、実体験をもとにわかりやすくお伝えします。</p>
@@ -554,7 +347,69 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
             </div>
           </div>
 
-          {/* 開催エリア */}
+        </div>
+      </section>
+
+      {/* 7. お申し込み */}
+      <section id="apply-form-section" style={{ background: 'var(--bg-warm)', padding: '3rem 0' }}>
+        <div className="container" style={{ maxWidth: '600px', margin: '0 auto' }}>
+          <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>お申し込み</h2>
+          <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '2rem', lineHeight: '1.8' }}>以下のお申し込みフォームより、ご希望の日程を選択してご予約ください。</p>
+          <div className="glass-card" style={{ padding: '2rem 1.5rem', borderRadius: '24px', border: '1px solid rgba(176, 58, 46, 0.15)', boxShadow: 'var(--shadow-soft)', background: 'white', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
+            <div style={{ width: '100%' }}>
+              <ApplyForm sessions={availableSessions} selectedSessionId={resolvedSearchParams?.event} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. このセミナーについて -> 9. 開催エリア -> 10. よくある質問 -> 定義文 */}
+      <section style={{ background: 'white', padding: '3rem 0 4rem 0' }}>
+        <div className="container" style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+
+          {/* 8. 📌 このセミナーについて（条件のまとめ） */}
+          <div style={{ padding: '1.5rem', background: 'rgba(255, 255, 255, 0.8)', borderRadius: '16px', border: '1px solid var(--primary-light)', boxShadow: 'var(--shadow-soft)' }}>
+            <h2 style={{ fontSize: '1.3rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', borderBottom: 'none' }}>
+              📌 このセミナーについて
+            </h2>
+            <ul style={{ listStyleType: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem', color: 'var(--text-main)', fontSize: '0.95rem', lineHeight: '1.8' }}>
+              <li>・東京米国株クラブの米国株セミナーは、投資初心者向けの少人数制の勉強会です（対面1,000円／オンライン無料）。</li>
+              <li>・会場は東京都内・神奈川県内のカフェと、オンライン（Zoom）です。</li>
+              <li>・定員は1回4名までの少人数制で、所要時間は約1時間です。</li>
+              <li>・米国株・S&P500・新NISAを使った長期・積立・分散投資の基礎を学べます。</li>
+              <li>・金融商品の販売や勧誘は行いません。</li>
+            </ul>
+
+            {/* Course comparison table */}
+            <div style={{ marginTop: '1.5rem', overflowX: 'auto' }}>
+              <table style={{ width: '100%', minWidth: '500px', borderCollapse: 'collapse', textAlign: 'center', fontSize: '0.9rem', background: 'white' }}>
+                <thead>
+                  <tr>
+                    <th style={{ padding: '0.8rem', border: '1px solid var(--border)', background: 'var(--primary)', color: 'white', fontWeight: '800' }}>形式</th>
+                    <th style={{ padding: '0.8rem', border: '1px solid var(--border)', background: 'var(--primary)', color: 'white', fontWeight: '800' }}>会場</th>
+                    <th style={{ padding: '0.8rem', border: '1px solid var(--border)', background: 'var(--primary)', color: 'white', fontWeight: '800' }}>定員</th>
+                    <th style={{ padding: '0.8rem', border: '1px solid var(--border)', background: 'var(--primary)', color: 'white', fontWeight: '800' }}>参加費</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)', fontWeight: '700', whiteSpace: 'nowrap' }}>対面</td>
+                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)', textAlign: 'left' }}>駅近くの落ち着いたカフェ（詳しい場所は、お申し込み後にメールでお知らせします）</td>
+                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)', whiteSpace: 'nowrap' }}>4名</td>
+                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)', whiteSpace: 'nowrap' }}>1,000円（ご自身の飲食代は別）</td>
+                  </tr>
+                  <tr>
+                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)', fontWeight: '700', whiteSpace: 'nowrap' }}>オンライン</td>
+                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)', textAlign: 'left' }}>Zoomウェビナー（お申し込み後に、入室用のURLをお送りします）</td>
+                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)', whiteSpace: 'nowrap' }}>4名</td>
+                    <td style={{ padding: '0.8rem', border: '1px solid var(--border)', whiteSpace: 'nowrap' }}>無料</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* 9. 開催エリア */}
           <div>
             <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>開催エリア</h2>
             <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>
@@ -582,9 +437,7 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
             </div>
           </div>
 
-          
-
-          {/* よくある質問 */}
+          {/* 10. よくある質問 */}
           <div>
             <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>よくある質問</h2>
             <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: '1.8' }}>米国株セミナーに関するよくある質問と回答をまとめました。</p>
@@ -604,32 +457,12 @@ export default async function SeminarPage({ searchParams }: { searchParams?: Pro
             </div>
           </div>
 
-        </div>
-      </section>
-
-      {/* お申し込み */}
-      <section id="apply-form-section" style={{ background: 'var(--bg-warm)', padding: '3rem 0' }}>
-        <div className="container" style={{ maxWidth: '600px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--primary-dark)', marginBottom: '0.8rem', paddingLeft: '0.8rem', borderLeft: '5px solid var(--primary)' }}>お申し込み</h2>
-          <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '2rem', lineHeight: '1.8' }}>以下のお申し込みフォームより、ご希望の日程を選択してご予約ください。</p>
-          <div className="glass-card" style={{ padding: '2rem 1.5rem', borderRadius: '24px', border: '1px solid rgba(176, 58, 46, 0.15)', boxShadow: 'var(--shadow-soft)', background: 'white', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left' }}>
-            <div style={{ width: '100%' }}>
-              <ApplyForm sessions={availableSessions} selectedSessionId={resolvedSearchParams?.event} />
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      <section style={{ padding: '4rem 0', background: 'white' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
           {/* Definition Paragraph */}
           <div style={{
             background: 'white',
             padding: '1.5rem',
             borderRadius: '12px',
             border: '1px solid rgba(0,0,0,0.1)',
-            marginBottom: '2rem'
           }}>
             <p style={{
               fontFamily: 'var(--font-body)',

@@ -2001,3 +2001,61 @@ button {
     color: white;
   }
 }
+
+/* Unified Seminar Schedule Cards (/seminar & /seminar/nisa) */
+.seminar-schedule-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.seminar-schedule-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.seminar-schedule-card-action {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .seminar-schedule-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+  }
+
+  .seminar-schedule-card-action {
+    width: 150px;
+    flex-shrink: 0;
+  }
+}
+
+/* Compact first-view hero spacing for /seminar & /seminar/nisa */
+.seminar-hero-fv {
+  padding: 96px 0 2rem 0;
+}
+
+.seminar-hero-fv-image {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  max-width: 800px;
+  margin: 1.5rem auto 0 auto;
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .seminar-hero-fv {
+    padding: 76px 0 1.25rem 0;
+  }
+
+  .seminar-hero-fv-image {
+    margin: 1rem auto 0 auto;
+    border-radius: 16px;
+    aspect-ratio: 16 / 9;
+    max-height: 220px;
+  }
+}
